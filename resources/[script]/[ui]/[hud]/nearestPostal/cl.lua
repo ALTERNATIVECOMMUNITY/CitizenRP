@@ -21,10 +21,10 @@ Citizen.CreateThread(
 			end
 
 			--setting the nearest
-			if ni ~= -1 then
-				local nd = math.sqrt(ndm) -- nearest distance
-				nearest = {i = ni, d = nd}
-			end
+			-- if ni ~= -1 then
+			-- 	local nd = math.sqrt(ndm) -- nearest distance
+			-- 	nearest = {i = ni, d = nd}
+			-- end
 
 			-- if blip exists
 			if pBlip then
