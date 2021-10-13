@@ -37,7 +37,7 @@ Citizen.CreateThread(
 				end
 			end
 
-			Wait(2000)
+			Wait(3000)
 		end
 	end
 )
