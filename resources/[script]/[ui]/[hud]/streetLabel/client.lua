@@ -31,17 +31,33 @@ function drawTxt2(x,y ,width,height,scale, text, r,g,b,a)
 end
 
 local directions = { [0] = 'N', [45] = 'NW', [90] = 'W', [135] = 'SW', [180] = 'S', [225] = 'SE', [270] = 'E', [315] = 'NE', [360] = 'N', }
+local ped = nil
+local vehicle = nil
+
+local pos = nil
+local var1, var2 = nil, nil
+local current_zone = nil
+
+
+
+
+
+
+
+
+
+
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
 
-		local ped = GetPlayerPed(-1)
-		local vehicle = GetVehiclePedIsIn(ped, false)
-		local directions = { [0] = 'N', [45] = 'NW', [90] = 'W', [135] = 'SW', [180] = 'S', [225] = 'SE', [270] = 'E', [315] = 'NE', [360] = 'N', }
+		 ped = GetPlayerPed(-1)
+		 vehicle = GetVehiclePedIsIn(ped, false)
+		 directions = { [0] = 'N', [45] = 'NW', [90] = 'W', [135] = 'SW', [180] = 'S', [225] = 'SE', [270] = 'E', [315] = 'NE', [360] = 'N', }
 
-		local pos = GetEntityCoords(PlayerPedId())
-		local var1, var2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
-		local current_zone = GetLabelText(GetNameOfZone(pos.x, pos.y, pos.z))
+		 pos = GetEntityCoords(PlayerPedId())
+		 var1, var2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
+		 current_zone = GetLabelText(GetNameOfZone(pos.x, pos.y, pos.z))
 
 		for k,v in pairs(directions)do
 			direction = GetEntityHeading(PlayerPedId())
@@ -50,7 +66,11 @@ Citizen.CreateThread(function()
 				break
 			end
 		end
+	end
 
+	Citizen.CreateThread(function()
+
+	Citizen.Wait(1)
 		if (checkForVehicle == false) then
 			if GetStreetNameFromHashKey(var1) and GetNameOfZone(pos.x, pos.y, pos.z) then
 				if GetStreetNameFromHashKey(var1) then
