@@ -66,7 +66,8 @@ Citizen.CreateThread(function()
 				break
 			end
 		end
-	end)
+	end
+end)
 
 	Citizen.CreateThread(function()
 
