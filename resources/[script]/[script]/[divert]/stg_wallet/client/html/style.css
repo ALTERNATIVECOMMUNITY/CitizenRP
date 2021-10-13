@@ -1,0 +1,28 @@
+#wallet{margin: 10% 0 0 20%; width:44.5%;height: 44.1%;}
+#all{display: none;}
+#id{width: 20%; height: 26.98%;position: absolute;left:21%;top:22.4%;transition: 0.4s;display: block;}
+#idflow{width: 100%; height:20%; background: rgba(255, 0, 0, 0);overflow: hidden;transition: 0.4s}
+
+#driver-license{position: absolute;width: 20%; height: 26.98%;top:26.5%;left:21%;transition: 0.4s;display: block;}
+#driverflow{width: 100%; height:20%; background: rgba(255, 0, 0, 0);overflow: hidden;transition: 0.4s;}
+#showcard{width: 20%; height: 20%;position: absolute;top:10%;right: 10%;display: none;}
+#show_info{width:100%; height: 100%;position: absolute;top:-2%;display: block;}
+#job-license{position: absolute;width: 20%; height: 26.98%;top:30.3%;left:21%;transition: 0.4s;display: block;}
+#jobflow{width: 100%; height:20%; background: rgba(255, 0, 0, 0);overflow: hidden;transition: 0.4s}
+#id_info{width:340; height: 200;position: absolute;top:0;display: none;}
+#job_info{width:340; height: 200;position: absolute;top:0;display: none;}
+#driver_info{width:340; height: 200;position: absolute;top:0;display: none;}
+.name{font-size: 20px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin:11.5% 0% 0% 33%;font-style: italic;}
+.sex{font-size: 16px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin:7.5% 0% 0% 54%;font-style: italic;}
+.date{font-size: 16px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin:-5.5% 0 0 30%;font-style: italic;}
+.height{font-size: 16px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin:-5.7% 0 0 68%;font-style: italic;}
+.sign{font-size: 20px;font-family:sign;margin:8% 0 0 25%;font-style: italic;}
+#badge{width: 10%; height: 19%; position: absolute;top:35%;left:49%}
+@font-face {
+    font-family: sign;
+    src: url('font.woff');
+}
+#dollarflow{width: 100%; height:20%; background: rgba(255, 0, 0, 0);overflow: hidden;transition: 0.4s}
+#dollar{width: 24.7%; height: 25%;position: absolute;left:40%;top:20%;transition: 0.4s;}
+#show{width: 2.5%; height: 5%;position: absolute;left:26%;top:54.3%;display: none;}
+#money{display: none;}

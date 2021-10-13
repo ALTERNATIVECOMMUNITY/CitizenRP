@@ -1,0 +1,1 @@
+ALTER TABLE `billing` ADD `create_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `amount`, ADD `paid_date` TIMESTAMP NULL AFTER `create_date`;

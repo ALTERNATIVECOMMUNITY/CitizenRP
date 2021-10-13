@@ -1,0 +1,8 @@
+{
+    "version": "1.2.2",
+    "check_url": "https://download.sonoransoftware.com/smartsigns/version_smartsigns.json",
+    "download_url": "https://download.sonoransoftware.com/smartsigns/",
+    "configVersion": "1.0",
+    "minCoreVersion": "2.6.6",
+    "pluginDepends": []
+}

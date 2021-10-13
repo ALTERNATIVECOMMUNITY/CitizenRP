@@ -1,0 +1,263 @@
+{
+  "languageName": "Deutsch",
+  "languageCode": "de",
+    "author": "veryinsanee",
+    "messages": {
+        "seconds": "Secondes",
+        "menuTitle": "Menu médical",
+
+        "gauze_bandage": "Bandage de gaze",
+        "bandage": "Bandage",
+        "quick_clot": "Pansement de terrain (QuickClot)",
+        "package_bandage": "Paquet de pansements",
+
+        "bandage_applied": "Bandage appliqué.<br><br>Type: <b>%s</b>",
+
+        "epinephrine_inject": "De l'épinéphrine vous a été injectée.",
+        "atropine_inject": "De l'atropine vous a été injectée.",
+        "morphin_inject": "De la morphine vous a été injectée.",
+
+        "measuring_pulse": "Prise du pouls...",
+        "pulse_measured": "Impulsion mesurée.<br><br>Pouls: <b>%sbpm</b><br>Duration: <b>%s</b></b>",
+
+        "checking_reponse": "Vérification de l'état...",
+        "person_not_responsive": "La personne examinée ne répond pas.",
+        "person_responsive": "La personne examinée est réactive.",
+
+        "measuring_blood_pressure": "Mesurer la pression artérielle",
+        "blood_pressure_measured": "Tension artérielle mesurée.<br><br>Pression artérielle: <b>%s / %s</b><br>Durée: <b>%s</b></b>",
+
+        "measuring_blood_content": "Quantité de sang...",
+        "blood_content_measured": "Teneur en sang mesurée.<br><br>Quantité: <b>%sl</b><br>Durée: <b>%s</b></b>",
+
+        "applying_badange": "Appliquer un bandage...",
+
+        "sewing_wounds": "Coudre les blessures...",
+        "sewd_wounds": "Plaies cousues.",
+
+        "stow_in_body_bag": "Mettre dans le sac mortuaire...",
+        "person_stowed": "Personne mise dans le sac mortuaire.",
+
+        "cpr_in_progress": "RCP en cours...",
+        "cpr_performed": "RCP effectué.",
+
+        "giving_painkillers": "Prise des analgésiques...",
+        "given_painkillers": "Donner des analgésiques.",
+
+        "defibrillator_being_used": "Défibrillateur en cours...",
+        "defibrillator_used": "Défibrillateur utilisé.",
+
+        "injecting_liquid": "Injection de liquide.",
+        "liquid_injected": "Liquide injecté.",
+
+        "giving_infusion": "Donner une infusion...",
+        "infusion_given": "Infusion réussie.",
+
+        "phone_call_text": "Urgence: personne inconsciente",
+        "distress_call_sent": "Un appel de détresse a été envoyé à tous les ambulanciers disponibles.",
+
+        "open_health_menu_self": "Ouverture du menu personnel de santé",
+        "open_health_menu_other": "Ouverture du menu santé de la personne en face de vous",
+
+        "carrying_person": "Personne portée.<br><br>Appuyer sur <b>%s</b> pour annuler l'action!",
+
+        "missing_item": "Action annulée. Vous n'avez pas cet item !",
+        "person_too_far_away": "Action annulée. Personne trop loin.",
+        "person_must_be_unconscious": "La personne doit être évanouie pour cette action.",
+
+        "head": "Tête",
+        "right_arm": "Bras droit",
+        "left_arm": "Bras gauche",
+        "torso": "Torse",
+        "right_leg": "Jambe droite",
+        "left_leg": "Jambe gauche",
+
+        "activityHistory": "Historique des soins",
+
+        "active_bleeding_weak": "Saignement actif (faible)",
+        "active_bleeding_average": "Saignement actif (moyen)",
+        "active_bleeding_strong": "Saignement actif (fort)",
+
+        "lost_blood_little": "Perdu un peu de sang",
+        "lost_blood_huge": "Perdu une énorme quantité de sang",
+        "lost_blood_fatal": "Perdu une quantité mortelle de sang",
+
+        "active_pain": "Douleur active",
+        "active_blood_infusion": "Perfusion sanguine active ({0}ml)",
+
+        "discord_kill_player": "Le joueur %s (%d) a été tué par le joueur %s (%s)",
+        "discord_kill_self": "Le joueur %s (%d) s'est suicidé.",
+
+        "slight_concussion": "Légère commotion cérébrale",
+        "moderately_large_head_laceration": "Lacération de la tête moyennement importante",
+        "large_open_lacerated_wound": "Grande plaie lacérée ouverte",
+        "severe_burns": "Brulûres sévères",
+
+        "suturing_required": "Suture de la plaie requise...",
+        "no_injuries_at_bodypart": "Aucune blessure sur cette partie du corps...",
+
+        "small_abrasion": "Petite abrasion",
+        "large_laceration": "Grande lacération",
+        "large_cut": "Grosse coupure",
+
+        "open_tear_wound": "Blessure par déchirure ouverte",
+        "slight_bruise": "Légère ecchymose",
+        "open_stab_wound": "Plaie ouverte",
+
+        "CHECK_PERSON": "La réactivité a été vérifiée",
+        "CHECK_PULSE": "Une mesure du pouls a été effectuée.",
+        "CHECK_BLOOD_VOLUME": "Une mesure de la quantité de sang a été effectuée.",
+
+        "GIVE_BANDAGE_NORMAL_HEAD": "Un bandage est appliqué sur la tête.",
+        "GIVE_BANDAGE_NORMAL_LEFT_ARM": "Un bandage est appliqué sur le bras gauche.",
+        "GIVE_BANDAGE_NORMAL_RIGHT_ARM": "Un bandage est appliqué sur le bras droit.",
+        "GIVE_BANDAGE_NORMAL_TORSO": "Un bandage est appliqué sur le torse.",
+        "GIVE_BANDAGE_NORMAL_LEFT_LEG": "Un bandage est appliqué sur la jambe gauche.",
+        "GIVE_BANDAGE_NORMAL_RIGHT_LEG": "Un bandage est appliqué sur la jambe droite.",
+
+        "GIVE_BANDAGE_ELASTIC_HEAD": "Une bande de gaze est appliqué sur la tête.",
+        "GIVE_BANDAGE_ELASTIC_LEFT_ARM": "Une bande de gaze est appliqué sur le bras gauche.",
+        "GIVE_BANDAGE_ELASTIC_RIGHT_ARM": "Une bande de gaze est appliqué sur le bras droit.",
+        "GIVE_BANDAGE_ELASTIC_TORSO": "Une bande de gaze est appliqué sur le torse.",
+        "GIVE_BANDAGE_ELASTIC_LEFT_LEG": "Une bande de gaze est appliqué sur la jambe gauche.",
+        "GIVE_BANDAGE_ELASTIC_RIGHT_LEG": "Une bande de gaze est appliqué sur la jambe droite.",
+
+        "GIVE_BANDAGE_QUICKCLOT_HEAD": "Un pansement de terrain (QuickClot) est appliqué sur la tête.",
+        "GIVE_BANDAGE_QUICKCLOT_LEFT_ARM": "Un pansement de terrain (QuickClot) est appliqué sur le bras gauche.",
+        "GIVE_BANDAGE_QUICKCLOT_RIGHT_ARM": "Un pansement de terrain (QuickClot) est appliqué sur le bras droit.",
+        "GIVE_BANDAGE_QUICKCLOT_TORSO": "Un pansement de terrain (QuickClot) est appliqué sur le torse.",
+        "GIVE_BANDAGE_QUICKCLOT_LEFT_LEG": "Un pansement de terrain (QuickClot) est appliqué sur la jambe gauche.",
+        "GIVE_BANDAGE_QUICKCLOT_RIGHT_LEG": "Un pansement de terrain (QuickClot) est appliqué sur la jambe droite.",
+
+        "GIVE_BANDAGE_PACKING_HEAD": "Un pansement emballé est appliqué sur la tête.",
+        "GIVE_BANDAGE_PACKING_LEFT_ARM": "Un pansement emballé est appliqué sur le bras gauche.",
+        "GIVE_BANDAGE_PACKING_RIGHT_ARM": "Un pansement emballé est appliqué sur le bras droit.",
+        "GIVE_BANDAGE_PACKING_TORSO": "Un pansement emballé est appliqué sur le torse.",
+        "GIVE_BANDAGE_PACKING_LEFT_LEG": "Un pansement emballé est appliqué sur la jambe gauche.",
+        "GIVE_BANDAGE_PACKING_RIGHT_LEG": "Un pansement emballé est appliqué sur la jambe droite.",
+
+        "USE_SURGICAL_KIT_HEAD": "Toutes les blessures sur la tête ont été cousues.",
+        "USE_SURGICAL_KIT_LEFT_ARM": "Toutes les blessures sur le bras gauche ont été cousues.",
+        "USE_SURGICAL_KIT_RIGHT_ARM": "Toutes les blessures sur le bras droit ont été cousues.",
+        "USE_SURGICAL_KIT_TORSO": "Toutes les blessures sur le torse ont été cousues",
+        "USE_SURGICAL_KIT_LEFT_LEG": "Toutes les blessures sur la jambe gauche ont été cousues.",
+        "USE_SURGICAL_KIT_RIGHT_LEG": "Toutes les blessures sur la jambe droite ont été cousues.",
+
+        "GIVE_EPINEPHRIN_LEFT_ARM": "L'épinéphrine a été injectée dans le bras gauche.",
+        "GIVE_EPINEPHRIN_RIGHT_ARM": "L'épinéphrine a été injectée dans le bras droit.",
+        "GIVE_EPINEPHRIN_LEFT_LEG": "L'épinéphrine a été injectée dans la jambe gauche.",
+        "GIVE_EPINEPHRIN_RIGHT_LEG": "L'épinéphrine a été injectée dans la jambe droite.",
+
+        "GIVE_MORPHIN_LEFT_ARM": "La morphine a été injectée dans le bras gauche.",
+        "GIVE_MORPHIN_RIGHT_ARM": "La morphine a été injectée dans le bras droit.",
+        "GIVE_MORPHIN_LEFT_LEG": "La morphine a été injectée dans la jambe gauche.",
+        "GIVE_MORPHIN_RIGHT_LEG": "La morphine a été injectée dans la jambe droite.",
+
+        "GIVE_ATROPINE_LEFT_ARM": "L'atropine a été injectée dans le bras gauche.",
+        "GIVE_ATROPINE_RIGHT_ARM": "L'atropine a été injectée dans le bras droit.",
+        "GIVE_ATROPINE_LEFT_LEG": "L'atropine a été injectée dans la jambe gauche.",
+        "GIVE_ATROPINE_RIGHT_LEG": "L'atropine a été injectée dans la jambe droite.",
+
+        "USE_CPR": "Une réanimation cardio-pulmonaire a été réalisée.",
+        "USE_DEFIBRILATOR": "Un choc défibrillateur a été réalisé.",
+        "USE_PAINKILLERS": "Des analgésiques ont été administrés.",
+
+        "GIVE_INFUSION_BLOOD_100": "Une perfusion de sang de (100 ml) a été faite.",
+        "GIVE_INFUSION_BLOOD_250": "Une perfusion de sang de (250 ml) a été faite.",
+        "GIVE_INFUSION_BLOOD_500": "Une perfusion de sang de (500 ml) a été faite.",
+        "GIVE_INFUSION_BLOOD_1000": "Une perfusion de sang de (1000 ml) a été faite.",
+
+        "CHECK_BLOOD_PRESSURE": "Une mesure de la pression artérielle a été effectuée.",
+
+        "unconscious_text": "Vous êtes inconscient!",
+        "bleed_to_death_text": "Vous serez mort dans 15 minutes. À moins que vous ne receviez les premiers soins.",
+        "inform_ems_text": "Appuyez sur G, pour contacter un ambulancier dans un dernier souffle de vie.<br>",
+
+        "checkPerson": "Diagnostics",
+        "boneBreak": "Bandages & co.",
+        "syringes": "Seringues",
+        "lifeSaver": "Actions de sauvetage",
+        "infusions": "Perfusions",
+        "carry": "Porter",
+        "sync": "Resynchronisation",
+
+        "doing_cpr": "Faire Massage cardiaque...",
+
+        "checkResponse": "Vérifier la réactivité",
+        "checkResponse_title": "Vous permet de vérifier si le patient est dans un état de conscience ou pas.",
+
+        "checkPulse": "Mesurer le pouls",
+        "checkPulse_title": "Le battement du sang transmis par le rythme cardiaque sur les parois des vaisseaux. En particulier les artères du poignet interne et des tempes.",
+
+        "checkBloodPressure": "Mesurer la tension",
+        "checkBloodPressure_title": "Permet de prendre le pouls de la personne.",
+
+        "checkBloodVolume": "Measure blood levels",
+        "checkBloodVolume_title": "The hitting of the blood wave transmitted by the heartbeat on the vessel walls, especially the arteries on the inner wrist and on the temples.",
+
+        "useBandage": "Appliquer un bandage",
+        "useBandage_title": "",
+
+        "putInVehicle": "Mettre dans un véhicule",
+        "putInVehicle_title": "",
+
+        "pullOutVehicle": "Sortir du véhicule",
+        "pullOutVehicle_title": "",
+
+        "useBandageGauze": "Appliquer une bande élastique",
+        "useBandageGauze_title": "",
+
+        "useBandageQuickClot": "Appliquer un bandage hémostatique",
+        "useBandageQuickClot_title": "",
+
+        "useBandagePacking": "Appliquer un bandage absorbant",
+        "useBandagePacking_title": "",
+
+        "useSurgicalKit": "Utilisez le kit de suture",
+        "useSurgicalKit_title": "Un kit de suture est une trousse de soin dont le contenu est utilisé pour coudre des plaies ouvertes et nettoyées.",
+
+        "useMorphin": "Injecter de la morphine",
+        "useMorphin_title": "La morphine est un alcaloïde principal de l'opium et est donc un opiacé. A utiliser avec parcimonie.",
+
+        "useEpinephrin": "Injecter de l'épinéphrine",
+        "useEpinephrin_title": "L'adrénaline ou épinéphrine est une hormone produite dans la médullosurrénale qui appartient au groupe des catécholamines.",
+
+        "useAtropin": "Injecter de l'atropine",
+        "useAtropin_title": "L'atropine est un alcaloïde tropane très toxique. C'est un racémate de l'isomère et de l'hyoscyamine, qui se forme lors de l'isolement par racémisation à partir du produit naturel: l'hyoscyamine.",
+
+        "usePainkillers": "Donner des analgésiques",
+        "usePainkillers_title": "Les analgésiques sont utilisés pour traiter la douleur aiguë et chronique.",
+
+        "doCPR": "Effectuer la RCP",
+        "doCPR_title": "La réanimation cardio-pulmonaire a pour but de mettre fin à un arrêt respiratoire et circulatoire et ainsi éviter la mort imminente de la personne concernée.",
+
+        "useDefibrilator": "Utiliser un défibrillateur",
+        "useDefibrilator_title": "Un défibrillateur ou défib dans le jargon technique, est un dispositif médical pour la défibrillation et éventuellement pour la cardioversion.",
+
+        "useBodybag": "Utiliser un sac mortuaire",
+        "useBodybag_title": "Le sac mortuaire est un sac étanche à l'air et aux liquides en plastique spécial, qui est utilisé pour transporter les cadavres de l'endroit où ils ont été trouvés pour un examen plus approfondi, par exemple en médecine légale, ou directement pour l'enterrement.",
+
+        "useInfusionBlood1000": "Faire une perfusion sanguine (1000ml)",
+        "useInfusionBlood1000_title": "La transfusion sanguine désigne l'administration intraveineuse (transfert ou perfusion) de concentrés de globules rouges (érythrocytes = globules rouges) ou (très rare aujourd'hui) de sang (total).",
+
+        "useInfusionBlood500": "Faire une perfusion sanguine (500ml)",
+        "useInfusionBlood500_title": "La transfusion sanguine désigne l'administration intraveineuse (transfert ou perfusion) de concentrés de globules rouges (érythrocytes = globules rouges) ou (très rare aujourd'hui) de sang (total).",
+
+        "useInfusionBlood250": "Faire une perfusion sanguine (250ml)",
+        "useInfusionBlood250_title": "La transfusion sanguine désigne l'administration intraveineuse (transfert ou perfusion) de concentrés de globules rouges (érythrocytes = globules rouges) ou (très rare aujourd'hui) de sang (total).",
+
+        "useInfusionBlood100": "Faire une perfusion sanguine (100ml)",
+        "useInfusionBlood100_title": "La transfusion sanguine désigne l'administration intraveineuse (transfert ou perfusion) de concentrés de globules rouges (érythrocytes = globules rouges) ou (très rare aujourd'hui) de sang (total).",
+
+        "tourniquet_is_applied": "Garrot appliqué",
+        "removing_tourniquet": "Retrait du garrot...",
+        "removed_tourniquet": "Garrot retiré.",
+        "applying_tourniquet": "Application du garrot...",
+        "applied_tourniqet": "Garrot appliqué.",
+        "useTourniquet": "Utilisez un garrot",
+        "removeTourniquet": "Retirer le garrot",
+
+        "useTourniquet_title": "",
+        "removeTourniquet_title": ""
+    }
+}

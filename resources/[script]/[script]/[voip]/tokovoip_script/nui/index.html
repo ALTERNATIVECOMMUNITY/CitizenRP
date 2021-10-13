@@ -1,0 +1,125 @@
+<html>
+
+<head>
+	<style>
+		.tokovoipInfo {
+			position: absolute;
+			padding: 5px;
+			font-family: Arial;
+			font-weight: bold;
+			color: white;
+		}
+
+		.pluginScreen {
+			display: block;
+			position: absolute;
+			background-image: url('https://cdn.discordapp.com/attachments/893950103302340658/894324381365436456/Citizen-vice-logo-BG.png');
+			background-size: 100%;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+
+		.pluginScreenWindow {
+			background-image: url('https://i.imgur.com/Xt33Qzo.png');
+			background-size: 100%;
+		
+			width: 350px;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			top: 50%;
+			transform: translateY(-51%);
+			border-left: 2px solid #989898;
+			padding: 20px;
+			color: #eee;
+			font-family: Tahoma, Geneva, sans-serif;
+			font-size: 12px;
+			text-shadow: 1px 1px #000000;
+			font-weight: bold;
+		}
+
+		.talking {
+			color: rgba(244, 196, 65, 255);
+		}
+
+		.normal {
+			color: #01b0f0;
+		}
+
+		.copyrights {
+			padding: 5px;
+			padding-bottom: 0;
+			color: white;
+			opacity: 0.2;
+			font-size: 12px;
+		}
+
+		ul {
+			padding-inline-start: 27px;
+			margin-block-start: 6px;
+		}
+
+		#latency {
+			top: 80px;
+			position: absolute;
+			color: white;
+			font-size: 10px;
+			font-weight: 100;
+		}
+	</style>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<script src="script.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div id="pluginScreen" class="pluginScreen">
+		<div id="pluginScreenWindow" class="pluginScreenWindow">
+			<div style="font-size:25px;color:#05ba8d;text-align:center;margin-bottom:20px;">
+				CITIZENVICE VOIP 
+			</div>
+			Page d'initialisation de <strong>TokoVOIP</strong>.
+
+			<br><br>
+
+			Merci de patientez, si cette page ne disparait pas. Merci de vérifier que votre plugin fonctionne bien 
+
+
+			<font style="color: #ffffffab">TokoVOIP</font> Dois être <font color="#05ba8d">installé</font> et <font
+				color="#05ba8d">
+				 en fonctionnement
+			</font> pour jouer sur notre serveur.
+			<br><br>
+			
+
+			<div id="TSServer">
+				Serveur TS3:
+			</div>
+			<div id="TSChannel">
+				Salon TS3:
+			</div>
+			<br>
+			Status:
+			<ul>
+				<li id="pluginStatus">Plugin: <font color="red">Déconnecté</font>
+				</li>
+				<li id="FiveMState">CitizenVice: <font color="red">Déconnecté</font>
+				</li>
+				<li id="Ts3State">Ts3 websocket: <font color="red">Déconnecté</font>
+				</li>
+				<br />
+				<li id="pluginVersion">Plugin version: <font color="red">❌</font> (Required: 1.5.0)</li>
+			</ul>
+		</div>
+	</div>
+	<div class="copyrights">
+		Citizen VICE
+	</div>
+	<div id="tokovoipInfo" class="tokovoipInfo">
+	</div>
+	<div id="latency" style="display: none;"></div>
+</body>
+
+</html>

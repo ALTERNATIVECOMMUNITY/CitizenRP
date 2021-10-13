@@ -1,0 +1,11 @@
+This is a modified version of mumble-voip to work with sm-radio.
+Because of this, this script may be outdated at present time.
+
+To apply the same changes to a newer version of mumble-voip do the following:
+At the top of the script, below the local variables add the code below
+
+local SpeakingVolume = 1.0
+function SetRadioVolume(v) SpeakingVolume = v end
+exports("SetRadioVolume", SetRadioVolume)
+
+It should look similar to this image: https://imgur.com/M3FbhmP

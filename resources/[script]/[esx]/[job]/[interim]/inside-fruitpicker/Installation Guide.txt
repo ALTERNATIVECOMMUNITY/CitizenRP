@@ -1,0 +1,8 @@
+inside-fruitpicker [ESX]
+
+Installing this script are very easy and fast. Just add inside-fruitpicker, pNotify and rprogress to your server. Next step is a import
+SQL file to your Database. Last step is add it to your server.cfg:
+
+ensure pNotify
+ensure rprogress
+ensure inside-fruitpicker

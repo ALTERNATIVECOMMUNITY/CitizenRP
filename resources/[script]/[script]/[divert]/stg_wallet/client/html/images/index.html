@@ -1,0 +1,1360 @@
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="script.js" type="text/javascript"></script>   
+    </head>
+
+    <body onload="weatherUpdate()">
+        <div oncontextmenu="return false" onselectstart="return false" ondragstart="return false" id="phone">
+            <div id="background">
+                <img onclick="openphone()" id="mainbackground" src="image/general/background7.png" width="100%" height="100%">
+            </div>  
+            <img id="main" src="image/general/frame_withouthud.png" width="268.50" height="585.20">
+            <div id="generalfilter">
+            <!-- KITLI EKRAN -->
+            <div id="lockscreen">
+                <img id="upper_hud" src="image/general/white_status_hud.png" width="41.62" height="10">
+                <p style='margin-left: 36;' id="upper_time">STG</p>
+                <p id="lockscreen_time">23:30</p>
+                <p id="lockscreen_date">11 Haziran Cuma</p>
+                <p id="open_text" >Açmak için Dokunun</p>
+                <img onclick="cameraapp()" onmouseover="hover('camera_lock')" onmouseout="hover('camera_lock_close')" id="camera" src="image/icon/camera_main.png">
+                <img onmouseover="hover('flash_lock')" onmouseout="hover('flash_lock_close')" id="flash" src="image/icon/lighter_main.png">
+                <div onclick="openphone()" id="lockscreenopen"></div>
+            </div>
+
+            <!-- ANA SAYFA -->
+            <div id="mainmenu">
+                <img id="upper_hud" src="image/general/white_status_hud.png" width="41.62" height="10">
+                <p id="upper_time">23:30</p>
+                <div id="appskelton">
+                    <div onclick="messageapp()" style="margin-top: 4" id="app">
+                        <img id="app_message" onmouseover="appzoomeffect('message')" onmouseout="appzoomeffect('message_close')" style="transition: 0.3s" src="image/icon/message.png" width="100%" height="100%">
+                        <p style="margin-left: 4" id="apps_text">Mesajar</p>
+                    </div>
+
+                    <div id="app">
+                        <img id="app_weather" onmouseover="appzoomeffect('weather')" onmouseout="appzoomeffect('weather_close')" style="margin-top: -4.5; transition: 0.3s" src="image/icon/weather.png" width="100%" height="100%">
+                        <p style="margin-left: -4" id="apps_text">Hava Durumu</p>
+                    </div>
+
+                    <div id="app">
+                        <img id="app_notepad" onmouseover="appzoomeffect('notepad')" onmouseout="appzoomeffect('notepad_close')" style="margin-top: -9.2; transition: 0.3s" src="image/icon/notepad.png" width="100%" height="100%">
+                        <p style="margin-left: 8" id="apps_text">Notlar</p>
+                    </div>
+
+                    <div onclick="twitterapp()" id="app">
+                        <img id="app_twitter" onmouseover="appzoomeffect('twitter')" onmouseout="appzoomeffect('twitter_close')"  style="margin-top: -13.3; transition: 0.3s" src="image/icon/twitter.png" width="100%" height="100%">
+                        <p style="margin-left: 7" id="apps_text">Twitter</p>
+                    </div>
+
+                    <div onclick="galleryapp()" style="margin-top: -248.7" id="app2">
+                        <img id="app_gallery" onmouseover="appzoomeffect('gallery')" onmouseout="appzoomeffect('gallery_close')" style="transition: 0.3s" src="image/icon/gallery.png" width="100%" height="100%">
+                        <p style="margin-left:0.6; margin-top:2.5" id="apps_text">Fotoğraflar</p>
+                    </div>
+
+                    <div onclick="cameraapp()" id="app2">
+                        <img id="app_camera" onmouseover="appzoomeffect('camera')" onmouseout="appzoomeffect('camera_close')" style="margin-top: -5; transition: 0.3s" src="image/icon/camera.png" width="100%" height="100%">
+                        <p style="margin-left: 6.5; margin-top:3" id="apps_text">Kamera</p>
+                    </div>
+
+                    <div onclick="calculatorapp()" id="app2">
+                        <img id="app_calc" onmouseover="appzoomeffect('calc')" onmouseout="appzoomeffect('calc_close')" style="margin-top: -10; transition: 0.3s" src="image/icon/calculator.png" width="100%" height="100%">
+                        <p style="margin-left:-6.5; margin-top:3"id="apps_text">Hesap Makinesi</p>
+                    </div>
+
+                    <div id="app2">
+                        <img id="app_yellow" onmouseover="appzoomeffect('yellow')" onmouseout="appzoomeffect('yellow_close')" style="margin-top:-14; transition: 0.3s" src="image/icon/yellowpages.png" width="100%" height="100%">
+                        <p style="margin-left:-1.5; margin-top:2.4" id="apps_text">Sarı Sayfalar</p>
+                    </div>
+
+                    <div onclick="settingsapp()" style="margin-top: -108.7;" id="app3">
+                        <img id="app_settings" onmouseover="appzoomeffect('settings')" onmouseout="appzoomeffect('settings_close')" style="margin-top:-11; transition: 0.3s" src="image/icon/settings.png" width="100%" height="100%">
+                        <p  style="margin-left:7; margin-top:3" id="apps_text">Ayarlar</p>
+                    </div>
+
+                    <div id="app3">
+                        <img id="app_instagram" onmouseover="appzoomeffect('instagram')" onmouseout="appzoomeffect('instagram_close')" style="margin-top:-16; transition: 0.3s" src="image/icon/instagram.png" width="100%" height="100%">
+                        <p style="margin-left: 2.5; margin-top:3.5" id="apps_text">Instagram</p>
+                    </div>
+
+                    <div style="margin-top: -120.2;" id="app4">
+                        <img id="app_facetime" onmouseover="appzoomeffect('facetime')" onmouseout="appzoomeffect('facetime_close')" style="transition: 0.3s" src="image/icon/facetime.png" width="100%" height="100%">
+                        <p style="margin-left:3; margin-top:2" id="apps_text">FaceTime</p>
+                    </div>
+
+                    <div onclick="youtubeapp()" id="app4">
+                        <img id="app_youtube" onmouseover="appzoomeffect('youtube')" onmouseout="appzoomeffect('youtube_close')" style="margin-top:-5.2; transition: 0.3s" src="image/icon/youtube.png" width="100%" height="100%">
+                        <p style="margin-left: 4.5" id="apps_text">Youtube</p>
+                    </div>
+
+                    <div style="margin-top: -240.2" id="widget">
+                        <img id="weather_widget" src="image/icon/widget.png" width="102%" height="104%">
+                        <img id="widget_icon" src="image/icon/143.png" width="25%" height="25%">
+                        <p id="widget_celcius">23°</p>
+                        <p id="widget_situation">Açık</p>
+                        <p id="widget_date">11 Ocak</p>
+                    </div>
+                </div>
+                
+                <div id='appunderskelton' style="margin: 463 0 0 19">
+                    <img src="image/general/underhud.png" width="231.06px" height="67.11px">
+
+                    <div onclick="callapp()" style="margin-top: -53.8;position: relative;" id="appunder">
+                        <img id="app_call" onmouseover="appzoomeffect('call')" onmouseout="appzoomeffect('call_close')" style="transition: 0.3s" src="image/icon/call.png" width="100%" height="100%">
+                    </div>
+    
+                    <div onclick="bankapp()" id="appunder">
+                        <img id="app_bank" onmouseover="appzoomeffect('bank')" onmouseout="appzoomeffect('bank_close')" style="margin: -4.5 0 0 55; transition: 0.3s" src="image/icon/bank.png" width="100%" height="100%">
+                    </div>
+    
+                    <div id="appunder">
+                        <img id="app_cell" onmouseover="appzoomeffect('cell')" onmouseout="appzoomeffect('cell_close')" style="margin: -9.2 0 0 110; transition: 0.3s" src="image/icon/roacell.png" width="100%" height="100%">
+                    </div>
+    
+                    <div id="appunder">
+                        <img id="app_wnews" onmouseover="appzoomeffect('wnews')" onmouseout="appzoomeffect('wnews_close')"  style="margin: -13.3 0 0 165; transition: 0.3s" src="image/icon/wnews.png" width="100%" height="100%">
+                    </div>
+                </div>
+            </div>
+
+            <!-- AYARLAR -->
+            <div id="settingsbase">
+                <div id="settings">
+                    <p id="settings_text_main">Ayarlar</p>
+                    <div id="settings_main_page">
+
+                        <div onclick="swipe('profilesettings')" id="settings_profile">
+                            <img style="border-radius: 50%" width="100%" height="100%" src="image/icon/stock_logo.png">
+                            <img src="image/icon/arrow.png" width="8.4%" height="16%" style="margin:-28 0 4.5 210">
+                            <p id="settings_profile_text">STG Developments</p>
+                            <p id="settings_profile_text_2">STG Kimliği</p>
+                        </div>
+
+                        <div id="settings_main_page_stek">
+                            <div class="settings_app" id="settings_main_page_stek2">
+                                <img src="image/icon/flightmode.png" width="20" height="20" style="margin:5 0 0 10">
+                                <img src="image/icon/arrow.png" width="0%" height="0%" style="margin:0 0 0 0">
+                                <p class="settings_main_page_stek_text">Uçak Modu</p>
+                                <img onclick="slider('flightmode')" style="margin:-19 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="flightmode_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('flightmode')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('flightmode')" id="flightmode_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin: -18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="settings_app" id="settings_main_page_stek2">
+                                <img src="image/icon/distrub.png" width="20" height="20" style="margin:5 0 0 10">
+                                <img src="image/icon/arrow.png" width="0%" height="0%" style="margin:0 0 0 0">
+                                <p class="settings_main_page_stek_text">Rahatsız Etme</p>
+                                <img onclick="slider('distrub')" style="margin:-19 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin: -17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="distrub_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('distrub')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('distrub')" id="distrub_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="settings_app" onclick="swipe('sound')" id="settings_main_page_stek2">
+                                <img src="image/icon/sound.png" width="20" height="20" style="margin:5 0 0 10">
+                                <img src="image/icon/arrow.png" width="1.5%" height="24%" style="margin:0 0 4.5 186">
+                                <p class="settings_main_page_stek_text">Ses ve Dokunuş</p>
+                            </div>
+
+                            <div class="settings_app" onclick="swipe('notifi')" id="settings_main_page_stek2">
+                                <img src="image/icon/noti.png" width="20" height="20" style="margin:5 0 0 10">
+                                <img src="image/icon/arrow.png" width="1.5%" height="24%" style="margin:0 0 4.5 186">
+                                <p class="settings_main_page_stek_text">Bildirimler</p>
+                            </div>
+
+                            <div class="settings_app" onclick="swipe('screen')" id="settings_main_page_stek2">
+                                <img src="image/icon/screen.png" width="20" height="20" style="margin:5 0 0 10">
+                                <img src="image/icon/arrow.png" width="1.5%" height="24%" style="margin:0 0 4.5 186">
+                                <p  class="settings_main_page_stek_text">Ekran ve Parlaklık</p>
+                            </div>
+
+                            <div class="settings_app" onclick="swipe('wp')" id="settings_main_page_stek2" style="border-bottom: 0.1px solid #b7b7b9">
+                                <img src="image/icon/wallpaper.png" width="20" height="20" style="margin:5 0 0 10">
+                                <img src="image/icon/arrow.png" width="1.5%" height="24%" style="margin:0 0 4.5 186">
+                                <p class="settings_main_page_stek_text">Duvar Kağıdı</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none" id="profileedit">
+                        <div id="profileedit_upper_box">
+                            <p id="profileedit_title_text">STG KİMLİĞİ</p>
+                            <p class="ayarlar" onclick="swipe('backup')" id="profileedit_backup_text">Ayarlar</p>
+                            <p class="ayarlar" id="profileedit_save_text">Kaydet</p>
+                            <img class="back" onclick="swipe('backup')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-12 0 0 6.7">
+                            <div id="profileedit_area">
+                                <img onclick="flutter('settingsphoto')" style="border-radius: 50%;" src="image/icon/stock_logo.png" width="100%" height="100%">
+                                <img onclick="flutter('settingsphoto')" style="margin:-60 0 0 0" src="image/icon/pp_edit.png" width="100%" height="100%">
+                            </div>
+                            <div id="profileedit2_area">
+                                <div style="border-top: 0.7px solid #b7b7b9" class="profileedit2_stek">
+                                    <p class="profileedit2_text">Ad</p>
+                                    <input id="ad" style="color: black; margin:-30 0 0 80" type="text" name="field1" placeholder="Adınız"/>
+                                </div>
+                                <div style='border-bottom: 0.7px solid #b7b7b9' class="profileedit2_stek">
+                                    <p class="profileedit2_text">Soyad</p>
+                                    <input id="soyad" style="color: black; margin:-30 0 0 80" type="text" name="field1" placeholder="Soyadınız"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="notifi">
+                        <p id="noti_under_title">UYGULAMALAR</p>
+                        <div id="noti_upper_box">
+                            <p id="noti_title_text">Bildirimler</p>
+                            <p class="ayarlar" onclick="swipe('backup')" id="noti_backup_text">Ayarlar</p>
+                            <img class="back" onclick="swipe('backup')" src="image/icon/cross_arrow.png" width=2.7% height="19%" style="margin:-12.3 0 0 6.7">
+                        </div>
+
+                        <div id="noti_stek">
+                            <div class="noti2_stek">
+                                <img src="image/icon/message.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Mesajlar</p>
+                                <img onclick="slider('message')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="message_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('message')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('message')" id="message_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/weather.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Hava Durumu</p>
+                                <img onclick="slider('weather')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="weather_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('weather')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('weather')" id="weather_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/facetime.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">FaceTime</p>
+                                <img onclick="slider('facetime')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="facetime_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('facetime')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('facetime')" id="facetime_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/twitter.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Twitter</p>
+                                <img onclick="slider('twitter')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="twitter_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('twitter')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('twitter')" id="twitter_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-17.955 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/yellowpages.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Sarı Sayfalar</p>
+                                <img onclick="slider('yellowpages')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="yellowpages_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('yellowpages')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('yellowpages')" id="yellowpages_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/instagram.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Instagram</p>
+                                <img onclick="slider('instagram')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="instagram_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('instagram')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('instagram')" id="instagram_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/youtube.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Youtube</p>
+                                <img onclick="slider('youtube')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="youtube_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('youtube')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('youtube')" id="youtube_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/call.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Telefon</p>
+                                <img onclick="slider('call')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="call_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('call')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('call')" id="call_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/bank.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Roa Bank</p>
+                                <img onclick="slider('bank')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="bank_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('bank')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('bank')" id="bank_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div class="noti2_stek">
+                                <img src="image/icon/roacell.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Roa Cell</p>
+                                <img onclick="slider('cell')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="cell_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('cell')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('cell')" id="cell_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                </div>
+                            </div>
+
+                            <div style="border-bottom: 0.7px solid #b7b7b9;"class="noti2_stek">
+                                <img src="image/icon/wnews.png" width="20" height="20" style="margin:5 0 0 10">
+                                <p class="noti_app_title">Weazel News</p>
+                                <img onclick="slider('wnews')" style="margin:-17 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin:-17 0 0 202; position: absolute; border-radius: 50%">
+                                    <div id="wnews_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                        <img onclick="slider('wnews')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                    </div>
+                                    <div onclick="slider('wnews')" id="wnews_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s">                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none" id="screen">
+                        <p id="screen_under_title">GÖRÜNÜŞ
+                            <div id="screen_upper_box">
+                                    <p id="screen_title_text">Ekran ve Parlaklık</p>
+                                    <p class="ayarlar" onclick="swipe('backup')" id="screen_backup_text">Ayarlar</p>
+                                    <img class="back" onclick="swipe('backup')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-13 0 0 6.7">
+                                </div>
+            
+                            <div id="screen_stek">
+                                <div style="height: 300" id="screen_stek">
+                                    <div id="backbox">
+                                        <div onclick="theme('l')" id="screen_light">
+                                            <img id="light_ico" style="display: none; margin: 4.6 0 0 6;" src="image/general/darkmode_tick.png" width="13" height="13">
+                                        </div>
+                                        <div onclick="theme('d')" id="screen_dark">
+                                            <img id="dark_ico" style="display: none; margin: 4.6 0 0 6;" src="image/general/darkmode_tick.png" width="13" height="13">
+                                        </div>
+
+                                        <img id="dm_img" style="margin:15 0 0 38" src="image/general/darkmode.png" width="163.5" height="129.5">
+
+                                    </div>
+                                </div>
+                                <p id="bright_title">PARLAKLIK</p>
+                                <div style="margin:8 0 0 0" class="screen2_stek">
+                                    <img src="image/icon/low_bright.png" width="15" height="15" style="position: absolute; top: 9.7px; left:14">
+                                    <img src="image/icon/full_bright.png" width="15" height="15" style="position: absolute; top: 10px; left:211">
+                                    <input id="slider" type="range" min="60" max="100" value="100" oninput="brightness(this)" style="width: 150px; height: 50%; margin-left: 45; margin-top: 9">
+                                </div>
+                                <div style="border-bottom: 0.7px solid #b7b7b9" class="screen2_stek">
+                                    
+                                    <p style="margin: 8 0 0 16;font:bold 12px arial; color:black; font-family: SF UI Display; width: 500px" id="nightshift">Night Shift</p>
+                                    <img onclick="slider('nightshift')" style="margin:-18 0 0 200" src="image/icon/off.png" width="32.55" height="18.95">
+                                    <div style="width: 15; height: 15; background: rgba(255, 255, 255, 0); margin: -17 0 0 202; position: absolute; border-radius: 50%">
+                                        <div id="nightshift_slider_0" style="width:1; height: 20; background: rgba(0, 128, 0, 0); margin-top: -2; overflow: hidden; margin-left: -4; transition: 0.5s">
+                                            <img onclick="slider('nightshift')" style="margin:0 0 0 2" src="image/icon/on.png" width="32.55" height="18.95">
+                                        </div>
+                                        <div onclick="slider('nightshift')" id="nightshift_slider_1" style="width: 15; height: 15; background: rgb(255, 255, 255); margin:-18 0 0 0; position: absolute; border-radius: 50%; transition: 0.3s"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+
+                    <div style="display: none" id="wallpaper">
+                        <div id="wp_upper_box">
+                            <p id="wp_title_text">Duvar Kağıdı</p>
+                            <p class="ayarlar" onclick="swipe('backup')" id="wp_backup_text">Ayarlar</p>
+                            <img class="back" onclick="swipe('backup')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-13.3 0 0 6.7">
+                        </div>
+                        <div id="wp_stek">
+                            <div onclick="swipe('wp2')" class="wp2_stek">
+                                <p style="margin:6 0 0 10" class="noti_app_title">Yeni Bir Duvar Kağıdı Seç</p>
+                                <img src="image/icon/arrow.png" width="1.5%" height="26%" style="margin:-10 0 0 225">
+                            </div>
+                            <div style="height: 258; border-bottom: 0.7px solid #b7b7b9" class="wp2_stek">
+                                <img style="border-radius: 15px; margin:15 0 0 11" id='backgroundinwp1' src="image/general/background7.png" width="102.75" height="223.16">
+                                <img style="border-radius: 15px; margin:15 0 0 10" id='backgroundinwp2' src="image/general/background7.png" width="102.75" height="223.16">
+                                <img style="margin:-215 0 0 133" src="image/general/main_screen_bg.png" width="92.475" height="200.844">
+                                <img style="margin:-215 0 0 16" src="image/general/locked_screen_bg.png" width="92.475" height="200.844">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none" id="wallpaper2">
+                        <div id="wp2_upper_box">
+                            <p id="wp2_title_text">Seç</p>
+                            <p onclick="swipe('backup2')" id="wp2_backup_text">Geri</p>
+                            <img class="back" onclick="swipe('backup2')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-13.3 0 0 6.7">
+                        </div>
+                        <div id="wp21_stek">
+                            <img onclick="wallpaperchange('1')" id="bg_s" src="image/general/background.png" width="70" height="150" style="margin-left:12.2">
+                            <img onclick="wallpaperchange('2')" id="bg_s" src="image/general/background2.png" width="70" height="150">
+                            <img onclick="wallpaperchange('3')" id="bg_s" src="image/general/background3.png" width="70" height="150">
+                            <img onclick="wallpaperchange('4')" id="bg_s" src="image/general/background4.png" width="70" height="150" style="margin-left:12.2">
+                            <img onclick="wallpaperchange('5')" id="bg_s" src="image/general/background5.png" width="70" height="150">
+                            <img onclick="wallpaperchange('6')" id="bg_s" src="image/general/background6.png" width="70" height="150">
+                            <img onclick="wallpaperchange('7')" id="bg_s" src="image/general/background7.png" width="70" height="150" style="margin-left:12.2">
+                            <img onclick="wallpaperchange('8')" id="bg_s" src="image/general/background8.png" width="70" height="150">
+                            <img onclick="wallpaperchange('9')" id="bg_s" src="image/general/background_url.png" width="70" height="150">
+                        </div>
+                    </div>
+
+                    <div style="display: none" id="sound">
+                        <div id="sound_upper_box">
+                            <p id="sound_title_text">Ses ve Dokunuş</p>
+                            <p class="ayarlar" onclick="swipe('backup')" id="sound_backup_text">Ayarlar</p>
+                            <img class="back" onclick="swipe('backup')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-13.3 0 0 6.7">
+                        </div>
+                        <div id="sound_stek">
+                            <div style="margin:8 0 0 0" class="sound2_stek">
+                                <img src="image/icon/min_sound.png" width="10" height="13" style="position: absolute; top: 9.7px; left:14">
+                                <img src="image/icon/max_sound.png" width="22" height="15" style="position: absolute; top: 10px; left:211">
+                                <input id="slider" type="range" min="1" max="50" value="50" oninput="ringsoundvolume(this)" style="width: 160px; height: 50%; margin-left: 38; margin-top: 9">
+                            </div>
+                            <div onclick="swipe('sound2')" style='border-bottom: 0.7px solid #b7b7b9' class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">Zil Sesi</p>
+                                <p style="margin:-14 0 0 175; color: #636368;" class="noti_app_title">Marimba</p>
+                                <img src="image/icon/arrow.png" width="1.5%" height="26%" style="margin:-10 0 0 225">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none" id="sound2">
+                        <div id="sound2_upper_box">
+                            <p id="sound2_title_text">Zil Sesi</p>
+                            <p onclick="swipe('backup2')" id="sound2_backup_text">Geri</p>
+                            <p onclick="swipe('backup2')" id="sound_save_text">Kaydet</p>
+                            <img class="back" onclick="swipe('backup2')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-13.3 0 0 6.7">
+                        </div>
+                        <div class="sound21_stek">
+                            <div onclick="sellectsound('sound_1')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">Marimba</p>
+                                <img id='sound_1' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_2')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">XXX Tentacion Night</p>
+                                <img id='sound_2' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_3')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">Cradles</p>
+                                <img id='sound_3' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_4')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">Imanbek Roses</p>
+                                <img id='sound_4' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_5')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">All Eyez On Me</p>
+                                <img id='sound_5' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_6')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">Polozhenie</p>
+                                <img id='sound_6' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_7')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">Rasputin</p>
+                                <img id='sound_7' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_8')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">TEST</p>
+                                <img id='sound_8' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div onclick="sellectsound('sound_9')" class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">TEST</p>
+                                <img id='sound_9' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                            </div>
+                            <div style='border-bottom: 0.7px solid #b7b7b9' class="sound2_stek">
+                                <p style="margin:8 0 0 10" class="noti_app_title">URL</p>
+                                <img id='sound_10' src="image/icon/ringtonesound_tick.png" width="3.9%" height="35%" style="margin:-10 0 0 225; display: none">
+                                <input onclick="sellectsound('sound_10')" oninput="sellectsound('playurlsound')" id="soundurl" style="color: black; margin:-15.5 0 0 40; width: 170px; border: none; background-color: transparent; resize: none; outline: none;" type="text" name="field1" placeholder="https://www.str4tox.com"/>
+                            </div>
+                        </div>
+                        <audio id='ringsound'>
+                            <source src="sound/cradles.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <img style="margin: -146 0 0 201" src="image/general/black_status_hud.png" width="41.62" height="10">
+                    <p style='margin: -148 0 0 34; color: black' id="upper_time">23:30</p>
+
+                    <div id="fluttersettings">
+                        <div id="fluttersettings_stek">
+                            <div style='border-bottom: 0.7px solid #b7b7b9; border-radius: 7px 7px 0px 0px;' class="fluttersettings2_stek">
+                                <p class="fluttersettings_title">Fotoğraf Çek</p>
+                            </div>
+                            <div style='border-bottom: 0.7px solid #b7b7b9' class="fluttersettings2_stek">
+                                <p class="fluttersettings_title">Fotoğraf Seç</p>
+                            </div>
+                            <div style='border-radius: 0px 0px 7px 7px' class="fluttersettings2_stek">
+                                <p style='margin: 10.5 0 0 103'class="fluttersettings_title">URL</p>
+                            </div>
+                        </div>
+                        <div onclick="flutter('settingsphoto_close')" style='margin: -35 0 0 6; border-radius: 7px' class="fluttersettings2_stek">
+                            <p onclick="flutter('settingsphoto_close')" style='margin: 10.5 0 0 93'class="fluttersettings_title">Vazgeç</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BANKA -->
+            <div style="display: none; opacity: 0; transition: 0.4s" id="bankbase">
+                <img width="100%" height="100%" id="bankbg" src="image/general/bankbg.png">
+                <div id="bank">
+                    <div id="bank_upper_area">
+                        <img style="margin: -525 0 0 86" width="67.75" height="11" id="roabanklogo" src="image/icon/roabanklogo.png">
+                        <div id="bank_profile">
+                            <img style="border-radius: 50%; border: 1.75px solid #dd823a; margin: -496 0 0 10;" width="38px" height="38px" src="image/icon/stock_logo.png">
+                            <p id="bank_profile_text">Hoşgeldiniz</p>
+                            <p id="bank_profile_text_2">STG Developments</p>
+                            <p class="bank_profile_text_3">Hesap Bilgisi</p>
+
+                            <div id="accountinfo_box">
+                                <p style="margin: 15 0 0 10" class="bank_profile_text_3" >HESAP(C)</p>
+                                <p style="margin: 0 0 0 10" class="bank_profile_text_4">Rockford Hills Şube</p>
+                                <p style="margin: 0 0 0 10" class="bank_profile_text_4">ROA798797</p>
+                                <p style="margin: -12 0 0 130" class="bank_profile_text_4">Kullanılabilir Bakiye</p>
+                                <p style="margin: -32 0 0 128" id="bank_profile_text_5">1.250,00 $</p>
+                            </div>
+                            
+                            <div id="bank_under_area">
+                                <div id="bank_transfer_area">
+                                    <p style="margin: 10 0 0 10;" class="bank_profile_text_3" >Havale</p>
+                                    <div style="margin: 90 0 0 0;"id="bank_transfer_input">
+
+                                    </div>
+
+                                    <p style="margin: 10 0 0 10; width: 130px;" class="bank_profile_text_3">Rehbere Kayıtlı Hesaplar</p>
+                                    <div id="bank_contact_box">
+
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">Str4toX Developments</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA764156</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">GENER4L Developments</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA486487</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">STG Developments</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA167914</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">Monarch</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA941674</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">Carment</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA764135</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">TT</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA176413</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">AmAidon</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA946135</p>
+                                        </div>
+                                        <div class="bank_contact_box2">
+                                            <p style="margin: 6 0 0 8; width: 120;" class="bank_profile_text_4">Roa RP</p>
+                                            <p style="margin: -11 0 0 151" class="bank_profile_text_4">ROA764156</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="bank_bill_area">
+                                    <p style="margin: -278 0 0 507; width: 130px;" class="bank_profile_text_3">Faturalar</p>
+                                    <div class="bank_bill_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3">STG Mekanik</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">21-06-2021 23:27</p>
+                                        <p style="margin: -28 0 0 149" id="bank_profile_text_6">250,00 $</p>
+                                    </div>
+                                    <div class="bank_bill_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3">LSMS</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">21-06-2021 13:48</p>
+                                        <p style="margin: -28 0 0 149" id="bank_profile_text_6">590,00 $</p>
+                                    </div>
+                                    <div class="bank_bill_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3">LSPD</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">20-06-2021 18:56</p>
+                                        <p style="margin: -28 0 0 149" id="bank_profile_text_6">300,00 $</p>
+                                    </div>
+                                    <div class="bank_bill_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3">Roa Mekanik</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">20-06-2021 09:39</p>
+                                        <p style="margin: -28 0 0 149" id="bank_profile_text_6">936,00 $</p>
+                                    </div>
+                                </div>
+
+                                <div id="bank_history_area">
+                                    <p style="margin: -278 0 0 -487; width: 130px;" class="bank_profile_text_3" id="bank_profile_text_3">Hesap Geçmişi</p>
+                                    <div style='border-left: 2px solid #207b00;' class="bank_history_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3" id="bank_profile_text_3">Para Yatırma</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">21-06-2021 23:27</p>
+                                        <p style="margin: -28 0 0 149; color:#207b00;" id="bank_profile_text_6">250,00 $</p>
+                                    </div>
+                                    <div style='border-left: 2px solid #920000;' class="bank_history_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3" id="bank_profile_text_3">Para Çekme</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">21-06-2021 13:48</p>
+                                        <p style="margin: -28 0 0 149; color:#920000;" id="bank_profile_text_6">590,00 $</p>
+                                    </div>
+                                    <div style='border-left: 2px solid #207b00;' class="bank_history_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3" id="bank_profile_text_3">Gelen Havale</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">20-06-2021 18:56</p>
+                                        <p style="margin: -28 0 0 149; color:#207b00;" id="bank_profile_text_6">300,00 $</p>
+                                    </div>
+                                    <div style='border-left: 2px solid #920000;' class="bank_history_box">
+                                        <p style="margin: 15 0 0 10" class="bank_profile_text_3" id="bank_profile_text_3">Giden Havale</p>
+                                        <p style="margin: 3 0 0 10" class="bank_profile_text_4">20-06-2021 09:39</p>
+                                        <p style="margin: -28 0 0 149; color:#920000;" id="bank_profile_text_6">936,00 $</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div style="margin: -158 0 0 2" id="bank_under_hud">
+                                <img onclick="swipe('bankhistory')" id="bank_history"  onmouseover="hover('bank_history')"     onmouseout="hover('bank_history_close')"    style="margin: 173 0 0 77" width="18" height="18" src="image/icon/bank_history_gray.png">
+                                <img onclick="swipe('banktransfer')" id="bank_transfer" onmouseover="hover('bank_transfer')"    onmouseout="hover('bank_transfer_close')"   style="margin: -18 0 0 10" width="18" height="18" src="image/icon/bank_transfer_gray.png">
+                                <img onclick="swipe('bankbill')" id="bank_bill"     onmouseover="hover('bank_bill')"        onmouseout="hover('bank_bill_close')"       style="margin: -18 0 0 10" width="18" height="18" src="image/icon/bank_bill_gray.png">
+                            </div>
+
+                            <img style="margin: -534 0 0 185" src="image/general/black_status_hud.png" width="41.62" height="10">
+                            <p style='margin: -534 0 0 17; color: black' id="upper_time">23:30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KAMERA -->
+            <div style="display: none; opacity: 0; transition: 0.4s" id="camerabase">
+                <img width="100%" height="100%" src="image/general/camerabg.png">
+
+                <div id="cameralastphoto">
+                    <img onclick="gallery2app()" style="border-radius: 10%;" width="100%" height="100%" src="image/icon/stock_logo.png">
+                    <img onmouseover="hover('switchcam')" onmouseout="hover('switchcam_close')" id="switchcam" style="margin:-30 0 0 192" src="image/icon/switchcam_black.png" width="30" height="30">
+                </div>
+                <div id="livecamera"></div>
+                <div id="cameratakephoto"></div>
+
+                <img style="margin: -551 0 0 189" src="image/general/white_status_hud.png" width="41.62" height="10">
+                <p style='margin: -551 0 0 23; color: white' id="upper_time">23:30</p>
+            </div>
+        
+            <!-- HESAP MAKINESI -->
+            <div style="display: none; transition: 0.4s" id="calculatorbase">
+                <div id="calculatorbg">
+                    <img src="image/general/calculatorbg.png" width="249" height="559">
+                    <img style="margin: -551 0 0 189" src="image/general/white_status_hud.png" width="41.62" height="10">
+                    <p style='margin: -551 0 0 23; color: white' id="upper_time">23:30</p>
+                </div>
+
+
+                <div id="calculatorbuttonstek">
+                    <div style="margin-top: -392" id="button1">
+                        <div onclick="calculatorvalue('AC')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button1">
+                        <div onclick="calculatorvalue('7')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button1">
+                        <div onclick="calculatorvalue('4')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button1">
+                        <div onclick="calculatorvalue('1')" id="calculatorbutton"></div>
+                    </div>
+
+                    <div style="margin-top: -225" id="button2">
+                        <div onclick="calculatorvalue('+/-')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button2">
+                        <div onclick="calculatorvalue('8')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button2">
+                        <div onclick="calculatorvalue('5')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button2">
+                        <div onclick="calculatorvalue('2')" id="calculatorbutton"></div>
+                    </div>
+
+                    <div style="margin-top: -225" id="button3">
+                        <div onclick="calculatorvalue('%')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button3">
+                        <div onclick="calculatorvalue('9')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button3">
+                        <div onclick="calculatorvalue('6')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button3">
+                        <div onclick="calculatorvalue('3')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button3">
+                        <div onclick="calculatorvalue('point')" id="calculatorbutton"></div>
+                    </div>
+
+                    <div style="margin-top: -287.2" id="button4">
+                        <div onclick="calculatorvalue('/')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button4">
+                        <div onclick="calculatorvalue('*')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button4">
+                        <div onclick="calculatorvalue('-')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button4">
+                        <div onclick="calculatorvalue('+')" id="calculatorbutton"></div>
+                    </div>
+                    <div id="button4">
+                        <div onclick="calculatorvalue('=')" id="calculatorbutton"></div>
+                    </div>
+
+                    <div onclick="calculatorvalue('0')" style='width: 110; height: 54; border-radius: 40px; background: rgba(0, 0, 0, 0); position: absolute; margin: -40 0 0 8' id="calculatorbutton"></div>
+                
+                    <p id="calculatordisplay">0</p>
+                </div>
+            </div>
+
+            <!-- MESAJLAR -->
+            <div id="messagebase">
+                <img style="margin: 10 0 0 186" src="image/general/black_status_hud.png" width="41.62" height="10">
+                <p style='margin: -11 0 0 18; color: black' id="upper_time">23:30</p>
+                <div id="message">
+                    <p id="message_text_main">Mesajlar</p>
+                    <img onclick="swipe('newmessage')" style="margin: -60 0 0 225" src="image/icon/newmessage.png" width="15" height="15">
+
+                    <div id="message_main_page_stek">
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">STG Developments</p>
+                            <p id="message_text_intro">Kalitenin adresi</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">Str4toX</p>
+                            <p id="message_text_intro">Bu mesajı alan güzellik selam <3 </p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">GENER4L</p>
+                            <p id="message_text_intro">Roger Sir</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">Roa RP</p>
+                            <p id="message_text_intro">Doğru Yerdesiniz...</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">Monarch</p>
+                            <p id="message_text_intro">BTW</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">Carment</p>
+                            <p id="message_text_intro">Jünyır Babaloper olmak istiyorumm</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">TT</p>
+                            <p id="message_text_intro">Bi tık ağır oldu bu sanki he</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">IMRGOLDI</p>
+                            <p id="message_text_intro">Zombie kaming sun</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">Keke Dayı</p>
+                            <p id="message_text_intro">Murat menengiçimi hazırla Bilo ile geliyoğ</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">Cengo Dayı</p>
+                            <p id="message_text_intro">Lannn Murat nerdein oğlum</p>
+                        </div>
+                        <div onclick="swipe('message')" id="message_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="35" height="35" style="margin:5 0 0 15">
+                            <img src="image/icon/arrow.png" width="1.9%" height="18%" style="margin:0 0 21 173">
+                            <p id="message_text_date">23:30</p>
+                            <p id="message_text_name">STG_PHONE</p>
+                            <p id="message_text_intro">STG Developments gururla sunar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: block" id="newmessage">
+                    <div id="newmessage_upper_box">
+                        <p id="newmessage_title_text">Yeni Mesaj Oluştur</p>
+                        <img class="back" onclick="swipe('newmessage_backup')" src="image/icon/cross_arrow.png" width="2.7%" height="19%" style="margin:-13 0 0 6.7">
+                    </div>
+    
+                    <div id="newmessage_main_page_stek">
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">STG Developments</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">Str4toX</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">GENER4L</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">Roa RP</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">Monarch</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">Carment</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TT</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">IMRGOLDI</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">Keke Dayı</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">Cengo Dayı</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">STG_PHONE</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                        <div onclick="swipe('new_message')" id="newmessage_main_page_stek2">
+                            <img src="image/icon/defaultprofile.png" width="23" height="23" style="margin:4 0 0 21">
+                            <img src="image/icon/arrow.png" width="2%" height="25.5%" style="margin:0 0 8.5 183">
+                            <p id="newmessage_text_name">TEST</p>
+                        </div>
+                    </div>
+                </div>
+
+            <div style="display: block;" id="message_show">
+                <div id="testsatt">
+
+                <img src="image/icon/defaultprofile.png" width="40" height="40" style="border-radius: 50%;margin:25 0 0 95">
+                <img onclick="swipe('message_backup_show')" src="image/icon/cross_arrow.png" width="8" height="12" style="margin:0 0 0 -120">
+                <p id="message_name">GENER4L</p>
+                <p id="message_text">Mesaj</p>
+                    <p style="top:-83;left:83" id="message_text">Bugün 20:29</p>
+
+                <div id="message_input">
+                    <div id="message_input_area">
+                    <img src="image/icon/message_up.png" width="20" height="20" style="margin:2 0 0 167">
+                    <img src="image/icon/message_camera_icon.png" width="25" height="18" style="position: relative;top:-18;left:-33">
+                    <input id="message_inp" style="margin:-30 0 0 80" type="text" name="field1" placeholder="Mesaj"/>
+                    <div id="message_hover"></div>
+
+                    
+                    </div>
+
+                    
+                </div>
+        </div>
+        <div id="message_box_area">
+            <div id="message_box_all"> 
+                <p id="message_inside">Development</p>
+                
+               <img id="message_box" src="image/2.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside">by</p>
+               <img id="message_box" src="image/2.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside">STG TEAM</p>
+               <img id="message_box" src="image/2.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside">Development</p>
+                
+               <img id="message_box" src="image/2.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside">by</p>
+               <img id="message_box" src="image/2.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside_other">STG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERESTG DEVELOPMENTS WAS HERE</p>
+               <img id="message_box_other" src="image/1.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside_other">by</p>
+               <img id="message_box_other" src="image/1.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside_other">by</p>
+               <img id="message_box_other" src="image/1.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside">STG asdasdasdasdasdasdasd</p>
+               <img id="message_box" src="image/2.png">
+            </div>
+            <div id="message_box_all"> 
+                <p id="message_inside">STG TEAM</p>
+               <img id="message_box" src="image/2.png">
+            </div>                    <div id="message_box_all"> 
+                <p id="message_inside">STG TEAM</p>
+               <img id="message_box" src="image/2.png">
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            <!-- TELEFON -->
+            <div style="display: none;" id="callbase">
+                <img style="margin: 10 0 0 186" src="image/general/black_status_hud.png" width="41.62" height="10">
+                <p style='margin: -11 0 0 18; color: black' id="upper_time">23:30</p>
+                <div id="call">
+                    <div id="fastcall">
+                        <p onclick="swipe('fastcall')" id="fastcall_text">Düzenle</p>
+                        <p id="fastcall_text_main">Hızlı Arama</p>
+                        <div id="fastcall_main_page_stek">
+                            <div id="fastcall_main_page_stek2">
+                                <div class="fastcall_hvr" id="fastcall_hvr">
+                                <img src="image/icon/defaultprofile.png" width="28" height="28" style="margin:5 0 0 15">
+                                <img src="image/icon/call_detail.png" width="10" height="10" style="margin:0 0 3 3">
+                                <p id="fastcall_text_name">STG Developments</p>
+                                <p id="fastcall_text_intro">Cep</p>
+                                <div  class="edit">
+                                <div id="fastcall_edit_area"></div>
+                                <div id="fastcall_line"></div>
+                            </div>
+                            </div>
+                            </div>
+                            <div id="fastcall_main_page_stek2">
+                                <div class="fastcall_hvr" id="fastcall_hvr">
+
+                                <img src="image/icon/defaultprofile.png" width="28" height="28" style="margin:5 0 0 15">
+                                <img src="image/icon/call_detail.png" width="10" height="10" style="margin:0 0 3 3">
+                                <p id="fastcall_text_name">STG Developments</p>
+                                <p id="fastcall_text_intro">Cep</p>
+
+                                <div class="edit">
+                                    <div id="fastcall_edit_area"></div>
+                                    <div id="fastcall_line"></div>
+                                </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="lastcall">
+                        <div id="lastcall_hvr">
+                            <div id="lastcall_selected"></div>
+
+                            <div onclick="lastcallhover('tümü')" id="lastcall_button_all">Tümü</div>
+                            <div onclick="lastcallhover('cevapsiz')" id="lastcall_button">Cevapsız</div>
+
+                        </div>
+                        <p id="lastcall_text_main">Son Aramalar</p>
+                        <div id="lastcall_main_page_stek">
+                            <div id="lastcall_main_page_stek2">
+                                <img src="image/icon/defaultprofile.png" width="28" height="28" style="margin:5 0 0 15">
+                                <img src="image/icon/call_detail.png" width="10" height="10" style="margin:0 0 3 3">
+                                <p id="lastcall_text_name">STG Developments</p>
+                                <p id="lastcall_text_intro">Cep</p>
+                            </div>
+                            <div id="lastcall_main_page_stek2" style="border-bottom: 0.1px solid #b7b7b9;">
+                                <img src="image/icon/defaultprofile.png" width="28" height="28" style="margin:5 0 0 15">
+                                <img src="image/icon/call_detail.png" width="10" height="10" style="margin:0 0 3 3">
+                                <p id="lastcall_text_name">Str4toX</p>
+                                <p id="lastcall_text_intro">Cep</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="call_gallery">
+                    <p id="call_gallery_text">Kişiler</p>
+                    <img onclick="swipe('newuser')" id="call_gallery_plus" src="image/icon/plus.png" width="14" height="14">
+                    <input id="call_gallery_search" type="text" onkeyup="Arama()" placeholder="Ara"/>
+
+                    <div onclick="swipe('profilesettings')" id="call_gallery_profile_stek">
+                        <img id="call_gallery_img" width="40" height="40" src="image/icon/twitter.png">
+                        <p id="call_gallery_txt">GENER4L Was Here</p>
+                        <p id="call_gallery_txt2">5252582</p>
+                    </div>
+                    
+                    <div id="call_gallery_all">
+                        <br>
+                        <p id="call_gallery_list_txt">A
+                            <div class="test" id="call_gallery_users"><a>Ahmet</a></div>
+                           <div class="test" id="call_gallery_users"><a>Ali</a></div>
+                           <div class="test" id="call_gallery_users"><a>Ayşe</a></div>
+                           <div class="test" id="call_gallery_users"><a>Arda</a></div>
+                        </p>
+                        <p id="call_gallery_list_txt">B
+
+                       <div class="test" id="call_gallery_users"><a>Besd</a></div>
+                       <div class="test" id="call_gallery_users"><a>bhasdasd</a></div>
+                       <div class="test" id="call_gallery_users"><a>bjkaksdk</a></div>
+                       </p>
+                    </div>
+                    <div id="call_keyboard">
+                        <img onclick="keyboard('rmv')" id="call_keyboard_delete" src="image/icon/delete.png" width="35" height="25">
+
+                        <img id="call_keyboard_img" src="image/general/test.png" width="241">
+
+                        <div id="call_keyboard_stek">
+                            <div style="margin-top: -392" id="call_keyboard_button1">
+                                <div onclick="keyboard('1')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button1">
+                                <div onclick="keyboard('4')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button1">
+                                <div onclick="keyboard('7')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button1">
+                                <div onclick="keyboard('*')" id="calculatorbutton"></div>
+                            </div>
+        
+                            <div style="margin-top: -225" id="call_keyboard_button2">
+                                <div onclick="keyboard('2')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button2">
+                                <div onclick="keyboard('5')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button2">
+                                <div onclick="keyboard('8')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button2">
+                                <div onclick="keyboard('0')" id="calculatorbutton"></div>
+                            </div>
+
+                            <div id="call_keyboard_button3">
+                                <div onclick="keyboard('3')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button3">
+                                <div onclick="keyboard('6')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button3">
+                                <div onclick="keyboard('9')" id="calculatorbutton"></div>
+                            </div>
+                            <div id="call_keyboard_button3">
+                                <div onclick="keyboard('point')" id="calculatorbutton"></div>
+                            </div>
+        
+                        
+                            <p id="call_keyboard_val"></p>
+                        </div>
+                    </div>
+                    <div id="call_newuser">
+                        <div  onclick="swipe('newuser_cancel')" id="call_newuser_cancel">Vazgeç</div>
+                        <div id="call_newuser_text">Yeni Kişi</div>
+                        <div id="call_newuser_finish">Bitti</div>
+                            <div id="call_newuser_fotoarea">
+                            <img src="image/icon/defaultprofile.png" width="100%" height="100%">
+                            </div>
+                            <div id="call_newuser_inputarea">
+                            <div style="border-top: 0.7px solid #b7b7b9" class="call_newuser_stek2">
+                                <p class="call_newuser_text">Ad</p>
+                                <input id="newuser_a" style="color: black; margin:-30 0 0 80" type="text" name="field1" placeholder="Adınız"/>
+                            </div>
+                            <div style='border-bottom: 0.7px solid #b7b7b9' class="call_newuser_stek2">
+                                <p class="profileedit2_text">Soyad</p>
+                                <input id="newuser_s" style="color: black; margin:-30 0 0 80" type="text" name="field1" placeholder="Soyadınız"/>
+                            </div>
+                            <div style='border-bottom: 0.7px solid #b7b7b9' class="call_newuser_stek2">
+                                <p class="profileedit2_text">Numara</p>
+                                <input id="newuser_s" style="color: black; margin:-30 0 0 80" type="text" name="field1" placeholder="Numara"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                <div id="call_under_hud">
+                    <img onclick="swipe('favorite_call')"  id="favorite_call"   onmouseover="hover('favorite_call')"  onmouseout="hover('favorite_call_close')"  style="margin: 11 0 0 70" width="20" height="20" src="image/icon/favoritecall.png">
+                    <img onclick="swipe('last_call')"      id="last_call"       onmouseover="hover('last_call')"      onmouseout="hover('last_call_close')"      style="margin: -15 0 0 10" width="20" height="20" src="image/icon/lastcall.png">
+                    <img onclick="swipe('contact_call')"   id="contact_call"    onmouseover="hover('contact_call')"   onmouseout="hover('contact_call_close')"   style="margin: -15 0 0 10" width="20" height="20" src="image/icon/contact.png">
+                    <img onclick="swipe('keypad_call')"    id="keypad_call"     onmouseover="hover('keypad_call')"    onmouseout="hover('keypad_call_close')"    style="margin: -15 0 0 10" width="20" height="20" src="image/icon/keypad.png">
+                </div>
+            </div>
+
+            <!-- GALERI -->
+            <div id="gallerybase">
+                <div id="gallery">
+                    <div id="gallery_upper_box"></div>
+                    <p id="gallery_text_main">Fotoğraflar</p>
+
+                    <img style="margin: -100 0 0 201; position: absolute" src="image/general/white_status_hud.png" width="41.62" height="10">
+                    <p style='margin: -100 0 0 34; position: absolute; color: white' id="upper_time">23:30</p>
+                    <div id="gallery_stek">
+                        <img id="gallery_photo" src="image/general/example_foto.png" style='object-fit: cover' width="80.7" height="80.7">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TWITTER -->
+            <div id="twitterbase">
+                <div id="twitter">
+                        <div id="twitter_main_page_stek">
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2">
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">stg_phone kaming sunn</p>
+                                <div id="twitter_send_photo">
+                                    <img id='twitter_send_photo2' src="image/general/test_photo.png" style="object-fit: cover; border-radius: 8px;"  width= "100%" height= "100%">
+                                </div>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                            <div id="twitter_main_page_stek2" style='height: 57'>
+                                <img src="image/icon/stock_logo.png" width="30" height="30" style="object-fit: cover; margin:5 0 0 10; border: 0.1px solid #253a7970; border-radius: 50%;">
+                                <p id="twitter_text_name">STG Developments @stgdevelopments	• 18 sa</p>
+                                <p id="twitter_text_intro">Karşim 2 ayda yaptık 1 yılda değil.</p>
+                            </div>
+                        </div>
+
+                        <img id="tw_upperlogo" onmouseover="hover('tw_upperlogo')" onmouseout="hover('tw_upperlogo_close')" style="margin: -475 0 470 125; position: absolute" width="20.5" height="16.75" src="image/icon/tw_upperlogo_blue.png">
+                        <img id="tw_newtweet" onmouseover="hover('tw_newtweet')" onmouseout="hover('tw_newtweet_close')" style="margin: -58 0 25 198; position: absolute" width="50.6" height="50" src="image/icon/tw_newtweet_blue.png">
+                        <div id="tw_upperbox_main"></div>
+                    <div id="tw_profile_page">
+                        <img src="image/icon/roacell.png" width="50" height="50" style="object-fit: cover; margin:5 0 0 280; border: 2px solid white; border-radius: 50%;">
+                        <div id="tw_upperbox_profile"></div>
+                        <p id="twitter_profile_name">STG Developments</p>
+                        <p id="twitter_nickname">@stgdevelopments</p>
+                        <img src="image/icon/tw_birthday.png" width="18" height="18" style="object-fit: cover; margin:-7 0 0 280;">
+                        <p id="twitter_nickname" style="margin:-17.5 0 0 297; border: 2px solid white; border-radius: 50%; font-size: 10px;">Doğum Tarihi: 1 Ocak 2021</p>
+                        <div onclick="swipe('tw_profile_tweets')" id="tw_profile_box">
+                            <p onclick="swipe('tw_profile_tweets')" id="tw_profile_box_text">Tweetler</p>
+                        </div>
+                        <div onclick="swipe('tw_profile_likes')" id="tw_profile_box2">
+                            <p onclick="swipe('tw_profile_likes')" id="tw_profile_box_text2">Beğeni</p>
+                        </div>
+                        <div id="tw_profile_underbox">
+
+                        </div>
+                    </div>
+                    <div id="tw_settings_page">
+
+                    </div>
+                </div>
+                <div id="twitter_under_hud">
+                    <img onclick="swipe('tw_main')"        id="tw_main"         onmouseover="hover('tw_main')"        onmouseout="hover('tw_main_close')"  style="margin: 8 0 0 65" width="20" height="20" src="image/icon/tw_home_gray.png">
+                    <img onclick="swipe('tw_profile')"     id="tw_profile"      onmouseover="hover('tw_profile')"     onmouseout="hover('tw_profile_close')"      style="margin: -15 0 0 20" width="20" height="20" src="image/icon/contact.png">
+                    <img onclick="swipe('tw_settings')"    id="tw_settings"     onmouseover="hover('tw_settings')"    onmouseout="hover('tw_settings_close')"   style="margin: -15 0 0 20" width="20" height="20" src="image/icon/tw_settings_gray.png">                
+                </div>
+            </div>
+
+            <!-- YOUTUBE -->
+            <div style="display: none;" id="youtubebase">
+                <div  id="ytkalip">
+                    <div  id="yt_stek">
+                        <div onclick="swipe('yt')" id="yt_home">
+                            <img id="yt_icon_home" style="margin:10 0 0 40" src="image/icon/yt_home_red.png" width="23" height="23">
+                        </div>
+                        <div onclick="swipe('yt2')" id="yt_search">
+                            <img id="yt_icon_search" style="margin:10 0 0 50" src="image/icon/yt_search_gri.png" width="23  " height="23">
+                        </div>
+                    </div>
+
+
+                    <div id="yt_stek2">
+                    <img style="margin:40 0 0 10" src="image/icon/yt_icon.png" width="75" height="18.75">
+                </div>
+                <div id="yt_stek3">
+                    <li style="margin:50 0 0 0">  <a style="width:10px" data-fancybox href="https://www.youtube.com/watch?v=J1UWh5tVuww"><img style="width:100%;height:140px;margin:-26 0 0 0" src="http://img.youtube.com/vi/J1UWh5tVuww/maxresdefault.jpg" /></a><p style="position: relative;top:-90;margin:0 0 0 103;font-family: SF UI Display;width:120;color:rgba(255, 255, 255, 0)"> .</p></li>
+                    <img style="width: 30; height: 30;border-radius: 50%;margin:-15 0 0 5" src="https://yt3.ggpht.com/ytc/AAUvwnhzEhBhadMJpo3PUYadWnIpeJ1OWrZ5qgb4RBHDCg=s88-c-k-c0x00ffffff-no-rj">
+                    <p style="font-family: SF UI Display;font-size: 13px;width: 80%; margin:-30 0 0 40">100 bebek bir odaya kapatılıp büyütülürse hangi dili konuşurlar?</p>
+                    
+                    <li style="margin:50 0 0 0">  <a style="width:10px" data-fancybox href="https://www.youtube.com/watch?v=NexDx-F_3mo"><img style="width:100%;height:140px;margin:-26 0 0 0" src="http://img.youtube.com/vi/NexDx-F_3mo/maxresdefault.jpg" /></a><p style="position: relative;top:-90;margin:0 0 0 103;font-family: SF UI Display;width:120;color:rgba(255, 255, 255, 0)"> .</p></li>
+                    <img style="width: 30; height: 30;border-radius: 50%;margin:-15 0 0 5" src="https://yt3.ggpht.com/ytc/AAUvwni5nD5k7qz8zyR21__XN0dxFugeZbWJJA4ULiz5Ug=s88-c-k-c0x00ffffff-no-rj">
+                    <p style="font-family: SF UI Display;font-size: 13px;width: 80%; margin:-30 0 0 40">1 Dolar 1 TL’ye eşit olsaydı Türkiye’de Ne Olurdu?
+                    </p>
+                
+                    <li style="margin:50 0 0 0">  <a style="width:10px" data-fancybox href="https://www.youtube.com/watch?v=J1UWh5tVuww"><img style="width:100%;height:140px;margin:-26 0 0 0" src="http://img.youtube.com/vi/J1UWh5tVuww/maxresdefault.jpg" /></a><p style="position: relative;top:-90;margin:0 0 0 103;font-family: SF UI Display;width:120;color:rgba(255, 255, 255, 0)"> .</p></li>
+                    <img style="width: 30; height: 30;border-radius: 50%;margin:-15 0 0 5" src="https://yt3.ggpht.com/ytc/AAUvwnhzEhBhadMJpo3PUYadWnIpeJ1OWrZ5qgb4RBHDCg=s88-c-k-c0x00ffffff-no-rj">
+                    <p style="font-family: SF UI Display;font-size: 13px;width: 80%; margin:-30 0 0 40">100 bebek bir odaya kapatılıp büyütülürse hangi dili konuşurlar?</p>
+                    
+                    <li style="margin:50 0 0 0">  <a style="width:10px" data-fancybox href="https://www.youtube.com/watch?v=NexDx-F_3mo"><img style="width:100%;height:140px;margin:-26 0 0 0" src="http://img.youtube.com/vi/NexDx-F_3mo/maxresdefault.jpg" /></a><p style="position: relative;top:-90;margin:0 0 0 103;font-family: SF UI Display;width:120;color:rgba(255, 255, 255, 0)"> .</p></li>
+                    <img style="width: 30; height: 30;border-radius: 50%;margin:-15 0 0 5" src="https://yt3.ggpht.com/ytc/AAUvwni5nD5k7qz8zyR21__XN0dxFugeZbWJJA4ULiz5Ug=s88-c-k-c0x00ffffff-no-rj">
+                    <p style="font-family: SF UI Display;font-size: 13px;width: 80%; margin:-30 0 0 40">1 Dolar 1 TL’ye eşit olsaydı Türkiye’de Ne Olurdu?
+                    </p>
+                </div>
+                        <div style="display: none;" id="yt_searchstek">
+                            <form id="yt-form">
+
+                            <input id="yt_input" style="margin:30 0 0 15;width: 100px;border: none;background: transparent; outline: 0; font:normal 15px segoe ui;height: 45px;color:rgba(80, 78, 78, 0.979);font-family: SF UI Display;" type="text" name="field1" placeholder="Youtube'de Ara"/>
+                            <img value="Submit" style="margin:0 0 0 90" src="image/icon/yt_search.png" width="17" height="17">
+                             <input style="width:20; height: 20;margin:-35 0 0 208;opacity: 0;" type="submit" value="Submit">
+                            </form>
+
+                            <div id="videoListContainer"></div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div onclick="openphone()" onmouseover="hover('back')" onmouseout="hover('back_close')" id="back"></div>
+        <img id="frame_hud" src="image/general/frame_hud.png">
+    </body>
+</html>

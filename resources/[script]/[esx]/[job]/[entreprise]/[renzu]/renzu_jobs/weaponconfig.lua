@@ -1,0 +1,22 @@
+
+Weapons = {}
+
+-- ADD WEAPON PERMMISION HERE
+-- THIS IS ONLY BEING USE FOR WEAPON ARMORY FEATURE so EACH RANK CAN HAVE A WEAPON CATEGORY
+
+
+--- POLICE JOB PERMMISION
+--- POLICE JOB PERMMISION
+--- POLICE JOB PERMMISION
+
+
+
+Weapons['brinks'] = {
+	['WEAPON_PISTOL'] = {	mingrade = 0},
+
+	['WEAPON_SMG'] = {	mingrade = 1},
+
+	['WEAPON_PUMPSHOTGUN'] = {	mingrade = 3},
+
+    ['WEAPON_FLARE'] = { mingrade = 0},
+}
