@@ -34,7 +34,7 @@ local directions = { [0] = 'N', [45] = 'NW', [90] = 'W', [135] = 'SW', [180] = '
 local ped = nil
 local vehicle = nil
 
-local pos = nil
+local pos = {x = 0, y = 0, z = 0}
 local var1, var2 = nil, nil
 local current_zone = nil
 
