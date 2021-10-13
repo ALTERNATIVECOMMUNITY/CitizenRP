@@ -70,7 +70,7 @@ Citizen.CreateThread(function()
 end)
 
 	Citizen.CreateThread(function()
-
+	while true do
 	Citizen.Wait(1)
 		if (checkForVehicle == false) then
 			if GetStreetNameFromHashKey(var1) and GetNameOfZone(pos.x, pos.y, pos.z) then
