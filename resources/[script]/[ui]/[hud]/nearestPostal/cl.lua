@@ -21,10 +21,10 @@ Citizen.CreateThread(
 			end
 
 			--setting the nearest
-			-- if ni ~= -1 then
-			-- 	local nd = math.sqrt(ndm) -- nearest distance
-			-- 	nearest = {i = ni, d = nd}
-			-- end
+			if ni ~= -1 then
+				local nd = math.sqrt(ndm) -- nearest distance
+				nearest = {i = ni, d = nd}
+			end
 
 			-- if blip exists
 			if pBlip then
@@ -46,7 +46,7 @@ Citizen.CreateThread(
 	function()
 		while true do
 			if nearest and not IsHudHidden() then
-				local text = config.text.format:format(postals[nearest.i].code)
+				local text = config.text.format:format(postals[nearest.i].code, nearest.d)
 				SetTextScale(0.42, 0.42)
 				SetTextFont(4)
 				SetTextOutline()
