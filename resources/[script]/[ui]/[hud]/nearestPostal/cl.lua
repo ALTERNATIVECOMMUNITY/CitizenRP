@@ -46,7 +46,7 @@ Citizen.CreateThread(
 	function()
 		while true do
 			if nearest and not IsHudHidden() then
-				local text = config.text.format:format(postals[nearest.i].code, nearest.d)
+				local text = config.text.format:format(postals[nearest.i].code)
 				SetTextScale(0.42, 0.42)
 				SetTextFont(4)
 				SetTextOutline()
