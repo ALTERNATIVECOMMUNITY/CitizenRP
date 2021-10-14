@@ -589,11 +589,11 @@ config.Jobs = {
                 -- event = 'renzu_jobs:opengarage',
             },
             ['duty'] = {
-                -- grade = 0,
-                -- offdutyname = 'offmechanic',
-                -- coord = vector3(-207.6012878418,-1337.5262451172,34.894355773926),
-                -- label = 'On/Off Duty',
-                -- event = 'renzu_jobs:duty',
+                grade = 0,
+                offdutyname = 'offmechanic',
+                coord = vector3(-207.6012878418,-1337.5262451172,-3004.894355773926),
+                label = 'On/Off Duty',
+                event = 'renzu_jobs:duty',
             },
             ['grade'] = { -- grade access , pay attention to the perms, grade int is the index number of array
                 [0] = { -- example grade = 0, ex. cadet? lowest rank, grade can be found in job_grades database table

@@ -588,31 +588,31 @@ Citizen.CreateThread(function()
                 end
             end
             local v = shop
-            if v['duty'] and #(GetEntityCoords(PlayerPedId()) - v['duty'].coord) < 7 and job == k2 or v['duty'] and #(GetEntityCoords(PlayerPedId()) - v['duty'].coord) < 7 and job == v['duty'].offdutyname then
-                DrawMarkerInput(v['duty'].coord,v['duty'].label,v['duty'].event,false,'duty',k2)
-                if config.usePopui then
-                    local dist = #(coord - v['duty'].coord)
-                    if dist < 3 then
-                        local table = {
-                            ['key'] = 'E', -- key
-                            ['event'] = 'renzu_jobs:duty',
-                            ['title'] = 'Appuyez sur [E] Ouvrir '..v['duty'].label,
-                            ['server_event'] = false, -- server event or client
-                            ['unpack_arg'] = true, -- send args as unpack 1,2,3,4 order
-                            ['fa'] = '<i class="fal fa-medal"></i>',
-                            ['custom_arg'] = {'shop',k2}, -- example: {1,2,3,4}
-                        }
-                        TriggerEvent('renzu_popui:drawtextuiwithinput',table)
-                        cancel = false
-                        while dist < 3 and not cancel do
-                            coord = GetEntityCoords(PlayerPedId())
-                            dist = #(coord - v['duty'].coord)
-                            Wait(500)
-                        end
-                        TriggerEvent('renzu_popui:closeui')
-                    end
-                end
-            end
+            -- if v['duty'] and #(GetEntityCoords(PlayerPedId()) - v['duty'].coord) < 7 and job == k2 or v['duty'] and #(GetEntityCoords(PlayerPedId()) - v['duty'].coord) < 7 and job == v['duty'].offdutyname then
+            --     DrawMarkerInput(v['duty'].coord,v['duty'].label,v['duty'].event,false,'duty',k2)
+            --     if config.usePopui then
+            --         local dist = #(coord - v['duty'].coord)
+            --         if dist < 3 then
+            --             local table = {
+            --                 ['key'] = 'E', -- key
+            --                 ['event'] = 'renzu_jobs:duty',
+            --                 ['title'] = 'Appuyez sur [E] Ouvrir '..v['duty'].label,
+            --                 ['server_event'] = false, -- server event or client
+            --                 ['unpack_arg'] = true, -- send args as unpack 1,2,3,4 order
+            --                 ['fa'] = '<i class="fal fa-medal"></i>',
+            --                 ['custom_arg'] = {'shop',k2}, -- example: {1,2,3,4}
+            --             }
+            --             TriggerEvent('renzu_popui:drawtextuiwithinput',table)
+            --             cancel = false
+            --             while dist < 3 and not cancel do
+            --                 coord = GetEntityCoords(PlayerPedId())
+            --                 dist = #(coord - v['duty'].coord)
+            --                 Wait(500)
+            --             end
+            --             TriggerEvent('renzu_popui:closeui')
+            --         end
+            --     end
+            -- end
         end
         Wait(1000)
     end
