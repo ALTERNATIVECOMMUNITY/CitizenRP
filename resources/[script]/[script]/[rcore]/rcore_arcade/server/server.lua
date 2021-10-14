@@ -18,16 +18,6 @@ AddEventHandler("rcore_arcade:buyTicket", function(ticket)
 		end
 	end)
 
-
-
-
-
-
-
-
-
-
-
         else
             TriggerClientEvent("rcore_arcade:nomoney", source);
         end

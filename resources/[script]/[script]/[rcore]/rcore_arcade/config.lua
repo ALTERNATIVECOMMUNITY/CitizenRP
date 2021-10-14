@@ -148,7 +148,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 31,
-        position = vector3(-1080.11, -245.35, 44.5),
+        position = vector3(323.78909301758,-920.03930664063,29.251441955566),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 255, g = 255, b = 255, a = 125 },
@@ -157,12 +157,82 @@ Config.computerList = {
     },
     {
         -- if false player dont need a ticket to play on this computer.
-        isInGamingHouse = false,
+        isInGamingHouse = true,
         computerType = Config.RetroMachine,
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 31,
-        position = vector3(328.01571655273,-904.29772949219,29.251453399658),
+        position = vector3(323.76531982422,-916.52301025391,29.251441955566),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 255, g = 255, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.RetroMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 31,
+        position = vector3(323.75259399414,-915.64868164063,29.251441955566),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 255, g = 255, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.RetroMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 31,
+        position = vector3(323.71356201172,-914.68109130859,29.251441955566),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 255, g = 255, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.RetroMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 31,
+        position = vector3(325.00323486328,-913.04223632813,29.251441955566),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 255, g = 255, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.RetroMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 31,
+        position = vector3(325.96975708008,-912.96057128906,29.251441955566),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 255, g = 255, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.RetroMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 31,
+        position = vector3(326.60836791992,-913.04235839844,29.251441955566),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 255, g = 255, b = 255, a = 125 },
@@ -177,7 +247,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1063.7, -246.7, 44.5),
+        position = vector3(325.3674621582,-904.02825927734,28.781744003296),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
