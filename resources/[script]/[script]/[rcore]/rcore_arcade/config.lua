@@ -261,7 +261,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1060.2, -244.85, 44.5),
+        position = vector3(327.07556152344,-903.90625,28.781744003296),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
@@ -275,7 +275,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1055.7, -246.12, 44.5),
+        position = vector3(328.61657714844,-903.87982177734,28.834445953369),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
@@ -289,7 +289,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1053.96, -241.8, 44.5),
+        position = vector3(330.38046264648,-903.90875244141,28.828861236572),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
@@ -303,7 +303,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1056.14, -243.42, 44.5),
+        position = vector3(330.38046264648,-903.90875244141,28.828861236572),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
@@ -317,7 +317,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1050.76, -240.9, 44.5),
+        position = vector3(337.51898193359,-902.66180419922,28.781744003296),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
@@ -331,7 +331,7 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1050.03, -243.51, 44.5),
+        position = vector3(339.21435546875,-902.66412353516,28.781744003296),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
@@ -345,7 +345,35 @@ Config.computerList = {
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 42,
-        position = vector3(-1062.44, -248.98, 44.5),
+        position = vector3(340.97869873047,-902.64678955078,28.753185272217),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 125, g = 125, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.GamingMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 42,
+        position = vector3(342.62887573242,-902.67303466797,28.753185272217),
+        markerOptions = {
+            scale = { x = 0.5, y = 0.5, z = 0.5 },
+            color = { r = 125, g = 125, b = 255, a = 125 },
+            rotate = true,
+        },
+    },
+    {
+        -- if false player dont need a ticket to play on this computer.
+        isInGamingHouse = true,
+        computerType = Config.GamingMachine,
+        computerGPU = Config.GPUList[2],
+        computerCPU = Config.CPUList[2],
+        markerType = 42,
+        position = vector3(344.57131958008,-902.78057861328,28.753877639771),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 125, g = 125, b = 255, a = 125 },
