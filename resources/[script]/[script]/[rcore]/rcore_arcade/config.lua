@@ -11,8 +11,8 @@ Config.keyToOpenComputer = "E"
 Config.Arcade = {
     {
         NPC = {
-            position = vector3(336.39706420898,-907.63861083984,29.256311416626),
-            heading = 205.11,
+            position = vector3(336.39706420898,-907.63861083984,28.256311416626),
+            heading = 343.65,
             model = "ig_claypain",
         },
         blip = {
@@ -25,7 +25,7 @@ Config.Arcade = {
             enable = true,
         },
         marker = {
-            markerPosition = vector3(336.36053466797,-906.1123046875,29.251432418823),
+            markerPosition = vector3(336.36053466797,-906.1123046875,28.251432418823),
             markerType = 23,
             options = {
                 scale = { x = 1.0, y = 1.0, z = 1.0 },
