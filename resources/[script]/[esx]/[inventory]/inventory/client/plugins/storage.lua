@@ -25,6 +25,35 @@ AddEventHandler('inventory:openredline', function ()
 
 end)
 
+
+
+RegisterNetEvent('inventory:openeglisebossInventory')
+AddEventHandler('inventory:openeglisebossInventory', function ()
+
+    OpenInventory({
+    type = 'bossEglise',
+    title = 'Casier du pretre',
+    id = 'bossEglise',
+    weight = 100,
+    save = true
+ })
+
+end)
+
+RegisterNetEvent('inventory:openeglise')
+AddEventHandler('inventory:openeglise', function ()
+
+    OpenInventory({
+    type = 'eglise',
+    title = 'Eglise',
+    id = 'eglise',
+    weight = 100,
+    save = true
+ })
+
+end)
+
+
 RegisterNetEvent('inventory:opensuspectlspd')
 AddEventHandler('inventory:opensuspectlspd', function ()
 
