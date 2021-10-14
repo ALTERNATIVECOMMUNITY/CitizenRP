@@ -40,12 +40,12 @@ Config.Licenses = {
 
 Config.GiveBlack = true -- give black money? if disabled it'll give regular cash.
 
-Config.EnableMapsBlimps = true -- Enables the blimps on the map.
+Config.EnableMapsBlimps = false -- Enables the blimps on the map.
 
 Config.CircleZones = {
 	--Weed
-	WeedField = {coords = vector3(2224.64, 5577.03, 53.85), blimpcoords = vector3(2224.64, 5577.03, 53.85), name = _U('blip_weedfield'), color = 25, sprite = 496, radius = 0, enabled = true},
-	WeedProcessing = {coords = vector3(-1127.86, 2708.03, 18.8), blimpcoords = vector3(-1127.86, 2708.03, 18.8), name = _U('blip_weedprocessing'), color = 25, sprite = 496, radius = 0.0, enabled = true},
+	WeedField = {coords = vector3(2224.64, 5577.03, 53.85), blimpcoords = vector3(2224.64, 5577.03, 53.85)},
+	WeedProcessing = {coords = vector3(-1127.86, 2708.03, 18.8), blimpcoords = vector3(-1127.86, 2708.03, 18.8)},
 
 	--meth
 	--MethProcessing = {coords = vector3(1007.27, -3197.93, -38.99), blimpcoords = vector3(1454.78, -1651.42, 66.99), name = _U('blip_methprocessing'), color = 5, sprite = 51, radius = 0.0, enabled = true},
@@ -58,8 +58,8 @@ Config.CircleZones = {
 --	ChemicalsConvertionMenu = {coords = vector3(3718.8, 4533.45, 21.67), blimpcoords = vector3(3718.8, 4533.45, 21.67), name = _U('blip_ChemicalsProcessing'), color = 3, sprite = 499, radius = 0.0, enabled = true},
 
 	--Coke
-	CokeField = {coords = vector3(-310.43, 2496.34, 76.60), blimpcoords = vector3(-310.43, 2496.34, 76.60), name = _U('blip_CokeFarm'), color = 4, sprite = 501, radius = 0.0, enabled = true},
-	CokeProcessing = {coords = vector3(143.21379089355,-1656.1608886719,29.488094329834), blimpcoords = vector3(143.66, -1656.21, 29.33), name = _U('blip_Cokeprocessing'),color = 4, sprite = 501, radius = 0.0, enabled = true},
+	CokeField = {coords = vector3(-310.43, 2496.34, 76.60), blimpcoords = vector3(-310.43, 2496.34, 76.60), name = _U('blip_CokeFarm')},
+	CokeProcessing = {coords = vector3(143.21379089355,-1656.1608886719,29.488094329834), blimpcoords = vector3(143.66, -1656.21, 29.33)},
 
 	--LSD
 	--lsdProcessing = {coords = vector3(91.26, 3749.31, 40.77), blimpcoords = vector3(91.26, 3749.31, 40.77), name = _U('blip_lsdprocessing'),color = 12, sprite = 364, radius = 0.0, enabled = true},
@@ -70,10 +70,10 @@ Config.CircleZones = {
 --	HeroinProcessing = {coords = vector3(-62.15, 6391.40, 31.49), blimpcoords = vector3(-62.15, 6391.40, 31.49), name = _U('blip_heroinprocessing'), color = 7, sprite = 497, radius = 0.0, enabled = true},
 
 	--License
-	LicenseShop = {coords = vector3(707.17, -962.5, 30.4), blimpcoords = vector3(707.17, -962.5, 30.4), name = _U('blip_licenseshop'),color = 9, sprite = 498, radius = 0.0, enabled = true},
+	LicenseShop = {coords = vector3(707.17, -962.5, 30.4), blimpcoords = vector3(707.17, -962.5, 30.4), name = _U('blip_licenseshop')},
 
 	--DrugDealer
-	DrugDealer = {coords = vector3(-1172.02, -1571.98, 4.66), blimpcoords = vector3(-1172.02, -1571.98, 4.66), name = _U('blip_drugdealer'), color = 6, sprite = 378, radius = 0.0, enabled = true},
+	DrugDealer = {coords = vector3(-1172.02, -1571.98, 4.66), blimpcoords = vector3(-1172.02, -1571.98, 4.66), name = _U('blip_drugdealer')},
 
 	--MoneyWash
 --	MoneyWash = {coords = vector3(1119.87, -3195.44, -39.40), blimpcoords = vector3(48.83, 6305.34, 31.36), name = _U('blip_moneywash'), color = 1, sprite = 500, radius = 0.0, enabled = true},

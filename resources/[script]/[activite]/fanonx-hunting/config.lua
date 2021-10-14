@@ -1,7 +1,7 @@
 Config = {}
 
 -- [GENERAL]:
-Config.EnableFootprints     = true
+Config.EnableFootprints     = false
 Config.PNearAnimalToEscape  = 40      -- if the distance between a player and the animal is less than this value, it will run away (not for native animals)
 
 -- [HARVESTING]:
@@ -19,7 +19,7 @@ Config.SpecialProb        = 96        -- probability, example: the script genera
 
 -- [BAIT]:
 Config.EnableBait           = true
-Config.BlipOnBaitAnimal     = true
+Config.BlipOnBaitAnimal     = false
 Config.BaitPlacingTime      = 15000     -- milliseconds
 Config.BaitItemName         = "animal_bait"
 Config.BaitAnimals          = {"a_c_deer", "a_c_boar", "a_c_mtlion", "a_c_coyote"}  -- animal that can spawn when placing a bait (need to be also in Config.Animals)
@@ -97,7 +97,7 @@ Config.MeatCost = 20
 
 
 -- [BLIPS]:
-Config.BlipOnEntity = true  -- if not using native animals
+Config.BlipOnEntity = false  -- if not using native animals
 Config.Blips = {
     {coords = vector3(1225.43, -3246.84, 4.55), name = "Zone de vente de chasse", sprite = 442, colour = 27},
     {coords = vector3(-1133.44, 4605.55, 144.96), name = "Chasse", sprite = 161, colour = 27},
