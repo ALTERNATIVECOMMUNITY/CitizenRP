@@ -36,6 +36,9 @@ $(function() {
       else if(event.data.typ == "lawyer") {
         document.getElementById('showimg').src = "images/justice.png"
       }
+      else if(event.data.typ == "hunting") {
+        document.getElementById('showimg').src = "images/hunting.png"
+      }
     }
 
   if (event.data.type == "open") {
@@ -48,7 +51,7 @@ $(function() {
       document.getElementById('dollar').style.display = "none"
     }
     document.getElementById('walletimg').src = "images/"+event.data.color+".png"
-    
+
     document.getElementById('id_name').innerHTML = event.data.fullname
     document.getElementById('id_date').innerHTML = event.data.dateofbirth
     document.getElementById('id_sex').innerHTML = event.data.sex
@@ -182,7 +185,7 @@ if (v == "job-license") {
   job_status = true
   document.getElementById('job_info').style.display = "block"
   document.getElementById('show').style.display = "block"
- 
+
   show = "job"
 
 document.getElementById('job-license').style.top = "15%"
