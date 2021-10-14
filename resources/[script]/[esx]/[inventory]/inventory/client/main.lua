@@ -5,11 +5,11 @@ hotbarLock = false
 weaponEquiped = nil
 weaponLock = false
 
-CreateThread(function() 
-    while ESX == nil do  
+CreateThread(function()
+    while ESX == nil do
         TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
         Wait(1)
-    end 
+    end
 end)
 
 CreateThread(function()
@@ -37,7 +37,7 @@ if Config.Hotbar then
                 DisablePlayerFiring(PlayerPedId(), true)
             end
         end
-    end)     
+    end)
 end
 
 if Config.Hotbar then
@@ -55,7 +55,7 @@ if Config.Hotbar then
                 end
             end
         end
-    end) 
+    end)
 end
 
 RegisterNetEvent('inventory:refresh', function()
@@ -65,7 +65,7 @@ RegisterNetEvent('inventory:refresh', function()
     end
 end)
 
-RegisterNetEvent('inventory:refreshDrops', function(nDrops) 
+RegisterNetEvent('inventory:refreshDrops', function(nDrops)
     Drops = nDrops
 end)
 
@@ -112,14 +112,14 @@ RegisterNUICallback('UseItem', function(data)
             SendNUIMessage({
                 action = 'close',
                 invName = GetCurrentResourceName()
-            })    
+            })
             break
         end
     end
 
     TriggerServerEvent('esx:useItem', data.item.name)
     Wait(150)
-    TriggerEvent("inventory:refresh") 
+    TriggerEvent("inventory:refresh")
 end)
 
 RegisterNUICallback('GiveItem', function(data)
@@ -130,37 +130,37 @@ RegisterNUICallback('GiveItem', function(data)
         if data.item.type == 'item_account' then
             if data.item.name == 'cash' then
                 if not Config.PlayerWeight then
-                    TriggerServerEvent("esx:giveInventoryItem", data.src, 'item_money', 'cash', tonumber(data.count)) 
-                else 
-                    TriggerServerEvent("esx:giveInventoryItem", data.src, data.item.type, 'money', tonumber(data.count)) 
+                    TriggerServerEvent("esx:giveInventoryItem", data.src, 'item_money', 'cash', tonumber(data.count))
+                else
+                    TriggerServerEvent("esx:giveInventoryItem", data.src, data.item.type, 'money', tonumber(data.count))
                 end
-            else 
-                TriggerServerEvent("esx:giveInventoryItem", data.src, data.item.type, data.item.name, tonumber(data.count)) 
+            else
+                TriggerServerEvent("esx:giveInventoryItem", data.src, data.item.type, data.item.name, tonumber(data.count))
             end
         else
-            TriggerServerEvent("esx:giveInventoryItem", data.src, data.item.type, data.item.name, tonumber(data.count)) 
+            TriggerServerEvent("esx:giveInventoryItem", data.src, data.item.type, data.item.name, tonumber(data.count))
         end
-    
+
         Wait(150)
-        TriggerEvent("inventory:refresh") 
+        TriggerEvent("inventory:refresh")
     end
 end)
 
 RegisterNUICallback('RemoveItem', function(data, cb)
-    if IsPedInAnyVehicle(PlayerPedId(), true) then 
+    if IsPedInAnyVehicle(PlayerPedId(), true) then
         Wait(50)
         cb(200)
-        return 
+        return
     end
 
     if data.item.type == 'item_weapon' then
         if weaponEquiped then
             if weaponEquiped.name == data.item.name then
-                weaponEquiped = nil 
+                weaponEquiped = nil
             end
         end
     end
-    
+
     for k,v in pairs(Drops) do
         local distance = GetDistanceBetweenCoords(v.coords, GetEntityCoords(PlayerPedId()), true)
         if distance < 2.0 then
@@ -169,7 +169,7 @@ RegisterNUICallback('RemoveItem', function(data, cb)
             cb(200)
             return
         end
-    end 
+    end
 
     TriggerServerEvent('inventory:removeItem', data.item, tonumber(data.count), GetEntityCoords(PlayerPedId()))
     Wait(50)
@@ -187,7 +187,7 @@ RegisterCommand('openInventory', function()
     if IsPedInAnyVehicle(PlayerPedId(), true) then
         if Config.Glovebox then
             local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-        
+
             if not DoesEntityExist(vehicle) then return end
 
             for k,v in pairs(Config.BlacklistedVehicleTypesGB) do
@@ -196,41 +196,41 @@ RegisterCommand('openInventory', function()
                     return
                 end
             end
-    
+
             local plate = ESX.Math.Trim(GetVehicleNumberPlateText(vehicle))
 
             if Config.GloveboxSave then
                 ESX.TriggerServerCallback("inventory:isVehicleOwned", function(owned)
                     OpenInventory({
-                        id = plate, 
-                        type = 'glovebox', 
+                        id = plate,
+                        type = 'glovebox',
                         title = 'Glovebox - <b>' .. plate .. '</b>',
-                        weight = Config.GloveboxWeight, 
+                        weight = Config.GloveboxWeight,
                         save = owned,
                         timeout = Config.GloveboxTimeout
-                    }) 
+                    })
                 end, plate)
-            else 
+            else
                 OpenInventory({
-                    id = plate, 
-                    type = 'glovebox', 
+                    id = plate,
+                    type = 'glovebox',
                     title = 'Glovebox - <b>' .. plate .. '</b>',
-                    weight = Config.GloveboxWeight, 
+                    weight = Config.GloveboxWeight,
                     save = false,
                     timeout = Config.GloveboxTimeout
-                }) 
+                })
             end
-        else 
+        else
             OpenInventory()
         end
-    else 
+    else
         for k,v in pairs(Drops) do
             local distance = GetDistanceBetweenCoords(v.coords, GetEntityCoords(PlayerPedId()), true)
             if distance < 2.0 then
                 OpenInventory({id = k, type = 'drop', title = '🗑️ Drop - ' .. k, coords = v.coords, weight = false, timeout = 1000})
                 return
             end
-        end 
+        end
         OpenInventory()
     end
 end, true)
@@ -240,5 +240,5 @@ if Config.Hotbar then
     RegisterCommand('hotbar', function()
         ShowHotbar()
     end, true)
-    RegisterKeyMapping('hotbar', 'Show Hotbar', 'keyboard', Config.HotbarKey) 
+    RegisterKeyMapping('hotbar', 'Show Hotbar', 'keyboard', Config.HotbarKey)
 end
