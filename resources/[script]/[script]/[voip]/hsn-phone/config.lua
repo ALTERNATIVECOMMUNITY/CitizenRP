@@ -23,7 +23,7 @@ Config.CryptoTransferCommission = {
 }
 Config.Voip = "tokovoip" -- or mumble or pma-voice
 Config.Webhooks = {
-    ["Camera"] = "https://discord.com/api/webhooks/887342330506514433/95n24Y56bjgUO_thQ43NQYbDHqfUiiPG-SIbwfwhwwYh3uut5MIfektoy7vU4vvgXBXj",
+    ["Camera"] = "https://discord.com/api/webhooks/898015877134426153/gYB_GQVeE2zzGhr3Qk8F6cC8vVpISvkR46hjndPXFGyS2Ic-ODHNNOmri7CvT7c6J0HH",
     ["Twitter"] = "https://discord.com/api/webhooks/887342449394090065/JEP3G8buNSHjH1e8FwJYb4R_qpz9djzEOPqZgj4jqyXQTp0udGRaeXGr1M73vDrO4eM4"
 }
 Config.PhoneBackgrounds = {
