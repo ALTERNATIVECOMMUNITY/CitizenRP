@@ -1,7 +1,8 @@
 local blips = {
     -- Example {title="", colour=, id=, x=, y=, z=},
 
-     {title="Salle de gym", colour=26, id=311, x = 258.99130249023, y = -269.96960449219, z = 53.963539123535}
+     {title="Salle de gym", colour=26, id=311, x = 258.99130249023, y = -269.96960449219, z = 53.963539123535},
+      {title="Eglise", colour=5, id=305, x = -773.2587890625, y = -12.299124717712, z = 41.121105194092}
   --   {title="Example 2", colour=30, id=108, x = 260.130, y = 204.308, z = 109.287}
   }
 

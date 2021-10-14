@@ -484,8 +484,8 @@ config.Jobs = {
             ['max_salary'] = 10000, -- maximum ammount of salary can be changed from boss action
             ['bossmenu'] = {
                 webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
-                grade = 4, -- minimum grade to access
-                coord = vector3(-605.478515625,-920.29302978516,23.88662147522),
+                grade = 2, -- minimum grade to access
+                coord = vector3(-783.72717285156,5.2011609077454,41.529094696045),
                 label = 'Menu Patron',
                 event = 'renzu_jobs:openbossmenu',
             },
@@ -493,7 +493,7 @@ config.Jobs = {
                 ['Boss'] = { -- path inventory['Boss']
                     webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
                     grade = 2, -- minimum job grade can access this feature
-                    coord = vector3(-595.47271728516,-914.18908691406,28.143661499023),
+                    coord = vector3(-782.72650146484,0.35596618056297,41.561763763428),
                     label = 'EGLISE ',
                     public = false,
                     slots = 100,
@@ -503,7 +503,7 @@ config.Jobs = {
                 ['Stash'] = { -- path inventory['Stash']
                     webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
                     grade = 0, -- minimum job grade can access this feature
-                    coord = vector3(254.59608459473,-273.88314819336,53.963542938232),
+                    coord = vector3(-780.46240234375,1.6654983758926,41.561763763428),
                     label = 'EGLISE', -- same as stash
                     public = false, -- stash mode or public inventory
                     slots = 2000,
@@ -525,13 +525,13 @@ config.Jobs = {
            ['shop'] = {
                 [1] = {
                     webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
-                    public = false, -- if shop is public or for this job only. (income money will go to this job money)
+                    public = true, -- if shop is public or for this job only. (income money will go to this job money)
                     grade = 0, -- minimum job grade can access this feature
                     ['items'] = {
-                        [1] = {name = 'gym_membership', label = 'Carte de Membre', value = 3000},
+                        [1] = {name = '', label = 'Cierge', value = 50},
                     },
                     label = 'EGLISE',
-                    coord = vector3(258.99462890625,-270.11535644531,53.963531494141),
+                    coord = vector3(-769.5419921875,-2.5091400146484,41.081123352051),
                     event = 'renzu_jobs:openshop',
                 },
             --     [2] = {
