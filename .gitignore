@@ -1,4 +1,2 @@
 cache
-/server.cfg
-
-*.cfg
+local.cfg
