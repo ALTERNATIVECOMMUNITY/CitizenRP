@@ -11,6 +11,23 @@ AddEventHandler("rcore_arcade:buyTicket", function(ticket)
         if moneyPlayer > data.price then
             xPlayer.removeMoney(data.price);
             TriggerClientEvent("rcore_arcade:ticketResult", source, ticket);
+
+        TriggerEvent('esx_addonaccount:getSharedAccount', 'society_cyber', function(account)
+		if account then
+			account.addMoney(data.price)
+		end
+	end)
+
+
+
+
+
+
+
+
+
+
+
         else
             TriggerClientEvent("rcore_arcade:nomoney", source);
         end
