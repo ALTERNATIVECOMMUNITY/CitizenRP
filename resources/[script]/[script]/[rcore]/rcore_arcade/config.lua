@@ -11,7 +11,7 @@ Config.keyToOpenComputer = "E"
 Config.Arcade = {
     {
         NPC = {
-            position = vector3(-1083.19, -245.78, 36.75),
+            position = vector3(336.39706420898,-907.63861083984,29.256311416626),
             heading = 205.11,
             model = "ig_claypain",
         },
@@ -25,7 +25,7 @@ Config.Arcade = {
             enable = true,
         },
         marker = {
-            markerPosition = vector3(-1082.12, -247.57, 37.2),
+            markerPosition = vector3(336.36053466797,-906.1123046875,29.251432418823),
             markerType = 23,
             options = {
                 scale = { x = 1.0, y = 1.0, z = 1.0 },
@@ -157,12 +157,12 @@ Config.computerList = {
     },
     {
         -- if false player dont need a ticket to play on this computer.
-        isInGamingHouse = true,
+        isInGamingHouse = false,
         computerType = Config.RetroMachine,
         computerGPU = Config.GPUList[2],
         computerCPU = Config.CPUList[2],
         markerType = 31,
-        position = vector3(-1079.25, -244.9, 44.5),
+        position = vector3(328.01571655273,-904.29772949219,29.251453399658),
         markerOptions = {
             scale = { x = 0.5, y = 0.5, z = 0.5 },
             color = { r = 255, g = 255, b = 255, a = 125 },
