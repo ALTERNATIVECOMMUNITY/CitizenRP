@@ -754,7 +754,6 @@ Config.Uniforms = {
 																		 helmet_1 = 38, helmet_2 = 2
 																	 },
 															 },
-														 },
 			 chapo = {
 				 male = {
 									 helmet_1 = 6, helmet_2 = 0
