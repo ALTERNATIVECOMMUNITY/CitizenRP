@@ -38,6 +38,10 @@ CONFIG = {}
 -- exceeds the fast limit, it will be locked into the fast box. Default setting is disabled to maintain realism
 CONFIG.allow_fast_limit = true
 
+-- Radar fast limit menu order
+-- When enabled, the fast limit options menu will be displayed first followed by fast lock toggle, then all default menu options. 
+CONFIG.fast_limit_first_in_menu = true
+
 -- Radar only lock players with auto fast locking
 -- When enabled, the radar will only automatically lock a speed if the caught vehicle has a real player in it.
 CONFIG.only_lock_players = true
@@ -45,7 +49,7 @@ CONFIG.only_lock_players = true
 -- In-game first time quick start video
 -- When enabled, the player will be asked if they'd like to view the quick start video the first time they
 -- open the remote.
-CONFIG.allow_quick_start_video = true
+CONFIG.allow_quick_start_video = false
 
 -- Allow passenger view
 -- When enabled, the front seat passenger will be able to view the radar and plate reader from their end.
@@ -57,7 +61,7 @@ CONFIG.allow_passenger_view = true
 CONFIG.allow_passenger_control = true
 
 -- Set this to true if you use Sonoran CAD with the WraithV2 plugin
-CONFIG.use_sonorancad = true
+CONFIG.use_sonorancad = false
 
 -- Sets the defaults of all keybinds
 -- These keybinds can be changed by each person in their GTA Settings->Keybinds->FiveM
@@ -109,7 +113,7 @@ CONFIG.menuDefaults =
 
 	-- The speed unit used in conversions
 	-- Options: mph or kmh
-	["speedType"] = "kmh",
+	["speedType"] = "mph",
 
 	-- The state for automatic speed locking. This requires CONFIG.allow_fast_limit to be true.
 	-- Options: true or false
