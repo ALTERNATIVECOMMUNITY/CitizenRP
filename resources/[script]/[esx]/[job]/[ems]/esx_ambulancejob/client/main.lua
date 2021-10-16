@@ -302,15 +302,36 @@ function RemoveItemsAfterRPDeath()
 		end
 
 		ESX.TriggerServerCallback('esx_ambulancejob:removeItemsAfterRPDeath', function()
-			local formattedCoords = {
-				x = Config.RespawnPoint.coords.x,
-				y = Config.RespawnPoint.coords.y,
-				z = Config.RespawnPoint.coords.z
+			local hospitalBeds = {
+				vector4(319.3715, -580.7316, 44.2040, 247.6949),
+				vector4(324.2628, -582.4890, 44.2040, 249.5806),
+				vector4(322.6644, -587.5876, 44.2040, 72.2143),
+				vector4(317.6033, -585.7873, 44.2040, 70.9909),
+				vector4(314.5637, -584.5701, 44.2040, 69.0875),
+				vector4(310.9194, -583.3448, 44.2040, 72.2246),
+				vector4(307.6953, -582.0863, 44.2040, 69.7502),
+				vector4(309.3645, -577.0715, 44.2040, 250.0939),
+				vector4(313.9496, -578.6512, 44.2040, 245.3972),
 			}
 
-			ESX.SetPlayerData('loadout', {})
-			RespawnPed(PlayerPedId(), formattedCoords, Config.RespawnPoint.heading)
+			local spawnPoint = false
 
+			for k,v in ipairs(hospitalBeds) do
+				if #ESX.Game.GetPlayersInArea(v, 1) == 0 then
+					spawnPoint = v
+					break
+				end
+			end
+
+			if spawnPoint == false then 
+				spawnPoint = hospitalBeds[1]
+			end
+
+			ESX.SetPlayerData('loadout', {})
+
+			RespawnPed(PlayerPedId(), {x = spawnPoint.x, y = spawnPoint.y, z = spawnPoint.z }, spawnPoint.w)
+			ExecuteCommand("e sleep")
+			
 			StopScreenEffect('DeathFailOut')
 			DoScreenFadeIn(800)
 		end)
