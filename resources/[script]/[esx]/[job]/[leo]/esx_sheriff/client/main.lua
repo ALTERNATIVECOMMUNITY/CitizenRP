@@ -80,6 +80,8 @@ function OpenCloakroomMenu()
 
 		table.insert(elements, {label = '---TÊTE---' , uniform = ''})
 	--	table.insert(elements, {label = 'Bonet' , uniform = 'bonet'})
+
+		table.insert(elements, {label = 'Campagne' , uniform = 'chapo'})
 		table.insert(elements, {label = 'Casquette Pat' , uniform = 'casquette'})
 		table.insert(elements, {label = 'Casquette Narco' , uniform = 'casquette2'})
 		table.insert(elements, {label = 'Casquette K9' , uniform = 'cask9'})
