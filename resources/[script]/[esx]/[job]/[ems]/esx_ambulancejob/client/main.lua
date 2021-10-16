@@ -330,7 +330,8 @@ function RemoveItemsAfterRPDeath()
 			ESX.SetPlayerData('loadout', {})
 
 			RespawnPed(PlayerPedId(), {x = spawnPoint.x, y = spawnPoint.y, z = spawnPoint.z }, spawnPoint.w)
-
+			ExecuteCommand("e sleep")
+			
 			StopScreenEffect('DeathFailOut')
 			DoScreenFadeIn(800)
 		end)
