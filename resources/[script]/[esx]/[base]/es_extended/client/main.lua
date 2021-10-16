@@ -301,9 +301,9 @@ AddEventHandler('esx:spawnVehicle', function(vehicleName)
 	if IsModelInCdimage(model) then
 		local playerPed = PlayerPedId()
 		local playerCoords, playerHeading = GetEntityCoords(playerPed), GetEntityHeading(playerPed)
-
 		ESX.Game.SpawnVehicle(model, playerCoords, playerHeading, function(vehicle)
 			TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
+			TriggerServerEvent('t1ger_keys:giveTemporaryKeys', GetVehicleNumberPlateText(vehicle), GetDisplayNameFromVehicleModel(model), 'Give')
 		end)
 	else
 		TriggerEvent('chat:addMessage', {args = {'^1SYSTEM', 'Invalid vehicle model.'}})
