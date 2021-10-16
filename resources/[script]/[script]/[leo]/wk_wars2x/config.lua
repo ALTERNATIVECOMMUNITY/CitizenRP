@@ -68,7 +68,7 @@ CONFIG.use_sonorancad = false
 CONFIG.keyDefaults =
 {
 	-- Remote control key
-	remote_control = "INSERT",
+	remote_control = "f5",
 
 	-- Radar key lock key
 	key_lock = "l",
