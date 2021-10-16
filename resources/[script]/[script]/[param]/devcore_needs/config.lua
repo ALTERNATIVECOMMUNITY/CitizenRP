@@ -25,6 +25,16 @@ Config.Food = {
     {Item = "meteorite", Label = 'Meteorite Choco Bar', g = 80, Prop = "prop_choc_meto", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = 50.0, Pos5 = 30.0, Pos6 = 260.0},
     {Item = "hotdog",  Label = 'Hotdog', g = 120, Prop = "prop_cs_hotdog_01", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = 0.0, Pos5 = -140.0, Pos6 = -140.0},
     {Item = "taco",  Label = 'Taco', g = 180, Prop = "prop_taco_01", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = 0.0, Pos5 = -140.0, Pos6 = -140.0},
+      {Item = "pearl_bouillabaisse",  Label = 'Bouilabaisse', g = 220, Prop = "prop_cs_plate_01", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0}, 
+        {Item = "pearl_poissonpane",  Label = 'Poisson Pané', g = 220, Prop = "prop_plate_03", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+          {Item = "pearl_filedepoisson",  Label = 'Filé de poisson', g = 220, Prop = "prop_plate_03", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+            {Item = "pearl_saumonfume",  Label = 'Saumon Fumé', g = 220, Prop = "prop_plate_03", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+              {Item = "diner_burger",  Label = 'Hamburger', g = 220, Prop = "prop_cs_burger_01", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+                {Item = "diner_frite",  Label = 'Frite', g = 220, Prop = "prop_food_chips", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+                  {Item = "diner_potatoes",  Label = 'Potatoes', g = 220, Prop = "prop_food_bs_chips", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+                    {Item = "diner_bacons",  Label = 'Bacons', g = 220, Prop = "prop_cs_hotdog_01", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+                      {Item = "diner_veggie",  Label = 'Wrap Veggie', g = 220, Prop = "prop_taco_02", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
+                        {Item = "poulet_frit",  Label = 'Poulet Frit', g = 220, Prop = "prop_food_cb_chips", StatusHunger = 50000, Pos1 = 0.13, Pos2 = 0.05, Pos3 = 0.02, Pos4 = -50.0, Pos5 = 16.0, Pos6 = 60.0},
 }
 
 

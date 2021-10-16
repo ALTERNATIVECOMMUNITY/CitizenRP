@@ -36,7 +36,7 @@ $(function() {
       else if(event.data.typ == "lawyer") {
         document.getElementById('showimg').src = "images/justice.png"
       }
-      else if(event.data.typ == "hunting") {
+      else if(event.data.typ == "hunt") {
         document.getElementById('showimg').src = "images/hunting.png"
       }
     }
@@ -154,6 +154,15 @@ function slider (v){
     if(v == "dollar_off") {
       document.getElementById('dollar').style.top = "20%"
       document.getElementById('dollarflow').style.height = "20%"
+      }
+      if(v == "hunt-license") {
+        document.getElementById('hunt-license').style.top = "23%"
+        document.getElementById('huntflow').style.height = "31%"
+      }
+      if(v == "hunt-license_off") {
+        document.getElementById('hunt-license').style.top = "26.5%"
+        document.getElementById('huntflow').style.height = "20%"
+
       }
   }
 }
