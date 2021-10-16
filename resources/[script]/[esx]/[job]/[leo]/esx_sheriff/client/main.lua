@@ -92,6 +92,7 @@ function OpenCloakroomMenu()
 		table.insert(elements, {label = 'Emeute' , uniform = 'emeute'})
 		table.insert(elements, {label = 'Retiré Casque', uniform = 'offcasquette'})
 
+ 
 		table.insert(elements, {label = '________TENUE________' , uniform = ''})
 
 
