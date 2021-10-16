@@ -81,7 +81,7 @@ function OpenCloakroomMenu()
 		table.insert(elements, {label = '---TÊTE---' , uniform = ''})
 	--	table.insert(elements, {label = 'Bonet' , uniform = 'bonet'})
 
-		table.insert(elements, {label = 'Campagne' , uniform = 'chapo'})
+		table.insert(elements, {label = 'Campagne', uniform = 'chapo'})
 		table.insert(elements, {label = 'Casquette Pat' , uniform = 'casquette'})
 		table.insert(elements, {label = 'Casquette Narco' , uniform = 'casquette2'})
 		table.insert(elements, {label = 'Casquette K9' , uniform = 'cask9'})
@@ -92,7 +92,7 @@ function OpenCloakroomMenu()
 		table.insert(elements, {label = 'Emeute' , uniform = 'emeute'})
 		table.insert(elements, {label = 'Retiré Casque', uniform = 'offcasquette'})
 
- 
+
 		table.insert(elements, {label = '________TENUE________' , uniform = ''})
 
 
