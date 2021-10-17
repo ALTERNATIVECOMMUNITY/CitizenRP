@@ -184,7 +184,7 @@ Config.JobVehicles_SpawnLocations = {
     },
     ['taxi'] = {
         --PILLBOX HOSPITAL
-        [1] = {coords = vector3(916.65466308594,-165.95205688477,74.562469482422), distance = 15, garage_type = 'car', method = 'regular'}, --PILLBOX HOSPITAL (cars)
+        [1] = {coords = vector3(916.65466308594,-165.95205688477,74.562469482422), distance = 15, garage_type = 'car', method = 'societyowned'}, --PILLBOX HOSPITAL (cars)
 
     },
     ['brinks'] = {
