@@ -233,6 +233,16 @@ ESX.RegisterUsableItem(Config.Lockpick.Item, function(source)
 	TriggerClientEvent('t1ger_keys:lockpickCL', source)
 end)
 
+
+ESX.RegisterServerCallback('t1ger_keys:CheckItemLockpick', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	if xPlayer.getInventoryItem("lockpick").count > 0 then 
+		cb(true)
+	else 
+		cb(false)
+	end
+end)
+
 RegisterNetEvent('t1ger_keys:removeLockpick')
 AddEventHandler('t1ger_keys:removeLockpick', function(vehicle)
 	local xPlayer = ESX.GetPlayerFromId(source)
