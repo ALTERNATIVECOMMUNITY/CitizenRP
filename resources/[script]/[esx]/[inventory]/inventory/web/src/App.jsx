@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import $, {post} from 'jquery'
+import $, { post } from 'jquery'
 import { ToastContainer, Flip, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {CSSTransition} from 'react-transition-group'
-import {Animated} from 'react-animated-css'
+import { CSSTransition } from 'react-transition-group'
+import { Animated } from 'react-animated-css'
 import Inventory from './Inventory.jsx'
 import Actions from './Actions.jsx'
 import Hotbar from './Hotbar.jsx';
@@ -54,6 +54,7 @@ export default function App() {
         var data = e.data
         switch (data.action) {
             case 'open':
+                window.timer2 = new Date().getTime();
                 setLock(false)
                 selectItem(null)
                 setPlayers(data.players)
@@ -70,10 +71,10 @@ export default function App() {
                 break;
             case 'setItems':
                 setHotbar(data.hotbar)
-                setInventory(inv => ({...inv, items: data.items, weight: data.weight}))
+                setInventory(inv => ({ ...inv, items: data.items, weight: data.weight }))
                 break;
             case 'setOtherItems':
-                setOtherInventory(inv => ({...inv, items: data.items, weight: data.weight}))
+                setOtherInventory(inv => ({ ...inv, items: data.items, weight: data.weight }))
                 break;
             case 'showHotbar':
                 clearTimeout(timer)
@@ -89,14 +90,14 @@ export default function App() {
                 CloseInventory(data.invName)
                 break;
             case 'notify':
-                toast((<span dangerouslySetInnerHTML={{__html: data.msg}} />), {type: data.type})
+                toast((<span dangerouslySetInnerHTML={{ __html: data.msg }} />), { type: data.type })
                 break;
         }
     }
 
     const onMouseDown = (e) => {
         if (e.button === 0) {
-            if (!e.target.closest('#actions')  && !e.target.closest('#inv') && !e.target.closest('#hotbar')) {
+            if (!e.target.closest('#actions') && !e.target.closest('#inv') && !e.target.closest('#hotbar')) {
                 if (clickOutside) {
                     CloseInventory(resName)
                 }
@@ -106,8 +107,10 @@ export default function App() {
     }
 
     const onKeyUp = (e) => {
-        if (e.key === "Escape") {
-            CloseInventory(resName)
+        if (e.key === "Escape" || e.key === "F2") {
+            if (new Date().getTime() - window.timer2 > 500) {
+                CloseInventory(resName)
+            }
         }
     }
 
@@ -134,12 +137,12 @@ export default function App() {
     }, [resName, clickOutside])
 
     return (
-        <InventoryContext.Provider value={{setPlayers, locales, middleClickUse, sound, resName, clickSound, moveSound, setLock, lock, selectedItem, selectItem, counter, otherInventory}}>
+        <InventoryContext.Provider value={{ setPlayers, locales, middleClickUse, sound, resName, clickSound, moveSound, setLock, lock, selectedItem, selectItem, counter, otherInventory }}>
             <CSSTransition in={open} timeout={200} classNames="app" unmountOnExit>
                 <div className='app'>
                     <Actions players={players} selectItem={selectItem} selectedItem={selectedItem} counter={counter} lastValue={lastValue} />
-                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        {inventory && <Inventory type={inventory.type} title={inventory.title} weight={inventory.weight} items={inventory.items}  />}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {inventory && <Inventory type={inventory.type} title={inventory.title} weight={inventory.weight} items={inventory.items} />}
                         {otherInventory && (
                             <>
                                 <div className="spacer" />
