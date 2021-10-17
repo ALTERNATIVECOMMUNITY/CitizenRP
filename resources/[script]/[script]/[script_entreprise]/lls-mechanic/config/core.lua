@@ -79,7 +79,7 @@ pos = {x =   440.7665, y = -1015.3730, z = 28.6879},
   --    pos = {x = 329.60983276367, y= -573.9482421875, z = 28.796850204468}, -- Garage EMS
 --  pos = {x = 392.30551147461, y =-1607.1636962891, z = 29.292039871216}, -- sheriff
 
-        whitelistJobName = 'sheriff',
+        whitelistJobName = 'police',
       societyName = 'society_redline', -- uncomment this to enable society account for this point (only for whitelist points)
         blip = {
             enable = true,
