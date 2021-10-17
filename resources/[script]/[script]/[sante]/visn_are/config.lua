@@ -1,6 +1,6 @@
 ConfigData = {}
 
-ConfigData.respawnTimer = 5 -- The unconscious timer (in seconds)
+ConfigData.respawnTimer = 2600 -- The unconscious timer (in seconds)
 ConfigData.primaryLanguage = "fr" -- Language
 ConfigData.sharedObjectName = "esx:getSharedObject" -- Shared object (editable for anticheat)
 ConfigData.bindPulseToHealthBar = false -- Binds the pulse to the health bar
