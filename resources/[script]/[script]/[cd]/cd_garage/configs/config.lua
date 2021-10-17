@@ -153,7 +153,7 @@ Config.JobVehicles_SpawnLocations = {
 
     ['sheriff'] = { --If you choose to add more tables here for more jobs, they must be the jobs name, not the label.
         --MISSION ROW PD
-        [1] = {coords = vector3(916.65466308594,-165.95205688477,74.562469482422), distance = 5, garage_type = 'car', method = 'societyowned'},
+        [1] = {coords = vector3(388.01312255859,-1618.7866210938,29.292055130005), distance = 5, garage_type = 'car', method = 'societyowned'},
     --      [2] = {coords = vector3(449.88580322266,-976.92633056641,25.699974060059), distance = 10, garage_type = 'car', method = 'societyowned'},
 
          --MISSION ROW PD (cars)
@@ -184,7 +184,7 @@ Config.JobVehicles_SpawnLocations = {
     },
     ['taxi'] = {
         --PILLBOX HOSPITAL
-        [1] = {coords = vector3(-1403.5891113281,-462.71307373047,34.482082366943), distance = 15, garage_type = 'car', method = 'regular'}, --PILLBOX HOSPITAL (cars)
+        [1] = {coords = vector3(916.65466308594,-165.95205688477,74.562469482422), distance = 15, garage_type = 'car', method = 'regular'}, --PILLBOX HOSPITAL (cars)
 
     },
     ['brinks'] = {
