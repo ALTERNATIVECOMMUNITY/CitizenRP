@@ -27,6 +27,36 @@ Config.EarlyRespawnFine           = true
 Config.EarlyRespawnFineAmount     = 2000
 
 Config.RespawnPoint = {coords = vector3(297.30163574219,-583.03143310547,43.132095336914), heading = 162.7}
+Config.RespawnSkins = {
+	male = {
+		tshirt_1 = 15,  tshirt_2 = 0,
+		torso_1 = 15,   torso_2 = 0,
+		decals_1 = 0,   decals_2 = 0,
+		arms = 7,
+		pants_1 = 14,   pants_2 = 0,
+		shoes_1 = 34,   shoes_2 = 0,
+		helmet_1 = -1,  helmet_2 = 0,
+		chain_1 = 0,    chain_2 = 0,
+		ears_1 = -1,     ears_2 = 0,
+		bags_1 = 0,	bags_2 = 0,
+	},
+
+	female = {
+		tshirt_1 = 15,  tshirt_2 = 3,
+		torso_1 = 15,   torso_2 = 0,
+		decals_1 = 0,   decals_2 = 0,
+		arms = 15,
+		pants_1 = 15,   pants_2 = 0,
+		shoes_1 = 35,   shoes_2 = 0,
+		helmet_1 = -1,  helmet_2 = 0,
+		chain_1 = 0,    chain_2 = 0,
+		ears_1 = -1,     ears_2 = 0,
+		bags_1 = 0,	bags_2 = 0,
+	}
+}
+
+Config.retrieveClothesCoords = vector3(312.5195, -592.4033, 43.2841)
+Config.retrieveClothesText = "~INPUT_PICKUP~ pour récupérer vos habits"
 
 Config.Hospitals = {
 

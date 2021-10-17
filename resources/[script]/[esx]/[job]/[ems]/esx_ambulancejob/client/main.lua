@@ -1,6 +1,7 @@
 local firstSpawn, PlayerLoaded = true, false
 
 isDead = false
+isNude = false
 ESX = nil
 
 AddEventHandler("onClientMapStart", function()
@@ -28,7 +29,6 @@ AddEventHandler("esx_ambulancejob:forceRespawn", function()
     RemoveItemsAfterRPDeath()
 end)
 
-
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
 	ESX.PlayerData = xPlayer
@@ -39,6 +39,7 @@ RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
 end)
+
 
 AddEventHandler('esx:onPlayerSpawn', function()
 	isDead = false
@@ -93,6 +94,75 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+local isInClothesMarker = false
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(100)
+		if isNude then
+			local coords = GetEntityCoords(PlayerPedId())
+			if isInClothesMarker then
+				if GetDistanceBetweenCoords(coords, Config.retrieveClothesCoords, true) >= 1.5 then
+					isInClothesMarker = false
+				end
+			else
+				if GetDistanceBetweenCoords(coords, Config.retrieveClothesCoords, true) < 1.5 then
+					isInClothesMarker  	= true
+				end
+			end
+		else
+			Citizen.Wait(1000)
+		end
+	end
+end)
+
+Citizen.CreateThread(function()
+	while true do
+        Citizen.Wait(0)
+		if isNude then
+			if isInClothesMarker then
+				ESX.ShowHelpNotification(Config.retrieveClothesText)
+				if IsControlJustReleased(0, 38) then
+					retrieveClothes()
+				end
+			end
+		else
+			Citizen.Wait(1000)
+		end
+	end
+end)
+
+Citizen.CreateThread(function()
+	while true do
+        Citizen.Wait(0)
+		if isNude then
+			local coords, letSleep = GetEntityCoords(PlayerPedId()), true
+
+			if (GetDistanceBetweenCoords(coords, Config.retrieveClothesCoords.x, Config.retrieveClothesCoords.y, Config.retrieveClothesCoords.z, true) < 15) then
+				DrawMarker(6, Config.retrieveClothesCoords.x, Config.retrieveClothesCoords.y, Config.retrieveClothesCoords.z-0.99, 0.0, 0.0, 0.0, -90, 0.0, 0.0, 0.7, 0.7, 0.7, 255, 255, 255, 100, false, true, 2, false, false, false, false)
+				letSleep = false
+			end
+
+			if letSleep then
+				Citizen.Wait(500)
+			end
+		else
+			Citizen.Wait(1000)
+		end
+	end
+end)
+
+function retrieveClothes()
+	RequestAnimDict("clothingtie")
+	while (not HasAnimDictLoaded("clothingtie")) do Citizen.Wait(0) end
+	TaskPlayAnim(GetPlayerPed(-1),"clothingtie","try_tie_positive_d",1.0,-1.0, 5000, 1, 1, true, true, true)
+
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+		TriggerEvent('skinchanger:loadSkin', skin)
+		isNude = false
+	end)
+end
 
 function OnPlayerDeath()
     isDead = true
@@ -329,7 +399,16 @@ function RemoveItemsAfterRPDeath()
 
 			ESX.SetPlayerData('loadout', {})
 
+			ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+				if skin.sex == 0 then
+					TriggerEvent('skinchanger:loadClothes', skin, Config.RespawnSkins.male)
+				else
+					TriggerEvent('skinchanger:loadClothes', skin, Config.RespawnSkins.female)
+				end
+			end)
+
 			RespawnPed(PlayerPedId(), {x = spawnPoint.x, y = spawnPoint.y, z = spawnPoint.z }, spawnPoint.w)
+			isNude = true
 			ExecuteCommand("e sleep")
 			
 			StopScreenEffect('DeathFailOut')
