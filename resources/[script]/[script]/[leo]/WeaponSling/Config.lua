@@ -6,8 +6,8 @@ If you have Persistent Weapons, you need to rack/unrack it from Emergency Vehicl
 
 BBOn - Set as TRUE if you use non-lethal BeanBag shotgun, which is a replacement for Sawn-Off shotgun.
 ]]
-Config.PersistentWeapons = true
-Config.BBOn = true
+Config.PersistentWeapons = false
+Config.BBOn = false
 
 --[[
 Commands and abbreviations - set to your liking. Do not add /, it will be added automatically.
@@ -33,15 +33,15 @@ If you want to add your server-specific vests or change anything, please add the
 		Rotation Y = (value),
 		Rotation Z = (value)
 	},
-	
+
 	You can get the ID of vest by running below code:
-	
+
 	RegisterCommand("getvest", function(source, args, raw)
 		local Ped = GetPlayerPed(-1)
 		ShowNotification('ID of your Vest is:')
 		ShowNotification(GetPedDrawableVariation(Ped,9))
-	end)	
-	
+	end)
+
 	Uncomment above in client.lua (Lines 9 to 15), restart the resource and type /getvest ingame.
 	Number returned is ID of vest you have on.
 
@@ -55,7 +55,7 @@ Config.FrontSlingVestsMale = {
 		xrot = (0.0),
 		yrot = (320.0),
 		zrot = (155.0)
-	},	
+	},
 	[7] = {
 	    xpos = (0.1),
 		ypos = (0.25),
@@ -71,7 +71,7 @@ Config.FrontSlingVestsMale = {
 		xrot = (0.0),
 		yrot = (320.0),
 		zrot = (145.0)
-	},	
+	},
 	[12] = {
 	    xpos = (0.13),
 		ypos = (0.25),
@@ -79,7 +79,7 @@ Config.FrontSlingVestsMale = {
 		xrot = (0.0),
 		yrot = (330.0),
 		zrot = (180.0)
-	},	
+	},
 	[15] = {
 	    xpos = (-0.15),
 		ypos = (-0.08),
@@ -87,7 +87,7 @@ Config.FrontSlingVestsMale = {
 		xrot = (290.0),
 		yrot = (180.0),
 		zrot = (0.0)
-	},	
+	},
 	[16] = {
 	    xpos = (-0.15),
 		ypos = (-0.08),
@@ -95,7 +95,7 @@ Config.FrontSlingVestsMale = {
 		xrot = (290.0),
 		yrot = (180.0),
 		zrot = (0.0)
-	},		
+	},
 	[8] = {
 	    xpos = (0.1),
 		ypos = (-0.184),
@@ -130,7 +130,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[7] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -139,7 +139,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[9] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -148,7 +148,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[12] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -157,7 +157,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[15] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -166,7 +166,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[16] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -175,7 +175,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[8] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -184,7 +184,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[25] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -193,7 +193,7 @@ Config.BackSlingVestsMale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[27] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -212,7 +212,7 @@ Config.FrontSlingVestsFemale = {
 		xrot = (0.0),
 		yrot = (320.0),
 		zrot = (155.0)
-	},	
+	},
 	[7] = {
 	    xpos = (0.1),
 		ypos = (0.25),
@@ -228,7 +228,7 @@ Config.FrontSlingVestsFemale = {
 		xrot = (0.0),
 		yrot = (320.0),
 		zrot = (145.0)
-	},	
+	},
 	[12] = {
 	    xpos = (0.13),
 		ypos = (0.25),
@@ -236,7 +236,7 @@ Config.FrontSlingVestsFemale = {
 		xrot = (0.0),
 		yrot = (330.0),
 		zrot = (180.0)
-	},	
+	},
 	[15] = {
 	    xpos = (-0.15),
 		ypos = (-0.08),
@@ -244,7 +244,7 @@ Config.FrontSlingVestsFemale = {
 		xrot = (290.0),
 		yrot = (180.0),
 		zrot = (0.0)
-	},	
+	},
 	[16] = {
 	    xpos = (-0.15),
 		ypos = (-0.08),
@@ -252,7 +252,7 @@ Config.FrontSlingVestsFemale = {
 		xrot = (290.0),
 		yrot = (180.0),
 		zrot = (0.0)
-	},		
+	},
 	[8] = {
 	    xpos = (0.1),
 		ypos = (-0.184),
@@ -287,7 +287,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[7] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -296,7 +296,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[9] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -305,7 +305,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[12] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -314,7 +314,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[15] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -323,7 +323,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[16] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -332,7 +332,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[8] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -341,7 +341,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[25] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -350,7 +350,7 @@ Config.BackSlingVestsFemale = {
 		yrot = (20.0),
 		zrot = (357.0),
 	},
-	
+
 	[27] = {
 	    xpos = (-0.1),
 		ypos = (-0.18),
@@ -600,11 +600,11 @@ Config.weaponlist = {
 [-1654528753] = "w_sg_bullpupshotgun",
 [984333226] = "w_sg_heavyshotgun",
 [-1466123874] = "w_ar_musket",
-[1432025498] = "w_sg_pumpshotgunmk2", 
+[1432025498] = "w_sg_pumpshotgunmk2",
 [-2066285827] = "w_ar_bullpupriflemk2",
 [1785463520] = "w_sr_marksmanriflemk2"
 }
- 
+
 -- List of weapons that will be attached on back (ie. sniper rifles)
 Config.weaponlistback = {
 100416529, --SniperRifle
