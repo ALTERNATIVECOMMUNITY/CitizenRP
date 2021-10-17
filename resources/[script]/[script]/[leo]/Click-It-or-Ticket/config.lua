@@ -7,7 +7,7 @@
 -------------------------------------------------------
 Config = {
     SeatbeltKey = 311,
-    BucklePrompt = '~q~[CT-V] ~w~ Appuyez sur ~b~K~w~pour ~y~ boucler ~w~ votre ceinture de sécurité.', -- The prompt displayed when they are not wearing their seatbelt
+    BucklePrompt = '~q~[CT-V] ~w~ Appuyez sur ~b~K ~w~pour ~y~ boucler ~w~ votre ceinture de sécurité.', -- The prompt displayed when they are not wearing their seatbelt
     Notification = 'UpMap', -- Choose how you would like to display your notificaiton | **Options: pNotify: Will utilize pNotify (MUST INSTALL FROM FORUMS), UpMap: Will display above minimap, InChat: Will display in chat** | Examples: LINK TO DOCS
     CarColor = true, -- Display the car color in the warning | true = Yes | false = No (VARIABLES MUST BE LOWERCASE)
     Plate = true, -- Display the vehicles plate number
