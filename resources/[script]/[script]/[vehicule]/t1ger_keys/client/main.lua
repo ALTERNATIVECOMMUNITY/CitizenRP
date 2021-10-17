@@ -434,7 +434,10 @@ Citizen.CreateThread(function()
 				-- apply lock:
 				local generated = math.random(100)
 				math.randomseed(GetGameTimer())
-				if generated < chance then
+				if generated < chance or GetVehicleClass(vehicle) == 8 then
+					if GetVehicleClass(vehicle) == 8 then
+						SetVehicleHotwire(vehicle, Config.Steal.SetHotwire)
+					end
 					SetVehicleLocked(vehicle, 0)
 				else
 					SetVehicleLocked(vehicle, 2)
