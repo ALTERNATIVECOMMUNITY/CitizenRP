@@ -497,11 +497,17 @@ function openMenu()
     end)
 
     RageUI.ButtonWithStyle("🚘 ~r~Crocheter", "Crocheter véhicule", {RightLabel = "~r~→"}, true, function(Hovered,Active,Selected)
-      if Selected then
-          ExecuteCommand("lockpick")
-           RageUI.CloseAll()
-          end
-      end)
+        if Selected then
+            ESX.TriggerServerCallback('PersoRageUI:lockpick', function(haveItem)
+                if haveItem then
+                    ExecuteCommand("lockpick")
+                    RageUI.CloseAll()
+                else
+                    ESX.ShowNotification("Vous n'avez pas de <span style='color:red;'>crochet</span>")
+                end
+            end)
+        end
+    end)
       RageUI.ButtonWithStyle("🚘 ~r~Forcer Démarage", "Cabler un véhicule", {RightLabel = "~r~→"}, true, function(Hovered,Active,Selected)
         if Selected then
             ExecuteCommand("hotwire")
