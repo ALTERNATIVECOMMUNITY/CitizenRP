@@ -534,78 +534,84 @@ function LockpickVehicle()
 	if lockpicking then
 		return TriggerEvent('t1ger_keys:notify', Lang['already_lockpicking'])
 	end
-	local vehicle = ESX.Game.GetVehicleInDirection()
-	local veh_coords = GetEntityCoords(vehicle)
-	if DoesEntityExist(vehicle) then
-		if GetDistanceBetweenCoords(coords, veh_coords.x, veh_coords.y, veh_coords.z, true) < 2.0 then
-			if DecorExistOn(vehicle, lock_decor) then
-				if DecorGetInt(vehicle, lock_decor) == 2 or DecorGetInt(vehicle, lock_decor) == 10 then
-					local plate, alarm, identifier, got_alarm = (string.gsub(GetVehicleNumberPlateText(vehicle), "^%s*(.-)%s*$", "%1")), false, nil, false
-					lockpicking = true
-					ESX.TriggerServerCallback('t1ger_keys:getVehicleAlarm', function(state, src_identifier)
-						if state ~= nil then
-							alarm = state
-							identifier = src_identifier
-							got_alarm = true
-						end
-						while not got_alarm do Citizen.Wait(10) end
-						if Config.Lockpick.Remove then
-							TriggerServerEvent('t1ger_keys:removeLockpick')
-						end
-						if Config.Lockpick.Report then
-							ReportPlayer(vehicle, 'lockpick')
-						end
-						T1GER_LoadAnim(Config.Lockpick.Anim.Dict)
-						SetCurrentPedWeapon(player, GetHashKey("WEAPON_UNARMED"),true)
-						FreezeEntityPosition(player, true)
-						if Config.ProgressBars then
-							exports['progressBars']:startUI((Config.Lockpick.Duration), Config.Lockpick.Text)
-						end
-						if Config.Lockpick.Alarm.Enable then
-							SetVehicleAlarm(vehicle, true)
-							SetVehicleAlarmTimeLeft(vehicle, (Config.Lockpick.Alarm.Time))
-							StartVehicleAlarm(vehicle)
-						end
-						-- Get success state:
-						local success = false
-						math.randomseed(GetGameTimer())
-						local chance = math.random(100)
-						if alarm then
-							if Config.Lockpick.Alarm.Report then ReportToVehicleOwner(plate, identifier) end
-							if chance <= Config.Lockpick.Alarm.Chance then success = true end
+	ESX.TriggerServerCallback('t1ger_keys:CheckItemLockpick', function(haveItem)
+		if haveItem then
+			local vehicle = ESX.Game.GetVehicleInDirection()
+			local veh_coords = GetEntityCoords(vehicle)
+			if DoesEntityExist(vehicle) then
+				if GetDistanceBetweenCoords(coords, veh_coords.x, veh_coords.y, veh_coords.z, true) < 2.0 then
+					if DecorExistOn(vehicle, lock_decor) then
+						if DecorGetInt(vehicle, lock_decor) == 2 or DecorGetInt(vehicle, lock_decor) == 10 then
+							local plate, alarm, identifier, got_alarm = (string.gsub(GetVehicleNumberPlateText(vehicle), "^%s*(.-)%s*$", "%1")), false, nil, false
+							lockpicking = true
+							ESX.TriggerServerCallback('t1ger_keys:getVehicleAlarm', function(state, src_identifier)
+								if state ~= nil then
+									alarm = state
+									identifier = src_identifier
+									got_alarm = true
+								end
+								while not got_alarm do Citizen.Wait(10) end
+								if Config.Lockpick.Remove then
+									TriggerServerEvent('t1ger_keys:removeLockpick')
+								end
+								if Config.Lockpick.Report then
+									ReportPlayer(vehicle, 'lockpick')
+								end
+								T1GER_LoadAnim(Config.Lockpick.Anim.Dict)
+								SetCurrentPedWeapon(player, GetHashKey("WEAPON_UNARMED"),true)
+								FreezeEntityPosition(player, true)
+								if Config.ProgressBars then
+									exports['progressBars']:startUI((Config.Lockpick.Duration), Config.Lockpick.Text)
+								end
+								if Config.Lockpick.Alarm.Enable then
+									SetVehicleAlarm(vehicle, true)
+									SetVehicleAlarmTimeLeft(vehicle, (Config.Lockpick.Alarm.Time))
+									StartVehicleAlarm(vehicle)
+								end
+								-- Get success state:
+								local success = false
+								math.randomseed(GetGameTimer())
+								local chance = math.random(100)
+								if alarm then
+									if Config.Lockpick.Alarm.Report then ReportToVehicleOwner(plate, identifier) end
+									if chance <= Config.Lockpick.Alarm.Chance then success = true end
+								else
+									if chance <= Config.Lockpick.Chance then success = true end
+								end
+								Citizen.Wait(Config.Lockpick.Duration)
+								ClearPedTasks(player)
+								FreezeEntityPosition(player, false)
+								lockpicking = false
+								if success then
+									SetVehicleLocked(vehicle, 0)
+									SetVehicleDoorsLocked(vehicle, 0)
+									SetVehicleHotwire(vehicle, Config.Lockpick.SetHotwire)
+									SetVehicleNeedsToBeHotwired(vehicle, false)
+									SetVehicleCanSearch(vehicle, Config.Lockpick.AllowSearch)
+									TriggerEvent('t1ger_keys:notify', Lang['veh_lockpicked_success'])
+									if Config.Lockpick.SetHotwire then
+										TriggerEvent('t1ger_keys:notify', Lang['hotwire_the_vehicle'])
+									end
+								else
+									TriggerEvent('t1ger_keys:notify', Lang['veh_lockpicked_fail'])
+								end
+							end, plate)
 						else
-							if chance <= Config.Lockpick.Chance then success = true end
+							return TriggerEvent('t1ger_keys:notify', Lang['deny_lockpick_unlocked'])
 						end
-						Citizen.Wait(Config.Lockpick.Duration)
-						ClearPedTasks(player)
-						FreezeEntityPosition(player, false)
-						lockpicking = false
-						if success then
-							SetVehicleLocked(vehicle, 0)
-							SetVehicleDoorsLocked(vehicle, 0)
-							SetVehicleHotwire(vehicle, Config.Lockpick.SetHotwire)
-							SetVehicleNeedsToBeHotwired(vehicle, false)
-							SetVehicleCanSearch(vehicle, Config.Lockpick.AllowSearch)
-							TriggerEvent('t1ger_keys:notify', Lang['veh_lockpicked_success'])
-							if Config.Lockpick.SetHotwire then
-								TriggerEvent('t1ger_keys:notify', Lang['hotwire_the_vehicle'])
-							end
-						else
-							TriggerEvent('t1ger_keys:notify', Lang['veh_lockpicked_fail'])
-						end
-					end, plate)
+					else
+						return TriggerEvent('t1ger_keys:notify', Lang['first_check_if_locked'])
+					end
 				else
-					return TriggerEvent('t1ger_keys:notify', Lang['deny_lockpick_unlocked'])
+					return TriggerEvent('t1ger_keys:notify', Lang['move_closer_to_lockpick'])
 				end
 			else
-				return TriggerEvent('t1ger_keys:notify', Lang['first_check_if_locked'])
+				return TriggerEvent('t1ger_keys:notify', Lang['no_veh_in_direction'])
 			end
 		else
-			return TriggerEvent('t1ger_keys:notify', Lang['move_closer_to_lockpick'])
+			ESX.ShowNotification("Vous n'avez pas de <span style='color:red;'>crochet</span>")
 		end
-	else
-		return TriggerEvent('t1ger_keys:notify', Lang['no_veh_in_direction'])
-	end
+	end)
 end
 
 -- Function to hotwire vehicle:

@@ -15,15 +15,6 @@ AddEventHandler('VMLife:Weapon_addAmmoToPedS', function(plyId, value, quantity)
 	end
 end)
 
-ESX.RegisterServerCallback('PersoRageUI:lockpick', function(source, cb)
-	local xPlayer = ESX.GetPlayerFromId(source)
-	if xPlayer.getInventoryItem("lockpick").count > 0 then 
-		cb(true)
-	else 
-		cb(false)
-	end
-end)
-
 ESX.RegisterServerCallback('VInventory:billing', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local bills = {}
