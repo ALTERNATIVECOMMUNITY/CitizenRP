@@ -6,6 +6,18 @@
 	 /*border: 1px solid red; */
 }
 
+#hour {
+	position: fixed;
+	top: 5vh;
+	right: 1vw;
+	font-size: 24px;
+	color: #ffd24b;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	-webkit-text-stroke: 1px rgb(0, 0, 0);
+	text-shadow: 0 0 1px #000;
+}
+
 #varHealth {
 	width: calc(45% - 2px - 4px);
 	margin-left: 0px !important;
