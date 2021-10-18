@@ -103,7 +103,7 @@ Citizen.CreateThread(function()
         if not FreezeTime then
             if not PauseSync then
                 NetworkOverrideClockTime(Hours, Mins, Seconds)
-                Seconds = Seconds+30
+                Seconds = Seconds+10
                 if SyncHours ~= nil and SyncMins ~= nil then
                     Hours = SyncHours
                     Mins = SyncMins
@@ -119,7 +119,7 @@ Citizen.CreateThread(function()
         else
             NetworkOverrideClockTime(Hours, Mins, Seconds)
         end
-        Citizen.Wait(Config.TimeCycleSpeed/2)
+        Citizen.Wait(Config.TimeCycleSpeed / 2 / 3)
     end
 end)
 
