@@ -11,7 +11,7 @@ Config.Notification_Type = 'chat' ----[ 'chat' / 'mythic_old' / 'mythic_new' / '
 Config.Language = 'EN' --[ 'EN' / 'FR' / 'ES' ]
 Config.PersistentWeather = true --If enabled, the resource will allow you to save the weather and time settings before a restart and will automatically apply these settings after a server restart.
 
-Config.TimeCycleSpeed = 2000 --(in milliseconds) Changing this value will effects the day/night time cycle, decreasing slows it down, incresing speeds it up. Right now its similar to the default gta5 time cycle.
+Config.TimeCycleSpeed = 5000 --(in milliseconds) Changing this value will effects the day/night time cycle, decreasing slows it down, incresing speeds it up. Right now its similar to the default gta5 time cycle.
 Config.DynamicWeather = true --Enable if you want to allow dynamic weather.
 Config.DynamicWeather_time = 20 --(in minutes) If dynamic weather is enabled, this value is how long until the weather changes.
 Config.RainChance = 50 --The percent chance for it to rain out of 100.
