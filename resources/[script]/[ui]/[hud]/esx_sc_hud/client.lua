@@ -29,6 +29,22 @@ RegisterCommand('hud', function(source, args, rawCommand)
 
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        local hour = {
+            hour = GetClockHours(),
+            minute = GetClockMinutes()
+        }
+
+        if hour.hour < 10 then hour.hour = "0" .. hour.hour end
+        if hour.minute < 10 then hour.minute = "0" .. hour.minute end
+        SendNUIMessage({
+            action = "updateHour",
+            value = hour.hour .. ':' .. hour.minute
+        })
+        Citizen.Wait(1000)
+    end
+end)
 
 
 local useMph = false -- if false, it will display speed in kph
