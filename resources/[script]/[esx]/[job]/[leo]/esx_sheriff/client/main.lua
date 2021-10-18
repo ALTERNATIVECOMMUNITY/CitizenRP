@@ -376,11 +376,15 @@ function OpensheriffActionsMenu()
 		elements = {
 			{label = _U('citizen_interaction'), value = 'citizen_interaction'},
 			{label = _U('vehicle_interaction'), value = 'vehicle_interaction'},
+				{label = 'Contravention Stationnement', value = 'pv'},
 			{label = 'Equipements', value = 'equpements'},
+
 			{label = _U('object_spawner'), value = 'object_spawner'}
 	}}, function(data, menu)
 
-
+		if data.current.value == 'pv' then		-- This
+			ExecuteCommand('qpark')
+		end
 
 					if data.current.value == 'equpements' then
 						local elements = {

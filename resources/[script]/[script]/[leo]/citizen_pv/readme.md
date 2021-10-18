@@ -1,0 +1,1 @@
+Make sure to read the instructions.txt for more information on setup. Any issues you can always add Diize#9502 on discord.

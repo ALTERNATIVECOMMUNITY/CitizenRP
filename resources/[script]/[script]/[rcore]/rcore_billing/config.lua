@@ -12,9 +12,9 @@ Config.DebugLevel = {
 
 Config.License = '183418d1f732e6738dd98bcdf670f2ec'
 Config.TurnOffUI = true
-Config.Command = 'fakturace' --/cmd to open invoice menu
+Config.Command = 'facture' --/cmd to open invoice menu
 Config.DeleteAfterPay = true
-Config.CanPayCash = false --If true, they can take money from cash
+Config.CanPayCash = true --If true, they can take money from cash
 Config.PercentForSender = {
 	['police'] = 20, --Police officer will get 20% of invoice price
 }

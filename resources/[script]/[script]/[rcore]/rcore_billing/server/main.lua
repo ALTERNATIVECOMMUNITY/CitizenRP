@@ -133,6 +133,7 @@ AddEventHandler(Config.Callbacks['esx:playerDropped'], function(source)
     activePlayers[source] = nil
 end)
 
+
 RegisterServerEvent(Config.Callbacks['sendBill'])
 AddEventHandler(Config.Callbacks['sendBill'], function(playerId, sharedAccountName, label, amount)
     local xPlayer = ESX.GetPlayerFromId(source)
@@ -359,6 +360,45 @@ ESX.RegisterServerCallback(Config.Callbacks['getTargetBills'], function(source, 
         cb({})
     end
 end)
+
+
+
+
+
+
+
+
+-- PV
+
+RegisterServerEvent('esx_billing:diize_qpark')
+AddEventHandler('esx_billing:diize_qpark', function(target, amount, label)
+
+    			MySQL.Async.execute('INSERT INTO billing (identifier, sender, target_type, target, label, amount) VALUES (@identifier, @sender, @target_type, @target, @label, @amount)', {
+    				['@identifier'] = target.identifier,
+    				['@sender'] = "QPARK",
+    				['@target_type'] = 'society',
+    				['@target'] = target.identifier,
+    				['@label'] = label,
+    				['@amount'] = amount
+    			}, function(result)
+    				if result then
+    -- CHOOSE ONE OF THE NOTIFICATIONS BELOW.
+      TriggerClientEvent('okokNotify:Alert', target.source, "BILLING", "New bill received.", 10000, 'info')
+    --   TriggerClientEvent('esx:showNotification', target.source, "New bill received.")
+    -- TriggerClientEvent('mythic_notify:client:SendAlert', target.source, { type = 'inform', text = "New bill received.", style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+
+    else
+    	print("not online")
+    		end
+    	end)
+    end)
+
+
+
+
+-- FIN PV
+
+
 
 ESX.RegisterServerCallback(Config.Callbacks['payBill'], function(source, cb, billId)
     local xPlayer = ESX.GetPlayerFromId(source)
