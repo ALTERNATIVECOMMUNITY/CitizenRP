@@ -303,6 +303,7 @@ function finishSpawn(pos, isnew)
     TriggerEvent('cd_garage_GrabInfo')
 
     if isnew then
+        TriggerServerEvent('esx_dmvschool:addLicense', "dmv")
         TriggerServerEvent('esx_dmvschool:addLicense', "drive")
     end
 end
