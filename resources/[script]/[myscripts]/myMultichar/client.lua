@@ -300,7 +300,11 @@ function finishSpawn(pos, isnew)
     end
 
     TriggerEvent('myMultichar:loaded')
-      TriggerEvent('cd_garage_GrabInfo')
+    TriggerEvent('cd_garage_GrabInfo')
+
+    if isnew then
+        TriggerServerEvent('esx_dmvschool:addLicense', "drive")
+    end
 end
 
 function setPlayerInVoid()
