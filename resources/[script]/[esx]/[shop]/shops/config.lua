@@ -1017,4 +1017,387 @@ Config.Shops = {
 	-- 	Size  = 1.0,
 	-- 	Color = 1
 	-- }
+
+
+
+	WallMart_Viande_1 = {
+
+		Items = {
+			{
+					name = "steak",
+					type = "item",
+					price = 500
+		 },
+
+	},
+
+		Pos = {
+			vector3(2705.1889648438,3493.1401367188,55.690528869629)
+		},
+
+		MarkerLabel = 'Wallmart Viande',
+		ShowBlip = false,
+		ShowMarker = true,
+		Size  = 1.0,
+		Type  = 59,
+		Color = 2
+	},
+
+
+
+		WallMart_Poisson_1 = {
+
+			Items = {
+				{
+						name = "fish",
+						type = "item",
+						price = 500
+			 },
+			 {
+					 name = "fish2",
+					 type = "item",
+					 price = 500
+			},
+			{
+					name = "fish3",
+					type = "item",
+					price = 500
+		 },
+
+		},
+
+			Pos = {
+				vector3(2710.3430175781,3505.2827148438,55.690574645996)
+			},
+
+			MarkerLabel = 'Wallmart Poisson',
+			ShowBlip = false,
+			ShowMarker = true,
+			Size  = 1.0,
+			Type  = 59,
+			Color = 2
+		},
+
+
+
+
+
+		WallMart_Legume_1 = {
+
+			Items = {
+				{
+						name = "tomates",
+						type = "item",
+						price = 500
+			 },
+
+		},
+
+			Pos = {
+				vector3(2733.4150390625,3468.2966308594,55.691638946533)
+			},
+
+			MarkerLabel = 'Wallmart Legumes',
+			ShowBlip = false,
+			ShowMarker = true,
+			Size  = 1.0,
+			Type  = 59,
+			Color = 2
+		},
+
+
+
+
+				WallMart_Legume_2 = {
+
+					Items = {
+						{
+								name = "salade",
+								type = "item",
+								price = 500
+					 },
+
+				},
+
+					Pos = {
+						vector3(2717.5546875,3461.1333007813,55.690536499023)
+					},
+
+					MarkerLabel = 'Wallmart Legumes',
+					ShowBlip = false,
+					ShowMarker = true,
+					Size  = 1.0,
+					Type  = 59,
+					Color = 2
+				},
+
+
+
+
+				WallMart_Legume_3 = {
+
+					Items = {
+						{
+								name = "oignons",
+								type = "item",
+								price = 500
+					 },
+
+				},
+
+					Pos = {
+						vector3(2715.0295410156,3462.2705078125,55.690536499023)
+					},
+
+					MarkerLabel = 'Wallmart Legumes',
+					ShowBlip = false,
+					ShowMarker = true,
+					Size  = 1.0,
+					Type  = 59,
+					Color = 2
+				},
+
+
+
+								WallMart_Legume_4 = {
+
+									Items = {
+										{
+												name = "patates",
+												type = "item",
+												price = 500
+									 },
+
+								},
+
+									Pos = {
+										vector3(2712.0324707031,3463.5864257813,55.690536499023)
+									},
+
+									MarkerLabel = 'Wallmart Legumes',
+									ShowBlip = false,
+									ShowMarker = true,
+									Size  = 1.0,
+									Type  = 59,
+									Color = 2
+								},
+
+
+
+								WallMart_Legume_5 = {
+
+									Items = {
+										{
+												name = "cornichons",
+												type = "item",
+												price = 500
+									 },
+
+								},
+
+									Pos = {
+										vector3(2709.6184082031,3464.5649414063,55.690536499023)
+									},
+
+									MarkerLabel = 'Wallmart Legumes',
+									ShowBlip = false,
+									ShowMarker = true,
+									Size  = 1.0,
+									Type  = 59,
+									Color = 2
+								},
+
+
+
+
+
+																WallMart_Soda = {
+
+																	Items = {
+																		{
+																				name = "cola",
+																				type = "item",
+																				price = 500
+																	 },
+
+																		 {
+																				 name = "sprunk",
+																				 type = "item",
+																				 price = 500
+																		},
+
+												},
+
+																	Pos = {
+																		vector3(2709.6184082031,3464.5649414063,55.690536499023),
+																		vector3(2719.2873535156,3504.7932128906,55.69055557251),
+																		vector3(2710.0773925781,3483.7119140625,55.690547943115),
+																		vector3(2724.86328125,3477.435546875,55.690582275391)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Soda',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+
+
+
+																WallMart_Huile_1 = {
+
+																	Items = {
+																		{
+																				name = "oil_bouffe",
+																				type = "item",
+																				price = 500
+																	 },
+
+																},
+
+																	Pos = {
+																		vector3(2721.0070800781,3489.4235839844,55.690582275391),
+																		vector3(2720.9753417969,3476.8156738281,55.690582275391),
+																		vector3(2727.1818847656,3499.3581542969,55.690540313721),
+																		vector3(2742.3041992188,3492.703125,55.690952301025)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Huile',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+
+																WallMart_Pain_1 = {
+
+																	Items = {
+																		{
+																				name = "bread",
+																				type = "item",
+																				price = 1
+																	 },
+
+																},
+
+																	Pos = {
+																		vector3(2729.9455566406,3459.0341796875,55.691383361816)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Pain',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+
+																WallMart_Pain_1 = {
+
+																	Items = {
+																		{
+																				name = "water",
+																				type = "item",
+																				price = 1
+																	 },
+
+																},
+
+																	Pos = {
+																		vector3(2729.2375488281,3506.216796875,55.690547943115)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Eau',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+																WallMart_Bar_1 = {
+
+																	Items = {
+																		{
+																				name = "chaser",
+																				type = "item",
+																				price = 5
+																	 },
+
+																},
+
+																	Pos = {
+																		vector3(2717.4592285156,3484.2626953125,55.690582275391)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Bar',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+																WallMart_Doliprane_1 = {
+
+																	Items = {
+																		{
+																				name = "painkillers",
+																				type = "item",
+																				price = 50
+																	 },
+
+																},
+
+																	Pos = {
+																		vector3(2694.8212890625,3481.9260253906,55.690559387207)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Pharmacie',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+
+																WallMart_Clope_1 = {
+
+																	Items = {
+																		{
+																				name = "marlboro",
+																				type = "item",
+																				price = 50
+																	 },
+																		 {
+																				 name = "redw",
+																				 type = "item",
+																				 price = 50
+																		},
+
+																},
+
+																	Pos = {
+																		vector3(2698.7819824219,3488.8210449219,55.690559387207)
+
+																	},
+
+																	MarkerLabel = 'Wallmart Pharmacie',
+																	ShowBlip = false,
+																	ShowMarker = true,
+																	Size  = 1.0,
+																	Type  = 59,
+																	Color = 2
+																},
+
+
+
+
+
 }
