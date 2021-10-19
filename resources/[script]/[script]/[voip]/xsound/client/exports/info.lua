@@ -1,5 +1,16 @@
 soundInfo = {}
 
+defaultInfo = {
+    volume = 1.0,
+    url = "",
+    id = "",
+    position = nil,
+    distance = 0,
+    playing = false,
+    paused = false,
+    loop = false,
+}
+
 function getLink(name_)
     return soundInfo[name_].url
 end
@@ -56,39 +67,3 @@ function getVolume(name_)
 end
 
 exports('getVolume', getVolume)
-
-function isDynamic(name_)
-    return soundInfo[name_].isDynamic
-end
-
-exports('isDynamic', isDynamic)
-
-function getTimeStamp(name_)
-    return soundInfo[name_].timeStamp or -1
-end
-
-exports('getTimeStamp', getTimeStamp)
-
-function getMaxDuration(name_)
-    return soundInfo[name_].maxDuration or -1
-end
-
-exports('getMaxDuration', getMaxDuration)
-
-function isPlayerInStreamerMode()
-    return disableMusic
-end
-
-exports('isPlayerInStreamerMode', isPlayerInStreamerMode)
-
-function getAllAudioInfo()
-    return soundInfo
-end
-
-exports('getAllAudioInfo', getAllAudioInfo)
-
-function isPlayerCloseToAnySound()
-    return isPlayerCloseToMusic
-end
-
-exports('isPlayerCloseToAnySound', isPlayerCloseToAnySound)
