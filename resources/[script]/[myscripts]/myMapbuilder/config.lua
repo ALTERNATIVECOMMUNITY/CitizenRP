@@ -76,7 +76,8 @@ Config.recommendObjects = {
     {object = 'prop_table_04_chr', label = 'Chair', price = 1000},
     {object = 'prop_bbq_5', label = 'BBQ', price = 1000},
     {object = 'apa_mp_h_din_table_11', label = 'Couch table', price = 1000},
-    {object = 'prop_owl_totem_01', label = 'Totem', price = 1000},
+  --  {object = 'prop_owl_totem_01', label = 'Totem', price = 1000},
+      {object = 'prop_pooltable_3b', label = 'Billard', price = 1000},
 } -- You can find these objects for example on: https://cdn.rage.mp/public/odb/index.html
 
 Translation = {
@@ -127,7 +128,7 @@ Translation = {
         ['obj_savechanges'] = '~g~Save changes.',
         ['obj_savechanges_desc'] = 'Your changes will be saved and applied for all players.',
         ['obj_saved'] = '~g~Your changes were saved!',
-        
+
         ['set_moveable'] = 'Freeze object?',
         ['set_moveable_desc'] = 'Should it be possible to push/move this object?',
         ['moveable_state_changed'] = '~g~Freeze state changed to ~w~',
@@ -143,7 +144,7 @@ Translation = {
         ['not_enough_money'] = '~r~You do not have enough money!',
         ['no_object'] = '~r~No object!',
         ['cant_save'] = '~r~Object was not saved! Restart your game to to edit this object.',
-        
+
     },
     ['de'] = {
         ['menu_title'] = 'Map Builder',
@@ -208,7 +209,7 @@ Translation = {
         ['not_enough_money'] = '~r~Du hast nicht genügend Geld!',
         ['no_object'] = '~r~Kein Objekt!',
         ['cant_save'] = '~r~Änderungen nicht gespeichert! Bitte starte das Spiel neu.',
-        
+
     },
 	['es'] = {
         ['menu_title'] = 'Constructor de Mapas',
@@ -273,7 +274,7 @@ Translation = {
         ['not_enough_money'] = '~r~¡No tienes suficiente dinero!',
         ['no_object'] = '~r~Sin objeto!',
         ['cant_save'] = '~r~¡El objeto no se guardó! Reinicia tu juego para editar este objeto.',
-        
+
     },
 }
 
