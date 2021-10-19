@@ -24,7 +24,7 @@ Config.objects = {
 				[16] = {object="prop_off_chair_04b", verticalOffsetX=0.0, verticalOffsetY=0.0, verticalOffsetZ=-0.4, direction=168.0, bed=false},
 				[17] = {object="v_ret_chair_white", verticalOffsetX=0.0, verticalOffsetY=0.0, verticalOffsetZ=-0.5, direction=168.0, bed=false},
 					[18] = {object="xm_prop_x17_avengerchair_02", verticalOffsetX=0.0, verticalOffsetY=0.0, verticalOffsetZ=0.1, direction=168.0, bed=false},
-						[19] = {object="prop_clown_chair", verticalOffsetX=-0.3, verticalOffsetY=-0.3, verticalOffsetZ=-0.2, direction=168.0, bed=false},
+						[19] = {object="prop_clown_chair", verticalOffsetX=-0.3, verticalOffsetY=-0.3, verticalOffsetZ=0.1, direction=168.0, bed=false},
 
 
 
