@@ -12,7 +12,7 @@ Config.DefaultWeaponTints = {
 Config.Weapons = {
 	{
 		name = 'WEAPON_PISTOL',
-		label = 'M&P 9',
+		label = 'M9A3',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -68,7 +68,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_SNSPISTOL',
-		label = _U('weapon_snspistol'),
+		label = 'Glock 19',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -154,7 +154,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_MICROSMG',
-		label = _U('weapon_microsmg'),
+		label = 'MICRO UZI',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_SMG')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -262,7 +262,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_ASSAULTRIFLE',
-		label = _U('weapon_assaultrifle'),
+		label = 'AK 47',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -347,7 +347,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_COMPACTRIFLE',
-		label = _U('weapon_compactrifle'),
+		label = 'AK74 U',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -463,16 +463,6 @@ Config.Weapons = {
 									}
 								},
 
-
-																{
-																	name = 'WEAPON_G19',
-																	label = 'Glock 19',
-																	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
-																	tints = Config.DefaultWeaponTints,
-																	components = {
-
-																	}
-																},
 																{
 																	name = 'WEAPON_HK416B',
 																	label = 'HK 416',
@@ -543,8 +533,8 @@ Config.Weapons = {
 			{name = 'suppressor', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_SR25_SUPP_01')},
 			{name = 'suppressor2', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_SR25_SUPP_02')},
 			{name = 'suppressor3', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_SR25_SUPP_03')},
-			
-		
+
+
 		}
 	},
 
