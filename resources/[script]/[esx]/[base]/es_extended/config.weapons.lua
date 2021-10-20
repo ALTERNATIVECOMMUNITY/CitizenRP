@@ -588,7 +588,7 @@ Config.Weapons = {
 
 
 
-
+	{name = 'WEAPON_FLASHBANG', label = 'Grenade Flash', components = {}, ammo = {label = 'Grenade Flash', hash = GetHashKey('AMMO_FLASH')}},
 	{name = 'WEAPON_SMOK2GRENADE', label = 'Fumigene', components = {}, ammo = {label = 'Gre Fumi', hash = GetHashKey('AMMO_SMOK2NADE')}},
 	{name = 'WEAPON_GRENADE', label = _U('weapon_grenade'), components = {}, ammo = {label = _U('ammo_grenade'), hash = GetHashKey('AMMO_GRENADE')}},
 	{name = 'WEAPON_SMOKEGRENADE', label = _U('weapon_smokegrenade'), components = {}, ammo = {label = _U('ammo_smokebomb'), hash = GetHashKey('AMMO_SMOKEGRENADE')}},
