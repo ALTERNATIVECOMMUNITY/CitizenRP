@@ -1,164 +1,118 @@
 var soundList = [];
-var closeToPlayer = [];
+var playingRightNow = [];
 
 var playerPos = [0,0,0];
 $(function(){
 	window.addEventListener('message', function(event) {
 		var item = event.data;
-        switch(item.status)
-        {
-            case "position":
-                playerPos = [item.x,item.y,item.z];
-                break;
-
-            case "volume":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setVolume(item.volume);
-                    sound.setMaxVolume(item.volume);
-                }
-                break;
-
-            case "timestamp":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setTimeStamp(item.timestamp);
-                }
-                break;
-
-            case "max_volume":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setMaxVolume(item.volume);
-                }
-                break;
-
-            case "url":
-                var sound = soundList[item.name];
-
-                if(sound == null)
-                {
-                    var sd = new SoundPlayer();
-                    sd.setName(item.name);
-                    sd.setSoundUrl(item.url);
-                    sd.setDynamic(item.dynamic);
-                    sd.setLocation(item.x,item.y,item.z);
-                    sd.setLoop(item.loop)
-                    sd.create();
-                    sd.setVolume(item.volume);
-                    sd.play();
-                    soundList[item.name] = sd;
-                    }else{
-                    sound.destroyYoutubeApi();
-                    sound.delete();
-
-                    sound.setLoaded(false);
-                    sound.setName(item.name);
-                    sound.setLocation(item.x,item.y,item.z);
-                    sound.setLoop(item.loop);
-                    sound.setSoundUrl(item.url);
-                    sound.setMaxVolume(item.volume);
-                    sound.setVolume(item.volume);
-                    sound.create();
-
-                    sound.play();
-                }
-                break;
-
-            case "distance":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setDistance(item.distance);
-                }
-                break;
-
-            case "play":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.delete();
-                    sound.create();
-                    sound.setVolume(item.volume);
-                    sound.setDynamic(item.dynamic);
-                    sound.setLocation(item.x,item.y,item.z);
-                    sound.play();
-                }
-                break;
-
-            case "soundPosition":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setLocation(item.x,item.y,item.z);
-                }
-                break;
-
-            case "resume":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.resume();
-                }
-                break;
-
-            case"pause":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.pause();
-                }
-                break;
-
-            case "delete":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.destroyYoutubeApi();
-                    sound.delete();
-                }
-                break;
-            case "repeat":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setTimeStamp(0);
-                    sound.play();
-                }
-                break;
-            case "changedynamic":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setDynamic(item.bool);
-                    sound.setVolume(sound.getMaxVolume());
-                }
-                break;
-            case "changeurl":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.destroyYoutubeApi();
-                    sound.delete();
-                    sound.setSoundUrl(item.url);
-                    sound.setLoaded(false);
-                    sound.create();
-
-                    sound.play();
-                }
-                break;
-            case "loop":
-                var sound = soundList[item.name];
-                if(sound != null)
-                {
-                    sound.setLoop(item.loop);
-                }
-                break;
+		if(item.status === "position")
+		{
+			playerPos = [item.x,item.y,item.z];
 		}
-    })
+
+		if(item.status === "volume")
+        {
+            var sound = soundList[item.name];
+			if(sound != null)
+			{
+                sound.setVolume(item.volume);
+                sound.setMaxVolume(item.volume);
+            }
+        }
+
+        if(item.status === "max_volume")
+        {
+            var sound = soundList[item.name];
+            if(sound != null)
+            {
+                sound.setMaxVolume(item.volume);
+            }
+        }
+
+		if (item.status === "url")
+		{
+			var sound = soundList[item.name];		
+			if(sound == null)
+			{
+				var sd = new SoundPlayer();
+				sd.setSoundUrl(item.url);										
+				sd.setDynamic(item.dynamic);
+				sd.setLocation(item.x,item.y,item.z);
+				sd.setLoop(item.loop)
+				sd.create();
+				sd.setVolume(item.volume);			
+				sd.play();
+				soundList[item.name] = sd;
+				}else{
+				sound.setLocation(item.x,item.y,item.z);
+				sound.setSoundUrl(item.url);
+				sound.setLoop(item.loop);
+				sound.destroyYoutubeApi();
+				sound.delete();
+				sound.create();
+				sound.setVolume(item.volume);
+				sound.play();
+			}
+		}
+		
+		if (item.status === "distance") 
+		{
+			var sound = soundList[item.name];
+			if(sound != null)
+			{
+				sound.setDistance(item.distance);
+			}
+		}
+		if (item.status === "play") 
+		{
+			var sound = soundList[item.name];		
+			if(sound != null)
+			{
+				sound.delete();
+				sound.create();
+				sound.setVolume(item.volume);
+				sound.setDynamic(item.dynamic);
+				sound.setLocation(item.x,item.y,item.z);
+				sound.play();
+			}
+		}
+		if (item.status === "soundPosition") 
+		{
+			var sound = soundList[item.name];		
+			if(sound != null)
+			{
+				sound.setLocation(item.x,item.y,item.z);
+			}
+		}
+		
+		if (item.status === "resume") 
+		{
+			var sound = soundList[item.name];		
+			if(sound != null)
+			{
+				sound.resume();
+			}
+		}
+		
+		if (item.status === "pause") 
+		{
+			var sound = soundList[item.name];		
+			if(sound != null)
+			{
+				sound.pause();
+			}
+		}
+		
+		if (item.status === "delete") 
+		{
+			var sound = soundList[item.name];		
+			if(sound != null)
+			{
+			    sound.destroyYoutubeApi();
+				sound.delete();
+			}
+		}
+    })	
 });  	
 
 function Between(loc1,loc2)
@@ -171,49 +125,23 @@ function Between(loc1,loc2)
 	return distance;
 }
 
-function addToCache()
+function updateVolumeSounds()
 {
-    closeToPlayer = [];
-    var sound = null;
 	for (var soundName in soundList)
 	{
-		sound = soundList[soundName];
+		var sound = soundList[soundName];
 		if(sound.isDynamic())
 		{
 			var distance = Between(playerPos,sound.getLocation());
 			var distance_max = sound.getDistance();
-			if(distance < distance_max + 40)
+			if(distance < distance_max)
 			{
-                closeToPlayer[soundName] = soundName;
+				sound.updateVolume(distance,distance_max);
+				continue;
 			}
-			else
-			{
-                if(!sound.isMuted()) sound.mute();
-			}
+			sound.mute();
 		}
 	}
 }
 
-setInterval(addToCache, 1000);
-
-function updateVolumeSounds()
-{
-    var sound = null;
-    for (var name in closeToPlayer)
-    {
-        sound = soundList[name];
-        if(sound.isDynamic())
-        {
-            var distance = Between(playerPos,sound.getLocation());
-            var distance_max = sound.getDistance();
-            if(distance < distance_max)
-            {
-                sound.updateVolume(distance,distance_max);
-                continue;
-            }
-            sound.mute();
-        }
-    }
-}
-
-setInterval(updateVolumeSounds, refreshTime);
+setInterval(updateVolumeSounds, 100);
