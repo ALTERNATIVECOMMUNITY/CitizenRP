@@ -27,7 +27,7 @@ Config.GlobalBlacklist = {
     },
     ['torso'] = {
         ['torso_1'] = {
-            ['male'] = {2,24,28,31,32,38,44,,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
+            ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
             ['female'] = {},
         }
     },
@@ -43,9 +43,9 @@ Config.GlobalBlacklist = {
             ['female'] = {},
         }
     },
-    ['bags'] = {
-        ['male'] = {31,32,36,33,35,48,49,60,66,72,73,74}, --Specific sex blacklist
-        ['female'] = {},
+    ['bags'] = { 31,32,36,33,35,48,49,60,66,72,73,74
+      --  ['male'] = {31,32,36,33,35,48,49,60,66,72,73,74}, --Specific sex blacklist
+        --['female'] = {},
         --Numbers of blacklisted items for bags for both sex  torso_1
     }
 }
@@ -3497,40 +3497,38 @@ Config.Stores = {
             },
         }
     },
-
-
     {
         position = vector3(-1164.99,-1586.59,4.38),
-        label = 'Vespuci - Masky',
+        label = 'LSPD Shop',
         sprite = 362,
         color = 60,
---        society = 'society_goverment',
+  --        society = 'society_goverment',
         sections = {
-            glasses = {
-                job = {
-                    'police', --Use job limitation
-                },
-                pos = vector3(459.90896606445,-999.18109130859,30.689565658569),
-                label = '🙈',
-                help = 'Zmackni ~INPUT_CONTEXT~ pro otevreni nabidky s maskami',
+            bags = {
+              job = {
+                  'police', --Use job limitation
+              },
+                pos = vector3(458.51345825195,-999.70031738281,30.689565658569),
+                label = '🎒',
+                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = 'Maska',
-                        name = 'mask_1',
+                        label = 'Sac',
+                        name = 'bags_1',
                         from = -1,
                         to = 160,
                         current = -1,
                         reset = {
-                            'mask_2'
+                            'bags_2'
                         },
-                        price = 50,
-                        blacklist = {
-                            26,27,
+                        price = 120,
+                        whitelist = {
+                            31,32,36,33,35,48,49,60,66,72,73,74
                         }
                     },
                     {
-                        label = 'Barva masky',
-                        name = 'mask_2',
+                        label = 'Couleur du Sac',
+                        name = 'bags_2',
                         from = 0,
                         to = 20,
                         current = 0,
@@ -3541,16 +3539,16 @@ Config.Stores = {
                     offset = {
                         x = 0.0,
                         y = 1.0,
-                        z = 0.7
+                        z = 0.5
                     },
                     pointOffset = {
                         x = 0,
                         y = 0,
-                        z = 0.8
+                        z = 0.4
                     },
-                    taskHeading = 100.66
+                    taskHeading = 211.66
                 }
             },
-        }
-    },
+          },
+      },
 }
