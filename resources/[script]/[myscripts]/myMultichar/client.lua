@@ -305,6 +305,7 @@ function finishSpawn(pos, isnew)
     if isnew then
         TriggerServerEvent('esx_dmvschool:addLicense', "dmv")
         TriggerServerEvent('esx_dmvschool:addLicense', "drive")
+        TriggerServerEvent('myMultichar:givePhone')
     end
 end
 
