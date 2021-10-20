@@ -9,12 +9,12 @@ Config.Shops = {
 				{
 	 					name = "toolbox",
 	 					type = "item",
-	 					price = 500
+	 					price = 50
 	 		 },
 	 		 {
 	 					name = "mechanic_tools",
 	 					type = "item",
-	 					price = 900
+	 					price = 200
 	 		 },
 
 	  },
@@ -37,72 +37,48 @@ Config.Shops = {
 				{
 						name = "lockpick",
 						type = "item",
-						price = 500
-			 },
-			 {
-						name = "LaundryCard",
-						type = "item",
-						price = 10000
+						price = 17
 			 },
 			 {
 						name = "cubancigar",
 						type = "item",
-						price = 100
+						price = 23
 			 },
 			 {
 						name = "morphin",
 						type = "item",
-						price = 1000
+						price = 148
 			 },
 			 {
 						name = "zipties",
 						type = "item",
-						price = 500
+						price = 14
 			 },
-			 {
-						name = "scissors",
-						type = "item",
-						price = 1000
-			 },
-			 {
-						name = "c4_bomb",
-						type = "item",
-						price = 5000
-			 },
+
 			 {
 						name = "drill",
 						type = "item",
-						price = 10000
+						price = 1247
 			 },
 			 {
 						name = "hack_usb",
 						type = "item",
-						price = 5000
-			 },
-			 {
-						name = "laptop",
-						type = "item",
-						price = 6500
-			 },
-			 {
-						name = "thermite_bomb",
-						type = "item",
-						price = 1500
+						price = 614
 			 },
 			 {
 						name = "key1",
 						type = "item",
-						price = 1500
+						price = 1179
 			 },
 			 {
 						name = "key2",
 						type = "item",
-						price = 1500
+						price = 1193
 			 },
 			 {
 						name = "cutter",
 						type = "item",
-						price = 200
+						price = 50
 			 },
 			 -- {
 				-- 		name = "weapon_switchblade",
@@ -112,7 +88,7 @@ Config.Shops = {
 			 {
 						name = "bag",
 						type = "item",
-						price = 100
+						price = 89
 			 },
 		},
 
@@ -135,95 +111,110 @@ Config.Shops = {
 				{
 						name = "weapon_snspistol",
 						type = "weapon",
-						price = 10000
+						price = 3099
 			 },
 				{
 	 					name = "weapon_pistol",
 	 					type = "weapon",
-	 					price = 25000
+	 					price = 3019
 	 		 },
 			 {
 					 name = "clip",
 					 type = "item",
-					 price = 5000
+					 price = 98
 			},
 
 			{
 					name = "weapon_combatpistol",
 					type = "weapon",
-					price = 50000
+					price = 3099
 		 },
-
-		 {
-				 name = "weapon_combatpistol",
-				 type = "weapon",
-				 price = 50000
-		},
-
-		 {
-				 name = "weapon_g19",
-				 type = "weapon",
-				 price = 60000
-		},
 		{
 				name = "weapon_heavypistol",
 				type = "weapon",
-				price = 70000
+				price = 3799
 	 },
-
-
+	 {
+			 name = "weapon_doubleaction",
+			 type = "weapon",
+			 price = 3499
+	},
 		 			{
 		 					name = "weapon_microsmg",
 		 					type = "weapon",
-		 					price = 60000
+		 					price = 5218
 		 		 },
 				 {
 						 name = "weapon_compactrifle",
 						 type = "weapon",
-						 price = 120000
+						 price = 5844
 				},
 				 {
 						 name = "weapon_assaultrifle",
 						 type = "weapon",
-						 price = 150000
+						 price = 6141
 				},
 				{
 						name = "weapon_hk416b",
 						type = "weapon",
-						price = 360000
+						price = 14229
 			 },
 				{
 						name = "weapon_fbiarb",
 						type = "weapon",
-						price = 200000
+						price = 10999
 			 },
 				{
 						name = "weapon_sawnoffshotgun",
 						type = "weapon",
-						price = 80000
+						price = 5248
 			 },
+
+			 {
+					 name = "weapon_sr25",
+					 type = "weapon",
+					 price = 17344
+			},
 				{
 						name = "weapon_m700",
 						type = "weapon",
-						price = 450000
-			 },
-			 			{
-						name = "weapon_rpg",
-						type = "weapon",
-						price = 1000000
+						price = 19241
 			 },
 			 {
 					 name = "weapon_molotov",
 					 type = "weapon",
-					 price = 15000
+					 price = 834
 			},
 					{
 						name = 'weapon_stickybomb',
 						type = 'weapon',
-						blackMoney = true,
-						price = 400000
+						price = 18499
 					},
-
+					{
+						name = 'c4_bomb',
+						type = 'item',
+						price = 998
+					},
+					{
+						name = 'thermite_bomb',
+						type = 'item',
+						price = 678
+					},
+					-- {
+					-- 	name = 'suppressor',
+					-- 	type = 'item',
+					-- 	price = 1999
+					-- },
+					-- {
+					-- 	name = 'scope1',
+					-- 	type = 'item',
+					-- 	price = 699
+					-- },
+					-- {
+					-- 	name = 'scope2',
+					-- 	type = 'item',
+					-- 	price = 2458
+					-- },
 
 	  },
 
@@ -572,48 +563,24 @@ Config.Shops = {
  		 {
  					name = "bait",
  					type = "item",
- 					price = 15
+ 					price = 3
  		 },
  		 {
- 					name = "beer",
+ 					name = "piswasser",
  					type = "item",
- 					price = 25
+ 					price = 12
  		 },
  		 {
  					name = "marlboro",
  					type = "item",
- 					price = 100
- 		 },
- 		 {
- 					name = "redw",
- 					type = "item",
- 					price = 75
+ 					price = 20
  		 },
  		 {
  					name = "lighter",
  					type = "item",
- 					price = 200
+ 					price = 6
  		 },
-		 {
-						name = "spray",
-						type = "item",
-						price = 200
-			 },
-			 {
-							name = "spray_remover",
-							type = "item",
-							price = 200
-				 },
- 		 {
- 					name = "gazbottle",
- 					type = "item",
- 					price = 250
- 		 },
-		 {
-					name = "burger",
-					type = "item",
-					price = 250
-		 },
+
   },
 
 		Pos = {
@@ -761,17 +728,17 @@ Config.Shops = {
 			{
 					name = "phone",
 					type = "item",
-					price = 500
+					price = 599
 		 },
 		 {
 					name = "radio",
 					type = "item",
-					price = 650
+					price = 125
 		 },
 		 {
 					name = "laptop",
 					type = "item",
-					price = 1500
+					price = 1099
 		 },
 	},
 
@@ -792,55 +759,36 @@ Config.Shops = {
 
 		Items = {
 			{
-					 name = "chaser",
-					 type = "item",
-					 price = 5
-			},
-			{
-					 name = "water",
-					 type = "item",
-					 price = 2
-			},
-			{
-					 name = "bait",
-					 type = "item",
-					 price = 15
-			},
-			{
-					 name = "beer",
-					 type = "item",
-					 price = 25
-			},
-			{
-					 name = "marlboro",
-					 type = "item",
-					 price = 100
-			},
-			{
-					 name = "redw",
-					 type = "item",
-					 price = 75
-			},
-			{
-					 name = "lighter",
-					 type = "item",
-					 price = 200
-			},
-			{
-					 name = "gazbottle",
-					 type = "item",
-					 price = 250
-			},
-			{
-						 name = "spray",
-						 type = "item",
-						 price = 200
-				},
-				{
-							 name = "spray_remover",
-							 type = "item",
-							 price = 200
-					},
+					name = "chaser",
+					type = "item",
+					price = 5
+		 },
+		 {
+					name = "water",
+					type = "item",
+					price = 2
+		 },
+
+		 {
+					name = "bait",
+					type = "item",
+					price = 3
+		 },
+		 {
+					name = "piswasser",
+					type = "item",
+					price = 12
+		 },
+		 {
+					name = "marlboro",
+					type = "item",
+					price = 20
+		 },
+		 {
+					name = "lighter",
+					type = "item",
+					price = 6
+		 },
 	},
 
 		Pos = {
@@ -863,53 +811,39 @@ Config.Shops = {
 	LTDgasoline = {
 
 		Items = {
-							 {
-										name = "chaser",
-							--      type = "item",
-										price = 15
-							 },
-							 {
-										name = "water",
-								--    type = "item",
-										price = 10
-							 },
-							 {
-										name = "marlboro",
---type = "item",
-										price = 200
-							 },
-							 {
-										name = "redw",
---type = "item",
-										price = 150
-							 },
-							 {
-										name = "lighter",
-									--  type = "item",
-										price = 600
-							 },
-							 {
-										name = "towing_rope",
-									--  type = "item",
-										price = 800
-							 },
-							 {
-											name = "spray",
-											type = "item",
-											price = 700
-								 },
-								 {
-												name = "spray_remover",
-												type = "item",
-												price = 700
-									 },
-									 {
-											 name = "toolbox",
-											 type = "item",
-											 price = 500
-									},
+			{
+					name = "chaser",
+					type = "item",
+					price = 5
+		 },
+		 {
+					name = "water",
+					type = "item",
+					price = 2
+		 },
 
-					 },
+		 {
+					name = "bait",
+					type = "item",
+					price = 3
+		 },
+		 {
+					name = "piswasser",
+					type = "item",
+					price = 12
+		 },
+		 {
+					name = "marlboro",
+					type = "item",
+					price = 20
+		 },
+		 {
+					name = "lighter",
+					type = "item",
+					price = 6
+		 },
+
+	 },
 
 		Pos = {
 			vector3(-48.5,  -1757.5, 29.4),
@@ -933,36 +867,45 @@ Config.Shops = {
 			{
 				name = 'weapon_snspistol',
 				type = 'weapon',
-				price = 10000
+				price = 1099
 			},
 			{
 				name = 'weapon_pistol',
 				type = 'weapon',
-				price = 15000
+				price = 1019
 			},
-
+			{
+				name = 'weapon_combatpistol',
+				type = 'weapon',
+				price = 1399
+			},
+			{
+				name = 'weapon_doubleaction',
+				type = 'weapon',
+				price = 1499
+			},
 
 			{
 				name = 'weapon_knuckle',
 				type = 'weapon',
-				price = 500
+				price = 87
 			},
 
 			{
 				name = 'weapon_knife',
 				type = 'weapon',
-				price = 2500
+				price = 175
+			},
+			{
+				name = 'weapon_switchblade',
+				type = 'weapon',
+				price = 149
 			},
 
 			{
-				name = 'weapon_combatpistol',
-				type = 'weapon',
-				price = 25000
-			},
-			{
 				name = 'clip',
 				type = 'item',
-				price = 2000
+				price = 89
 			},
 
 		},
@@ -1020,198 +963,10 @@ Config.Shops = {
 
 
 
-	WallMart_Viande_1 = {
-
-		Items = {
-			{
-					name = "steak",
-					type = "item",
-					price = 500
-		 },
-
-	},
-
-		Pos = {
-			vector3(2705.1889648438,3493.1401367188,55.690528869629)
-		},
-
-		MarkerLabel = 'Wallmart Viande',
-		ShowBlip = false,
-		ShowMarker = true,
-		Size  = 1.0,
-		Type  = 59,
-		Color = 2
-	},
 
 
 
-		WallMart_Poisson_1 = {
-
-			Items = {
-				{
-						name = "fish",
-						type = "item",
-						price = 500
-			 },
-			 {
-					 name = "fish2",
-					 type = "item",
-					 price = 500
-			},
-			{
-					name = "fish3",
-					type = "item",
-					price = 500
-		 },
-
-		},
-
-			Pos = {
-				vector3(2710.3430175781,3505.2827148438,55.690574645996)
-			},
-
-			MarkerLabel = 'Wallmart Poisson',
-			ShowBlip = false,
-			ShowMarker = true,
-			Size  = 1.0,
-			Type  = 59,
-			Color = 2
-		},
-
-
-
-
-
-		WallMart_Legume_1 = {
-
-			Items = {
-				{
-						name = "tomates",
-						type = "item",
-						price = 500
-			 },
-
-		},
-
-			Pos = {
-				vector3(2733.4150390625,3468.2966308594,55.691638946533)
-			},
-
-			MarkerLabel = 'Wallmart Legumes',
-			ShowBlip = false,
-			ShowMarker = true,
-			Size  = 1.0,
-			Type  = 59,
-			Color = 2
-		},
-
-
-
-
-				WallMart_Legume_2 = {
-
-					Items = {
-						{
-								name = "salade",
-								type = "item",
-								price = 500
-					 },
-
-				},
-
-					Pos = {
-						vector3(2717.5546875,3461.1333007813,55.690536499023)
-					},
-
-					MarkerLabel = 'Wallmart Legumes',
-					ShowBlip = false,
-					ShowMarker = true,
-					Size  = 1.0,
-					Type  = 59,
-					Color = 2
-				},
-
-
-
-
-				WallMart_Legume_3 = {
-
-					Items = {
-						{
-								name = "oignons",
-								type = "item",
-								price = 500
-					 },
-
-				},
-
-					Pos = {
-						vector3(2715.0295410156,3462.2705078125,55.690536499023)
-					},
-
-					MarkerLabel = 'Wallmart Legumes',
-					ShowBlip = false,
-					ShowMarker = true,
-					Size  = 1.0,
-					Type  = 59,
-					Color = 2
-				},
-
-
-
-								WallMart_Legume_4 = {
-
-									Items = {
-										{
-												name = "patates",
-												type = "item",
-												price = 500
-									 },
-
-								},
-
-									Pos = {
-										vector3(2712.0324707031,3463.5864257813,55.690536499023)
-									},
-
-									MarkerLabel = 'Wallmart Legumes',
-									ShowBlip = false,
-									ShowMarker = true,
-									Size  = 1.0,
-									Type  = 59,
-									Color = 2
-								},
-
-
-
-								WallMart_Legume_5 = {
-
-									Items = {
-										{
-												name = "cornichons",
-												type = "item",
-												price = 500
-									 },
-
-								},
-
-									Pos = {
-										vector3(2709.6184082031,3464.5649414063,55.690536499023)
-									},
-
-									MarkerLabel = 'Wallmart Legumes',
-									ShowBlip = false,
-									ShowMarker = true,
-									Size  = 1.0,
-									Type  = 59,
-									Color = 2
-								},
-
-
-
-
-
-																WallMart_Soda = {
+																Quinc = {
 
 																	Items = {
 																		{
@@ -1225,6 +980,22 @@ Config.Shops = {
 																				 type = "item",
 																				 price = 500
 																		},
+																		{
+																				 name = "scissors",
+																				 type = "item",
+																				 price = 1000
+																		},
+
+																		{
+																					 name = "spray",
+																					 type = "item",
+																					 price = 200
+																			},
+																			{
+																						 name = "spray_remover",
+																						 type = "item",
+																						 price = 200
+																				},
 
 												},
 
@@ -1246,155 +1017,6 @@ Config.Shops = {
 
 
 
-																WallMart_Huile_1 = {
-
-																	Items = {
-																		{
-																				name = "oil_bouffe",
-																				type = "item",
-																				price = 500
-																	 },
-
-																},
-
-																	Pos = {
-																		vector3(2721.0070800781,3489.4235839844,55.690582275391),
-																		vector3(2720.9753417969,3476.8156738281,55.690582275391),
-																		vector3(2727.1818847656,3499.3581542969,55.690540313721),
-																		vector3(2742.3041992188,3492.703125,55.690952301025)
-
-																	},
-
-																	MarkerLabel = 'Wallmart Huile',
-																	ShowBlip = false,
-																	ShowMarker = true,
-																	Size  = 1.0,
-																	Type  = 59,
-																	Color = 2
-																},
-
-																WallMart_Pain_1 = {
-
-																	Items = {
-																		{
-																				name = "bread",
-																				type = "item",
-																				price = 1
-																	 },
-
-																},
-
-																	Pos = {
-																		vector3(2729.9455566406,3459.0341796875,55.691383361816)
-
-																	},
-
-																	MarkerLabel = 'Wallmart Pain',
-																	ShowBlip = false,
-																	ShowMarker = true,
-																	Size  = 1.0,
-																	Type  = 59,
-																	Color = 2
-																},
-
-																WallMart_Pain_1 = {
-
-																	Items = {
-																		{
-																				name = "water",
-																				type = "item",
-																				price = 1
-																	 },
-
-																},
-
-																	Pos = {
-																		vector3(2729.2375488281,3506.216796875,55.690547943115)
-
-																	},
-
-																	MarkerLabel = 'Wallmart Eau',
-																	ShowBlip = false,
-																	ShowMarker = true,
-																	Size  = 1.0,
-																	Type  = 59,
-																	Color = 2
-																},
-																WallMart_Bar_1 = {
-
-																	Items = {
-																		{
-																				name = "chaser",
-																				type = "item",
-																				price = 5
-																	 },
-
-																},
-
-																	Pos = {
-																		vector3(2717.4592285156,3484.2626953125,55.690582275391)
-
-																	},
-
-																	MarkerLabel = 'Wallmart Bar',
-																	ShowBlip = false,
-																	ShowMarker = true,
-																	Size  = 1.0,
-																	Type  = 59,
-																	Color = 2
-																},
-																WallMart_Doliprane_1 = {
-
-																	Items = {
-																		{
-																				name = "painkillers",
-																				type = "item",
-																				price = 50
-																	 },
-
-																},
-
-																	Pos = {
-																		vector3(2694.8212890625,3481.9260253906,55.690559387207)
-
-																	},
-
-																	MarkerLabel = 'Wallmart Pharmacie',
-																	ShowBlip = false,
-																	ShowMarker = true,
-																	Size  = 1.0,
-																	Type  = 59,
-																	Color = 2
-																},
-
-																WallMart_Clope_1 = {
-
-																	Items = {
-																		{
-																				name = "marlboro",
-																				type = "item",
-																				price = 50
-																	 },
-																		 {
-																				 name = "redw",
-																				 type = "item",
-																				 price = 50
-																		},
-
-																},
-
-																	Pos = {
-																		vector3(2698.7819824219,3488.8210449219,55.690559387207)
-
-																	},
-
-																	MarkerLabel = 'Wallmart Pharmacie',
-																	ShowBlip = false,
-																	ShowMarker = true,
-																	Size  = 1.0,
-																	Type  = 59,
-																	Color = 2
-																},
 
 
 

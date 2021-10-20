@@ -30,5 +30,5 @@ Config.DJPositions = {
         volume = 0.1 --[[ do not touch the volume! --]]
     }
 
-    {name = 'bahama', pos = vector3(372.73880004883,-934.80206298828,25.327251434326), requiredJob = 'cyber', range = 25.0}
+  --  {name = 'bahama', pos = vector3(372.73880004883,-934.80206298828,25.327251434326), requiredJob = 'cyber', range = 25.0}
 }

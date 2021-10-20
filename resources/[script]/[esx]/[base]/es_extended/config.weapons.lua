@@ -12,7 +12,7 @@ Config.DefaultWeaponTints = {
 Config.Weapons = {
 	{
 		name = 'WEAPON_PISTOL',
-		label = 'M&P 9',
+		label = 'M9A3',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -68,7 +68,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_SNSPISTOL',
-		label = _U('weapon_snspistol'),
+		label = 'Glock 19',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -154,7 +154,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_MICROSMG',
-		label = _U('weapon_microsmg'),
+		label = 'MICRO UZI',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_SMG')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -207,7 +207,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_SAWNOFFSHOTGUN',
-		label = _U('weapon_sawnoffshotgun'),
+		label = 'Shorty',
 		ammo = {label = _U('ammo_shells'), hash = GetHashKey('AMMO_SHOTGUN')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -262,7 +262,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_ASSAULTRIFLE',
-		label = _U('weapon_assaultrifle'),
+		label = 'AK 47',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -347,7 +347,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_COMPACTRIFLE',
-		label = _U('weapon_compactrifle'),
+		label = 'AK74 U',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -463,16 +463,6 @@ Config.Weapons = {
 									}
 								},
 
-
-																{
-																	name = 'WEAPON_G19',
-																	label = 'Glock 19',
-																	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
-																	tints = Config.DefaultWeaponTints,
-																	components = {
-
-																	}
-																},
 																{
 																	name = 'WEAPON_HK416B',
 																	label = 'HK 416',
@@ -543,8 +533,8 @@ Config.Weapons = {
 			{name = 'suppressor', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_SR25_SUPP_01')},
 			{name = 'suppressor2', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_SR25_SUPP_02')},
 			{name = 'suppressor3', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_SR25_SUPP_03')},
-			
-		
+
+
 		}
 	},
 
@@ -593,6 +583,13 @@ Config.Weapons = {
 	{name = 'WEAPON_GOLFCLUB', label = _U('weapon_golfclub'), components = {}},
 	{name = 'WEAPON_CROWBAR', label = _U('weapon_crowbar'), components = {}},
 
+
+
+
+
+
+	{name = 'WEAPON_FLASHBANG', label = 'Grenade Flash', components = {}, ammo = {label = 'Grenade Flash', hash = GetHashKey('AMMO_FLASH')}},
+	{name = 'WEAPON_SMOK2GRENADE', label = 'Fumigene', components = {}, ammo = {label = 'Gre Fumi', hash = GetHashKey('AMMO_SMOK2NADE')}},
 	{name = 'WEAPON_GRENADE', label = _U('weapon_grenade'), components = {}, ammo = {label = _U('ammo_grenade'), hash = GetHashKey('AMMO_GRENADE')}},
 	{name = 'WEAPON_SMOKEGRENADE', label = _U('weapon_smokegrenade'), components = {}, ammo = {label = _U('ammo_smokebomb'), hash = GetHashKey('AMMO_SMOKEGRENADE')}},
 	{name = 'WEAPON_STICKYBOMB', label = _U('weapon_stickybomb'), components = {}, ammo = {label = _U('ammo_stickybomb'), hash = GetHashKey('AMMO_STICKYBOMB')}},
