@@ -3507,8 +3507,55 @@ Config.Stores = {
             bags = {
               job = {
                   'police', --Use job limitation
+                  'sheriff'
               },
                 pos = vector3(458.51345825195,-999.70031738281,30.689565658569),
+                label = '🎒',
+                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
+                components = {
+                    {
+                        label = 'Sac',
+                        name = 'bags_1',
+                        from = -1,
+                        to = 160,
+                        current = -1,
+                        reset = {
+                            'bags_2'
+                        },
+                        price = 120,
+                        whitelist = {
+                            31,32,36,33,35,48,49,60,66,72,73,74
+                        }
+                    },
+                    {
+                        label = 'Couleur du Sac',
+                        name = 'bags_2',
+                        from = 0,
+                        to = 20,
+                        current = 0,
+                        price = 10,
+                    },
+                },
+                cam = {
+                    offset = {
+                        x = 0.0,
+                        y = 1.0,
+                        z = 0.5
+                    },
+                    pointOffset = {
+                        x = 0,
+                        y = 0,
+                        z = 0.4
+                    },
+                    taskHeading = 211.66
+                }
+            },
+            bags = {
+              job = {
+                  'police', --Use job limitation
+                  'sheriff'
+              },
+                pos = vector3(370.13177490234,-1605.2971191406,29.292057037354),
                 label = '🎒',
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
