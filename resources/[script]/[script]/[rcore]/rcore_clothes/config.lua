@@ -21,12 +21,32 @@ Config.NearObjectDistance = 50
 Config.GlobalBlacklist = {
     ['helmet'] = {
         ['helmet_1'] = {
-            ['male'] = {}, --Specific sex blacklist
+            ['male'] = {2,3,6,7,13,17,9,49,79,84,91,92,115,116,117,119,141,147,148,150}, --Specific sex blacklist
             ['female'] = {},
         }
     },
-    ['bags'] = {
-        --Numbers of blacklisted items for bags for both sex
+    ['torso'] = {
+        ['torso_1'] = {
+            ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
+            ['female'] = {},
+        }
+    },
+    ['tshirt'] = {
+        ['tshirt_1'] = {
+            ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105}, --Specific sex blacklist
+            ['female'] = {},
+        }
+    },
+    ['chain'] = {
+        ['chain_1'] = {
+            ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
+            ['female'] = {},
+        }
+    },
+    ['bags'] = { 31,32,36,33,35,48,49,60,66,72,73,74
+      --  ['male'] = {31,32,36,33,35,48,49,60,66,72,73,74}, --Specific sex blacklist
+        --['female'] = {},
+        --Numbers of blacklisted items for bags for both sex  torso_1
     }
 }
 Config.GlobalWhitelist = { --Same as blacklist you can do with whitelist
@@ -40,6 +60,14 @@ Config.GlobalWhitelist = { --Same as blacklist you can do with whitelist
     --    --Numbers of blacklisted items for bags for both sex
     --}
 }
+
+
+--- 459.90896606445,-999.18109130859,30.689565658569
+
+
+
+
+
 --Where player can change his clothes at store or anywhere
 Config.ChangePoint = {
     title = 'Changer de vêtements', -- menu title
@@ -3469,4 +3497,105 @@ Config.Stores = {
             },
         }
     },
+    {
+        position = vector3(-1164.99,-1586.59,4.38),
+        label = 'LSPD Shop',
+        sprite = 362,
+        color = 60,
+  --        society = 'society_goverment',
+        sections = {
+            bags = {
+              job = {
+                  'police', --Use job limitation
+                  'sheriff'
+              },
+                pos = vector3(458.51345825195,-999.70031738281,30.689565658569),
+                label = '🎒',
+                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
+                components = {
+                    {
+                        label = 'Sac',
+                        name = 'bags_1',
+                        from = -1,
+                        to = 160,
+                        current = -1,
+                        reset = {
+                            'bags_2'
+                        },
+                        price = 120,
+                        whitelist = {
+                            31,32,36,33,35,48,49,60,66,72,73,74
+                        }
+                    },
+                    {
+                        label = 'Couleur du Sac',
+                        name = 'bags_2',
+                        from = 0,
+                        to = 20,
+                        current = 0,
+                        price = 10,
+                    },
+                },
+                cam = {
+                    offset = {
+                        x = 0.0,
+                        y = 1.0,
+                        z = 0.5
+                    },
+                    pointOffset = {
+                        x = 0,
+                        y = 0,
+                        z = 0.4
+                    },
+                    taskHeading = 211.66
+                }
+            },
+            bags = {
+              job = {
+                  'police', --Use job limitation
+                  'sheriff'
+              },
+                pos = vector3(370.13177490234,-1605.2971191406,29.292057037354),
+                label = '🎒',
+                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
+                components = {
+                    {
+                        label = 'Sac',
+                        name = 'bags_1',
+                        from = -1,
+                        to = 160,
+                        current = -1,
+                        reset = {
+                            'bags_2'
+                        },
+                        price = 120,
+                        whitelist = {
+                            31,32,36,33,35,48,49,60,66,72,73,74
+                        }
+                    },
+                    {
+                        label = 'Couleur du Sac',
+                        name = 'bags_2',
+                        from = 0,
+                        to = 20,
+                        current = 0,
+                        price = 10,
+                    },
+                },
+                cam = {
+                    offset = {
+                        x = 0.0,
+                        y = 1.0,
+                        z = 0.5
+                    },
+                    pointOffset = {
+                        x = 0,
+                        y = 0,
+                        z = 0.4
+                    },
+                    taskHeading = 211.66
+                }
+            },
+          },
+      },
 }
