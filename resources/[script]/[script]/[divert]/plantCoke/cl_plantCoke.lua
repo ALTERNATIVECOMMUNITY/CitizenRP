@@ -156,6 +156,21 @@ function getPlantingLocation(visible)
 
 end
 
+Citizen.CreateThread(function()
+    local hash = GetHashKey("a_m_y_acult_02")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "a_m_y_acult_02", 1909.2181, 611.5259, 177.3980, 237.6938, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+end)
+
+
 function GetHeadingFromPoints(a, b)
 
     if not a or not b then

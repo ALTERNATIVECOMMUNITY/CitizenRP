@@ -168,6 +168,18 @@ Citizen.CreateThread(function()
     SetPedEnveffScale(ped, 1)
     Citizen.Wait(200)
     SetBlockingOfNonTemporaryEvents(ped, true)
+
+    hash = GetHashKey("a_m_m_soucent_01")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "a_m_m_soucent_01", 1469.7899, 6549.8320, 14.9041-1.0, 1.5780, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
 end)
 
 function GetHeadingFromPoints(a, b)
