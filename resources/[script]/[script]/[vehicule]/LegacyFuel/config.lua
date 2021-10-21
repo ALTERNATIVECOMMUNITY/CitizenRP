@@ -58,7 +58,7 @@ Config.PumpModels = {
 Config.Blacklist = {
 	--"Adder",
 	--276773164
-	"modelsleo",
+	-- "modelsleo",
 }
 
 -- Do you want the HUD removed from showing in blacklisted vehicles?
@@ -66,28 +66,28 @@ Config.RemoveHUDForBlacklistedVehicle = true
 
 -- Class multipliers. If you want SUVs to use less fuel, you can change it to anything under 1.0, and vise versa.
 Config.Classes = {
-	[0] = 0.3, -- Compacts
-	[1] = 0.3, -- Sedans
-	[2] = 0.3, -- SUVs
-	[3] = 0.3, -- Coupes
-	[4] = 0.3, -- Muscle
-	[5] = 0.3, -- Sports Classics
-	[6] = 0.3, -- Sports
-	[7] = 0.3, -- Super
-	[8] = 0.3, -- Motorcycles
-	[9] = 0.3, -- Off-road
-	[10] = 0.3, -- Industrial
-	[11] = 0.3, -- Utility
-	[12] = 0.3, -- Vans
+	[0] = 0.5, -- Compacts
+	[1] = 0.5, -- Sedans
+	[2] = 0.5, -- SUVs
+	[3] = 0.5, -- Coupes
+	[4] = 0.5, -- Muscle
+	[5] = 0.5, -- Sports Classics
+	[6] = 0.5, -- Sports
+	[7] = 0.5, -- Super
+	[8] = 0.5, -- Motorcycles
+	[9] = 0.5, -- Off-road
+	[10] = 0.5, -- Industrial
+	[11] = 0.5, -- Utility
+	[12] = 0.5, -- Vans
 	[13] = 0.0, -- Cycles
-	[14] = 0.3, -- Boats
-	[15] = 0.3, -- Helicopters
-	[16] = 0.3, -- Planes
-	[17] = 0.3, -- Service
-	[18] = 0.3, -- Emergency
-	[19] = 0.3, -- Military
-	[20] = 0.3, -- Commercial
-	[21] = 0.3, -- Trains
+	[14] = 0.5, -- Boats
+	[15] = 0.5, -- Helicopters
+	[16] = 0.5, -- Planes
+	[17] = 0.5, -- Service
+	[18] = 0.5, -- Emergency
+	[19] = 0.5, -- Military
+	[20] = 0.5, -- Commercial
+	[21] = 0.5, -- Trains
 }
 
 -- The left part is at percentage RPM, and the right is how much fuel (divided by 10) you want to remove from the tank every second
