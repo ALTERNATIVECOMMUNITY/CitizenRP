@@ -29,7 +29,7 @@ Config = {
         Offset      = vector3(0,0,0.2),             -- The distance from the plant root location
         Duration    = 20000,                        -- How long should it burn, in milliseconds?
     },
-    Yield = {5,10}, -- How many Items.Product does each plant yield? {5,10} means "from 5 to 10, inclusive"
+    Yield = {15,30}, -- How many Items.Product does each plant yield? {5,10} means "from 5 to 10, inclusive"
     YieldSeed = {0,1}, -- Same as Yield, except for the amount of seeds you get back
     TimeMultiplier = 1.0, -- Multiplier for the growth/tend times
     Soil = {

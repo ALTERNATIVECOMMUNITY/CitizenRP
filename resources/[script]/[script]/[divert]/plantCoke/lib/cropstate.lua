@@ -189,7 +189,6 @@ if onServer then
                     else
                         if #Growth > plant.data.stage then
                             if not Config.Items.Tend or TakeItem(src, Config.Items.Tend) then
-                                makeToast(src, _U('interact_text'), _U('interact_tended'))
                                 cropstate:update(plantID, plant.data.stage + 1)
                                 doScenario(src, 'Frob', plantLocation)
                             else
