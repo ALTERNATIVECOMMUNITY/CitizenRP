@@ -156,7 +156,6 @@ if onServer then
             local distance = #( nearLocation - plantLocation)
             if distance <= Config.Distance.Interact then
                 cropstate:remove(plantID, true)
-                makeToast(src, _U('interact_text'), _U('interact_destroyed'))
                 doScenario(src, 'Destroy', plantLocation)
             else
                 Citizen.Trace(GetPlayerName(src)..' ('..src..') is too far away from '..plantID..' to remove it ('..distance'm)\n')
