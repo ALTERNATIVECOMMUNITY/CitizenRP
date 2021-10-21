@@ -31,6 +31,62 @@ Config.Shops = {
 			Color = 2
 		},
 
+		Coca = {
+
+			Items = {
+				{
+	 				name = "coca_seed",
+	 				type = "item",
+	 				price = 50
+				},
+				{
+					name = "coca_water",
+					type = "item",
+					price = 200
+				},
+
+	  		},
+
+			Pos = {
+				vector3(1909.2181, 611.5259, 177.3980)
+			},
+
+			MarkerLabel = 'Shop coke',
+			ShowBlip = false,
+			ShowMarker = false,
+			Size  = 1.0,
+			Type  = 59,
+			Color = 2
+		},
+
+		Weed = {
+
+			Items = {
+				{
+	 				name = "weed_seed",
+	 				type = "item",
+	 				price = 50
+				},
+				{
+					name = "weed_fertilizer",
+					type = "item",
+					price = 200
+				},
+
+	  		},
+
+			Pos = {
+				vector3(1469.7899, 6549.8320, 14.9041)
+			},
+
+			MarkerLabel = 'Shop weed',
+			ShowBlip = false,
+			ShowMarker = false,
+			Size  = 1.0,
+			Type  = 59,
+			Color = 2
+		},
+
 		DesTrucs = {
 
 			Items = {
