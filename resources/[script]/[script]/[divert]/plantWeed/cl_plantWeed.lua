@@ -157,6 +157,8 @@ function getPlantingLocation(visible)
 end
 
 Citizen.CreateThread(function()
+
+    -- RAT AEROPORT
     local hash = GetHashKey("a_c_rat")
     while not HasModelLoaded(hash) do
         RequestModel(hash)
@@ -169,6 +171,42 @@ Citizen.CreateThread(function()
     Citizen.Wait(200)
     SetBlockingOfNonTemporaryEvents(ped, true)
 
+
+    -- PED WEAPONS
+    hash = GetHashKey("cs_joeminuteman")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "cs_joeminuteman", -2079.8945, 2611.6050, 3.0840-1.0, 108.0751, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+
+    -- WEAPONS CASE BOAT
+    local weaponcrate1 = CreateObject(
+		"gr_prop_gr_crates_weapon_mix_01b", 
+		-2076.8361, 2611.7778, 2.0, 
+		false, 
+		false, 
+		0
+	)
+
+    local weaponcrate2 = CreateObject(
+		"p_secret_weapon_02", 
+		-2077.5550, 2613.7213, 2.3,
+		false, 
+		false, 
+		0
+	)
+
+    SetEntityHeading(weaponcrate1, 200.3576)
+    SetEntityHeading(weaponcrate2, 110.3576)
+
+
+    -- PED WEED
     hash = GetHashKey("a_m_m_soucent_01")
     while not HasModelLoaded(hash) do
         RequestModel(hash)
