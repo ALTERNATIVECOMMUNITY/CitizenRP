@@ -15,7 +15,7 @@ local LastWeather = false
 local Dynamic = Config.DynamicWeather
 local Blackout = false
 local FreezeTime = false
-local Hours = 08
+local Hours = 12
 local Mins = 00
 local LastWeatherTable = {}
 local WeatherCounter = 0
@@ -141,14 +141,14 @@ Citizen.CreateThread(function()
                         TimesChanged = 0
                         LastWeatherTable = nil
                         LastWeatherTable = {}
-                    end 
+                    end
                     LastGroup = Group
                 end
             end
         end
     end
 end)
-     
+
 function ChooseWeatherType()
     local result = math.random(1,#Config.WeatherGroups)
     if result == 2 then
@@ -187,7 +187,7 @@ function ChooseWeatherType()
         end
     else
         return Config.WeatherGroups[result]
-    end 
+    end
 end
 
 function LoadSettings()
@@ -218,12 +218,12 @@ function PermissionsCheck(source)
         end
 
     elseif Config.Framework == 'vrp' then
-        if vRP.hasPermission({vRP.getUserId({source}), 'admin.announce'}) then 
+        if vRP.hasPermission({vRP.getUserId({source}), 'admin.announce'}) then
             return true
         else
             return false
         end
-        
+
     elseif Config.Framework == 'custom' then
         --add your own permissions check here.
         return true

@@ -183,10 +183,10 @@ AddEventHandler('kuz_diving:applyGear', function(quality)
             SetEnableScuba(PlayerPedId(), true)
             if quality == 0 then
                 ESX.ShowNotification(_U('equip_diving'))
-                SetPedMaxTimeUnderwater(PlayerPedId(), 70.00)
+                SetPedMaxTimeUnderwater(PlayerPedId(), 200.00)
             else
                 ESX.ShowNotification(_U('equip_scuba'))
-                SetPedMaxTimeUnderwater(PlayerPedId(), 210.00)
+                SetPedMaxTimeUnderwater(PlayerPedId(), 600.00)
             end
             if Config.divingClothing then
                 playAnim("mp_safehouseshower@male@", "male_shower_towel_dry_to_get_dressed")

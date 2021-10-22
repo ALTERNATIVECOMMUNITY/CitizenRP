@@ -15,7 +15,7 @@ Config.ForceMultiplayerPed = true -- Don't edit this if you don't know what you 
 
 Config.CanPlayersDeleteTheirCharacter = false
 
-Config.AdminGroup = 'superadmin'
+Config.AdminGroup = 'admin'
 Config.PermissionsCommand = 'giveperm'
 
 -- Insert all tables from your database here, where an identifier is saved.
