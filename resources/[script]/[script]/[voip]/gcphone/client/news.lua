@@ -1,3 +1,12 @@
+ESX = nil
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+  end
+end)
+
 local PlayerData = {}
 local wait = 1000
 local newsMenu = Config.newsBlip
@@ -5,21 +14,6 @@ local newsMenu = Config.newsBlip
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
     PlayerData.job = job
-end)
-
-Citizen.CreateThread(function()
-
-    local blip = AddBlipForCoord(newsMenu)
-    SetBlipSprite (blip, 135)
-    SetBlipDisplay(blip, 4)
-    SetBlipScale  (blip, 0.7)
-    SetBlipColour (blip, 49)
-    SetBlipAsShortRange(blip, true)
-
-    BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName("Weazel News")
-    EndTextCommandSetBlipName(blip)
-	
 end)
 
 Citizen.CreateThread(function()
@@ -35,7 +29,6 @@ Citizen.CreateThread(function()
                 if distance < 2.0 then
                     DrawText3D(newsMenu.x, newsMenu.y, newsMenu.z+0.60, "[E] Weazel News", 0.45)
                     if IsControlJustPressed(1, 38) then
-                        
                         local elements = {}
                         table.insert(elements, {label = _U('publish_news'), value = "new_news"})	
                         table.insert(elements, {label = _U('delete_news'), value = "news_delete"})	

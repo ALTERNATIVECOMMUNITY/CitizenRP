@@ -16,8 +16,8 @@ FixePhone = {
 ShowNumberNotification = true -- Show Number or Contact Name when you receive new SMS
 
 
-Config.newsJobName = "news"
-Config.newsBlip = vector3(-595.67, -932.5, 28.0) -- News add blip, for news job
+Config.newsJobName = "weazelnews"
+Config.newsBlip = vector3(-587.7338, -928.2694, 23.8157) -- News add blip, for news job
 Config.valetPrice = 100
 Config.uberPriceMultiplier = 1.5 -- Means if items price $4, 4 * 1.5 = 6
 Config.uberTipMin = 30 -- If player is a lucky get min tip on deliver

@@ -1,3 +1,8 @@
+local ESX = nil
+TriggerEvent('esx:getSharedObject', function(obj) 
+    ESX = obj 
+end)
+
 RegisterServerEvent("gcPhone:transfer")
 AddEventHandler("gcPhone:transfer", function(a, b)
     local c = source;

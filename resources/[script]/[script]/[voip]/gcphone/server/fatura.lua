@@ -1,3 +1,8 @@
+local ESX = nil
+TriggerEvent('esx:getSharedObject', function(obj) 
+    ESX = obj 
+end)
+
 ESX.RegisterServerCallback("crew:getBills", function(a, b)
     local c = ESX.GetPlayerFromId(a)
     MySQL.Async.fetchAll("SELECT amount, id, target, label FROM billing WHERE identifier = @identifier", {["@identifier"] = c.identifier}, function(d)
