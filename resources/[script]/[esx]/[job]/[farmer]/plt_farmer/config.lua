@@ -3,7 +3,7 @@ local PLT = plt_farmer
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 PLT.U = Lang["EN"]                                          -- SET = ("EN" or "TR" or "Custom"), if you edit on locale.lua you can add more.
 PLT.UseEsxFramework = true                                  -- SET = (true or false), if you  want to use esx menu system and using esx framework set this true. or set false for menuv.
-PLT.UseEsxMenu  = false                                     -- SET = (true or false), if you want to esx menu set true elseif want to menuV set false.if you set true You should comment line from fxmanifest file please check.
+PLT.UseEsxMenu  = true                                     -- SET = (true or false), if you want to esx menu set true elseif want to menuV set false.if you set true You should comment line from fxmanifest file please check.
 PLT.UseEsxSkin  = true                                      -- SET = (true or false), if you use esx_skin and skinchanger set true elseif set false and edit WearJob() and WearCitizen() functions on client.lua
 PLT.jobRequired = true                                      -- SET = (true or false), This will set whether a profession control will be made in order to do the job or not. If you set "false" anyone can do the job.
 PLT.jobName     = "farmer"                                  -- SET = ("job.name"), if "PLT.jobRequired" is set "true" then type the name u want for the job in "job name", if you allready used "farmer.sql" do not change this.
@@ -11,7 +11,7 @@ PLT.CanDoHalfJob  = true                                    -- SET = (true or fa
 -------------------------------------------------------------- The system will ask the players if they want to continue working or not before they start loading the bales on to the tuck.
 PLT.HalfPayment = 750                                       -- SET = (money), if the player does the work halfway. that is, the amount to be paid if he does not deliver by truck.
 PLT.FullPayment = 1500                                      -- SET = (money), if the player completes the job. including delivery by truck.
-PLT.HarvesterVehicleWheelEasyMode = true                    -- SET = (true or false), Since the wheels of the harvester turning left and right are at the back, you have to press left when you want to turn right. 
+PLT.HarvesterVehicleWheelEasyMode = true                    -- SET = (true or false), Since the wheels of the harvester turning left and right are at the back, you have to press left when you want to turn right.
 PLT.PaymentMethodWithBank = true                            -- SET = (true or false), if you set true the payment is made to the bank else set false payment is cash        
 ------------------------------------------------------------ You can set it to "true" to turn on "easy mode". In easy mode, you can press D to turn right and A to turn left.
 PLT.PedCoord = vector4(2121.29, 4783.20, 40.97, 329.88)     -- SET = vector4(x,y,z,heading), Here you can change the location of the spawned ped at the starting point.
@@ -31,7 +31,7 @@ PLT.CommandFixVehicle = "fixfarmvehicle"                    -- SET =  ("CommandN
 PLT.CommandFixVehicleWait = 5                               -- SET =  (second), Time it takes to type the command "PLT.CommandFixVehicle" again.
 PLT.CloakRoomCoord = vector3(2126.73, 4776.51, 40.97)       -- SET = vector3(x,y,z), Coordinates for wearing workwear.
 PLT.EnableJobClothe = true                                  -- SET = (true or false), If you do not want to have a professional dress option, set it to "false". and set "false" if you are not using esx_skin
-PLT.Uniforms = {                                            -- If "PLT.EnableJobClothe" is set "true" here you need to set the workwear for your server. 
+PLT.Uniforms = {                                            -- If "PLT.EnableJobClothe" is set "true" here you need to set the workwear for your server.
     ["male"] ={                                             -- Irregular outfits may appear on your server as the outfit pack is different on each server.
         ['tshirt_1'] = 15, ['tshirt_2'] = 0,                -- You need to adapt it according to your own server by changing the values below. If you don't know about this, you can contact me.
         ['torso_1'] = 319, ['torso_2'] = 2,
@@ -177,7 +177,7 @@ PLT.Area ={
         vector4(2550.875244140625,4377.53076171875,39.30178451538086,42.74677276611328),
         vector4(2549.646240234375,4378.859375,39.24832916259765,42.75257873535156),
         vector4(2548.38037109375,4380.23046875,39.18868637084961,42.75516510009765),
-        vector4(2547.15576171875,4381.55810546875,39.06786346435547,42.7555046081543),        
+        vector4(2547.15576171875,4381.55810546875,39.06786346435547,42.7555046081543),
         vector4(2545.851318359375,4382.923828125,38.94757843017578,43.00663375854492),
         vector4(2544.632080078125,4384.23828125,38.8360595703125,42.86445999145508),
         vector4(2543.375244140625,4385.59130859375,38.72671508789062,42.86625671386719),
@@ -572,7 +572,7 @@ PLT.Area ={
         vector4(2509.96923828125,4333.2998046875,39.25354385375976,235.1116943359375),
         vector4(2502.957763671875,4339.76611328125,38.74214172363281,52.80692291259765),
         vector4(2501.503173828125,4340.8701171875,38.61519622802734,52.82171249389648),
-        vector4(2498.345458984375,4343.26318359375,38.22776794433594,52.82516860961914)  
+        vector4(2498.345458984375,4343.26318359375,38.22776794433594,52.82516860961914)
     },{
         vector4(2576.96337890625,4803.349609375,33.3885498046875,42.1165885925293),
         vector4(2575.58984375,4804.83154296875,33.35015487670898,42.35221099853515),
@@ -836,7 +836,7 @@ PLT.Area ={
         vector4(2552.46435546875,4778.28271484375,33.2286491394043,107.48680877685547),
         vector4(2549.843505859375,4777.8154296875,33.4140739440918,101.6688232421875),
         vector4(2547.75732421875,4777.40576171875,33.74166107177734,88.70173645019531),
-        vector4(2542.739990234375,4778.24609375,33.91960144042969,87.44142150878906) 
+        vector4(2542.739990234375,4778.24609375,33.91960144042969,87.44142150878906)
     },{
         vector4(2601.38330078125,4716.99658203125,33.92627716064453,225.7292022705078),
         vector4(2603.00537109375,4715.13232421875,33.89867782592773,223.00563049316407),
@@ -1105,7 +1105,7 @@ PLT.Area ={
         vector4(2661.271728515625,4700.12353515625,37.53851699829101,224.62864685058595),
         vector4(2662.9775390625,4698.39453125,37.72847366333008,224.62547302246095),
         vector4(2664.61328125,4696.73779296875,37.91099548339844,224.62472534179688),
-        vector4(2666.21484375,4695.1162109375,38.08388137817383,224.62486267089845), 
+        vector4(2666.21484375,4695.1162109375,38.08388137817383,224.62486267089845),
     },{
 
         vector4(2345.1005859375,5122.1923828125,48.40447616577148,49.3460807800293),
@@ -1353,7 +1353,7 @@ PLT.Area ={
         vector4(2303.57568359375,5099.1435546875,47.77969360351562,225.41860961914063),
         vector4(2305.404052734375,5097.3623046875,47.6309814453125,225.9361572265625),
         vector4(2307.01318359375,5095.716796875,47.49565505981445,226.3779754638672),
-        vector4(2308.852294921875,5093.98583984375,47.3494987487793,228.5270538330078), 
+        vector4(2308.852294921875,5093.98583984375,47.3494987487793,228.5270538330078),
     },{
         vector4(2082.391357421875,5184.1025390625,53.77392959594726,305.6238098144531),
         vector4(2083.879638671875,5182.8330078125,53.62527847290039,219.24142456054688),
@@ -1577,7 +1577,7 @@ PLT.Area ={
         vector4(2108.9462890625,5194.708984375,55.77159118652344,42.42192840576172),
         vector4(2107.23876953125,5196.55615234375,55.83850479125976,42.51536178588867),
         vector4(2105.67138671875,5198.27001953125,55.90201950073242,42.46391677856445),
-        vector4(2103.859375,5200.16064453125,55.96397018432617,44.83923721313476), 
+        vector4(2103.859375,5200.16064453125,55.96397018432617,44.83923721313476),
     },{
         vector4(2110.009765625,5201.279296875,56.43954467773437,132.7483367919922),
         vector4(2111.30029296875,5199.90869140625,56.43980026245117,222.57305908203126),
@@ -1783,6 +1783,6 @@ PLT.Area ={
         vector4(2121.830810546875,5207.96533203125,57.30547714233398,106.73824310302735),
         vector4(2119.746826171875,5207.33837890625,57.16975784301758,106.73612976074219),
         vector4(2117.6826171875,5206.7197265625,57.12805938720703,106.72958374023438),
-        vector4(2115.29052734375,5206.21435546875,56.99210357666015,99.2444839477539), 
+        vector4(2115.29052734375,5206.21435546875,56.99210357666015,99.2444839477539),
     }
 }
