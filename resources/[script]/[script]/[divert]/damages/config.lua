@@ -1,7 +1,7 @@
 Config                            = {}
 
-Config.UnderWaterStam        = 25.00 -- underwater breath
- 
+ -- Config.UnderWaterStam        = 25.00 -- underwater breath
+
 Config.TaserTime             = 10 -- tasered effect tim
 
 Config.VehicleDamage = 0.0 -- not sure if this works
