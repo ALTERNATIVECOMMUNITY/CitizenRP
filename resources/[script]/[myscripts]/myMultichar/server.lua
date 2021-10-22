@@ -39,11 +39,11 @@ AddEventHandler('myMultichar:GetPlayerCharacters', function()
     if Config.useMyDrugs then
         TriggerEvent('myDrugs:updateIdentifier', src, GetIdentifierWithoutLicense(license), LastCharId..':'..GetIdentifierWithoutLicense(license))
     end
-    
+
     if Config.useMyProperties then
         TriggerEvent('myProperties:updateIdentifier', src, GetIdentifierWithoutLicense(license), LastCharId..':'..GetIdentifierWithoutLicense(license))
     end
-	
+
 
     local chars = GetPlayerCharacters(src)
     local maxChars = GetPlayerMaxChars(src)
@@ -56,7 +56,7 @@ AddEventHandler('myMultichar:CharSelected', function(charid, isnew)
     local spawn = {}
     SetLastCharacter(src, tonumber(charid))
     SetCharToIdentifier(GetIdentifierWithoutLicense(GetRockstarID(src)), tonumber(charid))
-    
+
     if Config.useMyDrugs then
         TriggerEvent('myDrugs:updateIdentifier', src, tonumber(charid)..':'..GetIdentifierWithoutLicense(GetRockstarID(src)), GetIdentifierWithoutLicense(GetRockstarID(src)))
     end
@@ -66,7 +66,7 @@ AddEventHandler('myMultichar:CharSelected', function(charid, isnew)
     end
 
     if not isnew then
-        
+
         if GetSpawnPos(src) == nil then
             spawn = Config.FirstSpawnLocation
         end
@@ -77,7 +77,7 @@ AddEventHandler('myMultichar:CharSelected', function(charid, isnew)
         spawn = Config.FirstSpawnLocation -- DEFAULT SPAWN POSITION
 		TriggerClientEvent("myMultichar:SpawnCharacter", src, spawn, true)
     end
-    
+
 end)
 
 function GetPlayerCharacters(source)
@@ -109,13 +109,13 @@ end
 function GetSpawnPos(source)
 
     local posRes = executeMySQL("SELECT `position` FROM `users` WHERE `identifier` = '"..GetIdentifierWithoutLicense(GetRockstarID(source)).."'")
-	
+
 	if posRes[1] ~= nil then
 		return json.decode(posRes[1].position)
 	else
 		return nil
 	end
-    
+
 end
 
 function SetIdentifierToChar(identifier, charid)
@@ -125,7 +125,7 @@ function SetIdentifierToChar(identifier, charid)
         executeMySQL("UPDATE `"..data.table.."` SET `"..data.column.."` = '"..charid..":"..GetIdentifierWithoutLicense(identifier).."' WHERE `"..data.column.."` = '"..identifier.."'")
     end
     -- REPLACE steam:111 to CharX:111
-    
+
 end
 
 function SetCharToIdentifier(identifier, charid)
@@ -136,7 +136,7 @@ function SetCharToIdentifier(identifier, charid)
         executeMySQL("UPDATE `"..data.table.."` SET `"..data.column.."` = '"..identifier.."' WHERE `"..data.column.."` = '"..charid..":"..GetIdentifierWithoutLicense(identifier).."'")
     end
     -- REPLACE CharX:111 to steam:111
-    
+
 end
 
 function DeleteCharacter(identifier, charid, maxChars)
@@ -148,7 +148,7 @@ function DeleteCharacter(identifier, charid, maxChars)
 
     if charid ~= maxChars then
         for i=charid, maxChars-1, 1 do
-            
+
             local oldID = math.floor(i + 1)
             local newId = math.floor(i)
 
@@ -192,7 +192,7 @@ function GetRockstarID(playerId)
 end
 
 function executeMySQL(queryString)
-    local doing = true -- IMPORTANT! 
+    local doing = true -- IMPORTANT!
     local result = nil
 
     MySQL.Async.fetchAll(queryString, {}, function(data)
@@ -254,7 +254,7 @@ function RegisterNewAccount(identifier_res, firstname_res, lastname_res, dateofb
       ['@sex']          = sex_res,
       ['@height']       = height_res,
     })
-	
+
 end
 
 
@@ -303,13 +303,13 @@ AddEventHandler('myMultichar:updatePermissions', function(target, type, value)
         TriggerClientEvent('myMultichar:msg', source, Translation[Config.Locale]['giveperm_error'])
     end
 
-   
+
 end)
 
 AddEventHandler('es:playerLoaded', function(source)
 
     getIdentity(source, function(data)
-    
+
         if data.firstname == '' then
 			if Config.useRegisterMenu then
 				TriggerClientEvent('myMultichar:RegisterNewAccount', source)
@@ -317,7 +317,7 @@ AddEventHandler('es:playerLoaded', function(source)
         else
             print('Character loaded: ' .. data.firstname .. ' ' .. data.lastname)
         end
-    
+
     end)
 
     local steamID = GetIdentifierWithoutLicense(GetRockstarID(source))
@@ -381,4 +381,3 @@ RegisterCommand('changePed', function(source, args, raw)
     end
     )
 end, false)
-
