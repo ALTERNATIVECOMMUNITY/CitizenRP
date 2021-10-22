@@ -1,3 +1,8 @@
+local ESX = nil
+TriggerEvent('esx:getSharedObject', function(obj) 
+    ESX = obj 
+end)
+
 RegisterServerEvent("crew-phone:new-news")
 AddEventHandler("crew-phone:new-news", function(a, b, c, d)
     local e = {}
