@@ -134,9 +134,9 @@ Config.JobVehicles_SpawnLocations = {
         --'societyowned' = This will use society owned vehicles. This will search for your job instead of your steam/license identifier in the owned_vehicles database table and allow you to use all of the vehicles your job owns.
 
     ['police'] = { --If you choose to add more tables here for more jobs, they must be the jobs name, not the label.
-        --MISSION ROW PD
-        [1] = {coords = vector3(458.46331787109,-992.78717041016,25.699995040894), distance = 5, garage_type = 'car', method = 'societyowned'},
-          [2] = {coords = vector3(449.88580322266,-976.92633056641,25.699974060059), distance = 5, garage_type = 'car', method = 'societyowned'},
+        --MISSION ROW PD ,-3.4889230728149,70.628082275391
+        [1] = {coords = vector3(593.16680908203,-3.3762214183807,70.628082275391), distance = 5, garage_type = 'car', method = 'societyowned'},
+          [2] = {coords = vector3(580.44305419922,12.986288070679,103.23313903809), distance = 5, garage_type = 'air', method = 'societyowned'},
 
          --MISSION ROW PD (cars)
       --  [3] = {coords = vector3(-1095.4829101562,-835.21295166016,37.675624847412), distance = 5, garage_type = 'air', method = 'societyowned'}, --MISSION ROW PD (helipad)
@@ -188,8 +188,13 @@ Config.JobVehicles_SpawnLocations = {
 
     },
     ['brinks'] = {
-        --PILLBOX HOSPITAL
+        --PILLBOX HOSPITAL ---
         [1] = {coords = vector3(-5.4772505760193,-668.89593505859,32.338066101074), distance = 5, garage_type = 'car', method = 'societyowned'}, --PILLBOX HOSPITAL (cars)
+
+    },
+    ['weazelnews'] = {
+        --PILLBOX HOSPITAL ---541.87591552734,-892.15454101563,24.667098999023
+        [1] = {coords = vector3(-541.37585449219,-904.74401855469,23.866140365601), distance = 10, garage_type = 'car', method = 'societyowned'}, --PILLBOX HOSPITAL (cars)
 
     },
 }
