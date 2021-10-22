@@ -81,7 +81,7 @@ Config.PoliceStations = {
 		},
 
 		BossActions = {
-			vector3( 462.106, -985.555, 29.728),
+			vector3( 620.95056152344,-27.625177383423,90.507392883301),
 			vector3( -567.90960693359,-131.23886108398,47.518154144287)
 		}
 
@@ -92,11 +92,11 @@ Config.PoliceStations = {
 Config.AuthorizedWeapons = {
 
 
-recruit = {
+shared = {
 	{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
 	{weapon = 'WEAPON_PISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
---	{weapon = 'weapon_heavypistol', components = {0, 0, 0, 0, 0, nil}, price = 0},
---	{weapon = 'WEAPON_STUNGUN', price = 0},
+		{weapon = 'WEAPON_SNSPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
+	{weapon = 'WEAPON_STUNGUN', price = 0},
 	{weapon = 'WEAPON_NIGHTSTICK', price = 0},
 	{weapon = 'WEAPON_FLASHLIGHT', price = 0},
 		{weapon = 'WEAPON_FLARE', price = 0},
@@ -110,209 +110,6 @@ recruit = {
 
 	},
 
-	p2 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-		{weapon = 'WEAPON_PISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-	--	{weapon = 'weapon_heavypistol', components = {0, 0, 0, 0, 0, nil}, price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		--{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-		--	{weapon = 'WEAPON_FBIARb', price = 0},
-	--	{weapon = 'WEAPON_M700', price = 0},
-
-	},
-	p3 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-		{weapon = 'WEAPON_PISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-	--	{weapon = 'weapon_heavypistol', components = {0, 0, 0, 0, 0, nil}, price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		--{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-		--	{weapon = 'WEAPON_FBIARb', price = 0},
-	--	{weapon = 'WEAPON_M700', price = 0},
-
-	},
-	p3plus1 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-	--	{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	sgt = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	sgt2 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	sgt3 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	det1 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	det2 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	det3 = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-	lieutenant = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-	capitaine = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
-
-
-	boss = {
-		{weapon = 'WEAPON_COMBATPISTOL', components = {0, 0, 0, 0, 0, nil}, price = 0},
-
-		{weapon = 'WEAPON_STUNGUN', price = 0},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0},
-			{weapon = 'WEAPON_FLARE', price = 0},
-
-	{weapon = 'WEAPON_SMOKEGRENADE', price = 0},
-
-		{weapon = 'WEAPON_SMG', components = {0, 0, 0, 0, 0, nil}, price = 0},
-			{weapon = 'WEAPON_PUMPSHOTGUN', price = 0},
-			{weapon = 'WEAPON_FBIARB', price = 0},
-		{weapon = 'WEAPON_M700', price = 0},
-
-	},
 }
 
 
