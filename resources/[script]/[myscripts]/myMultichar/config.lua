@@ -63,7 +63,7 @@ Config.Peds = {
     {hash = 'a_c_pig', name = "Pig"},
     {hash = 'a_c_retriever', name = "Retriever"},
     {hash = 'a_c_shepherd', name = "Shepheard"},
-    {hash = 'a_c_shepherd', name = "Shepheard"},
+    {hash = 'a_c_sharktiger', name = "Requin"},
 }
 
 Translation = {
