@@ -31,7 +31,7 @@ Config.Shops = {
 			Color = 2
 		},
 
-		Coca = {
+		Cocaine = {
 
 			Items = {
 				{
@@ -275,12 +275,12 @@ Config.Shops = {
 	  },
 
 			Pos = {
-				vector3(1001.7282104492,2457.935546875,49.528881072998)
+				vector3(-2079.8945, 2611.6050, 3.0840)
 			},
 
 			MarkerLabel = 'MarcherNoir',
 			ShowBlip = false,
-			ShowMarker = true,
+			ShowMarker = false,
 			Size  = 1.0,
 			Type  = 59,
 			Color = 2
