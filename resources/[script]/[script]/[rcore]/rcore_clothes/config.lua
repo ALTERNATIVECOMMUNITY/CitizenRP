@@ -3498,7 +3498,7 @@ Config.Stores = {
         }
     },
     {
-        position = vector3(-1164.99,-1586.59,4.38),
+        position = vector3(629.79870605469,-0.80142974853516,76.628074645996),
         label = 'LSPD Shop',
         sprite = 362,
         color = 60,
@@ -3509,7 +3509,53 @@ Config.Stores = {
                   'police', --Use job limitation
                   'sheriff'
               },
-                pos = vector3(458.51345825195,-999.70031738281,30.689565658569),
+                pos = vector3(629.79870605469,-0.80142974853516,76.628074645996),
+                label = '🎒',
+                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
+                components = {
+                    {
+                        label = 'Sac',
+                        name = 'bags_1',
+                        from = -1,
+                        to = 160,
+                        current = -1,
+                        reset = {
+                            'bags_2'
+                        },
+                        price = 120,
+                        whitelist = {
+                            31,32,36,33,35,48,49,60,66,72,73,74
+                        }
+                    },
+                    {
+                        label = 'Couleur du Sac',
+                        name = 'bags_2',
+                        from = 0,
+                        to = 20,
+                        current = 0,
+                        price = 10,
+                    },
+                },
+                cam = {
+                    offset = {
+                        x = 0.0,
+                        y = 1.0,
+                        z = 0.5
+                    },
+                    pointOffset = {
+                        x = 0,
+                        y = 0,
+                        z = 0.4
+                    },
+                    taskHeading = 211.66
+                }
+            },
+            bags = {
+              job = {
+                  'police', --Use job limitation
+                  'sheriff'
+              },
+                pos = vector3(626.46716308594,-8.1353769302368,76.62801361084),
                 label = '🎒',
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {

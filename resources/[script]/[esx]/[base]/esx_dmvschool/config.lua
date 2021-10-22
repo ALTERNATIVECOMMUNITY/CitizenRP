@@ -18,22 +18,22 @@ Config.VehicleModels = {
 }
 
 Config.SpeedLimits = {
-	residence = 52,
-	town      = 72,
-	freeway   = 145,
+	residence = 80,
+	town      = 80,
+	freeway   = 150,
 }
 
 Config.Zones = {
 
-	DMVSchool = {
-		Pos   = {x = 225.64695739746, y = 367.46365356445, z = 105.11},
+	DMVSchool = { -- ,,
+		Pos   = {x = 1158.6180419922, y = -450.0322265625, z = 66.990310668945},
 		Size  = {x = 1.5, y = 1.5, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1
 	},
 
 	VehicleSpawnPoint = {
-		Pos   = {x = 254.77, y = 377.69, z = 105.03, h = 76.44},
+		Pos   = {x = 1156.9884033203, y = -475.23049926758, z = 66.399635314941, h = 247.76},
 		Size  = {x = 1.5, y = 1.5, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = -1
@@ -50,15 +50,16 @@ Config.CheckPoints = {
 	--	end
 	--},
 
-	{
-		Pos = {x = 238.87, y = 383.42, z = 105.15},
+	{ -- ,,
+		Pos = {x = 1161.2358398438, y = -476.87445068359, z = 65.511253356934},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
 	{
-		Pos = {x = 215.2, y = 366.81, z = 104.77},
+
+		Pos = {x = 1084.9195556641, y = -515.07293701172, z = 62.816177368164},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			Citizen.CreateThread(function()
 				DrawMissionText(_U('stop_for_ped'), 5000)
@@ -73,7 +74,7 @@ Config.CheckPoints = {
 	},
 
 	{
-		Pos = {x = 233.73, y = 347.55, z = 104.57},
+		Pos = {x = 922.11779785156, y = -586.04754638672, z = 57.317771911621},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			setCurrentZoneType('town')
 
@@ -89,22 +90,22 @@ Config.CheckPoints = {
 		end
 	},
 
-	{
-		Pos = {x = 207.77, y = 220.52, z = 104.61},
+	{  -- ,-
+		Pos = {x = 1189.7210693359, y = -371.37118530273, z = 68.770431518555},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('watch_traffic_lightson'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = 184.04, y = 152.47, z = 101.32},
+	{ -- ,,
+		Pos = {x = 811.26013183594, y = -64.622184753418, z = 80.465843200684},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = 123.82, y = -9.82, z = 66.68},
+	{ -- ,,
+		Pos = {x = 714.61431884766, y = 1.768655538559, z = 83.815376281738},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('stop_for_passing'), 5000)
 			PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', false, 0, true)
@@ -114,67 +115,72 @@ Config.CheckPoints = {
 		end
 	},
 
-	{
-		Pos = {x = -32.71, y = -754.6, z = 31.19},
+	{ -- ,,
+		Pos = {x = 510.61376953125, y = -131.35252380371, z = 59.510108947754},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = 389.69, y = -864.02, z = 27.81},
+	{ -- ,,
+		Pos = {x = 484.42849731445, y = -292.19314575195, z = 46.735324859619},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	--{
-		--Pos = {x = -453.790, y = -1444.726, z = 27.665},
-		--Action = function(playerPed, vehicle, setCurrentZoneType)
-			--setCurrentZoneType('freeway')
+	{ -- ,,
+		Pos = {x = 518.13439941406, y = -363.45190429688, z = 43.402431488037},
+		Action = function(playerPed, vehicle, setCurrentZoneType)
+			setCurrentZoneType('freeway')
 
-			--DrawMissionText(_U('hway_time', Config.SpeedLimits['freeway']), 5000)
-			--PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', false, 0, true)
-		--end
-	--},
+			DrawMissionText(_U('hway_time', Config.SpeedLimits['freeway']), 5000)
+			PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', false, 0, true)
+		end
+	},
 
 	{
-		Pos = {x = 395.42, y = -1022.85, z = 27.88},
+
+		-- ,
+		Pos = {x = 849.74407958984, y = -721.61346435547, z = 42.374912261963},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = 250.95, y = -1043.29, z = 28.35},
+	{ -- ,,
+		Pos = {x = 1013.8765258789, y = -822.74157714844, z = 47.924034118652},
+		Action = function(playerPed, vehicle, setCurrentZoneType)
+			setCurrentZoneType('town')
+
+			DrawMissionText(_U('hway_time', Config.SpeedLimits['town']), 5000)
+			DrawMissionText(_U('go_next_point'), 5000)
+		end
+	},
+
+	{ -- ,,
+		Pos = {x = 1150.0520019531, y = -838.56201171875, z = 54.419300079346},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = 130.1, y = -1008.72, z = 28.41},
+	{ -- ,,
+		Pos = {x = 1186.5129394531, y = -644.86584472656, z = 62.202117919922},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = 41.33, y = -1114.13, z = 28.2},
+	{ -- ,5,
+		Pos = {x = 1210.6569824219, y = -389.372070312, z = 68.282745361328},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
 	},
 
-	{
-		Pos = {x = -68.64, y = -1131.58, z = 24.77},
-		Action = function(playerPed, vehicle, setCurrentZoneType)
-			DrawMissionText(_U('go_next_point'), 5000)
-		end
-	},
-
-	{
-		Pos = {x = 413.48, y = 280.68, z = 102.07},
+	{ -- ,
+		Pos = {x = 1178.7886962891, y = -475.86560058594, z = 65.788215637207},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			DrawMissionText(_U('go_next_point'), 5000)
 		end
@@ -198,8 +204,8 @@ Config.CheckPoints = {
 		--end
 	--},
 
-	{
-		Pos = {x = 216.22, y = 370.14, z = 105.32},
+	{ --,,
+		Pos = {x = 1156.7221679688, y = -471.58508300781, z = 66.345642089844},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			ESX.Game.DeleteVehicle(vehicle)
 		end
