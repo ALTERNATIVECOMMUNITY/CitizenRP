@@ -56,6 +56,7 @@ local function downloadPlugin(name, url)
     end
     local releaseUrl = ("%s/archive/%s.zip"):format(url, zipname)
     PerformHttpRequest(releaseUrl, function(code, data, headers)
+        debugLog(("downloadPlugin(%s): %s"):format(releaseUrl, code))
         if code == 200 then
             exports[GetCurrentResourceName()]:CreateFolderIfNotExisting(GetResourcePath(GetCurrentResourceName()).."/pluginupdates/")
             local savePath = GetResourcePath(GetCurrentResourceName()).."/pluginupdates/"..name..".zip"
@@ -70,9 +71,6 @@ local function downloadPlugin(name, url)
             end
             debugLog("Unzipping to: "..unzipPath)
             exports[GetCurrentResourceName()]:UnzipFolder(savePath, name, unzipPath)
-            os.remove(savePath)
-            infoLog(("Plugin %s successfully downloaded."):format(name))
-            PluginsWereUpdated = true
         else
             if not Config.enableCanary then
                 errorLog(("Failed to download from %s: %s %s"):format(realUrl, code, data))
@@ -80,6 +78,16 @@ local function downloadPlugin(name, url)
         end
     end, "GET")
 end
+
+AddEventHandler("unzipCompleted", function(success, name, savePath, error)
+    if success then 
+        infoLog(("Plugin %s successfully downloaded."):format(name))
+        os.remove(savePath)
+        PluginsWereUpdated = true
+    else
+        errorLog(("Failed to unzip update file %s to %s: %s"):format(name, savePath, error))
+    end
+end)
 
 function CheckForPluginUpdate(name, forceUpdate)
     local plugin = Config.plugins[name]
@@ -113,7 +121,6 @@ function CheckForPluginUpdate(name, forceUpdate)
                         if Config.allowAutoUpdate or forceUpdate then
                             infoLog(("Attempting to automatically update %s..."):format(name))
                             downloadPlugin(name, remote.download_url)
-                            PluginsWereUpdated = true
                         else
                             warnLog("Automatic updates are disabled. Please update this plugin ASAP.")
                         end
