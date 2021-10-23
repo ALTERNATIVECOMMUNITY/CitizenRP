@@ -169,16 +169,45 @@ Citizen.CreateThread(function()
     SetEntityInvincible(ped, true)
     SetPedEnveffScale(ped, 1)
     Citizen.Wait(200)
-    SetBlockingOfNonTemporaryEvents(ped, true)
+    SetBlockingOfNonTemporaryEvents(ped, true)   
 
 
-    -- PED WEAPONS
-    hash = GetHashKey("cs_joeminuteman")
+    -- PED WEED
+    hash = GetHashKey("a_m_y_acult_02")
     while not HasModelLoaded(hash) do
         RequestModel(hash)
         Wait(20)
     end
-    ped = CreatePed(28, "cs_joeminuteman", -2079.8945, 2611.6050, 3.0840-1.0, 108.0751, false, true)
+    ped = CreatePed(28, "a_m_y_acult_02", 1909.2181, 611.5259, 177.3980, 237.6938, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+    TaskStartScenarioInPlace(ped, "WORLD_HUMAN_SMOKING_POT", 0, 1)
+    local plant1 = CreateObject(
+		"bkr_prop_weed_lrg_01a", 
+		1907.8402, 611.5296, 174.6187,
+		false, 
+		false, 
+		0
+	)
+    local plant2 = CreateObject(
+		"bkr_prop_weed_lrg_01a", 
+		1908.7699, 612.6195, 174.5950,
+		false, 
+		false, 
+		0
+	)
+
+
+    -- PED WEAPONS
+    hash = GetHashKey("s_m_y_ammucity_01")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "s_m_y_ammucity_01", -2079.8945, 2611.6050, 3.0840-1.0, 108.0751, false, true)
     FreezeEntityPosition(ped, true)
     SetEntityInvincible(ped, true)
     SetPedEnveffScale(ped, 1)
@@ -206,18 +235,196 @@ Citizen.CreateThread(function()
     SetEntityHeading(weaponcrate2, 110.3576)
 
 
-    -- PED WEED
-    hash = GetHashKey("a_m_m_soucent_01")
+    -- PED COKE
+    hash = GetHashKey("a_m_y_acult_02")
     while not HasModelLoaded(hash) do
         RequestModel(hash)
         Wait(20)
     end
-    ped = CreatePed(28, "a_m_m_soucent_01", 1469.7899, 6549.8320, 14.9041-1.0, 1.5780, false, true)
+    ped = CreatePed(28, "a_m_y_acult_02", -1797.0706, 1835.7410, 151.9745, 215.2683, false, true)
     FreezeEntityPosition(ped, true)
     SetEntityInvincible(ped, true)
     SetPedEnveffScale(ped, 1)
     Citizen.Wait(200)
     SetBlockingOfNonTemporaryEvents(ped, true)
+    TaskStartScenarioInPlace(ped, "WORLD_HUMAN_PICNIC", 0, 1)
+
+    -- PED REVENDEUR COKE
+    hash = GetHashKey("ig_avery")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "ig_avery", 993.0463, -2195.3433, 30.5878, 85.8273, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+
+    local coketable = CreateObject(
+		"prop_rub_table_02", 
+		992.1797, -2195.2393, 30.5878,
+		false, 
+		false, 
+		0
+	)
+    
+    local case1 =  CreateObject(
+		"hei_prop_hei_drug_case", 
+        992.0518, -2194.6033, 31.3878,
+		false, 
+		false, 
+		0
+    )
+
+    local case2 =  CreateObject(
+		"prop_cash_case_01", 
+        992.1081, -2195.9165, 31.3878,
+		false, 
+		false, 
+		0
+    )
+
+    SetEntityHeading(coketable, 90.7240)
+    SetEntityHeading(case1, 0.0)
+    SetEntityHeading(case2, 270.0)
+    FreezeEntityPosition(coketable, true)
+    FreezeEntityPosition(case1, true)
+    FreezeEntityPosition(case2, true)
+
+    -- PED REVENDEUR WEED
+    hash = GetHashKey("u_m_m_streetart_01")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "u_m_m_streetart_01", 1532.4819, 3587.7068, 37.7665, 256.3172, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+
+    local weedtable = CreateObject(
+		"bkr_prop_weed_table_01a", 
+		1533.8093, 3587.4341, 37.8713,
+		false, 
+		false, 
+		0
+	)
+
+    local moneyBag = CreateObject(
+        "bkr_prop_money_counter",
+        1533.8093, 3587.6341, 38.703,
+		false, 
+		false, 
+		0
+    )
+
+    local money = CreateObject(
+        "bkr_prop_money_unsorted_01",
+        1533.6093, 3587.3341, 38.683,
+		false, 
+		false, 
+		0
+    )
+    
+    SetEntityHeading(weedtable, 257.9138)
+    FreezeEntityPosition(weedtable, true)
+    SetEntityHeading(moneyBag, -45.0)
+    FreezeEntityPosition(moneyBag, true)
+    FreezeEntityPosition(money, true)
+    SetEntityHeading(money, -45.0)
+
+     -- PED ILLEGAL OBJECT
+     hash = GetHashKey("cs_mrs_thornhill")
+     while not HasModelLoaded(hash) do
+         RequestModel(hash)
+         Wait(20)
+     end
+     ped = CreatePed(28, "cs_mrs_thornhill", -764.0354, -690.4615, 10.6004, 111.8663, false, true)
+     FreezeEntityPosition(ped, true)
+     SetEntityInvincible(ped, true)
+     SetPedEnveffScale(ped, 1)
+     Citizen.Wait(200)
+     SetBlockingOfNonTemporaryEvents(ped, true)
+
+     local bag = CreateObject(
+		"ch_prop_heist_drill_bag_01a", 
+		-764.0413, -691.0548, 10.6048,
+		false, 
+		false, 
+		0
+	)
+    FreezeEntityPosition(bag, true)
+
+
+    -- PED RESSELER
+    hash = GetHashKey("cs_floyd")
+    while not HasModelLoaded(hash) do
+        RequestModel(hash)
+        Wait(20)
+    end
+    ped = CreatePed(28, "cs_floyd", 1018.8940, -3033.1567, 4.9010, 177.5410, false, true)
+    FreezeEntityPosition(ped, true)
+    SetEntityInvincible(ped, true)
+    SetPedEnveffScale(ped, 1)
+    Citizen.Wait(200)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+    TaskStartScenarioInPlace(ped, "WORLD_HUMAN_LEANING", 0, 1)
+
+    local trolley = CreateObject(
+		"prop_rub_trolley03a", 
+		1017.3044, -3033.1138, 4.9010,
+		false, 
+		false, 
+		0
+	)
+    FreezeEntityPosition(trolley, true)
+
+    -- PEDS BLANCHIMENT
+    local blanchs = {
+        vector4(-1101.5243, -1090.4635, 2.1504, 25.9650),
+        vector4(-1193.2874, 301.7695, 69.8821, 30.6273),
+        vector4(2746.2935, 1541.2489, 50.6870, 42.2678),
+        vector4(-1421.3163, 6748.7744, 11.9090, 6.4497),
+    }
+
+    hash = GetHashKey("ig_bestmen")
+     while not HasModelLoaded(hash) do
+         RequestModel(hash)
+         Wait(20)
+     end
+
+     for k,v in ipairs(blanchs) do 
+        ped = CreatePed(28, "ig_bestmen", v.x, v.y, v.z-1, v.w, false, true)
+        FreezeEntityPosition(ped, true)
+        SetEntityInvincible(ped, true)
+        SetPedEnveffScale(ped, 1)
+        Citizen.Wait(200)
+        SetBlockingOfNonTemporaryEvents(ped, true)
+
+        local case1 = CreateObject(
+            "prop_suitcase_01d", 
+            v.x+0.5, v.y+0.5, v.z-1,
+            false, 
+            false, 
+            0
+        )
+        SetEntityHeading(case1, v.w+90)
+        FreezeEntityPosition(case1, true)
+
+        local case2 = CreateObject(
+            "ch_prop_ch_security_case_02a", 
+            v.x-0.5, v.y-0.3, v.z-1,
+            false, 
+            false, 
+            0
+        )
+        SetEntityHeading(case2, v.w-60)
+        FreezeEntityPosition(case2, true)
+    end
 end)
 
 function GetHeadingFromPoints(a, b)
