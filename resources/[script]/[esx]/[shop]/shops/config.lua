@@ -48,7 +48,7 @@ Config.Shops = {
 	  		},
 
 			Pos = {
-				vector3(1909.2181, 611.5259, 177.3980)
+				vector3(-1796.0348, 1834.1560, 153.0170)
 			},
 
 			MarkerLabel = 'Shop coke',
@@ -76,7 +76,7 @@ Config.Shops = {
 	  		},
 
 			Pos = {
-				vector3(1469.7899, 6549.8320, 14.9041)
+				vector3(1909.2181, 611.5259, 177.3980)
 			},
 
 			MarkerLabel = 'Shop weed',
@@ -149,12 +149,12 @@ Config.Shops = {
 		},
 
 			Pos = {
-				vector3(125.76480865479,6644.2270507813,31.798408508301)
+				vector3(-764.9405, -690.8915, 11.6080)
 			},
 
 			MarkerLabel = 'Marcher Noir OUTILS',
-			ShowBlip = true,
-			ShowMarker = true,
+			ShowBlip = false,
+			ShowMarker = false,
 			Size  = 1.0,
 			Type  = 59,
 			Color = 2
