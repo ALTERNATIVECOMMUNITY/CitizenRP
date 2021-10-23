@@ -154,7 +154,7 @@ Config.Weapons = {
 
 	{
 		name = 'WEAPON_MICROSMG',
-		label = 'MICRO UZI',
+		label = 'MP 9',
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_SMG')},
 		tints = Config.DefaultWeaponTints,
 		components = {
@@ -429,6 +429,18 @@ Config.Weapons = {
 
 		}
 	},
+
+
+
+		{
+			name = 'WEAPON_MM4',
+			label = 'M4A1',
+			ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
+			tints = Config.DefaultWeaponTints,
+			components = {
+
+			}
+		},
 
 
 
