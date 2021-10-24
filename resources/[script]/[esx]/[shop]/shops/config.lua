@@ -20,7 +20,8 @@ Config.Shops = {
 	  },
 
 			Pos = {
-				vector3(-1415.5672607422,-451.79208374023,35.909698486328)
+				vector3(-1415.5672607422,-451.79208374023,35.909698486328),
+				vector3(-328.48840332031,6078.4877929688,31.454786300659)
 			},
 
 			MarkerLabel = 'Shop Mécano',
@@ -37,18 +38,29 @@ Config.Shops = {
 				{
 	 					name = "parballe",
 	 					type = "item",
-	 					price = 500
+	 					price = 350
 	 		 },
 	 		 {
-	 					name = "porteplaque",
+	 					name = "parballe2",
 	 					type = "item",
-	 					price = 1000
+	 					price = 599
 	 		 },
+			 {
+					 name = "porteplaque",
+					 type = "item",
+					 price = 1659
+			},
+			{
+					 name = "porteplaque2",
+					 type = "item",
+					 price = 1659
+			},
+
 
 	  },
 
 			Pos = {
-				vector3(844.77264404297,-1028.6564941406,28.194869995117)
+				vector3(844.7763671875,-1028.3873291016,28.194868087769)
 			},
 
 			MarkerLabel = 'Surplus Millitaire',
