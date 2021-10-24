@@ -65,10 +65,30 @@ ESX.RegisterUsableItem('oxygen_mask', function(source)
 end)
 
 -- Bullet-Proof Vest
-ESX.RegisterUsableItem('armor2', function(source)
+ESX.RegisterUsableItem('parballe', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	TriggerClientEvent('esx_extraitems:bulletproof', source)
-	xPlayer.removeInventoryItem('armor2', 1)
+	TriggerClientEvent('esx_extraitems:bulletproof1', source)
+	xPlayer.removeInventoryItem('parballe', 1)
+end)
+
+ESX.RegisterUsableItem('parballe2', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	TriggerClientEvent('esx_extraitems:bulletproof2', source)
+	xPlayer.removeInventoryItem('parballe2', 1)
+end)
+
+
+ESX.RegisterUsableItem('porteplaque', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	TriggerClientEvent('esx_extraitems:bulletproof3', source)
+	xPlayer.removeInventoryItem('porteplaque', 1)
+end)
+
+
+ESX.RegisterUsableItem('porteplaque2', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	TriggerClientEvent('esx_extraitems:bulletproof4', source)
+	xPlayer.removeInventoryItem('porteplaque2', 1)
 end)
 
 
