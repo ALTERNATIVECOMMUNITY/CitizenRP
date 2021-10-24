@@ -19,36 +19,70 @@ Config.DatastoreName = 'property'
 Config.CheckPlayerPosition = 2000
 Config.NearObjectDistance = 50
 Config.GlobalBlacklist = {
-    ['helmet'] = {
+    ['hats'] = {
         ['helmet_1'] = {
             ['male'] = {2,3,6,7,13,17,9,49,79,84,91,92,115,116,117,119,141,147,148,150}, --Specific sex blacklist
             ['female'] = {},
-        }
+        },
     },
-    ['torso'] = {
+
+    ['tshirt'] = {
+        ['arms'] = {
+            ['male'] = {}, --Specific sex blacklist
+            ['female'] = {},
+        },
+
+        ['tshirt_1'] = {
+            ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105,87}, --Specific sex blacklist
+            ['female'] = {30,35,105,152,154,155,156,157,158,159,160,161,188,189,190,191,192,200,207,209},
+        },
+
         ['torso_1'] = {
             ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
-            ['female'] = {},
-        }
-    },
-    ['tshirt'] = {
-        ['tshirt_1'] = {
-            ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105}, --Specific sex blacklist
-            ['female'] = {},
-        }
-    },
-    ['chain'] = {
+            ['female'] = {14,48,58,64,73,74,83,85,92,93,99,188,264,265,266},
+        },
         ['chain_1'] = {
             ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
-            ['female'] = {},
-        }
+            ['female'] = {1,2,3,5,6,8,25,95,96,97,98,102,115,116,117},
+        },
     },
-    ['bags'] = { 31,32,36,33,35,48,49,60,66,72,73,74
-      --  ['male'] = {31,32,36,33,35,48,49,60,66,72,73,74}, --Specific sex blacklist
-        --['female'] = {},
-        --Numbers of blacklisted items for bags for both sex  torso_1
+
+    ['bags'] = {--Numbers of blacklisted items for bags for both sex
+      ['male'] = {31,32,36,33,35,48,49,60,66,72,73,74}, --Specific sex blacklist
+      ['female'] = {31,32,36,33,35,48,49,60,66,72,73,74},
     }
 }
+-- Config.GlobalBlacklist = {
+--     ['helmet'] = {
+--         ['hats'] = {
+--             ['male'] = {2,3,6,7,13,17,9,49,79,84,91,92,115,116,117,119,141,147,148,150}, --Specific sex blacklist
+--             ['female'] = {},
+--         }
+--     },
+--     ['torso'] = {
+--         ['tshirt'] = {
+--             ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,87,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
+--             ['female'] = {},
+--         }
+--     },
+--     ['tshirt'] = {
+--         ['tshirt_1'] = {
+--             ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105}, --Specific sex blacklist
+--             ['female'] = {},
+--         }
+--     },
+--     ['chain'] = {
+--         ['chain_1'] = {
+--             ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
+--             ['female'] = {},
+--         }
+--     },
+--     ['bags'] = { 31,32,36,33,35,48,49,60,66,72,73,74
+--       --  ['male'] = {31,32,36,33,35,48,49,60,66,72,73,74}, --Specific sex blacklist
+--         --['female'] = {},
+--         --Numbers of blacklisted items for bags for both sex  torso_1
+--     }
+-- }
 Config.GlobalWhitelist = { --Same as blacklist you can do with whitelist
     --['helmet'] = {
     --    ['helmet_1'] = {
