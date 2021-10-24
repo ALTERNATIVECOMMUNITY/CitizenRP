@@ -10,7 +10,7 @@ Config.DoorList = {
 ------------------------------------------
 	-- gabz_mrpd	FRONT DOORS
 	{
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = false,
 		maxDistance = 2.0,
 		doors = {
@@ -23,7 +23,7 @@ Config.DoorList = {
 
 	-- gabz_mrpd	NORTH DOORS
 	{
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		autoLock = 10000,
 		maxDistance = 2.0,
@@ -36,7 +36,7 @@ Config.DoorList = {
 
 	-- gabz_mrpd	SOUTH DOORS
 	{
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		autoLock = 10000,
 		maxDistance = 2.0,
@@ -51,7 +51,7 @@ Config.DoorList = {
 
 
 	{
-		authorizedJobs = {['police']=0},
+		authorizedJobs = {['sheriff']=0},
 		objHash = -1406685646,
 		objHeading = 0.0,
 		objCoords = vector3(441.13, -977.93, 30.82319),
@@ -67,7 +67,7 @@ Config.DoorList = {
 		objHash = -96679321,
 		objHeading = 180.0,
 		objCoords = vector3(440.5201, -986.2335, 30.82319),
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -78,7 +78,7 @@ Config.DoorList = {
 		objHash = 1830360419,
 		objHeading = 269.78,
 		objCoords = vector3(464.1591, -974.6656, 26.3707),
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		fixText = true,
@@ -90,7 +90,7 @@ Config.DoorList = {
 		objHash = 1830360419,
 		objHeading = 89.87,
 		objCoords = vector3(464.1566, -997.5093, 26.3707),
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		fixText = true,
@@ -102,7 +102,7 @@ Config.DoorList = {
 		objHash = 2130672747,
 		objHeading = 0.0,
 		objCoords = vector3(431.4119, -10000.772, 26.69661),
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 6,
 		garage = true,
@@ -116,7 +116,7 @@ Config.DoorList = {
 		objHash = 2130672747,
 		objHeading = 0.0,
 		objCoords = vector3(452.3005, -10000.772, 26.69661),
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 6,
 		garage = true,
@@ -130,7 +130,7 @@ Config.DoorList = {
 		objHash = -1603817716,
 		objHeading = 90.0,
 		objCoords = vector3(488.8948, -1017.212, 27.14935),
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 6,
 		slides = true,
@@ -140,7 +140,7 @@ Config.DoorList = {
 
 	-- gabz_mrpd	BACK DOORS
 	{
-		authorizedJobs = { ['police']=0, ['offpolice']=0 },
+		authorizedJobs = { ['sheriff']=0, ['offpolice']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -156,7 +156,7 @@ Config.DoorList = {
 		objHash = -1406685646,
 		objHeading = 180.0,
 		objCoords = vector3(475.9539, -1010.819, 26.40639),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -167,7 +167,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 270.0,
 		objCoords = vector3(476.6157, -1008.875, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -180,7 +180,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 180.0,
 		objCoords = vector3(481.0084, -1004.118, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -193,7 +193,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 0.0,
 		objCoords = vector3(477.9126, -1012.189, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -206,7 +206,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 0.0,
 		objCoords = vector3(480.9128, -1012.189, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -219,7 +219,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 0.0,
 		objCoords = vector3(483.9127, -1012.189, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -232,7 +232,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 0.0,
 		objCoords = vector3(486.9131, -1012.189, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -245,7 +245,7 @@ Config.DoorList = {
 		objHash = -53345114,
 		objHeading = 180.0,
 		objCoords = vector3(484.1764, -1007.734, 26.48005),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -258,7 +258,7 @@ Config.DoorList = {
 		objHash = -288803980,
 		objHeading = 90.0,
 		objCoords = vector3(479.06, -1003.173, 26.4065),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -270,7 +270,7 @@ Config.DoorList = {
 		objHash = -1406685646,
 		objHeading = 270.0,
 		objCoords = vector3(482.6694, -983.9868, 26.40548),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -282,7 +282,7 @@ Config.DoorList = {
 		objHash = -1406685646,
 		objHeading = 270.0,
 		objCoords = vector3(482.6701, -987.5792, 26.40548),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -294,7 +294,7 @@ Config.DoorList = {
 		objHash = -1406685646,
 		objHeading = 270.0,
 		objCoords = vector3(482.6699, -992.2991, 26.40548),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		autoLock = 10000,
@@ -307,7 +307,7 @@ Config.DoorList = {
 		autoLock = 10000,
 		objHeading = 270.0,
 		objCoords = vector3(482.6703, -995.7285, 26.40548),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		fixText = true
@@ -319,7 +319,7 @@ Config.DoorList = {
 		autoLock = 10000,
 		objHeading = 134.7,
 		objCoords = vector3(475.8323, -990.4839, 26.40548),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		fixText = true
@@ -331,7 +331,7 @@ Config.DoorList = {
 		autoLock = 10000,
 		objHeading = 90.0,
 		objCoords = vector3(479.7507, -999.629, 30.78927),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		fixText = true
@@ -343,7 +343,7 @@ Config.DoorList = {
 		autoLock = 10000,
 		objHeading = 181.28,
 		objCoords = vector3(487.4378, -10000.189, 30.78697),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		locked = true,
 		maxDistance = 2.0,
 		fixText = true
@@ -351,7 +351,7 @@ Config.DoorList = {
 
 	-- gabz_mrpd	SHOOTING RANGE
 	{
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		autoLock = 10000,
 		locked = true,
 		maxDistance = 2.0,
@@ -365,7 +365,7 @@ Config.DoorList = {
 	-- gabz_mrpd	ROOFTOP
 	{
 		objCoords = vector3(464.3086, -984.5284, 43.77124),
-		authorizedJobs = { ['police']=0 },
+		authorizedJobs = { ['sheriff']=0 },
 		objHeading = 90.000465393066,
 		slides = false,
 		lockpick = false,
@@ -383,7 +383,7 @@ Config.DoorList = {
 
 -- Prison
 table.insert(Config.DoorList, {
-	authorizedJobs = { ['police']=0 },
+	authorizedJobs = { ['sheriff']=0 },
 	maxDistance = 6.0,
 	objHash = 741314661,
 	lockpick = false,
@@ -408,7 +408,7 @@ table.insert(Config.DoorList, {
 	objHash = 741314661,
 	fixText = false,
 	audioRemote = false,
-	authorizedJobs = { ['police']=0 },
+	authorizedJobs = { ['sheriff']=0 },
 	lockpick = false,
 	objCoords = vector3(1818.543, 2604.813, 44.611),
 	maxDistance = 6.0,
@@ -824,7 +824,7 @@ table.insert(Config.DoorList, {
 	maxDistance = 2.0,
 	lockpick = false,
 	objHash = -96679321,
-	authorizedJobs = { ['police']=8 },
+	authorizedJobs = { ['sheriff']=8 },
 	audioRemote = false,
 	objHeading = 270.00003051758,
 	slides = false,
@@ -4001,7 +4001,7 @@ table.insert(Config.DoorList, {
 	maxDistance = 2.5,
 	authorizedJobs = { ['sheriff']=0 },
 	lockpick = false,
-	locked = true,		
+	locked = true,
 	-- oldMethod = true,
 	-- audioLock = {['file'] = 'metal-locker.ogg', ['volume'] = 0.6},
 	-- audioUnlock = {['file'] = 'metallic-creak.ogg', ['volume'] = 0.7},

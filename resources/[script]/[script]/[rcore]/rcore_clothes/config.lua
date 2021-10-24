@@ -21,7 +21,7 @@ Config.NearObjectDistance = 50
 Config.GlobalBlacklist = {
     ['hats'] = {
         ['helmet_1'] = {
-            ['male'] = {2,3,6,7,13,17,9,49,79,84,91,92,115,116,117,119,141,147,148,150}, --Specific sex blacklist
+            ['male'] = {2,3,6,7,13,17,9,49,79,84,91,92,115,116,117,119,141,147,148,150,38,47, 48,83, 111, 118, 129, 137, 138, 172 }, --Specific sex blacklist
             ['female'] = {},
         },
     },
@@ -33,17 +33,22 @@ Config.GlobalBlacklist = {
         },
 
         ['tshirt_1'] = {
-            ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105,87}, --Specific sex blacklist
+            ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105,87,20,56,124,125,126,127,128,129,131,152,153,154,155,156,159,160,161,162,164,170,171,20,43,68,130,37,38,39,90,91,93
+            ,44,53,55,57,58,65,66,97,105,87}, --Specific sex blacklist
             ['female'] = {30,35,105,152,154,155,156,157,158,159,160,161,188,189,190,191,192,200,207,209},
         },
 
         ['torso_1'] = {
-            ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
+            ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118,159,160,275}, --Specific sex blacklist
             ['female'] = {14,48,58,64,73,74,83,85,92,93,99,188,264,265,266},
         },
         ['chain_1'] = {
             ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
             ['female'] = {1,2,3,5,6,8,25,95,96,97,98,102,115,116,117},
+        },
+        ['pants_1'] = {
+            ['male'] = {52,23,30,41,98,121,124,125,52}, --Specific sex blacklist
+          --  ['female'] = {14,48,58,64,73,74,83,85,92,93,99,188,264,265,266},
         },
     },
 
@@ -84,15 +89,101 @@ Config.GlobalBlacklist = {
 --     }
 -- }
 Config.GlobalWhitelist = { --Same as blacklist you can do with whitelist
-    --['helmet'] = {
-    --    ['helmet_1'] = {
-    --        ['male'] = {}, --Specific sex blacklist
-    --        ['female'] = {},
-    --    }
-    --},
-    --['bags'] = {
-    --    --Numbers of blacklisted items for bags for both sex
-    --}
+  ['tshirt_police'] = {
+      ['arms'] = {
+          ['male'] = {}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['tshirt_1'] = {
+          ['male'] = {37,38,39,90,91,93,44,53,55,57,58,65,66,97,105,87}, --Specific sex blacklist
+          ['female'] = {30,35,105,152,154,155,156,157,158,159,160,161,188,189,190,191,192,200,207,209},
+      },
+
+      ['torso_1'] = {
+          ['male'] = {2,24,28,31,32,38,44,49,51,55,63,65,73,74,75,77,80,81,92,93,94,97,98,101,102,103,108,110,118}, --Specific sex blacklist
+          ['female'] = {14,48,58,64,73,74,83,85,92,93,99,188,264,265,266},
+      },
+      ['chain_1'] = {
+          ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
+          ['female'] = {1,2,3,5,6,8,25,95,96,97,98,102,115,116,117},
+      },
+
+
+      ['helmet_1'] = {
+          ['male'] = {2,3,6,7,13,17,9,49,79,84,91,92,115,116,117,119,141,147,148,150}, --Specific sex blacklist
+          ['female'] = {},
+      },
+  },
+
+  ['surplus_haut'] = {
+      ['arms'] = {
+          ['male'] = {}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['tshirt_1'] = {
+          ['male'] = {56,124,125,126,127,128,129,131,152,153,154,155,156,159,160,161,162,164,170,171,122}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['torso_1'] = {
+          ['male'] = {48,53,165,191,214,219,222,221,228,229,230,231,239,244,247,248,251,253,320,324,336,337}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['pants_1'] = {
+          ['male'] = {23,30,41,98,121,124,125}, --Specific sex blacklist
+          ['female'] = {},
+      },
+      ['chain_1'] = {
+          ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
+          ['female'] = {},
+      },
+      ['shoes_1'] = {
+          ['male'] = {61,62,63,70,71,72}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['helmet_1'] = {
+          ['male'] = {58,59,112,123,124,125,126}, --Specific sex blacklist
+          ['female'] = {},
+      },
+  },
+  ['surplus_bas'] = {
+      ['arms'] = {
+          ['male'] = {}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['tshirt_1'] = {
+          ['male'] = {56,124,125,126,127,128,129,131,152,153,154,155,156,159,160,161,162,164,170,171,122}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['torso_1'] = {
+          ['male'] = {48,53,165,191,214,219,222,221,228,229,230,231,239,244,247,248,251,253,320,324,336,337}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['pants_1'] = {
+          ['male'] = {23,30,41,98,121,124,125}, --Specific sex blacklist
+          ['female'] = {},
+      },
+      ['chain_1'] = {
+          ['male'] = {1,2,3,5,6,8,10}, --Specific sex blacklist
+          ['female'] = {},
+      },
+      ['shoes_1'] = {
+          ['male'] = {61,62,63,70,71,72}, --Specific sex blacklist
+          ['female'] = {},
+      },
+
+      ['helmet_1'] = {
+          ['male'] = {58,59,112,123,124,125,126}, --Specific sex blacklist
+          ['female'] = {},
+      },
+  },
 }
 
 
@@ -1276,7 +1367,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -1483,7 +1574,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -1732,7 +1823,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -1981,7 +2072,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -2230,7 +2321,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -2479,7 +2570,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -2728,7 +2819,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -3224,7 +3315,7 @@ Config.Stores = {
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
                     {
-                        label = Pantalon,
+                        label = 'Pantalon',
                         name = 'pants_1',
                         from = 1,
                         to = 160,
@@ -3529,6 +3620,8 @@ Config.Stores = {
                     taskHeading = 211.66
                 }
             },
+
+
         }
     },
     {
@@ -3538,15 +3631,94 @@ Config.Stores = {
         color = 60,
   --        society = 'society_goverment',
         sections = {
-            bags = {
-              job = {
-                  'police', --Use job limitation
-                  'sheriff'
-              },
-                pos = vector3(629.79870605469,-0.80142974853516,76.628074645996),
-                label = '🎒',
+            tshirt_police = {
+                job = {"police"},
+                pos = vector3(623.01129150391,-6.749623298645,76.628044128418),
+                label = '👕',
                 help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
                 components = {
+                    {
+                        label = 'TShirt',
+                        name = 'tshirt_1',
+                        from = 1,
+                        to = 160,
+                        current = 1,
+                        reset = {
+                            'tshirt_2'
+                        },
+                        price = 150,
+                    },
+                    {
+                        label = 'Couleur Tshirt',
+                        name = 'tshirt_2',
+                        from = 0,
+                        to = 20,
+                        current = 1,
+                        price = 50,
+                    },
+                    {
+                        label = 'Torse 1',
+                        name = 'torso_1',
+                        from = 1,
+                        to = 289,
+                        current = 1,
+                        reset = {
+                            'torso_2'
+                        },
+                        price = 300,
+
+                    },
+                    {
+                        label = 'Torse 2',
+                        name = 'torso_2',
+                        from = 0,
+                        to = 20,
+                        current = 1,
+                        price = 50,
+                    },
+                    {
+                        label = 'Bras',
+                        name = 'arms',
+                        from = 1,
+                        to = 20,
+                        current = 1,
+                        price = 0,
+                    },
+                    {
+                        label = 'Chaines',
+                        name = 'chain_1',
+                        from = 0,
+                        to = 20,
+                        current = 1,
+                        price = 50,
+                    },
+                    {
+                        label = 'Couleur Chaines',
+                        name = 'chain_2',
+                        from = 0,
+                        to = 20,
+                        current = 1,
+                        price = 50,
+                    },
+                    {
+                        label = 'Pantalon',
+                        name = 'pants_1',
+                        from = 1,
+                        to = 160,
+                        current = 1,
+                        reset = {
+                            'pants_2'
+                        },
+                        price = 50,
+                    },
+                    {
+                        label = 'Pants color',
+                        name = 'pants_2',
+                        from = 0,
+                        to = 20,
+                        current = 1,
+                        price = 10,
+                    },
                     {
                         label = 'Sac',
                         name = 'bags_1',
@@ -3557,9 +3729,6 @@ Config.Stores = {
                             'bags_2'
                         },
                         price = 120,
-                        whitelist = {
-                            31,32,36,33,35,48,49,60,66,72,73,74
-                        }
                     },
                     {
                         label = 'Couleur du Sac',
@@ -3569,7 +3738,27 @@ Config.Stores = {
                         current = 0,
                         price = 10,
                     },
+                    {
+                        label = 'Chappeau',
+                        name = 'helmet_1',
+                        from = -1,
+                        to = 160,
+                        current = 1,
+                        reset = {
+                            'helmet_2'
+                        },
+                        price = 50,
+                    },
+                    {
+                        label = 'Couleur Chappeau',
+                        name = 'helmet_2',
+                        from = 0,
+                        to = 20,
+                        current = 1,
+                        price = 10,
+                    },
                 },
+
                 cam = {
                     offset = {
                         x = 0.0,
@@ -3581,101 +3770,430 @@ Config.Stores = {
                         y = 0,
                         z = 0.4
                     },
-                    taskHeading = 211.66
+                    taskHeading = 309.66
                 }
-            },
-            bags = {
-              job = {
-                  'police', --Use job limitation
-                  'sheriff'
-              },
-                pos = vector3(626.46716308594,-8.1353769302368,76.62801361084),
-                label = '🎒',
-                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
-                components = {
-                    {
-                        label = 'Sac',
-                        name = 'bags_1',
-                        from = -1,
-                        to = 160,
-                        current = -1,
-                        reset = {
-                            'bags_2'
-                        },
-                        price = 120,
-                        whitelist = {
-                            31,32,36,33,35,48,49,60,66,72,73,74
-                        }
-                    },
-                    {
-                        label = 'Couleur du Sac',
-                        name = 'bags_2',
-                        from = 0,
-                        to = 20,
-                        current = 0,
-                        price = 10,
-                    },
-                },
-                cam = {
-                    offset = {
-                        x = 0.0,
-                        y = 1.0,
-                        z = 0.5
-                    },
-                    pointOffset = {
-                        x = 0,
-                        y = 0,
-                        z = 0.4
-                    },
-                    taskHeading = 211.66
-                }
-            },
-            bags = {
-              job = {
-                  'police', --Use job limitation
-                  'sheriff'
-              },
-                pos = vector3(370.13177490234,-1605.2971191406,29.292057037354),
-                label = '🎒',
-                help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu de la boutique',
-                components = {
-                    {
-                        label = 'Sac',
-                        name = 'bags_1',
-                        from = -1,
-                        to = 160,
-                        current = -1,
-                        reset = {
-                            'bags_2'
-                        },
-                        price = 120,
-                        whitelist = {
-                            31,32,36,33,35,48,49,60,66,72,73,74
-                        }
-                    },
-                    {
-                        label = 'Couleur du Sac',
-                        name = 'bags_2',
-                        from = 0,
-                        to = 20,
-                        current = 0,
-                        price = 10,
-                    },
-                },
-                cam = {
-                    offset = {
-                        x = 0.0,
-                        y = 1.0,
-                        z = 0.5
-                    },
-                    pointOffset = {
-                        x = 0,
-                        y = 0,
-                        z = 0.4
-                    },
-                    taskHeading = 211.66
-                }
-            },
+            }
+
           },
       },
+
+
+
+      {
+          position = vector3(-325.97836303711,6083.3090820313,31.454765319824),
+          label = 'Surplus Nord',
+          sprite = 73,
+          color = 52,
+    --        society = 'society_goverment',
+          sections = {
+              surplus_haut = {
+          --        job = {"police"},
+                  pos = vector3(-325.97836303711,6083.3090820313,31.454765319824),
+                  label = '👕',
+                  help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu du surplus',
+                  components = {
+                      {
+                          label = 'TShirt',
+                          name = 'tshirt_1',
+                          from = 1,
+                          to = 160,
+                          current = 1,
+                          reset = {
+                              'tshirt_2'
+                          },
+                          price = 150,
+                      },
+                      {
+                          label = 'Couleur Tshirt',
+                          name = 'tshirt_2',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      },
+                      {
+                          label = 'Torse 1',
+                          name = 'torso_1',
+                          from = 1,
+                          to = 289,
+                          current = 1,
+                          reset = {
+                              'torso_2'
+                          },
+                          price = 300,
+
+                      },
+                      {
+                          label = 'Torse 2',
+                          name = 'torso_2',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      },
+                      {
+                          label = 'Bras',
+                          name = 'arms',
+                          from = 1,
+                          to = 20,
+                          current = 1,
+                          price = 0,
+                      },
+                      {
+                          label = 'Chaines',
+                          name = 'chain_1',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      },
+                      {
+                          label = 'Couleur Chaines',
+                          name = 'chain_2',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      },
+                      {
+                          label = 'Sac',
+                          name = 'bags_1',
+                          from = -1,
+                          to = 160,
+                          current = -1,
+                          reset = {
+                              'bags_2'
+                          },
+                          price = 120,
+                      },
+                      {
+                          label = 'Couleur du Sac',
+                          name = 'bags_2',
+                          from = 0,
+                          to = 20,
+                          current = 0,
+                          price = 10,
+                      },
+                      {
+                          label = 'Chappeau',
+                          name = 'helmet_1',
+                          from = -1,
+                          to = 160,
+                          current = 1,
+                          reset = {
+                              'helmet_2'
+                          },
+                          price = 50,
+                      },
+                      {
+                          label = 'Couleur Chappeau',
+                          name = 'helmet_2',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 10,
+                      },
+                  },
+
+                  cam = {
+                      offset = {
+                          x = 0.0,
+                          y = 1.0,
+                          z = 0.5
+                      },
+                      pointOffset = {
+                          x = 0,
+                          y = 0,
+                          z = 0.4
+                      },
+                      taskHeading = 145.66
+                  }
+              },
+              surplus_bas = {
+          --        job = {"police"},
+                  pos = vector3(-324.3740234375,6081.7045898438,31.454765319824),
+                  label = '👖',
+                  help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu du surplus',
+                  components = {
+
+                      {
+                          label = 'Chaines',
+                          name = 'chain_1',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      },
+                      {
+                          label = 'Couleur Chaines',
+                          name = 'chain_2',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      },
+                      {
+                          label = 'Pantalon',
+                          name = 'pants_1',
+                          from = 1,
+                          to = 160,
+                          current = 1,
+                          reset = {
+                              'pants_2'
+                          },
+                          price = 50,
+                      },
+                      {
+                          label = 'Pants color',
+                          name = 'pants_2',
+                          from = 0,
+                          to = 20,
+                          current = 1,
+                          price = 10,
+                      },
+                      {
+                          label = 'Chaussures',
+                          name = 'shoes_1',
+                          from = 1,
+                          to = 88,
+                          current = 1,
+                          price = 150,
+                      },
+                      {
+                          label = 'Couleur chaussures',
+                          name = 'shoes_2',
+                          from = 1,
+                          to = 20,
+                          current = 1,
+                          price = 50,
+                      }
+                  },
+
+                  cam = {
+                      offset = {
+                          x = 0.0,
+                          y = 1.0,
+                          z = -0.5
+                      },
+                      pointOffset = {
+                          x = 0,
+                          y = 0,
+                          z = -0.5
+                      },
+                      taskHeading = 145.66
+                  }
+              }
+
+            },
+        },
+
+        {
+            position = vector3(839.65338134766,-1029.0572509766,28.194854736328),
+            label = 'Surplus Sud',
+            sprite = 73,
+            color = 52,
+      --        society = 'society_goverment',
+            sections = {
+                surplus_haut = {
+            --        job = {"police"},
+                    pos = vector3(839.56097412109,-1029.6513671875,28.194854736328),
+                    label = '👕',
+                    help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu du surplus',
+                    components = {
+                        {
+                            label = 'TShirt',
+                            name = 'tshirt_1',
+                            from = 1,
+                            to = 160,
+                            current = 1,
+                            reset = {
+                                'tshirt_2'
+                            },
+                            price = 150,
+                        },
+                        {
+                            label = 'Couleur Tshirt',
+                            name = 'tshirt_2',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        },
+                        {
+                            label = 'Torse 1',
+                            name = 'torso_1',
+                            from = 1,
+                            to = 289,
+                            current = 1,
+                            reset = {
+                                'torso_2'
+                            },
+                            price = 300,
+
+                        },
+                        {
+                            label = 'Torse 2',
+                            name = 'torso_2',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        },
+                        {
+                            label = 'Bras',
+                            name = 'arms',
+                            from = 1,
+                            to = 20,
+                            current = 1,
+                            price = 0,
+                        },
+                        {
+                            label = 'Chaines',
+                            name = 'chain_1',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        },
+                        {
+                            label = 'Couleur Chaines',
+                            name = 'chain_2',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        },
+                        {
+                            label = 'Sac',
+                            name = 'bags_1',
+                            from = -1,
+                            to = 160,
+                            current = -1,
+                            reset = {
+                                'bags_2'
+                            },
+                            price = 120,
+                        },
+                        {
+                            label = 'Couleur du Sac',
+                            name = 'bags_2',
+                            from = 0,
+                            to = 20,
+                            current = 0,
+                            price = 10,
+                        },
+                        {
+                            label = 'Chappeau',
+                            name = 'helmet_1',
+                            from = -1,
+                            to = 160,
+                            current = 1,
+                            reset = {
+                                'helmet_2'
+                            },
+                            price = 50,
+                        },
+                        {
+                            label = 'Couleur Chappeau',
+                            name = 'helmet_2',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 10,
+                        },
+                    },
+
+                    cam = {
+                        offset = {
+                            x = 0.0,
+                            y = 1.0,
+                            z = 0.5
+                        },
+                        pointOffset = {
+                            x = 0,
+                            y = 0,
+                            z = 0.4
+                        },
+                        taskHeading = 280.66
+                    }
+                },
+                surplus_bas = {
+            --        job = {"police"},
+                    pos = vector3(839.59228515625,-1027.7828369141,28.194854736328),
+                    label = '👖',
+                    help = 'Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu du surplus',
+                    components = {
+
+                        {
+                            label = 'Chaines',
+                            name = 'chain_1',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        },
+                        {
+                            label = 'Couleur Chaines',
+                            name = 'chain_2',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        },
+                        {
+                            label = 'Pantalon',
+                            name = 'pants_1',
+                            from = 1,
+                            to = 160,
+                            current = 1,
+                            reset = {
+                                'pants_2'
+                            },
+                            price = 50,
+                        },
+                        {
+                            label = 'Pants color',
+                            name = 'pants_2',
+                            from = 0,
+                            to = 20,
+                            current = 1,
+                            price = 10,
+                        },
+                        {
+                            label = 'Chaussures',
+                            name = 'shoes_1',
+                            from = 1,
+                            to = 88,
+                            current = 1,
+                            price = 150,
+                        },
+                        {
+                            label = 'Couleur chaussures',
+                            name = 'shoes_2',
+                            from = 1,
+                            to = 20,
+                            current = 1,
+                            price = 50,
+                        }
+                    },
+
+                    cam = {
+                        offset = {
+                            x = 0.0,
+                            y = 1.0,
+                            z = -0.5
+                        },
+                        pointOffset = {
+                            x = 0,
+                            y = 0,
+                            z = -0.5
+                        },
+                        taskHeading = 280.66
+                    }
+                }
+
+              },
+          },
+
+
 }
