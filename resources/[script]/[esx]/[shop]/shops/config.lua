@@ -31,6 +31,40 @@ Config.Shops = {
 			Color = 2
 		},
 
+		Surplus = {
+
+			Items = {
+				{
+	 					name = "parballe",
+	 					type = "item",
+	 					price = 500
+	 		 },
+	 		 {
+	 					name = "porteplaque",
+	 					type = "item",
+	 					price = 1000
+	 		 },
+
+	  },
+
+			Pos = {
+				vector3(844.77264404297,-1028.6564941406,28.194869995117)
+			},
+
+			MarkerLabel = 'Surplus Millitaire',
+			ShowBlip = false,
+			ShowMarker = true,
+			Size  = 1.0,
+			Type  = 59,
+			Color = 2
+		},
+
+
+
+
+
+
+--
 		Cocaine = {
 
 			Items = {
