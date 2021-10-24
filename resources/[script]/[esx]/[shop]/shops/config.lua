@@ -49,11 +49,11 @@ Config.Shops = {
 					 type = "item",
 					 price = 1659
 			},
-			{
-					 name = "porteplaque2",
-					 type = "item",
-					 price = 1659
-			},
+			-- {
+			-- 		 name = "porteplaque2",
+			-- 		 type = "item",
+			-- 		 price = 1659
+			-- },
 
 
 	  },
