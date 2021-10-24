@@ -143,24 +143,6 @@ local Props = {
 LastEquipped = {}
 Cooldown = false
 
-equippedbase = {
-	helmet_1     = 0,
-	helmet_2     = 0,
-	glasses_1    = 0,
-	glasses_2    = 0,
-}
-
-Citizen.CreateThread(function()
-	TriggerEvent('skinchanger:getSkin', function(skin)
-		equippedbase = {
-			helmet_1     = skin.helmet_1,
-			helmet_2     = skin.helmet_2,
-			glasses_1    = skin.glasses_1,
-			glasses_2    = skin.glasses_2,
-		}
-	end)
-end)
-
 local function PlayToggleEmote(e, cb)
 	local Ped = PlayerPedId()
 	while not HasAnimDictLoaded(e.Dict) do RequestAnimDict(e.Dict) Wait(100) end
@@ -276,9 +258,13 @@ function ToggleProps(which)
 			if Last then
 				PlayToggleEmote(Prop.Emote.On, function() SetPedPropIndex(Ped, Prop.Prop, Last.Prop, Last.Texture, true) end) LastEquipped[which] = false return true
 			elseif not Last and which == "Hat" then
-				PlayToggleEmote(Prop.Emote.On, function() SetPedPropIndex(Ped, 0, equippedbase.helmet_1, equippedbase.helmet_2, true) end) LastEquipped[which] = false return true
+				TriggerEvent('skinchanger:getSkin', function(skin)
+					PlayToggleEmote(Prop.Emote.On, function() SetPedPropIndex(Ped, 0, skin.helmet_1, skin.helmet_2, true) end) LastEquipped[which] = false return true
+				end)
 			elseif not Last and which == "Glasses" then
-				PlayToggleEmote(Prop.Emote.On, function() SetPedPropIndex(Ped, 1, equippedbase.glasses_1, equippedbase.glasses_2, true) end) LastEquipped[which] = false return true
+				TriggerEvent('skinchanger:getSkin', function(skin)
+					PlayToggleEmote(Prop.Emote.On, function() SetPedPropIndex(Ped, 1, skin.glasses_1, skin.glasses_2, true) end) LastEquipped[which] = false return true
+				end)
 			end
 		end
 		Notify(Lang("NothingToRemove")) return false
