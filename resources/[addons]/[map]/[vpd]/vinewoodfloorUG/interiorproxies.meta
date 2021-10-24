@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SInteriorOrderData>
+    <startFrom value="2000" />
+    <filePathHash value="0" />
+    <proxies>
+        <Item>hei_hw1_09_critical_0</Item>
+        <Item>hei_hw1_rd_critical_1</Item>
+        <Item>hei_hw1_09_long_0</Item>
+        <Item>hei_hw1_09_strm_0</Item>
+        <Item>slb2k11_vinewood_garage</Item>
+        <Item>slb2k11_vinewood_outside</Item>
+        <Item>slb2k11_vinewood_main</Item>
+        <Item>slb2k11_vinewoodpd_lspd</Item>
+        <Item>slb2k11_vinewood_floor_ug</Item>
+        <Item>slb2k11_vinewood_stairs</Item>
+        <Item>hw1_occl_01</Item>
+    </proxies>
+</SInteriorOrderData>
