@@ -63,7 +63,7 @@ JobsThatCanUseOffduty = { -- Jobs that can use offduty if option above is false
 
 DefaultJobsInJobCenter = { -- Jobs that can be added by going to the job center. For icons use https://fontawesome.com/
 
-	--{job = 'miner', label = "Mineur", icon = "fas fa-gem", description = ""},
+	{job = 'miner', label = "Mineur", icon = "fas fa-gem", description = ""},
 	--{job = 'fisherman', label = "Pecheur", icon = "fas fa-fish", description = ""},
 --	{job = 'avocat', label = "Avocat", icon = "fas fa-archway", description = ""},
 --	{job = 'fueler', label = "Petrolier", icon = "fas fa-gas-pump", description = ""},
@@ -76,6 +76,7 @@ DefaultJobsInJobCenter = { -- Jobs that can be added by going to the job center.
 				{job = 'busdriver', label = "Chauffeur de bus", icon = "fas fa-bus", description = ""},
 				{job = 'farmer', label = "Fermier", icon = "fas fa-seedling", description = ""},
 				{job = 'fruitpicker', label = "Saisonier", icon = "fas fa-apple-alt", description = ""},
+				{job = 'courier', label = "Chauffeur-Livreur", icon = "fas fa-envelope", description = ""},
 	{job = 'unemployed', label = "Chommeur", icon = "fas fa-peace", description = "Chomeur ..."},
 
 
