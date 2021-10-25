@@ -534,15 +534,15 @@ Config.componentlistscopes = {
 ["COMPONENT_AT_SCOPE_THERMAL"] = "w_at_scope_nv",
 ["COMPONENT_AT_SCOPE_fbiarb"] = "w_at_scope_FBIARb",
 ["COMPONENT_AT_SCOPE_mk18b"] = "w_at_scope_mk18b",
+["COMPONENT_SR25_SCOPE_07"] = "sr25_scope7"
 }
 
 Config.componentlistgrip = {
 ["COMPONENT_AT_AR_AFGRIP"] = "w_at_ar_afgrip",
 ["COMPONENT_AT_AR_AFGRIP_02"] = "w_at_afgrip_2",
-["COMPONENT_AT_fbiarb_AFGRIP"] = "w_at_FBIARb_afgrip"
+["COMPONENT_AT_fbiarb_AFGRIP"] = "w_at_FBIARb_afgrip",
+["COMPONENT_AT_mk18b_AFGRIP"] = "w_at_mk18b_afgrip",
 
-["COMPONENT_AT_mk18b_AFGRIP"] = "w_at_mk18b_afgrip"
-["COMPONENT_AT_AR_AFGRIP_02"] = "w_at_afgrip_2"
 }
 
 Config.componentlistbarrels = {
@@ -574,7 +574,6 @@ Config.componentlistsupps = {
 ["COMPONENT_AT_MUZZLE_06"] = "w_at_muzzle_6",
 ["COMPONENT_AT_MUZZLE_07"] = "w_at_muzzle_7",
 ["COMPONENT_AT_MUZZLE_08"] = "w_at_muzzle_8",
-
 ["COMPONENT_AT_AR_SUPP_M700"] = "w_at_ar_supp_m700",
 ["COMPONENT_AT_mk18b_SUPP"] = "w_at_mk18b_supp",
 ["COMPONENT_SR25_SUPP_01"] = "sr25_supp1",

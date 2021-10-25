@@ -46,9 +46,9 @@ AttachmentStoreItems = { -- Attachment Store Prices
 
 	},
 	['misc'] = {
-		
+
 	}
-	
+
 
 },
 
@@ -77,7 +77,7 @@ Text = {
 	['attachment_not_taken'] = 'Attachment cant be applied'
 
 }
-	
+
 
 }
 
@@ -92,5 +92,3 @@ function SendMessage(msg)
 		exports['mythic_notify']:SendAlert('inform', msg)
 
 end
-
-

@@ -295,7 +295,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_SCOPE_fbiarb</Name>
-                  <Default value="false" />
+                  <Default value="true" />
                 </Item>
               </Components>
             </Item>

@@ -277,7 +277,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_mk18b_CLIP_01</Name>
-                  <Default value="false" />
+                  <Default value="true" />
                 </Item>
               </Components>
             </Item>
@@ -295,7 +295,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_SCOPE_mk18b</Name>
-                  <Default value="false" />
+                  <Default value="true" />
                 </Item>
               </Components>
             </Item>
