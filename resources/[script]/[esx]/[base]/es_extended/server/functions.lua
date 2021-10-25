@@ -268,11 +268,11 @@ ESX.CreatePickup = function(type, name, count, label, playerId, components, tint
 		ESX.Pickups[pickupId].components = components
 		ESX.Pickups[pickupId].tintIndex = tintIndex
 	end
-	
-	if name == 'WEAPON_PISTOL' or name == 'WEAPON_FLASHLIGHT' or name == 'WEAPON_STUNGUN' or name == 'WEAPON_KNIFE' or name == 'WEAPON_BAT' or name == 'WEAPON_ADVANCEDRIFLE' or name == 'WEAPON_APPISTOL' or name == 'WEAPON_ASSAULTRIFLE' 
+
+	if name == 'WEAPON_PISTOL' or name == 'WEAPON_FLASHLIGHT' or name == 'WEAPON_STUNGUN' or name == 'WEAPON_KNIFE' or name == 'WEAPON_BAT' or name == 'WEAPON_ADVANCEDRIFLE' or name == 'WEAPON_APPISTOL' or name == 'WEAPON_ASSAULTRIFLE'
 	or name == 'WEAPON_ASSAULTSHOTGUN' or name == 'WEAPON_ASSAULTSMG' or name == 'WEAPON_AUTOSHOTGUN' or name == 'WEAPON_CARBINERIFLE' or name == 'WEAPON_SNIPERRIFLE' or name == 'WEAPON_COMBATPISTOL' or name == 'WEAPON_PUMPSHOTGUN' or name == 'WEAPON_SMG' then
 		local hash = GetHashKey(name)
-		
+
 		MySQL.Async.fetchAll('SELECT * FROM ammunition WHERE hash = @hash AND owner = @owner', {
 			['@hash'] = hash,
 			['@owner'] =  xPlayer.identifier
@@ -308,4 +308,8 @@ ESX.DoesJobExist = function(job, grade)
 	end
 
 	return false
+end
+
+ESX.GetJobs = function()
+	return ESX.Jobs
 end
