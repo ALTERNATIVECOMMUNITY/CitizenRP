@@ -168,23 +168,23 @@ function ReloadColor()
     end)
 end
 
-Citizen.CreateThread(function()
-
-	while true do
-		Citizen.Wait(4000)
-
-		TriggerEvent('esx_status:getStatus', 'hunger', function(status)
-			VM.AdemoFaim = status.val/1000000*100
-
-		end)
-		TriggerEvent('esx_status:getStatus', 'thirst', function(status)
-			VM.AdemoSoif = status.val/1000000*100
-
-		end)
-
-	end
-
-end)
+-- Citizen.CreateThread(function()
+--
+-- 	while true do
+-- 		Citizen.Wait(4000)
+--
+-- 		TriggerEvent('esx_status:getStatus', 'hunger', function(status)
+-- 			VM.AdemoFaim = status.val/1000000*100
+--
+-- 		end)
+-- 		TriggerEvent('esx_status:getStatus', 'thirst', function(status)
+-- 			VM.AdemoSoif = status.val/1000000*100
+--
+-- 		end)
+--
+-- 	end
+--
+-- end)
 
 
 function openMenu()
@@ -244,16 +244,6 @@ function openMenu()
                            end, RMenu:Get('inventory', 'fringues'))
 
 
-                           RageUI.ButtonWithStyle("🔫 ~r~Armes", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
-                                    if Selected then
-                                    ExecuteCommand('weapon')
-                                       RageUI.CloseAll()
-
-                                                                    end
-                                    end)
-
-
-
                              RageUI.ButtonWithStyle("🚘 ~y~Liés au véhicule", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
                                   if Selected then
 
@@ -262,20 +252,26 @@ function openMenu()
 
 
 
-                    --         RageUI.ButtonWithStyle("🔷 ~w~Divers", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
-                    --             if Selected then
-                    --                 end
-                    --             end, RMenu:Get('inventory', 'divers'))
+                            RageUI.ButtonWithStyle("🔷 ~w~Divers", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
+                                if Selected then
+                                    end
+                                end, RMenu:Get('inventory', 'divers'))
 
-                    --             if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
-                    --                 RageUI.ButtonWithStyle("Police", "Menu Police", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                                RageUI.ButtonWithStyle("🔫 ~w~Arme", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
+                                    if Selected then
+                                      ExecuteCommand('weapon')
+                                       RageUI.CloseAll()
+                                        end
 
-
-                    --          if Selected then
-                    --              end
-                    --          end, RMenu:Get('police', 'police'))
-
-                    --   end
+                                    end)
+                      --
+                      --           if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
+                      --               RageUI.ButtonWithStyle("Police", "Menu Police", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                      --        if Selected then
+                      --            end
+                      --        end, RMenu:Get('police', 'police'))
+                      --
+                      -- end
 
 
 
@@ -295,8 +291,8 @@ function openMenu()
                           ExecuteCommand("menuadmin")
 
                        RageUI.CloseAll()
-                    --    end
-                    --  end)
+                        end
+                      end)
                   end
 
 
@@ -324,41 +320,41 @@ function openMenu()
                     end, function()
                         end)
 
-
-
-  RageUI.IsVisible(RMenu:Get('inventory', '911'), true, true, true, function()
-
-    RageUI.ButtonWithStyle("🚔 ~b~LSPD", "Contacter Le LSPD", {RightLabel = "~r~→"}, true, function(Hovered,Active,Selected)
-        if Selected then
-          local coords      = GetEntityCoords(PlayerPedId())
-          local lspdmsg = Keyboardput("LSPD", "", 500)
-         exports['core_dispach']:addMessage(lspdmsg, {coords.x, coords.y, coords.z}, 'police', 5000, 11, 5)
-         ExecuteCommand("911 " .. lspdmsg)
-
-            end
-        end)
-
-        RageUI.ButtonWithStyle("🚑 ~g~EMS", "Contacter les EMS", {RightLabel = "~r~→"}, true, function(Hovered,Active,Selected)
-            if Selected then
-              local coords      = GetEntityCoords(PlayerPedId())
-              local emsmsg = Keyboardput("EMS", "", 500)
-             exports['core_dispach']:addMessage(emsmsg, {coords.x, coords.y, coords.z}, 'ambulance', 5000, 11, 5)
-
-                end
-            end)
-
-            RageUI.ButtonWithStyle("🔧 ~y~Dépanneur", "Dépanneur", {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
-                if Selected then
-                  local coords      = GetEntityCoords(PlayerPedId())
-                  local mecanomsg = Keyboardput("Mécano", "", 500)
-                 exports['core_dispach']:addMessage(mecanomsg, {coords.x, coords.y, coords.z}, 'mecano', 5000, 11, 5)
-
-                    end
-                end)
-
-
-                    end, function()
-                        end)
+  --
+  --
+  -- RageUI.IsVisible(RMenu:Get('inventory', '911'), true, true, true, function()
+  --
+  --   RageUI.ButtonWithStyle("🚔 ~b~LSPD", "Contacter Le LSPD", {RightLabel = "~r~→"}, true, function(Hovered,Active,Selected)
+  --       if Selected then
+  --         local coords      = GetEntityCoords(PlayerPedId())
+  --         local lspdmsg = Keyboardput("LSPD", "", 500)
+  --        exports['core_dispach']:addMessage(lspdmsg, {coords.x, coords.y, coords.z}, 'police', 5000, 11, 5)
+  --        ExecuteCommand("911 " .. lspdmsg)
+  --
+  --           end
+  --       end)
+  --
+  --       RageUI.ButtonWithStyle("🚑 ~g~EMS", "Contacter les EMS", {RightLabel = "~r~→"}, true, function(Hovered,Active,Selected)
+  --           if Selected then
+  --             local coords      = GetEntityCoords(PlayerPedId())
+  --             local emsmsg = Keyboardput("EMS", "", 500)
+  --            exports['core_dispach']:addMessage(emsmsg, {coords.x, coords.y, coords.z}, 'ambulance', 5000, 11, 5)
+  --
+  --               end
+  --           end)
+  --
+  --           RageUI.ButtonWithStyle("🔧 ~y~Dépanneur", "Dépanneur", {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
+  --               if Selected then
+  --                 local coords      = GetEntityCoords(PlayerPedId())
+  --                 local mecanomsg = Keyboardput("Mécano", "", 500)
+  --                exports['core_dispach']:addMessage(mecanomsg, {coords.x, coords.y, coords.z}, 'mecano', 5000, 11, 5)
+  --
+  --                   end
+  --               end)
+  --
+  --
+  --                   end, function()
+  --                       end)
                 ----------------------------------------------------------------------------------
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'fringues'), true, true, true, function()
@@ -475,7 +471,7 @@ function openMenu()
         if Selected then
           local postal = Keyboardput("Code Postal", "", 5)
             ExecuteCommand("postal " .. postal)
-        --     RageUI.CloseAll()
+           RageUI.CloseAll()
             end
         end)
 
@@ -1109,7 +1105,6 @@ function openMenu()
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'divers'), true, true, true, function()
 
-
                   RageUI.ButtonWithStyle("Prendre en ~r~Otage", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected)
                       if (Selected) then
                           ExecuteCommand("takehostage")
@@ -1122,33 +1117,34 @@ function openMenu()
                       end
                   end)
 
-
-
-
-                    local ragdolling = false
-                    RageUI.ButtonWithStyle('Dormir / Se Reveiller', description, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
-                        if (Selected) then
-                            ragdolling = not ragdolling
-                            while ragdolling do
-                             Wait(0)
-                            local myPed = GetPlayerPed(-1)
-                            SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
-                            ResetPedRagdollTimer(myPed)
-                            AddTextEntry(GetCurrentResourceName(), ('Appuyez sur ~INPUT_JUMP~ pour vous ~b~Réveillé'))
-                            DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
-                            ResetPedRagdollTimer(myPed)
-                            if IsControlJustPressed(0, 22) then
-                            break
-                        end
-                    end
-                end
-            end)
-
+            --
+            --
+            --
+            --
+            --         local ragdolling = false
+            --         RageUI.ButtonWithStyle('Dormir / Se Reveiller', description, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+            --             if (Selected) then
+            --                 ragdolling = not ragdolling
+            --                 while ragdolling do
+            --                  Wait(0)
+            --                 local myPed = GetPlayerPed(-1)
+            --                 SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
+            --                 ResetPedRagdollTimer(myPed)
+            --                 AddTextEntry(GetCurrentResourceName(), ('Appuyez sur ~INPUT_JUMP~ pour vous ~b~Réveillé'))
+            --                 DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
+            --                 ResetPedRagdollTimer(myPed)
+            --                 if IsControlJustPressed(0, 22) then
+            --                 break
+            --             end
+            --         end
+            --     end
+            -- end)
+             --
              -- RageUI.ButtonWithStyle("Menu ~g~visuel", "Pour modifier votre visuel", {RightLabel = "→"}, true, function(Hovered, Active,Selected)
              --        if Selected then
              --             end
              --        end, RMenu:Get('inventory', 'visual'))
-             --    end)
+                end)
 
 
 
