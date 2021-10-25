@@ -1,0 +1,66 @@
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+sv_maxclients 64
+set steam_webApiKey 6E016BA180CC16B08B2589B24B6798E4
+
+sets tags "roleplay, serious, fr, french, optimisé"
+
+sv_hostname "CitizenVice dev"
+
+sets sv_projectName "CitizenVice dev" # not sure what these are but error came up about them
+sets sv_projectDesc "CitizenVice dev" # not sure what these are but error came up about them
+
+sv_licenseKey a580w1nf7u23nby04hl4f90vkean58sz
+load_server_icon myLogo.png
+sets banner_detail "https://cdn.discordapp.com/attachments/477543918599143424/894973695599202395/Banner01.png"
+sets banner_connecting "https://cdn.discordapp.com/attachments/477543918599143424/894973695599202395/Banner01.png"
+set sv_enforceGameBuild 2372
+set onesync "true"
+
+sets locale "fr-FR"
+set mysql_connection_string "mysql://Dev_PC:6p3NwOk903qMemcD@141.94.96.205/essentialmode?dateStrings=true"
+
+## These resources will start by default.
+ensure mapmanager
+
+ensure spawnmanager
+ensure sessionmanager
+ensure hardcap
+
+ensure Badger_Discord_API
+ensure Bad-DiscordQueue
+
+
+exec resources.cfg # PUT ALL RESOURCES IN THE OTHER CFG
+
+
+
+## Add system admins
+add_ace group.admin command allow # allow all commands
+add_ace group.admin command.quit deny # but don't allow quit
+add_principal identifier.steam:11000010521d778 group.admin # Forley
+add_principal identifier.steam:110000108968cbd group.admin
+
+add_ace identifier.steam:11000010521d778 "txadmin.menu.perm" allow
+add_ace identifier.rockstar:a798b0db0ab26d12e0a3abfc84592a56e12d3ddb "txadmin.menu.perm" allow
+
+
+add_ace resource.es_extended command.add_ace allow
+add_ace resource.es_extended command.add_principal allow
+add_ace resource.es_extended command.remove_principal allow
+add_ace resource.es_extended command.stop allow
+add_ace resource.sonoranradio command allow
+add_ace resource.sonoran_updatehelper command allow
+
+## EasyAdmin stuff
+setr ea_LanguageName "fr"                # set our language to english
+setr ea_alwaysShowButtons "false"	     # we don't want to see buttons we can't even access, do we? default: "false"
+set ea_moderationNotification "false"    # this can be either "false" or a discord webhook address, this will send a discord message if an admin takes actions against a player  ( such as banning and kicking )
+set ea_custombanlist "false"             # read docs for this, dont touch it
+set ea_enableCallAdminCommand "true"     # enables "calladmin" command via webhook
+set ea_enableReportCommand "true"        # enables "report" command, see Configuration Wiki Page for More infos
+setr ea_MenuButton "212"		    	 # set our menu button to F3. default: "170" "212" = home
+add_ace group.admin easyadmin allow
+
+ensure EasyAdmin
