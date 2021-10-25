@@ -214,8 +214,8 @@
               <FirstPersonScopeAttachmentFov value="30.000000" />
               <FirstPersonScopeAttachmentOffset x="0.000000" y="0.125000" z="-0.0622000" />
               <FirstPersonScopeAttachmentRotationOffset x="-1.500000" y="0.000000" z="0.000000" />
-            </Item>		
-          </FirstPersonScopeAttachmentData>					
+            </Item>
+          </FirstPersonScopeAttachmentData>
 					<ZoomFactorForAccurateMode value="1.300000"/>
 					<RecoilShakeHash>ASSAULT_RIFLE_RECOIL_SHAKE</RecoilShakeHash>
 					<RecoilShakeHashFirstPerson>FPS_ASSAULT_RIFLE_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
@@ -256,103 +256,103 @@
 					<KnockdownCount value="-1"/>
 					<KillshotImpulseScale value="1.000000"/>
 					<NmShotTuningSet>Sniper</NmShotTuningSet>
-					<AttachPoints>	
+					<AttachPoints>
 							<Item>
 							<AttachBone>WAPFlshLasr</AttachBone>
 							<Components>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_FLSH_01</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_FLSH_02</Name>
-								</Item>			
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_FLSH_03</Name>
-								</Item>					
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_FLSH_04</Name>
-								</Item>										
+								</Item>
 							</Components>
-						</Item>						
+						</Item>
 							<Item>
 							<AttachBone>WAPSupp</AttachBone>
 							<Components>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SUPP_01</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SUPP_02</Name>
-								</Item>			
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SUPP_03</Name>
-								</Item>								
+								</Item>
 							</Components>
-						</Item>				
+						</Item>
 						<Item>
 							<AttachBone>WAPScop</AttachBone>
 							<Components>
 								<Item>
 									<Default value="true"/>
 									<Name>COMPONENT_SR25_SCOPE_01</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_02</Name>
-								</Item>			
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_03</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_04</Name>
-								</Item>						
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_05</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_06</Name>
-								</Item>								
+								</Item>
 							</Components>
-						</Item>	
+						</Item>
 						<Item>
 							<AttachBone>WAPScop</AttachBone>
 							<Components>
-								<Item>													
-									<Default value="false"/>
+								<Item>
+									<Default value="true"/>
 									<Name>COMPONENT_SR25_SCOPE_07</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_08</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_09</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_10</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_11</Name>
-								</Item>		
+								</Item>
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_SCOPE_12</Name>
-								</Item>								
+								</Item>
 							</Components>
-						</Item>						
+						</Item>
 						<Item>
 							<AttachBone>WAPClip</AttachBone>
 							<Components>
@@ -367,7 +367,7 @@
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_SR25_CLIP_03</Name>
-								</Item>								
+								</Item>
 							</Components>
 						</Item>
 					</AttachPoints>
@@ -399,4 +399,3 @@
 	</Infos>
 	<Name>AR</Name>
 </CWeaponInfoBlob>
-

@@ -176,6 +176,13 @@ ESX.RegisterUsableItem(
 )
 
 ESX.RegisterUsableItem(
+    "scope",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "scope")
+    end
+)
+
+ESX.RegisterUsableItem(
     "smg_clip",
     function(source)
         TriggerClientEvent("core_weapon:useItem", source, "smg_clip")
