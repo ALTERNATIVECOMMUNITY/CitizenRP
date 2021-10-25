@@ -38,7 +38,7 @@ Citizen.CreateThread(function()
     RMenu.Add('inventory', 'portefeuille_billing', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Factures", "~g~Gestions de vos factures"))
     RMenu.Add('inventory', 'menu', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Menu", "~g~Modifier la couleur de votre menu"))
     RMenu.Add('inventory', 'sante', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Santé", "~g~Infos disponibles"))
-    -- RMenu.Add('inventory', 'divers', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Divers", "~g~Divers"))
+    RMenu.Add('inventory', 'divers', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Divers", "~g~Divers"))
     -- RMenu.Add('inventory', 'visual', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Visuel", "~p~Menu visuel"))
     RMenu.Add('inventory', 'utils', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "utils", "~r~Serveur"))
     RMenu.Add('inventory', 'clothesbase', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Tenue", "Vêtements / Accessoire"))
@@ -244,6 +244,16 @@ function openMenu()
                            end, RMenu:Get('inventory', 'fringues'))
 
 
+                           RageUI.ButtonWithStyle("🔫 ~r~Armes", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
+                                    if Selected then
+                                    ExecuteCommand('weapon')
+                                       RageUI.CloseAll()
+
+                                                                    end
+                                    end)
+
+
+
                              RageUI.ButtonWithStyle("🚘 ~y~Liés au véhicule", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
                                   if Selected then
 
@@ -275,19 +285,19 @@ function openMenu()
                         end, RMenu:Get('inventory', 'utils'))
 
 
-                    --         if playerGroup ~= 'user' then
-                    --             RageUI.ButtonWithStyle("Administration", "Menu d'Administration", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
-                    --             ESX.TriggerServerCallback('Nehco:getUsergroup', function(group)
-                    --             playerGroup = group
-                    --      end)
+                            if playerGroup ~= 'user' then
+                                RageUI.ButtonWithStyle("Administration", "Menu d'Administration", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                                ESX.TriggerServerCallback('Nehco:getUsergroup', function(group)
+                                playerGroup = group
+                         end)
 
-                    --    if Selected then
-                    --       ExecuteCommand("menuadmin")
+                       if Selected then
+                          ExecuteCommand("menuadmin")
 
-                    --    RageUI.CloseAll()
-                    -- --    end
-                --     --  end)
-                --   end
+                       RageUI.CloseAll()
+                    --    end
+                    --  end)
+                  end
 
 
 
@@ -1100,7 +1110,17 @@ function openMenu()
                 RageUI.IsVisible(RMenu:Get('inventory', 'divers'), true, true, true, function()
 
 
+                  RageUI.ButtonWithStyle("Prendre en ~r~Otage", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected)
+                      if (Selected) then
+                          ExecuteCommand("takehostage")
+                      end
+                  end)
 
+                  RageUI.ButtonWithStyle("Prendre sur le ~b~Dos", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected)
+                      if (Selected) then
+                          ExecuteCommand("carry")
+                      end
+                  end)
 
 
 
@@ -1124,11 +1144,11 @@ function openMenu()
                 end
             end)
 
-             RageUI.ButtonWithStyle("Menu ~g~visuel", "Pour modifier votre visuel", {RightLabel = "→"}, true, function(Hovered, Active,Selected)
-                    if Selected then
-                         end
-                    end, RMenu:Get('inventory', 'visual'))
-                end)
+             -- RageUI.ButtonWithStyle("Menu ~g~visuel", "Pour modifier votre visuel", {RightLabel = "→"}, true, function(Hovered, Active,Selected)
+             --        if Selected then
+             --             end
+             --        end, RMenu:Get('inventory', 'visual'))
+             --    end)
 
 
 
@@ -1291,17 +1311,7 @@ function openMenu()
                             end
                         end)
 
-                        RageUI.ButtonWithStyle("Prendre en ~r~Otage", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected)
-                            if (Selected) then
-                                ExecuteCommand("takehostage")
-                            end
-                        end)
 
-                        RageUI.ButtonWithStyle("Prendre sur le ~b~Dos", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected)
-                            if (Selected) then
-                                ExecuteCommand("carry")
-                            end
-                        end)
 
                     end,function()
                 end)

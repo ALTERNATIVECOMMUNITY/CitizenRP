@@ -604,7 +604,7 @@ AddEventHandler(
         if item == "pistol_clip" then
             if getWeaponType(selectedWeapon) == "pistol" then
                 if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
+                    SetPedAmmo(ped, selectedWeapon, 50)
 
                     MakePedReload(GetPlayerPed(-1))
 
@@ -667,7 +667,7 @@ AddEventHandler(
         elseif item == "rifle_clip" then
             if getWeaponType(selectedWeapon) == "assault" then
                 if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
+                    SetPedAmmo(ped, selectedWeapon, 120)
 
                     MakePedReload(GetPlayerPed(-1))
 
@@ -689,7 +689,7 @@ AddEventHandler(
         elseif item == "lightsmg_clip" then
             if getWeaponType(selectedWeapon) == "lightmachine" then
                 if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
+                    SetPedAmmo(ped, selectedWeapon, 250)
 
                     MakePedReload(GetPlayerPed(-1))
 
@@ -711,7 +711,7 @@ AddEventHandler(
         elseif item == "shotgun_clip" then
             if getWeaponType(selectedWeapon) == "shotgun" then
                 if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
+                    SetPedAmmo(ped, selectedWeapon, 30)
 
                     MakePedReload(GetPlayerPed(-1))
 
@@ -733,7 +733,7 @@ AddEventHandler(
         elseif item == "sniper_clip" then
             if getWeaponType(selectedWeapon) == "sniper" then
                 if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
+                    SetPedAmmo(ped, selectedWeapon, 40)
 
                     MakePedReload(GetPlayerPed(-1))
 
@@ -755,7 +755,7 @@ AddEventHandler(
         elseif item == "smg_clip" then
             if getWeaponType(selectedWeapon) == "submachine" then
                 if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
+                    SetPedAmmo(ped, selectedWeapon, 90)
 
                     MakePedReload(GetPlayerPed(-1))
 
