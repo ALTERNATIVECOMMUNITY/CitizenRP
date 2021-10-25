@@ -52,14 +52,34 @@
 	background: rgb(53, 111, 204);
 }
 
-#varHunger > #boxSetHunger {
-	box-shadow: 0px 0px 18px rgb(210, 155, 67);
-	background: rgb(210, 155, 67);
+.faimetsoif {
+	box-shadow: 0px 0px 18px rgb(101, 137, 182);
+    display: flex;
+    width: calc((25% - 4px) - 4px) !important;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    color: white;
+	font-family: Arial;
+	font-weight: bold;
 }
 
-#varThirst > #boxSetThirst {
-	box-shadow: 0px 0px 18px rgb(101, 137, 182);
-	background: rgb(101, 137, 182);
+#varHunger{
+    box-shadow: rgb(210 155 67) 0px 0px 18px;
+}
+
+#varHunger .barIcon,
+#varThirst .barIcon{
+	position: static;
+	width: auto;
+	height: calc(100% - 12px);
+	padding-top: 0;
+}
+
+#varHunger span,
+#varThirst span{
+	padding: 0 10px;
 }
 
 #varOxygen > #boxSetOxygen {

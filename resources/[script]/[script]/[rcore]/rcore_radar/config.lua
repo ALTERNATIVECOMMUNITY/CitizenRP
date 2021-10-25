@@ -32,6 +32,7 @@ Config.Fines = {
 --Whitelist & allow list
 Config.WhitelistedJobs = {
   'police',
+  'sheriff',
   'ambulance'
 }
 Config.AllowedVehicles = {

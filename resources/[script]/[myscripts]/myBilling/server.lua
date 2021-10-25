@@ -221,11 +221,11 @@ AddEventHandler('esx_billing:sendBill', function(playerId, sharedAccountName, la
         for k, v in pairs(xPlayers) do
 
             local xPlayer2 = ESX.GetPlayerFromId(xPlayers[k])
-            if xPlayer2.source == playerId then
+            if xPlayer2.source == playerId or xPlayer2.identifier == playerId then
 
                 TriggerClientEvent('myBills:msg', source, Translation[Config.Locale]['bill_given'])
                 --TriggerClientEvent('myBills:gotInvoice', playerId, source, xPlayer2.identifier, sharedAccountName, label, amount)
-				TriggerClientEvent('myBills:gotInvoice', playerId, source, xPlayer2.identifier, sharedAccountName, label, amount)
+				TriggerClientEvent('myBills:gotInvoice', xPlayer2.source , source, xPlayer2.identifier, sharedAccountName, label, amount)
                 break
             end
 

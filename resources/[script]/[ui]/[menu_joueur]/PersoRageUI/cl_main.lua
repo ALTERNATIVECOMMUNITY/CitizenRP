@@ -38,8 +38,8 @@ Citizen.CreateThread(function()
     RMenu.Add('inventory', 'portefeuille_billing', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Factures", "~g~Gestions de vos factures"))
     RMenu.Add('inventory', 'menu', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Menu", "~g~Modifier la couleur de votre menu"))
     RMenu.Add('inventory', 'sante', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Santé", "~g~Infos disponibles"))
-    RMenu.Add('inventory', 'divers', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Divers", "~g~Divers"))
-    RMenu.Add('inventory', 'visual', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Visuel", "~p~Menu visuel"))
+    -- RMenu.Add('inventory', 'divers', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Divers", "~g~Divers"))
+    -- RMenu.Add('inventory', 'visual', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Visuel", "~p~Menu visuel"))
     RMenu.Add('inventory', 'utils', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "utils", "~r~Serveur"))
     RMenu.Add('inventory', 'clothesbase', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Tenue", "Vêtements / Accessoire"))
     RMenu.Add('inventory', 'clothes', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Vêtements", "Vêtements"))
@@ -50,7 +50,6 @@ Citizen.CreateThread(function()
     RMenu.Add('inventory', 'voiture', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Gestion Véhicule", "~r~Clés"))
     RMenu.Add('inventory', 'fringues', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "fringues", "~r~Fringues"))
     RMenu.Add('inventory', 'clés', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "AutoPilote", "~r~AutoPilote"))
-    RMenu.Add('inventory', '911', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "911", "~w~Services D'urgences"))
 RMenu.Add('inventory', 'tuture', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Véhicules", "~y~Véhicules"))
 RMenu.Add('police', 'police', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "police", "~y~police"))
     RMenu.Add('inventory', 'voiture_porte', RageUI.CreateSubMenu(RMenu:Get('inventory', 'main'), "Véhicule", "~g~Porte de votre véhicule"))
@@ -245,11 +244,6 @@ function openMenu()
                            end, RMenu:Get('inventory', 'fringues'))
 
 
-                           RageUI.ButtonWithStyle("🚨 ~w~Contacter les urgences", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
-                             if Selected then
-                                 end
-                             end, RMenu:Get('inventory', '911'))
-
                              RageUI.ButtonWithStyle("🚘 ~y~Liés au véhicule", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
                                   if Selected then
 
@@ -258,20 +252,20 @@ function openMenu()
 
 
 
-                            RageUI.ButtonWithStyle("🔷 ~w~Divers", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
-                                if Selected then
-                                    end
-                                end, RMenu:Get('inventory', 'divers'))
+                    --         RageUI.ButtonWithStyle("🔷 ~w~Divers", nil, {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
+                    --             if Selected then
+                    --                 end
+                    --             end, RMenu:Get('inventory', 'divers'))
 
-                                if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
-                                    RageUI.ButtonWithStyle("Police", "Menu Police", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    --             if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
+                    --                 RageUI.ButtonWithStyle("Police", "Menu Police", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
 
 
-                             if Selected then
-                                 end
-                             end, RMenu:Get('police', 'police'))
+                    --          if Selected then
+                    --              end
+                    --          end, RMenu:Get('police', 'police'))
 
-                      end
+                    --   end
 
 
 
@@ -281,19 +275,19 @@ function openMenu()
                         end, RMenu:Get('inventory', 'utils'))
 
 
-                            if playerGroup ~= 'user' then
-                                RageUI.ButtonWithStyle("Administration", "Menu d'Administration", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
-                                ESX.TriggerServerCallback('Nehco:getUsergroup', function(group)
-                                playerGroup = group
-                         end)
+                    --         if playerGroup ~= 'user' then
+                    --             RageUI.ButtonWithStyle("Administration", "Menu d'Administration", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    --             ESX.TriggerServerCallback('Nehco:getUsergroup', function(group)
+                    --             playerGroup = group
+                    --      end)
 
-                       if Selected then
-                          ExecuteCommand("menuadmin")
+                    --    if Selected then
+                    --       ExecuteCommand("menuadmin")
 
-                       RageUI.CloseAll()
-                       end
-                     end)
-                  end
+                    --    RageUI.CloseAll()
+                    -- --    end
+                --     --  end)
+                --   end
 
 
 
@@ -483,12 +477,12 @@ function openMenu()
   --     end)
 
 
-  RageUI.ButtonWithStyle("🚘 ~y~Gestion Véhicule", "Menu de votre véhicule", {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
-  if Selected then
-    ExecuteCommand("denemereka")
-     RageUI.CloseAll()
-    end
-  end)
+--   RageUI.ButtonWithStyle("🚘 ~y~Gestion Véhicule", "Menu de votre véhicule", {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
+--   if Selected then
+--     ExecuteCommand("denemereka")
+--      RageUI.CloseAll()
+--     end
+--   end)
   RageUI.ButtonWithStyle("🚘 ~y~Mes Clés", "Menu de votre véhicule", {RightLabel = "~y~→"}, true, function(Hovered,Active,Selected)
     if Selected then
         ExecuteCommand("keys")
@@ -851,105 +845,6 @@ function openMenu()
                              TriggerEvent('multijob:open')
                             end
                         end)
-
-                    RageUI.ButtonWithStyle('💵 ~g~ Liquide', description, {RightLabel = "~y~$"..ESX.Math.GroupDigits(ESX.PlayerData.money.."~s~ →")}, true, function(Hovered, Active, Selected)
-                        if (Selected) then
-                            end
-                        end, RMenu:Get('inventory', 'portefeuille_money'))
-
-
-
-
-                    for i = 1, #ESX.PlayerData.accounts, 1 do
-                        if ESX.PlayerData.accounts[i].name == 'bank'  then
-                            VM.bank = RageUI.ButtonWithStyle('💳 ~b~ Banque', description, {RightLabel = "~y~$"..ESX.Math.GroupDigits(ESX.PlayerData.accounts[i].money.."~s~")}, true, function(Hovered, Active, Selected)
-                                if (Selected) then
-                                        end
-                                    end)
-
-
-
-                    for i = 1, #ESX.PlayerData.accounts, 1 do
-                        if ESX.PlayerData.accounts[i].name == 'black_money'  then
-                            VM.sale = RageUI.ButtonWithStyle('💸 ~r~Non déclaré', description, {RightLabel = "~r~$"..ESX.Math.GroupDigits(ESX.PlayerData.accounts[i].money.."~s~ →")}, true, function(Hovered, Active, Selected)
-                                if (Selected) then
-                                        end
-                                    end, RMenu:Get('inventory', 'portefeuille_use'))
-
-                                                RageUI.ButtonWithStyle('🧾 ~o~Facture', description, {RightLabel = "~y~→"}, true, function(Hovered, Active, Selected)
-                        if (Selected) then
-                            RageUI.CloseAll()
-                             TriggerEvent('rcore_billing:openMenu')
-                            end
-                        end)
-
-                                    RageUI.ButtonWithStyle(('~b~Montrer ~s~ça carte d\'identité'), nil, {}, true, function(Hovered, Active, Selected)
-                                        if (Selected) then
-                                            local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
-
-                                            if closestDistance ~= -1 and closestDistance <= 3.0 then
-                                                TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(closestPlayer))
-                                            else
-                                                ESX.ShowNotification(('Aucun joueur à proximité'))
-                                            end
-                                        end
-                                    end)
-
-
-
-
-
-                                    RageUI.ButtonWithStyle(('~g~Regarder ~s~ça carte d\'identité'), nil, {}, true, function(Hovered, Active, Selected)
-                                        if (Selected) then
-                                            TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))
-                                        end
-                                    end)
-
-                                    RageUI.ButtonWithStyle(('~b~Montrer ~s~son permis de conduire'), nil, {}, true, function(Hovered, Active, Selected)
-                                        if (Selected) then
-                                            local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
-
-                                            if closestDistance ~= -1 and closestDistance <= 3.0 then
-                                                TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(closestPlayer), 'driver')
-                                            else
-                                                ESX.ShowNotification(('Aucun joueur à proximité'))
-                                            end
-                                        end
-                                    end)
-
-                                    RageUI.ButtonWithStyle(('~g~Regarder ~s~son permis de conduire'), nil, {}, true, function(Hovered, Active, Selected)
-                                        if (Selected) then
-                                            TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'driver')
-                                        end
-                                    end)
-
-                                    RageUI.ButtonWithStyle(('~b~Montrer ~s~son PPA'), nil, {}, true, function(Hovered, Active, Selected)
-                                        if (Selected) then
-                                            local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
-
-                                            if closestDistance ~= -1 and closestDistance <= 3.0 then
-                                                TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(closestPlayer), 'weapon')
-                                            else
-                                                ESX.ShowNotification(('Aucun joueur à proximité'))
-                                            end
-                                        end
-                                    end)
-
-                                    RageUI.ButtonWithStyle(('~g~Regarder ~s~son PPA'), nil, {}, true, function(Hovered, Active, Selected)
-                                        if (Selected) then
-                                            local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
-
-                                            if closestDistance ~= -1 and closestDistance <= 3.0 then
-                                                TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'weapon')
-                                            end
-                                        end
-                                    end)
-
-
-                                end
-                            end
-                        end
-                    end
                 end)
                 ----------------------------------------------------------------------------------
 

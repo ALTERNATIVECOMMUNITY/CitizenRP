@@ -165,41 +165,54 @@ function checkSpeed(radar, radarKey, vehicle)
         mphString = 'KMH'
     end
 
+ 
     if truespeed > radar.maxSpeed and isDriver(pP, vehicle) then
         Citizen.Wait(250)
-        if truespeed > radar.maxSpeed and truespeed <= (radar.maxSpeed + 10) then
-            local exceed = truespeed - (radar.maxSpeed)
-            if Config.SendDirectlyToBilling then
-                TriggerServerEvent(Config.Events['esx_billing:sendBill'], GetPlayerServerId(PlayerId()), Config.InvoiceSociety, Config.Strings['fine'] .. ESX.Math.Round(exceed) .. mphString, Config.Fines[1])
-            end
-            TriggerServerEvent('rcore_radars:makeBill', 1, truespeed, plate, Config.Fines[1])
-        end
-        if truespeed > (radar.maxSpeed + 10) and truespeed <= (radar.maxSpeed + 20) then
-            local exceed = truespeed - (radar.maxSpeed + 10)
-            if Config.SendDirectlyToBilling then
-                TriggerServerEvent(Config.Events['esx_billing:sendBill'], GetPlayerServerId(PlayerId()), Config.InvoiceSociety, Config.Strings['fine'] .. ESX.Math.Round(exceed) .. mphString, Config.Fines[2])
-            end
-            TriggerServerEvent('rcore_radars:makeBill', 2, truespeed, plate, Config.Fines[2])
-        end
-        if truespeed > (radar.maxSpeed + 20) and truespeed <= (radar.maxSpeed + 30) then
-            local exceed = truespeed - (radar.maxSpeed + 20)
-            if Config.SendDirectlyToBilling then
-                TriggerServerEvent(Config.Events['esx_billing:sendBill'], GetPlayerServerId(PlayerId()), Config.InvoiceSociety, Config.Strings['fine'] .. ESX.Math.Round(exceed) .. mphString, Config.Fines[3])
-            end
-            TriggerServerEvent('rcore_radars:makeBill', 3, truespeed, plate, Config.Fines[3])
-        end
-        if truespeed > (radar.maxSpeed + 30) then
-            local exceed = truespeed - (radar.maxSpeed + 30)
-            if Config.SendDirectlyToBilling then
-                TriggerServerEvent(Config.Events['esx_billing:sendBill'], GetPlayerServerId(PlayerId()), Config.InvoiceSociety, Config.Strings['fine'] .. ESX.Math.Round(exceed) .. mphString, Config.Fines[4])
-            end
+        ESX.TriggerServerCallback("rcore_radars:checkowner", function(owner)
+            if owner ~= "unknow"  then
+                local fineType = 0
 
-            TriggerServerEvent('rcore_radars:makeBill', 4, truespeed, plate, Config.Fines[4])
-        end
-        currentRadar = radarKey
-        currentRadarTime = Config.WaitTimeBetweenPictures
-        local mugshot, mugshotStr = ESX.Game.GetPedMugshot(pP)
-        ESX.ShowAdvancedNotification('Radar', Config.Strings['title'], Config.Strings['body'] .. plate, mugshotStr, 1)
-        UnregisterPedheadshot(mugshot)
+                if truespeed > radar.maxSpeed and truespeed <= (radar.maxSpeed + 10) then
+                    fineType = 1
+                end
+                if truespeed > (radar.maxSpeed + 10) and truespeed <= (radar.maxSpeed + 20) then
+                    fineType = 2
+                end
+                if truespeed > (radar.maxSpeed + 20) and truespeed <= (radar.maxSpeed + 30) then
+                    fineType = 3
+                end
+                if truespeed > (radar.maxSpeed + 30) then
+                    fineType = 4
+                end
+
+                if owner == PlayerData.identifier then
+                    local exceed = truespeed - radar.maxSpeed
+                    if Config.SendDirectlyToBilling then
+                        TriggerServerEvent(Config.Events['esx_billing:sendBill'], GetPlayerServerId(PlayerId()), Config.InvoiceSociety, Config.Strings['fine'] .. ESX.Math.Round(exceed) .. mphString, Config.Fines[fineType], true)
+                    end
+            
+                    TriggerServerEvent('rcore_radars:makeBill', fineType, truespeed, plate, Config.Fines[fineType])
+
+                    currentRadar = radarKey
+                    currentRadarTime = Config.WaitTimeBetweenPictures
+                    local mugshot, mugshotStr = ESX.Game.GetPedMugshot(pP)
+                    ESX.ShowAdvancedNotification('Radar', Config.Strings['title'], Config.Strings['body'] .. plate, mugshotStr, 1)
+                    UnregisterPedheadshot(mugshot)
+                else
+                    local exceed = truespeed - radar.maxSpeed
+                    if Config.SendDirectlyToBilling then
+                        TriggerServerEvent(Config.Events['esx_billing:sendBill'], GetPlayerServerId(PlayerId()), Config.InvoiceSociety, Config.Strings['fine'] .. ESX.Math.Round(exceed) .. mphString, Config.Fines[fineType], true)
+                    end
+            
+                    TriggerServerEvent('rcore_radars:makeBill', fineType, truespeed, plate, Config.Fines[fineType])
+
+                    currentRadar = radarKey
+                    currentRadarTime = Config.WaitTimeBetweenPictures
+                    local mugshot, mugshotStr = ESX.Game.GetPedMugshot(pP)
+                    ESX.ShowAdvancedNotification('Radar', Config.Strings['title'], Config.Strings['body'] .. plate, mugshotStr, 1)
+                    UnregisterPedheadshot(mugshot)
+                end
+            end
+        end, plate)
     end
 end

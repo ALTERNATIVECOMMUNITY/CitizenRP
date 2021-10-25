@@ -134,7 +134,7 @@ AddEventHandler(Config.Callbacks['esx:playerDropped'], function(source)
 end)
 
 RegisterServerEvent(Config.Callbacks['sendBill'])
-AddEventHandler(Config.Callbacks['sendBill'], function(playerId, sharedAccountName, label, amount)
+AddEventHandler(Config.Callbacks['sendBill'], function(playerId, sharedAccountName, label, amount, isRadar)
     local xPlayer = ESX.GetPlayerFromId(source)
     local xTarget = ESX.GetPlayerFromId(playerId)
 
@@ -242,9 +242,13 @@ AddEventHandler(Config.Callbacks['sendBill'], function(playerId, sharedAccountNa
 
         TriggerEvent(Config.Callbacks['esx_addonaccount:getSharedAccount'], sharedAccountName, function(account)
             if account then
+                local senderBill = xPlayer.identifier
+                if isRadar then 
+                    senderBill = ""
+                end
                 MySQL.Async.execute('INSERT INTO billing (identifier, sender, target_type, target, label, amount) VALUES (@identifier, @sender, @target_type, @target, @label, @amount)', {
                     ['@identifier'] = xTarget.identifier,
-                    ['@sender'] = xPlayer.identifier,
+                    ['@sender'] = senderBill,
                     ['@target_type'] = 'society',
                     ['@target'] = sharedAccountName,
                     ['@label'] = label,
