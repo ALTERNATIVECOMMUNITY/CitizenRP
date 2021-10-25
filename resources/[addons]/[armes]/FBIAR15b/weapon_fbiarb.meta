@@ -286,7 +286,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_fbiarb_FLSH</Name>
-                  <Default value="true" />
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>
@@ -295,7 +295,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_SCOPE_fbiarb</Name>
-                  <Default value="true" />
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>
