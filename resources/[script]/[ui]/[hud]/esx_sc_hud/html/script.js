@@ -10,9 +10,8 @@ window.addEventListener('message', function (event) {
                     $("body").css("display", event.data.show ? "block" : "none");
                     $("#boxSetHealth").css("width", event.data.health + "%");
                     $("#boxSetArmour").css("width", event.data.armour + "%");
-
-                    widthHeightSplit(event.data.hunger, $("#boxSetHunger"));
-                    widthHeightSplit(event.data.thirst, $("#boxSetThirst"));
+                    $("#varHunger span").html(Math.floor(event.data.hunger) + "%");
+                    $("#varThirst span").html(Math.floor(event.data.thirst) + "%");
                     // widthHeightSplit(event.data.oxygen, $("#boxSetOxygen"));
                     //widthHeightSplit(event.data.stress, $("#boxSetStress"));
                     setTalking(event.data.voice);

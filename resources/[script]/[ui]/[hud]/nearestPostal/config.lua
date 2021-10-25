@@ -6,8 +6,8 @@ config = {
 		--posX = 0.225,
 		--posY = 0.963,
 		-- vMenu PLD Position
-		posX = 0.100,
-		posY = 0.970
+		posX = 0.145,
+		posY = 0.968
 	},
 	blip = {
 		blipText = 'Itinéraire Postal %s',
