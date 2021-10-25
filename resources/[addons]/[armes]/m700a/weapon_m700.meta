@@ -253,7 +253,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_AR_SUPP_M700</Name>
-                  <Default value="true" />
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>

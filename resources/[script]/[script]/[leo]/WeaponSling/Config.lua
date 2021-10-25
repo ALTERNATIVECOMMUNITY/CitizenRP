@@ -531,11 +531,17 @@ Config.componentlistscopes = {
 ["COMPONENT_AT_SCOPE_LARGE"] = "w_at_scope_large",
 ["COMPONENT_AT_SCOPE_MAX"] = "w_at_scope_max",
 ["COMPONENT_AT_SCOPE_NV"] = "w_at_scope_nv",
-["COMPONENT_AT_SCOPE_THERMAL"] = "w_at_scope_nv"
+["COMPONENT_AT_SCOPE_THERMAL"] = "w_at_scope_nv",
+["COMPONENT_AT_SCOPE_fbiarb"] = "w_at_scope_FBIARb",
+["COMPONENT_AT_SCOPE_mk18b"] = "w_at_scope_mk18b",
 }
 
 Config.componentlistgrip = {
 ["COMPONENT_AT_AR_AFGRIP"] = "w_at_ar_afgrip",
+["COMPONENT_AT_AR_AFGRIP_02"] = "w_at_afgrip_2",
+["COMPONENT_AT_fbiarb_AFGRIP"] = "w_at_FBIARb_afgrip"
+
+["COMPONENT_AT_mk18b_AFGRIP"] = "w_at_mk18b_afgrip"
 ["COMPONENT_AT_AR_AFGRIP_02"] = "w_at_afgrip_2"
 }
 
@@ -568,11 +574,20 @@ Config.componentlistsupps = {
 ["COMPONENT_AT_MUZZLE_06"] = "w_at_muzzle_6",
 ["COMPONENT_AT_MUZZLE_07"] = "w_at_muzzle_7",
 ["COMPONENT_AT_MUZZLE_08"] = "w_at_muzzle_8",
-["COMPONENT_AT_MUZZLE_09"] = "w_at_muzzle_9"
+
+["COMPONENT_AT_AR_SUPP_M700"] = "w_at_ar_supp_m700",
+["COMPONENT_AT_mk18b_SUPP"] = "w_at_mk18b_supp",
+["COMPONENT_SR25_SUPP_01"] = "sr25_supp1",
+["COMPONENT_SR25_SUPP_02"] = "sr25_supp1",
+["COMPONENT_SR25_SUPP_03"] = "sr25_supp2",
+["COMPONENT_AT_AR_SUPP_M700"] = "w_at_ar_supp_m700",
+
 }
 
 Config.componentlistflash = {
-["COMPONENT_AT_AR_FLSH"] = "w_at_ar_flsh"
+["COMPONENT_AT_AR_FLSH"] = "w_at_ar_flsh",
+["COMPONENT_AT_fbiarb_FLSH"] = "w_at_FBIARb_flsh",
+["COMPONENT_AT_mk18b_FLSH"] = "w_at_mk18b_flsh_hi"
 }
 
 -- List of weapons allowed for /sling
@@ -605,6 +620,9 @@ Config.weaponlist = {
 [1785463520] = "w_sr_marksmanriflemk2",
 [-319609691] = "w_ar_MM4",
 [-1991960176] = "w_ar_mk18b",
+[2083584098] = "w_ar_fbiarb",
+[-303773045] = "w_sr_M700",
+[77322016] = "sr25"
 }
 
 -- List of weapons that will be attached on back (ie. sniper rifles)
