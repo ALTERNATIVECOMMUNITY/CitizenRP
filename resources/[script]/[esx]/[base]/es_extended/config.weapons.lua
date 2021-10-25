@@ -426,6 +426,10 @@ Config.Weapons = {
 		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
 		tints = Config.DefaultWeaponTints,
 		components = {
+			{name = 'scope', label = _U('component_scope'), hash = GetHashKey('COMPONENT_AT_SCOPE_fbiarb')},
+			{name = 'flashlight', label = 'Lampe', hash = GetHashKey('COMPONENT_AT_fbiarb_FLSH')},
+		--	{name = 'suppressor', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_AT_mk18b_SUPP')},
+			{name = 'grip', label = 'Poignée', hash = GetHashKey('COMPONENT_AT_fbiarb_AFGRIP')}
 
 		}
 	},
@@ -438,6 +442,7 @@ Config.Weapons = {
 			ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
 			tints = Config.DefaultWeaponTints,
 			components = {
+
 
 			}
 		},
@@ -474,6 +479,7 @@ Config.Weapons = {
 									ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_SNIPER')},
 									tints = Config.DefaultWeaponTints,
 									components = {
+											{name = 'suppressor', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_AT_AR_SUPP_M700')},
 
 									}
 								},
