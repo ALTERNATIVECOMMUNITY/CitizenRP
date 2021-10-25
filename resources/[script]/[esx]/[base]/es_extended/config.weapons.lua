@@ -478,44 +478,6 @@ Config.Weapons = {
 									}
 								},
 
-																{
-																	name = 'WEAPON_HK416B',
-																	label = 'HK 416',
-																	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
-																	tints = Config.DefaultWeaponTints,
-																	components = {
-
-																	}
-																},
-
-																{
-																	name = 'WEAPON_GAZEUSE',
-																	label = 'GAZEUSE',
-																	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
-																	tints = Config.DefaultWeaponTints,
-																	components = {
-
-																	}
-																},
-
-																{
-																	name = 'WEAPON_LBD',
-																	label = 'ldb',
-																	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
-																	tints = Config.DefaultWeaponTints,
-																	components = {
-
-																	}
-																},
-																{
-																	name = 'WEAPON_LGCOUGAR',
-																	label = 'COUGAR',
-																	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
-																	tints = Config.DefaultWeaponTints,
-																	components = {
-
-																	}
-																},
 
 
 
