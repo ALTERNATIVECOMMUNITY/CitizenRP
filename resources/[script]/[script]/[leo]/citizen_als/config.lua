@@ -22,20 +22,20 @@ Config.WeaponsGiven = {
             "COMPONENT_AT_PI_FLSH",
         }
     },
-    ["rifle"] = { -- rifle hash and components given on unrack rifle
-        weapon = "WEAPON_FBIARb",
-        components = {
-            "COMPONENT_AT_AR_FLSH",
-            "COMPONENT_AT_SCOPE_MEDIUM",
-            "COMPONENT_AT_AR_AFGRIP",
-        }
-    },
-    ["shotgun"] = { -- shotgun hash and components given on unrack shotgun
-        weapon = "WEAPON_PUMPSHOTGUN",
-        components = {
-            "COMPONENT_AT_AR_FLSH",
-        }
-    },
+  --  ["rifle"] = { -- rifle hash and components given on unrack rifle
+    --     weapon = "WEAPON_FBIARb",
+    --     components = {
+    --         "COMPONENT_AT_AR_FLSH",
+    --         "COMPONENT_AT_SCOPE_MEDIUM",
+    --         "COMPONENT_AT_AR_AFGRIP",
+    --     }
+    -- },
+    -- ["shotgun"] = { -- shotgun hash and components given on unrack shotgun
+    --     weapon = "WEAPON_PUMPSHOTGUN",
+    --     components = {
+    --         "COMPONENT_AT_AR_FLSH",
+    --     }
+    -- },
     ["standard"] = { -- Other weapons given on kit checkout
         weapons = {
             "WEAPON_STUNGUN",

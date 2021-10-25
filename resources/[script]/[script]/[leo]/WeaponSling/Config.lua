@@ -6,7 +6,7 @@ If you have Persistent Weapons, you need to rack/unrack it from Emergency Vehicl
 
 BBOn - Set as TRUE if you use non-lethal BeanBag shotgun, which is a replacement for Sawn-Off shotgun.
 ]]
-Config.PersistentWeapons = false
+Config.PersistentWeapons = true
 Config.BBOn = false
 
 --[[
@@ -602,7 +602,9 @@ Config.weaponlist = {
 [-1466123874] = "w_ar_musket",
 [1432025498] = "w_sg_pumpshotgunmk2",
 [-2066285827] = "w_ar_bullpupriflemk2",
-[1785463520] = "w_sr_marksmanriflemk2"
+[1785463520] = "w_sr_marksmanriflemk2",
+[-319609691] = "w_ar_MM4",
+[-1991960176] = "w_ar_mk18b",
 }
 
 -- List of weapons that will be attached on back (ie. sniper rifles)

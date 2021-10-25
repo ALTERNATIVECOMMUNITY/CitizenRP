@@ -387,9 +387,6 @@ function OpensheriffActionsMenu()
 
 							{label = 'Mettre son gilet', value = 'gilet'},
 							{label = 'Prendre Munitions', value = 'mun'},
-								{label = 'Prendre le fusil d\'assaut', value = 'prendreAR'},
-									{label = 'Prendre le fusil à pompe', value = 'prendreSH'},
-										{label = 'Ranger l\'arme longue (en main)', value = 'Ranger'},
 								{label = 'Retirer Gilet', value = 'giletoff'},
 
 						}

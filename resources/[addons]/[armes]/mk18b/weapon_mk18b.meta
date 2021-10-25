@@ -286,7 +286,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_mk18b_FLSH</Name>
-                  <Default value="true" />
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>
@@ -295,7 +295,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_SCOPE_mk18b</Name>
-                  <Default value="true" />
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>
@@ -304,7 +304,7 @@
               <Components>
                 <Item>
                   <Name>COMPONENT_AT_mk18b_SUPP</Name>
-                  <Default value="true" />
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>
