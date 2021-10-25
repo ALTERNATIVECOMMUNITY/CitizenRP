@@ -53,10 +53,7 @@ ESX.RegisterServerCallback(
         end
 
         if item ~= nil then
-            if xPlayer.getInventoryItem((item .. "_unmarked")).count > 0 then
-                xPlayer.removeInventoryItem((item .. "_unmarked"), 1)
-                cb(true, true)
-            elseif xPlayer.getInventoryItem(item).count > 0 then
+            if xPlayer.getInventoryItem(item).count > 0 then
                 xPlayer.removeInventoryItem(item, 1)
                 cb(true, false)
             end

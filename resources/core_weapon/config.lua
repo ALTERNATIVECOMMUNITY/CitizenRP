@@ -8,7 +8,7 @@ VestId = 5, -- The id of the vest set
 OpenCommand = 'weapon', -- The key to open UI menu (Leave blank if you dont want to open with command)
 UIOpenKey = 'F5', -- The key to open UI menu (Leave blank if you dont want to open with a key)
 
-UseReloadButton = true, -- Use R button to reload instead of using clips in inventory
+UseReloadButton = false, -- Use R button to reload instead of using clips in inventory
 
 --Blip information (https://docs.fivem.net/docs/game-references/blips/)
 AttachmentStoreShowBlip = true,
@@ -53,10 +53,10 @@ AttachmentStoreItems = { -- Attachment Store Prices
 },
 
 AttachmentStores = {
-
-	vector3(-328.35314941406,6078.8203125,31.4547901153), -- PALETO
-	vector3(1695.8673095703,3755.1027832031,34.70535278), -- SANDY
-	vector3(18.349586486816,-1111.1280517578,29.7970314) -- LS
+	--
+	-- vector3(-328.35314941406,6078.8203125,31.4547901153), -- PALETO
+	-- vector3(1695.8673095703,3755.1027832031,34.70535278), -- SANDY
+	-- vector3(18.349586486816,-1111.1280517578,29.7970314) -- LS
 
 },
 

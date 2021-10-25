@@ -200,6 +200,7 @@ Config.Shops = {
 			},
 
 			MarkerLabel = 'Marcher Noir OUTILS',
+			blackMoney = true,
 			ShowBlip = false,
 			ShowMarker = false,
 			Size  = 1.0,
@@ -257,11 +258,11 @@ Config.Shops = {
 						 type = "weapon",
 						 price = 6141
 				},
-				{
-						name = "weapon_hk416b",
-						type = "weapon",
-						price = 14229
-			 },
+				-- {
+				-- 		name = "weapon_hk416b",
+				-- 		type = "weapon",
+				-- 		price = 14229
+			 -- },
 				{
 						name = "weapon_fbiarb",
 						type = "weapon",
@@ -303,11 +304,50 @@ Config.Shops = {
 						type = 'item',
 						price = 678
 					},
-					-- {
-					-- 	name = 'suppressor',
-					-- 	type = 'item',
-					-- 	price = 1999
-					-- },
+					{
+						name = 'weapon_flashlight',
+						type = 'item',
+						price = 200
+					},
+					{
+						name = 'weapon_suppressor',
+						type = 'item',
+						price = 1999
+					},
+
+					{
+						name = 'rifle_clip',
+						type = 'item',
+						price = 200
+					},
+
+					{
+						name = 'sniper_clip',
+						type = 'item',
+						price = 350
+					},
+
+					{
+						name = 'pistol_clip',
+						type = 'item',
+						price = 80
+					},
+					{
+						name = 'shotgun_clip',
+						type = 'item',
+						price = 120
+					},
+					{
+						name = 'smg_clip',
+						type = 'item',
+						price = 80
+					},
+					{
+						name = 'lightsmg_clip',
+						type = 'item',
+						price = 200
+					},
+
 					-- {
 					-- 	name = 'scope1',
 					-- 	type = 'item',
@@ -326,6 +366,7 @@ Config.Shops = {
 			},
 
 			MarkerLabel = 'MarcherNoir',
+			blackMoney = true,
 			ShowBlip = false,
 			ShowMarker = false,
 			Size  = 1.0,
@@ -1004,11 +1045,10 @@ Config.Shops = {
 				type = 'weapon',
 				price = 149
 			},
-
 			{
-				name = 'clip',
+				name = 'pistol_clip',
 				type = 'item',
-				price = 89
+				price = 50
 			},
 
 		},
