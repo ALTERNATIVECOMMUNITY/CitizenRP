@@ -967,13 +967,13 @@ Citizen.CreateThread(
 
                 if not repairMode then
 
-                	 SendNUIMessage(
-                    {
-                        type = "showinfo",
-                        bottom = Config.InfoBottom,
-                        right = Config.InfoRight
-                    }
-                )
+                -- 	 SendNUIMessage(
+                --     {
+                --         type = "showinfo",
+                --         bottom = Config.InfoBottom,
+                --         right = Config.InfoRight
+                --     }
+                -- )
                 	
                     currentPlate = string.gsub(GetVehicleNumberPlateText(veh), "%s+", "")
 
