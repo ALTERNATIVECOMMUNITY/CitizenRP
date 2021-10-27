@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 				if Config.CloseHour < Config.OpenHour then
 					if (ClockTime >= Config.OpenHour and ClockTime < 24) or (ClockTime <= Config.CloseHour -1 and ClockTime > 0) then
 						if not menuOpen then
-							Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "~g~E~w~ - Open the Pawnshop")
+							Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "~g~E~w~ - Revendeur")
 							if IsControlJustReleased(0, 38) then
 								wasOpen = true
 								OpenPawnshop()
@@ -35,12 +35,12 @@ Citizen.CreateThread(function()
 								Citizen.Wait(500)
 						end
 					else
-						Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "Pawnshop Closed, opens at ~r~" .. Config.OpenHour ..":00")
+					--	Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "Pawnshop Closed, opens at ~r~" .. Config.OpenHour ..":00")
 					end
 				else
 					if ClockTime >= Config.OpenHour and ClockTime <= Config.CloseHour - 1 then
 						if not menuOpen then
-							Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "~g~E~w~ - Open the Pawnshop")
+							Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "~g~E~w~ - Revendeur")
 							if IsControlJustReleased(0, 38) then
 								wasOpen = true
 								OpenPawnshop()
@@ -49,12 +49,12 @@ Citizen.CreateThread(function()
 								Citizen.Wait(500)
 						end
 					else
-						Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "Pawnshop Closed, opens at ~r~" .. Config.OpenHour ..":00")
+					--	Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "Pawnshop Closed, opens at ~r~" .. Config.OpenHour ..":00")
 					end
 				end
 			else
 				if not menuOpen then
-					Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "~g~E~w~ - Open the Pawnshop")
+					Draw3DText(Config.PawnshopLocation.x, Config.PawnshopLocation.y, Config.PawnshopLocation.z, "~g~E~w~ - Revendeur")
 					if IsControlJustReleased(0, 38) then
 						wasOpen = true
 						OpenPawnshop()
@@ -116,3 +116,21 @@ AddEventHandler('onResourceStop', function(resource)
 		end
 	end
 end)
+
+
+
+
+function Draw3DText(x, y, z, text)
+	SetTextScale(0.35, 0.35)
+    SetTextFont(4)
+    SetTextProportional(1)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    SetTextCentre(true)
+    AddTextComponentString(text)
+    SetDrawOrigin(x,y,z, 0)
+    DrawText(0.0, 0.0)
+    local factor = (string.len(text)) / 370
+    DrawRect(0.0, 0.0+0.0125, 0.015+ factor, 0.03, 0, 0, 0, 75)
+    ClearDrawOrigin()
+end

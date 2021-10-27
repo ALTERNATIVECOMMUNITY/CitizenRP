@@ -122,3 +122,71 @@ AddEventHandler('inventory:opengymbossInventory', function ()
  })
 
 end)
+
+
+
+
+
+RegisterNetEvent('inventory:yellow')
+AddEventHandler('inventory:yellow', function ()
+
+    OpenInventory({
+    type = 'yellow',
+    title = 'Yellow Jack',
+    id = 'yellow',
+    weight = 100,
+    save = true
+ })
+
+end)
+
+RegisterNetEvent('inventory:yellowBoss')
+AddEventHandler('inventory:yellowBoss', function ()
+
+    OpenInventory({
+    type = 'yellowBoss',
+    title = 'Yellow Jack',
+    id = 'yellowBoss',
+    weight = 100,
+    save = true
+ })
+
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+RegisterNetEvent('inventory:unicorn')
+AddEventHandler('inventory:unicorn', function ()
+
+    OpenInventory({
+    type = 'unicorn',
+    title = 'unicorn',
+    id = 'unicorn',
+    weight = 100,
+    save = true
+ })
+
+end)
+
+RegisterNetEvent('inventory:unicornBoss')
+AddEventHandler('inventory:unicornBoss', function ()
+
+    OpenInventory({
+    type = 'unicornBoss',
+    title = 'Patron Unicorn',
+    id = 'unicornBoss',
+    weight = 100,
+    save = true
+ })
+
+end)
