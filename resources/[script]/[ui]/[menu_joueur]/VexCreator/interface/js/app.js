@@ -296,12 +296,12 @@ $(document).ready(function () {
   });
 
   $(document).keypress(function (e) {
-    if (e.which == 113) {
+    if (e.which == 113 || e.which == 81) {
       $.post('http://Vexcreator/rotar', JSON.stringify({
         value: -5
       }));
     }
-    if (e.which == 100) {
+    if (e.which == 100 || e.which == 68) {
       $.post('http://Vexcreator/rotar', JSON.stringify({
         value: 5
       }));
