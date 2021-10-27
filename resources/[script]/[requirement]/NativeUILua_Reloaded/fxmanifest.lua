@@ -7,7 +7,7 @@ fx_version 'adamant'
 games { 'gta5' };
 
 name 'NativeUILua-Reloaded'
-description 'NativeUILua-Reloaded is UI library for FiveM designed specifically for making interface based on GTA:Online style. (Base source: https://github.com/FrazzIe/NativeUILua ) | (Base NativeUI : https://github.com/Guad/NativeUI) '
+description ''
 
 contributor {
     'Dylan Malandain',

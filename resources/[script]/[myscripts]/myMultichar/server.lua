@@ -168,12 +168,6 @@ AddEventHandler('myMultichar:deleteChar', function(charid, maxChars)
     DeleteCharacter(steamID, charid, maxChars)
 end)
 
-RegisterServerEvent('myMultichar:givePhone')
-AddEventHandler('myMultichar:givePhone', function()
-    local xPlayer = ESX.GetPlayerFromId(source)
-    xPlayer.addInventoryItem("phone", 1)
-end)
-
 function GetIdentifierWithoutLicense(Identifier)
     return string.gsub(Identifier, "license:", "")
 end

@@ -20,10 +20,10 @@ Config.Blips = {
     
     Blip = {
       Pos     = { x = 334.65, y = -910.12, z = 29.26 },
-      Sprite  = 521,
+      Sprite  = 110,
       Display = 4,
-      Scale   = 1.2,
-      Colour  = 27,
+      Scale   = 0.8,
+      Colour  = 0,
     },
 
 }

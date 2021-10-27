@@ -238,9 +238,9 @@ Config.JobVehicles_RegularMethod = { --This will only be used if any of the 'met
 Config.BlipNames = true --Do you want each garage to be named by its unique id, for example: 'Garage A'? (If disabled all garages will be called 'Garage').
 Config.Blip = {
     ['car'] = {
-        sprite = 357, --Icon of the blip.
+        sprite = 43, --Icon of the blip.
         scale = 0.6, --Size of the blip.
-        colour = 9, --Colour of the blip.
+        colour = 0, --Colour of the blip.
         name = Locales[Config.Language]['garage']..' ' --You dont need to change this.
     },
 
@@ -449,9 +449,9 @@ Config.Impound = { --DO NOT CHANGE THE TABLE IDENTIFIERSs, for example - ['car_2
         coords = {x = 401.28, y = -1631.44, z = 29.29}, --This is the location of the garage, where you press e to open for example.
         spawnpoint = {x = 404.66, y = -1642.03, z = 29.29, h = 225.5}, --This is the location where the vehicle spawns.
         blip = {
-            sprite = 357, --Icon of the blip.
-            scale = 0.5, --Size of the blip.
-            colour = 3, --Colour of the blip.
+            sprite = 88, --Icon of the blip.
+            scale = 0.6, --Size of the blip.
+            colour = 0, --Colour of the blip.
             name = Locales[Config.Language]['car_city_impound'], --This can be changed in the Locales.
         }
     },
@@ -461,34 +461,34 @@ Config.Impound = { --DO NOT CHANGE THE TABLE IDENTIFIERSs, for example - ['car_2
         coords = {x = 1893.48, y = 3713.50, z = 32.77},
         spawnpoint = {x = 1887.123, y = 3710.348, z = 31.92, h = 212.0},
         blip = {
-            sprite = 357,
-            scale = 0.5,
-            colour = 3,
+            sprite = 88,
+            scale = 0.6,
+            colour = 0,
             name = Locales[Config.Language]['car_sandy_impound'],
         }
     },
 
-    ['boat_1'] = {
-        ImpoundID = 3,
-        coords = {x = -848.8, y = -1368.42, z = 1.6},
-        spawnpoint = {x = -848.4, y = -1362.8, z = -0.47, h = 113.0},
-        blip = {
-            sprite = 357,
-            scale = 0.5,
-            colour = 3,
-            name = Locales[Config.Language]['boat_impound'],
-        }
-    },
+    -- ['boat_1'] = {
+    --     ImpoundID = 3,
+    --     coords = {x = -848.8, y = -1368.42, z = 1.6},
+    --     spawnpoint = {x = -848.4, y = -1362.8, z = -0.47, h = 113.0},
+    --     blip = {
+    --         sprite = 357,
+    --         scale = 0.5,
+    --         colour = 3,
+    --         name = Locales[Config.Language]['boat_impound'],
+    --     }
+    -- },
 
-    ['air_1'] = {
-        ImpoundID = 4,
-        coords = {x = -956.49, y = -2919.74, z = 13.96},
-        spawnpoint = {x = -960.22, y = -2934.4, z = 13.95, h = 153.0},
-        blip = {
-            sprite = 357,
-            scale = 0.5,
-            colour = 3,
-            name = Locales[Config.Language]['air_impound'],
-        }
-    },
+    -- ['air_1'] = {
+    --     ImpoundID = 4,
+    --     coords = {x = -956.49, y = -2919.74, z = 13.96},
+    --     spawnpoint = {x = -960.22, y = -2934.4, z = 13.95, h = 153.0},
+    --     blip = {
+    --         sprite = 357,
+    --         scale = 0.5,
+    --         colour = 3,
+    --         name = Locales[Config.Language]['air_impound'],
+    --     }
+    -- },
 }

@@ -45,11 +45,11 @@ function LoadBlips()
             if Type == 'Commercial Rental' then --Change Blip For Commercial Rental Locations
                 SetBlipSprite  (blip, 67)
             else
-                SetBlipSprite  (blip, 326)
+                SetBlipSprite  (blip, 104)
             end
             SetBlipDisplay (blip, 4)
-            SetBlipScale   (blip, 0.7)
-            SetBlipColour  (blip, 55)
+            SetBlipScale   (blip, 0.8)
+            SetBlipColour  (blip, 0)
             SetBlipAsShortRange (blip, true)
 
             BeginTextCommandSetBlipName("STRING")

@@ -573,12 +573,12 @@ Config.Shops = {
 				vector3(-512.46807861328,-1739.1011962891,19.31622505188)
 			},
 
-			MarkerLabel = 'Pieces Auto',
+			MarkerLabel = 'Pièces Auto',
 			ShowBlip = true,
 			ShowMarker = true,
-			Size  = 1.0,
-			Type  = 446,
-			Color = 59
+			Size  = 0.8,
+			Type  = 113,
+			Color = 0
 		},
 
 
@@ -737,15 +737,26 @@ Config.Shops = {
 			vector3(1961.4, 3740.6, 32.3),
 			vector3(2678.9, 3280.6, 55.2),
 			vector3(1729.2, 6414.1, 35.0),
-			vector3(25.747049331665,-1346.6291503906,29.497022628784)
+			vector3(25.747049331665,-1346.6291503906,29.497022628784),
+			vector3(1135.8, -982.2, 46.4),
+			vector3(-1222.9, -906.9, 12.3),
+			vector3(-1487.5, -379.1, 40.1),
+			vector3(-2968.2, 390.9, 15.0),
+			vector3(1166.0, 2708.9, 38.1),
+			vector3(1392.5, 3604.6,  34.9),
+			vector3(-48.5,  -1757.5, 29.4),
+			vector3(1163.3, -323.8, 69.2),
+			vector3(-707.5, -914.2, 19.2),
+			vector3(-1820.5, 792.5, 138.1),
+			vector3(1698.3, 4924.4, 42.0)
 		},
 
-		MarkerLabel = '24/7 Supermarket',
+		MarkerLabel = '24/7 Superette',
 		ShowBlip = true,
 		ShowMarker = true,
-		Size  = 1.0,
-		Type  = 59,
-		Color = 2
+		Size  = 0.8,
+		Type  = 38,
+		Color = 0
 	},
 
 	Pharmacie = {
@@ -857,12 +868,12 @@ Config.Shops = {
 			vector3(1181.8157958984,-3113.7902832031,6.0280284881592)
 		},
 
-		MarkerLabel = 'Marcher Restorateur',
+		MarkerLabel = 'Marché Restaurateur',
 		ShowBlip = true,
 		ShowMarker = true,
-		Size  = 1.0,
-		Type  = 605,
-		Color = 66
+		Size  = 0.8,
+		Type  = 56,
+		Color = 0
 	},
 
 
@@ -890,119 +901,12 @@ Config.Shops = {
 			vector3(-508.25134277344,282.70404052734,83.232612609863),
 		},
 
-		MarkerLabel = 'Digital Den',
+		MarkerLabel = 'Boutique éléctronique',
 		ShowBlip = true,
 		ShowMarker = true,
-		Size  = 1.5,
-		Type  = 606,
-		Color = 30
-	},
-
-
-	RobsLiquor = {
-
-		Items = {
-			{
-					name = "chaser",
-					type = "item",
-					price = 5
-		 },
-		 {
-					name = "water",
-					type = "item",
-					price = 2
-		 },
-
-		 {
-					name = "bait",
-					type = "item",
-					price = 3
-		 },
-		 {
-					name = "piswasser",
-					type = "item",
-					price = 12
-		 },
-		 {
-					name = "marlboro",
-					type = "item",
-					price = 20
-		 },
-		 {
-					name = "lighter",
-					type = "item",
-					price = 6
-		 },
-	},
-
-		Pos = {
-			vector3(1135.8, -982.2, 46.4),
-			vector3(-1222.9, -906.9, 12.3),
-			vector3(-1487.5, -379.1, 40.1),
-			vector3(-2968.2, 390.9, 15.0),
-			vector3(1166.0, 2708.9, 38.1),
-			vector3(1392.5, 3604.6,  34.9)
-		},
-
-		MarkerLabel = 'Robs Liquor',
-		ShowBlip = true,
-		ShowMarker = true,
-		Size  = 1.0,
-		Type  = 59,
-		Color = 2
-	},
-
-	LTDgasoline = {
-
-		Items = {
-			{
-					name = "chaser",
-					type = "item",
-					price = 5
-		 },
-		 {
-					name = "water",
-					type = "item",
-					price = 2
-		 },
-
-		 {
-					name = "bait",
-					type = "item",
-					price = 3
-		 },
-		 {
-					name = "piswasser",
-					type = "item",
-					price = 12
-		 },
-		 {
-					name = "marlboro",
-					type = "item",
-					price = 20
-		 },
-		 {
-					name = "lighter",
-					type = "item",
-					price = 6
-		 },
-
-	 },
-
-		Pos = {
-			vector3(-48.5,  -1757.5, 29.4),
-			vector3(1163.3, -323.8, 69.2),
-			vector3(-707.5, -914.2, 19.2),
-			vector3(-1820.5, 792.5, 138.1),
-			vector3(1698.3, 4924.4, 42.0)
-		},
-
-		MarkerLabel = 'LTD gasoline',
-		ShowBlip = true,
-		ShowMarker = true,
-		Size  = 1.0,
-		Type  = 59,
-		Color = 2
+		Size  = 0.8,
+		Type  = 94,
+		Color = 0
 	},
 
 	Ammunation = {
@@ -1068,9 +972,9 @@ Config.Shops = {
 		MarkerLabel = 'Ammunation',
 		ShowBlip = true,
 		ShowMarker = true,
-		Type  = 110,
-		Size  = 1.0,
-		Color = 1
+		Type  = 50,
+		Size  = 0.8,
+		Color = 0
 	},
 
 	-- BlackWeashop = {

@@ -14,9 +14,9 @@ BlipColor = 3,
 BlipText = 'Gestions Emplois',
 
 --BLIPS FOR JOB CENTERS
-BlipCenterSprite = 498,
-BlipCenterColor = 3,
-BlipCenterText = 'Pole Emplois',
+BlipCenterSprite = 106,
+BlipCenterColor = 0,
+BlipCenterText = 'Pôle Emploi',
 
 MarkerSprite = 27,
 MarkerColor = {66, 135, 245},
@@ -50,7 +50,7 @@ BossMenuUsers = {
 
 
 LocationsToChangeJobs = { -- If you want you can setup locations to change jobs (Leave without entiries if you dont want locations) (ADDS 0.02 MS)
-	{coords = vector3(-267.58975219727,-958.55718994141,31.22312927246), blip = true}
+
 },
 
 OffdutyForEveryone = true, -- Everyone can go into offduty job

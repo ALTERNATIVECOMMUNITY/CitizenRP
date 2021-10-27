@@ -51,6 +51,7 @@ MySQL.ready( function()
                       trusted = json.decode(prop_owner_result.trusted),
                       locked = prop_owner_result.locked,
                       deposit = prop_owner_result.deposit,
+                      blackMoneyDeposit = prop_owner_result.blackMoneyDeposit,
                   })
                   highestid = prop_owner_result.id
               end
@@ -85,11 +86,20 @@ end)
 
 ESX.RegisterServerCallback('myProperties:receiveAllPropertiesFromPlayer', function(source, cb)
   local steamID = GetPlayerIdentifiers(source)[1]
+  if Config.useNewESX then
+	 for k, v in ipairs(GetPlayerIdentifiers(source)) do
+	   if string.match(v, "license:") then
+		  steamID = string.gsub(v, "license:", "")
+		  break
+	   end
+	end
+  end
 --local xPlayer = ESX.GetPlayerFromId(source)
 
   local owned = {}
 
   for k, v in pairs(propertyOwner) do
+	--print('compare ' .. v.owner .. ' and ' .. steamID)
     if v.owner == steamID then
 
       for k2, v2 in pairs(properties) do
@@ -132,7 +142,9 @@ AddEventHandler('myProperties:getProperties', function()
     if source ~= nil then
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(_source)
-        TriggerClientEvent('myProperties:sendPropertiesToClient', _source, properties, propertyOwner, xPlayer.identifier)
+		if xPlayer ~= nil then
+			TriggerClientEvent('myProperties:sendPropertiesToClient', _source, properties, propertyOwner, xPlayer.identifier)
+		end
     end
 
 
@@ -165,22 +177,54 @@ AddEventHandler('myProperties:getPlayerProperties', function(dest, owner)
 
 end)
 
+
+-- OneSync getPlayers
+
+ESX.RegisterServerCallback('myProperties:getPlayersInArea', function(source, cb, position, distance)
+  local p = GetPlayers()
+  local players = {}
+  local vecposition = vector3(position.x, position.y, position.z)
+  if(#p > 0) then
+      for index, playerID in ipairs(p) do
+          local player = ESX.GetPlayerFromId(playerID)
+		  if player ~= nil then
+			  local coords = player.getCoords(true)
+			  if #(vecposition - coords) < distance then
+				  local playerInfo = {id = playerID, name = player.getName()}
+				  table.insert(players, playerInfo)
+			  end
+		  else
+			print('[Info] ESX was not able to fetch the player')
+		  end
+      end
+  end
+  cb(players)
+end)
+
+
+--
+
 RegisterServerEvent('myProperties:enterProperty')
 AddEventHandler('myProperties:enterProperty', function(propertyID, propertyData)
 
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)	
 	
-	print(_source .. ' has entered ' .. propertyID)
+	if Config.useRoutingBuckets then
+		SetPlayerRoutingBucket(_source, tonumber(propertyID))
+	end
+	
 	if #playersInProperties > 0 then
 		for k, property in pairs(playersInProperties) do
-			print(property.propid .. ' ' .. property.name)
 			if property.propid == propertyID then
 				if property.player ~= _source then
 					local playerEnter = ESX.GetPlayerFromId(_source)
 					--TriggerClientEvent('myProperties:msg', property.player, playerEnter.name .. ' hat die Wohnung ~g~betreten~s~!')
 					TriggerClientEvent('myProperties:picturemsg', property.player, 'CHAR_MULTIPLAYER', playerEnter.name .. Translation[Config.Locale]['has_entered_prop'] , Translation[Config.Locale]['prop'], Translation[Config.Locale]['doorbell_title'])
 					TriggerClientEvent('myProperties:setPlayerVisible', property.player, _source)
+					if Config.useRoutingBuckets then
+						SetPlayerRoutingBucket(property.player, tonumber(propertyID))
+					end
 				end
 			else
 				if property.player ~= _source then
@@ -215,11 +259,10 @@ AddEventHandler('myProperties:leaveProperty', function(propertyData)
 	
     for k, property in pairs(playersInProperties) do
         if property.name == xPlayer.name then
-			print('Players in prop before: ' .. #playersInProperties)
-			print(playersInProperties[k].name)
+			if Config.useRoutingBuckets then
+				SetPlayerRoutingBucket(property.player, 0)
+			end
             table.remove(playersInProperties, k)
-			print(_source .. ' has left ' .. propertyData.name)
-			print('Players in prop after: ' .. #playersInProperties)
             break
         end
     end
@@ -557,6 +600,7 @@ AddEventHandler('myProperties:putItem', function(owner, type, item, count)
           xPlayer.removeInventoryItem(item, count)
         else
           TriggerClientEvent('esx:showNotification', _source, Translation[Config.Locale]['need_restart_addoninventory'])
+		  --print('myProperties: Be sure you have the modified esx_addoninventory and esx_datastore running! If you already have, ignore this.')
         end
       end)
 	  
@@ -671,7 +715,8 @@ function SetPropertyOwned(name, price, rented, owner)
     price = price,
     rented = (rented and 1 or 0),
     trusted = {},
-	deposit = 0,
+	  deposit = 0,
+    blackMoneyDeposit = 0,
   })
 
     local xPlayers = ESX.GetPlayers()
@@ -683,8 +728,8 @@ function SetPropertyOwned(name, price, rented, owner)
         else
           TriggerClientEvent('myProperties:msg', xPlayer.source, Translation[Config.Locale]['prop_successfully_bought'] .. price .. Translation[Config.Locale]['bought_2'])
         end
-        TriggerClientEvent('myProperties:sendPropertiesToClient', xPlayer.source, properties, propertyOwner, xPlayer.identifier)
-		--TriggerClientEvent('myProperties:sendPropertiesToClient', -1, properties, propertyOwner, xPlayer.identifier)
+        --TriggerClientEvent('myProperties:sendPropertiesToClient', xPlayer.source, properties, propertyOwner, xPlayer.identifier)
+		    TriggerClientEvent('myProperties:sendPropertiesToClient', -1, properties, propertyOwner, xPlayer.identifier)
       end
     end
 end
@@ -899,22 +944,22 @@ end
 
 
 RegisterServerEvent('myProperties:editPropDeposit')
-AddEventHandler('myProperties:editPropDeposit', function(type, amount, propertyID)
+AddEventHandler('myProperties:editPropDeposit', function(useBlackMoney, type, amount, propertyID)
   local xPlayer = ESX.GetPlayerFromId(source)
   if type == 'deposit' then
-	if Config.useBlackMoney then
+	if useBlackMoney then
 		local playerAccountMoney = xPlayer.getAccount(Config.BlackMoneyName).money
-		if playerAccountMoney >= amount then
+		if amount >= 0 and playerAccountMoney >= amount then
 			xPlayer.removeAccountMoney(Config.BlackMoneyName, amount)
 			
 			for k, v in pairs(propertyOwner) do
 				if v.id == propertyID then
 				  
-					v.deposit = v.deposit + amount
+					v.blackMoneyDeposit = v.blackMoneyDeposit + amount
 
-					MySQL.Async.execute('UPDATE prop_owner SET deposit=@deposit WHERE id=@PROPID LIMIT 1',
+					MySQL.Async.execute('UPDATE prop_owner SET blackMoneyDeposit=@blackMoneyDeposit WHERE id=@PROPID LIMIT 1',
 					{
-						['@deposit'] = v.deposit,
+						['@blackMoneyDeposit'] = v.blackMoneyDeposit,
 						['@PROPID'] = propertyID
 					})
 
@@ -927,7 +972,7 @@ AddEventHandler('myProperties:editPropDeposit', function(type, amount, propertyI
 			TriggerClientEvent('esx:showNotification', xPlayer.source, Translation[Config.Locale]['not_enough_money'])
 		end
 	else
-		if xPlayer.getMoney() >= amount then
+		if amount > 0 and xPlayer.getMoney() >= amount then
 		  xPlayer.removeMoney(amount)
 
 		  for k, v in pairs(propertyOwner) do
@@ -952,33 +997,39 @@ AddEventHandler('myProperties:editPropDeposit', function(type, amount, propertyI
 		  TriggerClientEvent('esx:showNotification', xPlayer.source, Translation[Config.Locale]['not_enough_money'])
 		end
 	end
-    
-
 
   elseif type == 'withdraw' then
     for k, v in pairs(propertyOwner) do
       if v.id == propertyID then
-        if v.deposit >= amount then
-          v.deposit = v.deposit - amount
-          MySQL.Async.execute('UPDATE prop_owner SET deposit=@deposit WHERE id=@PROPID LIMIT 1',
-          {
-              ['@deposit'] = v.deposit,
-              ['@PROPID'] = propertyID
-          })
-
-		  if Config.useBlackMoney then
-			xPlayer.addAccountMoney(Config.BlackMoneyName, amount)
-		  else
-			xPlayer.addMoney(amount)
-		  end
-          
-          TriggerClientEvent('esx:showNotification', xPlayer.source, '~w~' .. amount .. Translation[Config.Locale]['money_withdraw_from_safe'])
-          TriggerClientEvent('myProperties:updatePropertyOwner', xPlayer.source, k, propertyOwner[k], xPlayer.identifier)
+        if useBlackMoney then
+          if amount > 0 and v.blackMoneyDeposit >= amount then
+            v.blackMoneyDeposit = v.blackMoneyDeposit - amount
+              MySQL.Async.execute('UPDATE prop_owner SET deposit=@deposit WHERE id=@PROPID LIMIT 1',
+              {
+                  ['@deposit'] = v.deposit,
+                  ['@PROPID'] = propertyID
+              })
+            xPlayer.addAccountMoney(Config.BlackMoneyName, amount)
+            TriggerClientEvent('esx:showNotification', xPlayer.source, '~w~' .. amount .. Translation[Config.Locale]['money_withdraw_from_safe'])
+            TriggerClientEvent('myProperties:updatePropertyOwner', xPlayer.source, k, propertyOwner[k], xPlayer.identifier)
+          else
+            TriggerClientEvent('esx:showNotification', xPlayer.source, Translation[Config.Locale]['not_enough_money_in_wallet'])
+          end
         else
-          TriggerClientEvent('esx:showNotification', xPlayer.source, Translation[Config.Locale]['not_enough_money_in_wallet'])
+          if amount > 0 and v.deposit >= amount then
+            v.deposit = v.deposit - amount
+              MySQL.Async.execute('UPDATE prop_owner SET deposit=@deposit WHERE id=@PROPID LIMIT 1',
+              {
+                  ['@deposit'] = v.deposit,
+                  ['@PROPID'] = propertyID
+              })
+            xPlayer.addMoney(amount)
+            TriggerClientEvent('esx:showNotification', xPlayer.source, '~w~' .. amount .. Translation[Config.Locale]['money_withdraw_from_safe'])
+            TriggerClientEvent('myProperties:updatePropertyOwner', xPlayer.source, k, propertyOwner[k], xPlayer.identifier)
+          else
+            TriggerClientEvent('esx:showNotification', xPlayer.source, Translation[Config.Locale]['not_enough_money_in_wallet'])
+          end
         end
-
-        
         break
       end
 
@@ -1034,9 +1085,9 @@ ESX.RegisterServerCallback('myProperties:getLastProperty', function(source, cb)
     },
     function(users)
       cb(users[1].last_property)
-    end)
+    end
+  )
 
-  
 end)
 
 RegisterServerEvent('myProperties:sendPropertiesToRealestateagentjob')

@@ -38,13 +38,13 @@ end)
 -- Spawn NPC When you get close, delete when you leave
 Citizen.CreateThread(function()
         blip = AddBlipForCoord(563.76,2753.27,41.88)
-        SetBlipSprite(blip, 463)
+        SetBlipSprite(blip, 90)
         SetBlipDisplay(blip, 4)
         SetBlipScale(blip, 0.8)
-        SetBlipColour(blip, 23)
+        SetBlipColour(blip, 0)
         SetBlipAsShortRange(blip, true)
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString("Pet Store")
+        AddTextComponentString("Animalerie")
         EndTextCommandSetBlipName(blip)
 
     while true do

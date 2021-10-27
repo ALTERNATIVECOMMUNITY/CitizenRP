@@ -76,7 +76,8 @@ Config.Positions = {
 
   --  pos = {x =   -583.15979003906, y = -917.96343994141, z = 23.88818359375},
 --pos = {x =   440.7665, y = -1015.3730, z = 28.6879},
-pos = {x = 914.26531982422, y = -162.77877807617, z = 74.614074707031}, --Taxi
+-- pos = {x = 914.26531982422, y = -162.77877807617, z = 74.614074707031}, --Taxi
+pos = {x = 135.5724, y = -3200.2683, z = 5.8576},
 
   --    pos = {x = 329.60983276367, y= -573.9482421875, z = 28.796850204468}, -- Garage EMS
   --pos = {x = 392.30551147461, y =-1607.1636962891, z = 29.292039871216}, -- sheriff
@@ -85,10 +86,10 @@ pos = {x = 914.26531982422, y = -162.77877807617, z = 74.614074707031}, --Taxi
       societyName = 'society_redline', -- uncomment this to enable society account for this point (only for whitelist points)
         blip = {
             enable = true,
-            type = 72,
-            color = 59,
-            title = 'RedLine Performance',
-            scale = 1.5
+            type = 80,
+            color = 0,
+            title = 'Los Santos Custom',
+            scale = 0.8
         },
         marker = {
             enable = false,

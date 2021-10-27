@@ -7,7 +7,7 @@ Config.useMyDrugs = false -- If you use myDrugs enable this
 Config.useMyProperties = true -- If you use myProperties enable this
 Config.useSpawnmanager = false
 
-Config.useRegisterMenu = true
+Config.useRegisterMenu = false
 Config.useMyCharCreator = false
 
 Config.ApplyDelay = 3000 -- Don't edit this if you don't know what you do ^^

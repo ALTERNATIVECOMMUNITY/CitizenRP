@@ -48,10 +48,11 @@ function CloseVexCreator()
     SetEntityCollision(ped, true, true)
 end
 
-function VexCreator(enable)
+function VexCreator(enable, sex)
 	SetNuiFocus(enable, enable)
 	SendNUIMessage({
-		showVexCreator = enable
+		showVexCreator = enable,
+        sex = sex,
 	})
 end
 
@@ -68,12 +69,12 @@ RegisterNUICallback('selectedspawn', function(data)
         Citizen.Wait(2000)
         DoScreenFadeIn(3000)
     elseif location == "Train" then
-			DoScreenFadeOut(0)
-			Citizen.Wait(1000)
-			SetEntityCoords(PlayerPedId(),-1037.78,-2738.03,19.18)
-			SetEntityHeading(PlayerPedId(),327.67)
-			Citizen.Wait(2000)
-			DoScreenFadeIn(3000)
+		DoScreenFadeOut(0)
+		Citizen.Wait(1000)
+		SetEntityCoords(PlayerPedId(),-815.5469, -135.1062, 28.1753)
+		SetEntityHeading(PlayerPedId(),24.2515)
+		Citizen.Wait(2000)
+		DoScreenFadeIn(3000)
     end
 end)
 
@@ -87,7 +88,7 @@ RegisterNUICallback('cambiarplano', function(data)
 end)
 
 RegisterNetEvent('VexCreator:loadCreator')
-AddEventHandler('VexCreator:loadCreator', function()
+AddEventHandler('VexCreator:loadCreator', function(sex)
     local playerPed    = PlayerPedId()
 	local playerCoords = GetEntityCoords(playerPed)
 	camcoord  = GetOffsetFromEntityInWorldCoords(playerPed, 0.0, 3.0, 0.0)
@@ -98,7 +99,13 @@ AddEventHandler('VexCreator:loadCreator', function()
     h = GetEntityHeading(PlayerPedId())
     heading = GetEntityHeading(PlayerPedId())
 	isOnCreator = true
-	VexCreator(true)
+    local realsex = 0
+    if sex == "m" then
+        realsex = 0
+    else
+        realsex = 1
+    end
+	VexCreator(true, realsex)
 end)
 
 Citizen.CreateThread(function()

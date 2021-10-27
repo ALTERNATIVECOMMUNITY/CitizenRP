@@ -9,6 +9,8 @@ end)
 
 _menuPool  = NativeUI.CreatePool()
 
+-- tbx-88908
+
 local properties = {}
 local propertyOwner = {}
 local ownedProperties = {}
@@ -29,50 +31,6 @@ local onlyVisit = false
 local currentEnterLoc = {}
 local currentMapBlip
 
-
---[[AddEventHandler("playerDropped", function()
-	if currentPropertyData ~= nil then
-		TriggerServerEvent('myProperties:saveLastProperty', propertyID)
-	else
-		TriggerServerEvent('myProperties:saveLastProperty', 0)
-	end
-end)--]]
-
-
---DEBUG--
---[[
-RegisterCommand('lprop', function(source, args, raw)
-	if currentPropertyData ~= nil then
-		TriggerServerEvent('myProperties:saveLastProperty', propertyID)
-	else
-		TriggerServerEvent('myProperties:saveLastProperty', 0)
-	end
-end, false)
-
-RegisterCommand('eprop', function(source, args, raw)
-	ESX.TriggerServerCallback('myProperties:getLastProperty', function(propertyName)
-		if propertyName ~= 0 then
-			for k, props in pairs(propertyOwner) do
-				print(props.property)
-				if tonumber(props.id) == tonumber(propertyName) then
-					local name = props.property
-					ShowNotification(props.property)
-					for k2, v in pairs(properties) do
-						if v.name == name then
-							ShowNotification(v.name)
-							TriggerServerEvent('myProperties:enterProperty', tonumber(propertyName), v)
-							break
-						end
-					end
-					break
-				end
-			end
-			
-		end
-	end)
-end, false)--]]
-
--- TriggerServerEvent('myProperties:getProperties')
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
@@ -103,9 +61,12 @@ end)
 
 
 Citizen.CreateThread(function()
-
-		--TriggerServerEvent('myProperties:getProperties') --DEBUG
-
+		
+		if Config.Debug then
+			TriggerServerEvent('myProperties:getProperties') --DEBUG
+		end
+		
+		
 		while not gotAllProperties do
 			Wait(100)
 		end
@@ -122,10 +83,10 @@ Citizen.CreateThread(function()
 							prop.showBlip = true
 							if Config.ShowAvailableBlips then
 								local blip = AddBlipForCoord(coords.x, coords.y)
-								SetBlipSprite(blip, 40)
-								SetBlipDisplay(blip, 6)
-								SetBlipScale(blip, 0.7)
-								SetBlipColour(blip, 4)
+								SetBlipSprite(blip, 36)
+								SetBlipDisplay(blip, 4)
+								SetBlipScale(blip, 0.8)
+								SetBlipColour(blip, 0)
 								SetBlipAsShortRange(blip, true)
 								BeginTextCommandSetBlipName("STRING");
 								AddTextComponentString(Translation[Config.Locale]['blip_available_prop'])
@@ -137,10 +98,10 @@ Citizen.CreateThread(function()
 					prop.showBlip = true
 					if Config.ShowAvailableBlips then
 						local blip = AddBlipForCoord(coords.x, coords.y)
-						SetBlipSprite(blip, 40)
-						SetBlipDisplay(blip, 6)
-						SetBlipScale(blip, 0.7)
-						SetBlipColour(blip, 4)
+						SetBlipSprite(blip, 36)
+						SetBlipDisplay(blip, 4)
+						SetBlipScale(blip, 0.8)
+						SetBlipColour(blip, 0)
 						SetBlipAsShortRange(blip, true)
 						BeginTextCommandSetBlipName("STRING");
 						AddTextComponentString(Translation[Config.Locale]['blip_available_prop'])
@@ -153,9 +114,9 @@ Citizen.CreateThread(function()
 				if ownedprop.property == prop.name then
 					
 					local blip = AddBlipForCoord(coords.x, coords.y)
-					SetBlipSprite(blip, 40)
-					SetBlipDisplay(blip, 6)
-					SetBlipScale(blip, 1.0)
+					SetBlipSprite(blip, 36)
+					SetBlipDisplay(blip, 4)
+					SetBlipScale(blip, 0.8)
 					SetBlipColour(blip, 2)
 					SetBlipAsShortRange(blip, true)
 					BeginTextCommandSetBlipName("STRING");
@@ -169,9 +130,9 @@ Citizen.CreateThread(function()
 				for k3, trustProp in pairs(trustedProperties) do
 					if trustProp.property == prop.name then
 						local blip = AddBlipForCoord(coords.x, coords.y)
-						SetBlipSprite(blip, 40)
-						SetBlipDisplay(blip, 6)
-						SetBlipScale(blip, 1.0)
+						SetBlipSprite(blip, 36)
+						SetBlipDisplay(blip, 4)
+						SetBlipScale(blip, 0.8)
 						SetBlipColour(blip, 3)
 						SetBlipAsShortRange(blip, true)
 						BeginTextCommandSetBlipName("STRING");
@@ -389,6 +350,7 @@ function generateWardrobeMenu(owner)
 	if isOwner then
 		local trustedPlayersList = {}
 		local currentDeposit = 0
+		local currentBlackDeposit = 0
 
 		local trust = _menuPool:AddSubMenu(wardrobeMenu, Translation[Config.Locale]['manage_keys'])
 		local highestIndex = 0
@@ -400,31 +362,99 @@ function generateWardrobeMenu(owner)
 				for i=1, #props.trusted, 1 do
 
 					local trustedPlayer = NativeUI.CreateItem(props.trusted[i].name, Translation[Config.Locale]['remove_key_desc'])
-					trust:AddItem(trustedPlayer)
+					if Config.useNativeUIReloaded then
+						trust.SubMenu:AddItem(trustedPlayer)
+					else
+						trust:AddItem(trustedPlayer)
+					end
+
 					highestIndex = highestIndex + 1
 					
 				end
 			end
 		end
 
-		local add = _menuPool:AddSubMenu(trust, Translation[Config.Locale]['give_key'])
-		local playersInArea = ESX.Game.GetPlayersInArea(currentPropertyData.room_menu, 3.0)
+		local add
+		if Config.useNativeUIReloaded then
+			add = _menuPool:AddSubMenu(trust.SubMenu, Translation[Config.Locale]['give_key'])
+		else
+			add = _menuPool:AddSubMenu(trust, Translation[Config.Locale]['give_key'])
+		end
+		
+		local playersInArea = ESX.Game.GetPlayersInArea(currentPropertyData.room_menu, 10.0)
+
+		local gotOSResult = false
+		if Config.useOneSyncInfinity then
+			ESX.TriggerServerCallback('myProperties:getPlayersInArea', function(playersInArea_res)
+				playersInArea = playersInArea_res
+				gotOSResult = true
+			end, currentPropertyData.room_menu, 10.0)
+		end
+
+		for i=1, 10, 1 do
+			if not gotOSResult then
+				Citizen.Wait(100)
+			end
+		end
 
 		for k, player in pairs(playersInArea) do
 			--if player ~= GetPlayerServerId(-1) then
-				local playeradd = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['give_key_desc'] .. GetPlayerName(player) .. Translation[Config.Locale]['give_key_desc2'])
-				add:AddItem(playeradd)
-				add.OnItemSelect = function(sender, item, index)
-					TriggerServerEvent('myProperties:updateTrusted', "add", GetPlayerServerId(playersInArea[index]), propertyID)
+				
+				local playeradd
+				if Config.useOneSyncInfinity then
+					playeradd = NativeUI.CreateItem(player.name, Translation[Config.Locale]['give_key_desc'] .. player.name .. Translation[Config.Locale]['give_key_desc2'])
+					if Config.useNativeUIReloaded then
+						add.SubMenu:AddItem(playeradd)
+					else
+						add:AddItem(playeradd)
+					end
+				else
+					playeradd = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['give_key_desc'] .. GetPlayerName(player) .. Translation[Config.Locale]['give_key_desc2'])
+					if Config.useNativeUIReloaded then
+						add.SubMenu:AddItem(playeradd)
+					else
+						add:AddItem(playeradd)
+					end
 				end
+
+				if Config.useNativeUIReloaded then
+					add.SubMenu.OnItemSelect = function(sender, item, index)
+						if Config.useOneSyncInfinity then
+							TriggerServerEvent('myProperties:updateTrusted', "add", playersInArea[index].id, propertyID)
+						else
+							TriggerServerEvent('myProperties:updateTrusted', "add", GetPlayerServerId(playersInArea[index]), propertyID)
+						end
+						
+					end
+				else
+					add.OnItemSelect = function(sender, item, index)
+						if Config.useOneSyncInfinity then
+							TriggerServerEvent('myProperties:updateTrusted', "add", playersInArea[index].id, propertyID)
+						else
+							TriggerServerEvent('myProperties:updateTrusted', "add", GetPlayerServerId(playersInArea[index]), propertyID)
+						end
+						
+					end
+				end
+				
 			--end
 		end
 		
-		trust.OnItemSelect = function(sender, item, index)
-			if index <= highestIndex then
-				TriggerServerEvent('myProperties:updateTrusted', "del", trustedPlayersList[index].steamID, propertyID)
+		if Config.useNativeUIReloaded then
+			trust.SubMenu.OnItemSelect = function(sender, item, index)
+				if index <= highestIndex then
+					TriggerServerEvent('myProperties:updateTrusted', "del", trustedPlayersList[index].steamID, propertyID)
+				end
+			end
+		else
+			trust.OnItemSelect = function(sender, item, index)
+				if index <= highestIndex then
+					TriggerServerEvent('myProperties:updateTrusted', "del", trustedPlayersList[index].steamID, propertyID)
+				end
 			end
 		end
+
+		
 	end
 
 	local wardrobe = _menuPool:AddSubMenu(wardrobeMenu, Translation[Config.Locale]['wardrobe'])
@@ -432,38 +462,80 @@ function generateWardrobeMenu(owner)
 	if Config.useMyClothesAPI then
 		ESX.TriggerServerCallback('clothes:requestData', function(dressing)
 			for i=1, #dressing, 1 do
-				local dress = _menuPool:AddSubMenu(wardrobe, dressing[i].name)
+				local dress
+				if Config.useNativeUIReloaded then
+					dress = _menuPool:AddSubMenu(wardrobe.SubMenu, dressing[i].name)
+				else
+					dress = _menuPool:AddSubMenu(wardrobe, dressing[i].name)
+				end
+				
 				local takeOn = NativeUI.CreateItem('Outfit anziehen', '~b~')
 				local remove = NativeUI.CreateItem('Outfit entfernen', '~b~')
-				dress:AddItem(takeOn)
-				dress:AddItem(remove)
+
+				if Config.useNativeUIReloaded then
+					dress.SubMenu:AddItem(takeOn)
+					dress.SubMenu:AddItem(remove)
+
+					wardrobe.SubMenu.OnIndexChange = function(sender, index)
+						selectedIndex = index
+					end
+				else
+					dress:AddItem(takeOn)
+					dress:AddItem(remove)
 	
-				wardrobe.OnIndexChange = function(sender, index)
-					selectedIndex = index
-				end
-	
-				dress.OnItemSelect = function(sender, item, index)
-					if item == takeOn then
-						TriggerEvent('skinchanger:getSkin', function(skin)
-	
-							--ESX.TriggerServerCallback('lils_properties:getPlayerOutfit', function(clothes)
-				
-							TriggerEvent('skinchanger:loadClothes', skin, dressing[selectedIndex].clothesData)
-							TriggerEvent('esx_skin:setLastSkin', skin)
-			
-							TriggerEvent('skinchanger:getSkin', function(skin)
-							TriggerServerEvent('esx_skin:save', skin)
-							end)
-				
-							--end, selectedIndex)
-				
-						end)
-					elseif item == remove then
-						TriggerServerEvent('clothes:removeOutfit', dressing[selectedIndex].id)
-						ShowNotification('Das Outfit ~y~' .. dressing[selectedIndex].name .. ' ~s~wurde gelöscht.')
-						_menuPool:CloseAllMenus()
+					wardrobe.OnIndexChange = function(sender, index)
+						selectedIndex = index
 					end
 				end
+				
+				if Config.useNativeUIReloaded then
+					dress.SubMenu.OnItemSelect = function(sender, item, index)
+						if item == takeOn then
+							TriggerEvent('skinchanger:getSkin', function(skin)
+		
+								--ESX.TriggerServerCallback('lils_properties:getPlayerOutfit', function(clothes)
+					
+								TriggerEvent('skinchanger:loadClothes', skin, dressing[selectedIndex].clothesData)
+								TriggerEvent('esx_skin:setLastSkin', skin)
+				
+								TriggerEvent('skinchanger:getSkin', function(skin)
+								TriggerServerEvent('esx_skin:save', skin)
+								end)
+					
+								--end, selectedIndex)
+					
+							end)
+						elseif item == remove then
+							TriggerServerEvent('clothes:removeOutfit', dressing[selectedIndex].id)
+							ShowNotification('Das Outfit ~y~' .. dressing[selectedIndex].name .. ' ~s~wurde gelöscht.')
+							_menuPool:CloseAllMenus()
+						end
+					end
+				else
+					dress.OnItemSelect = function(sender, item, index)
+						if item == takeOn then
+							TriggerEvent('skinchanger:getSkin', function(skin)
+		
+								--ESX.TriggerServerCallback('lils_properties:getPlayerOutfit', function(clothes)
+					
+								TriggerEvent('skinchanger:loadClothes', skin, dressing[selectedIndex].clothesData)
+								TriggerEvent('esx_skin:setLastSkin', skin)
+				
+								TriggerEvent('skinchanger:getSkin', function(skin)
+								TriggerServerEvent('esx_skin:save', skin)
+								end)
+					
+								--end, selectedIndex)
+					
+							end)
+						elseif item == remove then
+							TriggerServerEvent('clothes:removeOutfit', dressing[selectedIndex].id)
+							ShowNotification('Das Outfit ~y~' .. dressing[selectedIndex].name .. ' ~s~wurde gelöscht.')
+							_menuPool:CloseAllMenus()
+						end
+					end
+				end
+				
 				_menuPool:RefreshIndex()
 				_menuPool:MouseEdgeEnabled (false)
 			end
@@ -471,38 +543,77 @@ function generateWardrobeMenu(owner)
 	else
 		ESX.TriggerServerCallback('myProperties:getPlayerDressing', function(dressing)
 			for i=1, #dressing, 1 do
-				local dress = _menuPool:AddSubMenu(wardrobe, dressing[i])
-				local takeOn = NativeUI.CreateItem(Translation[Config.Locale]['outfin_use'], '~b~')
-				local remove = NativeUI.CreateItem(Translation[Config.Locale]['outfit_remove'], '~b~')
-				dress:AddItem(takeOn)
-				dress:AddItem(remove)
-	
-				wardrobe.OnIndexChange = function(sender, index)
-					selectedIndex = index
+				local dress
+				if Config.useNativeUIReloaded then
+					dress = _menuPool:AddSubMenu(wardrobe.SubMenu, dressing[i])
+				else
+					dress = _menuPool:AddSubMenu(wardrobe, dressing[i])
 				end
-	
-				dress.OnItemSelect = function(sender, item, index)
-					if item == takeOn then
-						TriggerEvent('skinchanger:getSkin', function(skin)
-	
-							ESX.TriggerServerCallback('myProperties:getPlayerOutfit', function(clothes)
-				
-								TriggerEvent('skinchanger:loadClothes', skin, clothes)
-								TriggerEvent('esx_skin:setLastSkin', skin)
-				
-								TriggerEvent('skinchanger:getSkin', function(skin)
-								TriggerServerEvent('esx_skin:save', skin)
-								end)
-				
-							end, selectedIndex)
-				
-						end)
-					elseif item == remove then
-						TriggerServerEvent('myProperties:removeOutfit', selectedIndex)
-						ShowNotification(Translation[Config.Locale]['outfit_removed'] .. dressing[selectedIndex] .. Translation[Config.Locale]['outfit_removed2'])
-						_menuPool:CloseAllMenus()
+					local takeOn = NativeUI.CreateItem(Translation[Config.Locale]['outfin_use'], '~b~')
+				local remove = NativeUI.CreateItem(Translation[Config.Locale]['outfit_remove'], '~b~')
+
+				if Config.useNativeUIReloaded then
+					dress.SubMenu:AddItem(takeOn)
+					dress.SubMenu:AddItem(remove)
+		
+					wardrobe.SubMenu.OnIndexChange = function(sender, index)
+						selectedIndex = index
+					end
+		
+					dress.SubMenu.OnItemSelect = function(sender, item, index)
+						if item == takeOn then
+							TriggerEvent('skinchanger:getSkin', function(skin)
+		
+								ESX.TriggerServerCallback('myProperties:getPlayerOutfit', function(clothes)
+					
+									TriggerEvent('skinchanger:loadClothes', skin, clothes)
+									TriggerEvent('esx_skin:setLastSkin', skin)
+					
+									TriggerEvent('skinchanger:getSkin', function(skin)
+									TriggerServerEvent('esx_skin:save', skin)
+									end)
+					
+								end, selectedIndex)
+					
+							end)
+						elseif item == remove then
+							TriggerServerEvent('myProperties:removeOutfit', selectedIndex)
+							ShowNotification(Translation[Config.Locale]['outfit_removed'] .. dressing[selectedIndex] .. Translation[Config.Locale]['outfit_removed2'])
+							_menuPool:CloseAllMenus()
+						end
+					end
+				else
+					dress:AddItem(takeOn)
+					dress:AddItem(remove)
+		
+					wardrobe.OnIndexChange = function(sender, index)
+						selectedIndex = index
+					end
+		
+					dress.OnItemSelect = function(sender, item, index)
+						if item == takeOn then
+							TriggerEvent('skinchanger:getSkin', function(skin)
+		
+								ESX.TriggerServerCallback('myProperties:getPlayerOutfit', function(clothes)
+					
+									TriggerEvent('skinchanger:loadClothes', skin, clothes)
+									TriggerEvent('esx_skin:setLastSkin', skin)
+					
+									TriggerEvent('skinchanger:getSkin', function(skin)
+									TriggerServerEvent('esx_skin:save', skin)
+									end)
+					
+								end, selectedIndex)
+					
+							end)
+						elseif item == remove then
+							TriggerServerEvent('myProperties:removeOutfit', selectedIndex)
+							ShowNotification(Translation[Config.Locale]['outfit_removed'] .. dressing[selectedIndex] .. Translation[Config.Locale]['outfit_removed2'])
+							_menuPool:CloseAllMenus()
+						end
 					end
 				end
+				
 				_menuPool:RefreshIndex()
 				_menuPool:MouseEdgeEnabled (false)
 			end
@@ -512,6 +623,13 @@ function generateWardrobeMenu(owner)
 
 	if not onlyVisit then
 		local inventory_sub = _menuPool:AddSubMenu(wardrobeMenu, Translation[Config.Locale]['store'])
+		--local inventory_item = NativeUI.CreateItem('Inventory', '~b~')
+		--wardrobeMenu:AddItem(inventory_item)
+		
+		--inventory_item.Activated = function(sender, index)
+			--exports['linden_inventory']:OpenStash({ id = 'myProperty', slots = 20, owner = ESX.GetPlayerData().identifier()})
+		--end
+		
 		local tresor_sub = _menuPool:AddSubMenu(wardrobeMenu, Translation[Config.Locale]['weaponary'])
 
 		ESX.TriggerServerCallback('myProperties:getPropertyInventory', function(inventory)
@@ -526,7 +644,12 @@ function generateWardrobeMenu(owner)
 				if item.count > 0 then
 					local invitem = NativeUI.CreateItem(item.label, '~b~')
 					invitem:RightLabel(item.count .. '~b~x')
-					inventory_sub:AddItem(invitem)
+					if Config.useNativeUIReloaded then
+						inventory_sub.SubMenu:AddItem(invitem)
+					else
+						inventory_sub:AddItem(invitem)
+					end
+					
 					table.insert(inventoryItems, {
 						name = item.name,
 						label = item.label,
@@ -539,25 +662,49 @@ function generateWardrobeMenu(owner)
 			for k, weapon in pairs(inventory.weapons) do
 				local weaponinv = NativeUI.CreateItem(ESX.GetWeaponLabel(weapon.name), '~b~')
 				weaponinv:RightLabel(weapon.ammo .. Translation[Config.Locale]['ammo']) 
-				tresor_sub:AddItem(weaponinv)
+				
+				if Config.useNativeUIReloaded then
+					tresor_sub.SubMenu:AddItem(weaponinv)
+				else
+					tresor_sub:AddItem(weaponinv)
+				end
 				--weapon.name
 			end
 
-			inventory_sub.OnItemSelect = function(sender, item, index)
+			if Config.useNativeUIReloaded then
+				inventory_sub.SubMenu.OnItemSelect = function(sender, item, index)
 
-				local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
-					if tonumber(res_amount) then
-						local quantity = tonumber(res_amount)
-						TriggerServerEvent('myProperties:getItem', propertyID, 'item_standard', inventoryItems[index].name, quantity)
-						_menuPool:CloseAllMenus()
-					end
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
+						if tonumber(res_amount) then
+							local quantity = tonumber(res_amount)
+							TriggerServerEvent('myProperties:getItem', propertyID, 'item_standard', inventoryItems[index].name, quantity)
+							_menuPool:CloseAllMenus()
+						end
+	
+				end
+	
+				tresor_sub.SubMenu.OnItemSelect = function(sender, item, index)
+					TriggerServerEvent('myProperties:getItem', propertyID, 'item_weapon', wepaonsList[index].name, wepaonsList[index].ammo)
+					_menuPool:CloseAllMenus()
+				end
+			else
+				inventory_sub.OnItemSelect = function(sender, item, index)
 
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
+						if tonumber(res_amount) then
+							local quantity = tonumber(res_amount)
+							TriggerServerEvent('myProperties:getItem', propertyID, 'item_standard', inventoryItems[index].name, quantity)
+							_menuPool:CloseAllMenus()
+						end
+	
+				end
+	
+				tresor_sub.OnItemSelect = function(sender, item, index)
+					TriggerServerEvent('myProperties:getItem', propertyID, 'item_weapon', wepaonsList[index].name, wepaonsList[index].ammo)
+					_menuPool:CloseAllMenus()
+				end
 			end
-
-			tresor_sub.OnItemSelect = function(sender, item, index)
-				TriggerServerEvent('myProperties:getItem', propertyID, 'item_weapon', wepaonsList[index].name, wepaonsList[index].ammo)
-				_menuPool:CloseAllMenus()
-			end
+			
 
 			_menuPool:RefreshIndex()
 		end, propertyID)
@@ -572,7 +719,12 @@ function generateWardrobeMenu(owner)
 				if itemininv.count > 0 then
 					local invitem = NativeUI.CreateItem(itemininv.label, '~b~')
 					invitem:RightLabel(itemininv.count .. '~b~x')
-					putItem:AddItem(invitem)
+					if Config.useNativeUIReloaded then
+						putItem.SubMenu:AddItem(invitem)
+					else
+						putItem:AddItem(invitem)
+					end
+
 					table.insert(itemstoSelect, {
 						type = 'item_standard',
 						name = itemininv.name,
@@ -591,7 +743,12 @@ function generateWardrobeMenu(owner)
 					local ammo = GetAmmoInPedWeapon(playerPed, weaponHash)
 					local weaponitem = NativeUI.CreateItem(weaponsininv.label, '~b~')
 					weaponitem:RightLabel(ammo .. Translation[Config.Locale]['ammo'])
-					putItem:AddItem(weaponitem)
+					if Config.useNativeUIReloaded then
+						putItem.SubMenu:AddItem(weaponitem)
+					else
+						putItem:AddItem(weaponitem)
+					end
+					
 
 					table.insert(itemstoSelect, {
 						type = 'item_weapon',
@@ -602,22 +759,44 @@ function generateWardrobeMenu(owner)
 
 			end
 
-			putItem.OnItemSelect = function(sender, item, index)
-
-				local selectedItem = itemstoSelect[index]
-				if selectedItem.type == 'item_weapon' then
-					TriggerServerEvent('myProperties:putItem', propertyID, 'item_weapon', selectedItem.name, selectedItem.ammo)
-					_menuPool:CloseAllMenus()
-				elseif selectedItem.type == 'item_standard' then
-					local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
-					if tonumber(res_amount) then
-						local quantity = tonumber(res_amount)
-						TriggerServerEvent('myProperties:putItem', propertyID, 'item_standard', selectedItem.name, quantity)
+			if Config.useNativeUIReloaded then
+				putItem.SubMenu.OnItemSelect = function(sender, item, index)
+				
+					local selectedItem = itemstoSelect[index]
+					
+					if selectedItem.type == 'item_weapon' then
+						TriggerServerEvent('myProperties:putItem', propertyID, 'item_weapon', selectedItem.name, selectedItem.ammo)
 						_menuPool:CloseAllMenus()
+					elseif selectedItem.type == 'item_standard' then
+						local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
+						if tonumber(res_amount) then
+							local quantity = tonumber(res_amount)
+							TriggerServerEvent('myProperties:putItem', propertyID, 'item_standard', selectedItem.name, quantity)
+							_menuPool:CloseAllMenus()
+						end
 					end
+	
 				end
-
+			else
+				putItem.OnItemSelect = function(sender, item, index)
+				
+					local selectedItem = itemstoSelect[index]
+					
+					if selectedItem.type == 'item_weapon' then
+						TriggerServerEvent('myProperties:putItem', propertyID, 'item_weapon', selectedItem.name, selectedItem.ammo)
+						_menuPool:CloseAllMenus()
+					elseif selectedItem.type == 'item_standard' then
+						local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
+						if tonumber(res_amount) then
+							local quantity = tonumber(res_amount)
+							TriggerServerEvent('myProperties:putItem', propertyID, 'item_standard', selectedItem.name, quantity)
+							_menuPool:CloseAllMenus()
+						end
+					end
+	
+				end
 			end
+			
 
 		
 		end)
@@ -625,6 +804,7 @@ function generateWardrobeMenu(owner)
 		for k, props in pairs(propertyOwner) do
 			if propertyID == props.id then
 				currentDeposit = props.deposit
+				currentBlackDeposit = props.blackMoneyDeposit
 			end
 
 		end
@@ -632,34 +812,120 @@ function generateWardrobeMenu(owner)
 
 		local depositBalance = NativeUI.CreateItem(Translation[Config.Locale]['credit'], Translation[Config.Locale]['current_credit'] .. currentDeposit .. Translation[Config.Locale]['currency'])
 		depositBalance:RightLabel('~g~' .. currentDeposit .. Translation[Config.Locale]['currency'])
-		propDeposit:AddItem(depositBalance)
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu:AddItem(depositBalance)
+		else
+			propDeposit:AddItem(depositBalance)
+		end
 
 		local depositMoney = NativeUI.CreateItem(Translation[Config.Locale]['money_deposit'], '~b~')
-		propDeposit:AddItem(depositMoney)
-		
-		local withdrawMoney = NativeUI.CreateItem(Translation[Config.Locale]['money_withdraw'], '~b~')
-		propDeposit:AddItem(withdrawMoney)
-
-		propDeposit.OnItemSelect = function(sender, item, index)
-
-			if item == depositMoney then
-				local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
-				if tonumber(res_amount) then
-					local quantity = tonumber(res_amount)
-					TriggerServerEvent('myProperties:editPropDeposit', 'deposit', quantity, propertyID)
-					_menuPool:CloseAllMenus()
-				end
-
-			elseif item == withdrawMoney then
-				local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
-				if tonumber(res_amount) then
-					local quantity = tonumber(res_amount)
-					TriggerServerEvent('myProperties:editPropDeposit', 'withdraw', quantity, propertyID)
-					_menuPool:CloseAllMenus()
-				end
-			end
-
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu:AddItem(depositMoney)
+		else
+			propDeposit:AddItem(depositMoney)
 		end
+
+		local withdrawMoney = NativeUI.CreateItem(Translation[Config.Locale]['money_withdraw'], '~b~')
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu:AddItem(withdrawMoney)
+		else
+			propDeposit:AddItem(withdrawMoney)
+		end
+
+
+		local blackMoneyBalance = NativeUI.CreateItem(Translation[Config.Locale]['black_credit'], Translation[Config.Locale]['current_blackcredit'] .. currentBlackDeposit .. Translation[Config.Locale]['currency'])
+		blackMoneyBalance:RightLabel('~g~' .. currentBlackDeposit .. Translation[Config.Locale]['currency'])
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu:AddItem(blackMoneyBalance)
+		else
+			propDeposit:AddItem(blackMoneyBalance)
+		end
+
+		local depositBlackMoney = NativeUI.CreateItem(Translation[Config.Locale]['blackmoney_deposit'], '~b~')
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu:AddItem(depositBlackMoney)
+		else
+			propDeposit:AddItem(depositBlackMoney)
+		end
+
+		local withdrawBlackMoney = NativeUI.CreateItem(Translation[Config.Locale]['blackmoney_withdraw'], '~b~')
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu:AddItem(withdrawBlackMoney)
+		else
+			propDeposit:AddItem(withdrawBlackMoney)
+		end
+
+		
+		if Config.useNativeUIReloaded then
+			propDeposit.SubMenu.OnItemSelect = function(sender, item, index)
+
+				if item == depositMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', false, 'deposit', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				elseif item == depositBlackMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', true, 'deposit', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				elseif item == withdrawMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', false, 'withdraw', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				elseif item == withdrawBlackMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', true, 'withdraw', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				end
+	
+			end
+		else
+			propDeposit.OnItemSelect = function(sender, item, index)
+
+				if item == depositMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', false, 'deposit', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				elseif item == depositBlackMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_deposit'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', true, 'deposit', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				elseif item == withdrawMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', false, 'withdraw', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				elseif item == withdrawBlackMoney then
+					local res_amount = CreateDialog(Translation[Config.Locale]['insert_withdraw'])
+					if tonumber(res_amount) then
+						local quantity = tonumber(res_amount)
+						TriggerServerEvent('myProperties:editPropDeposit', true, 'withdraw', quantity, propertyID)
+						_menuPool:CloseAllMenus()
+					end
+				end
+	
+			end
+		end
+		
 
 	end
 
@@ -688,18 +954,70 @@ function generateDoorMenu()
     doorMenu = NativeUI.CreateMenu(currentPropertyData.type, nil)
 	_menuPool:Add(doorMenu)
 
-		local invite = _menuPool:AddSubMenu(doorMenu, Translation[Config.Locale]['invite'])
+		--[[local invite = _menuPool:AddSubMenu(doorMenu, Translation[Config.Locale]['invite'])
 		local playersInArea = ESX.Game.GetPlayersInArea(currentPropertyData.entering, 10.0)
 
-		for k, player in pairs(playersInArea) do
-			local playerInvite = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['invite_player'] .. GetPlayerName(player) .. Translation[Config.Locale]['invite_player2'])
-			invite:AddItem(playerInvite)
+		local gotOSResult = false
+		if Config.useOneSyncInfinity then
+			ESX.TriggerServerCallback('myProperties:getPlayersInArea', function(playersInArea_res)
+				playersInArea = playersInArea_res
+				gotOSResult = true
+			end, currentPropertyData.entering, 10.0)
 		end
 
-		invite.OnItemSelect = function(sender, item, index)
-			TriggerServerEvent('myProperties:invitePlayer', GetPlayerServerId(playersInArea[index]), propertyID, currentPropertyData)
-			ShowNotification(Translation[Config.Locale]['invited_player'] .. GetPlayerName(playersInArea[index]) .. Translation[Config.Locale]['invited_player2'])
+		for i=1, 10, 1 do
+			if not gotOSResult then
+				Citizen.Wait(100)
+			end
 		end
+
+		for k, player in pairs(playersInArea) do
+			local playerInvite
+			if Config.useOneSyncInfinity then
+				playerInvite = NativeUI.CreateItem(player.name, Translation[Config.Locale]['invite_player'] .. player.name .. Translation[Config.Locale]['invite_player2'])
+				if Config.useNativeUIReloaded then
+					invite.SubMenu:AddItem(playerInvite)
+				else
+					invite:AddItem(playerInvite)
+				end
+				
+			else
+				playerInvite = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['invite_player'] .. GetPlayerName(player) .. Translation[Config.Locale]['invite_player2'])
+				if Config.useNativeUIReloaded then
+					invite.SubMenu:AddItem(playerInvite)
+				else
+					invite:AddItem(playerInvite)
+				end
+			end
+			
+		end
+
+		if Config.useNativeUIReloaded then
+			invite.SubMenu.OnItemSelect = function(sender, item, index)
+			
+				if Config.useOneSyncInfinity then
+					TriggerServerEvent('myProperties:invitePlayer', playersInArea[index].id, propertyID, currentPropertyData)
+					ShowNotification(Translation[Config.Locale]['invited_player'] .. playersInArea[index].name .. Translation[Config.Locale]['invited_player2'])
+				else
+					TriggerServerEvent('myProperties:invitePlayer', GetPlayerServerId(playersInArea[index]), propertyID, currentPropertyData)
+					ShowNotification(Translation[Config.Locale]['invited_player'] .. GetPlayerName(playersInArea[index]) .. Translation[Config.Locale]['invited_player2'])
+				end
+				
+			end
+		else
+			invite.OnItemSelect = function(sender, item, index)
+			
+				if Config.useOneSyncInfinity then
+					TriggerServerEvent('myProperties:invitePlayer', playersInArea[index].id, propertyID, currentPropertyData)
+					ShowNotification(Translation[Config.Locale]['invited_player'] .. playersInArea[index].name .. Translation[Config.Locale]['invited_player2'])
+				else
+					TriggerServerEvent('myProperties:invitePlayer', GetPlayerServerId(playersInArea[index]), propertyID, currentPropertyData)
+					ShowNotification(Translation[Config.Locale]['invited_player'] .. GetPlayerName(playersInArea[index]) .. Translation[Config.Locale]['invited_player2'])
+				end
+				
+			end
+		end--]]
+		
 
 	local changePropPlate
 	if not onlyVisit then
@@ -916,7 +1234,12 @@ function generateEstateMenu(prop, owns)
 			if trusted.property == prop.name then
 				local enterTrusted = NativeUI.CreateItem(Translation[Config.Locale]['prop_of'] .. trusted.owner , Translation[Config.Locale]['have_key'])
 				enterTrusted:RightLabel('~b~→→→')
-				otherApartments:AddItem(enterTrusted)
+				if Config.useNativeUIReloaded then
+					otherApartments.SubMenu:AddItem(enterTrusted)
+				else
+					otherApartments:AddItem(enterTrusted)
+				end
+				
 				table.insert(propertiesToSelect, {
 					id = trusted.id,
 					type = 'key',
@@ -929,7 +1252,13 @@ function generateEstateMenu(prop, owns)
 				if public.locked == 2 then
 					local enterPublic = NativeUI.CreateItem(Translation[Config.Locale]['prop_of'] .. public.charname , Translation[Config.Locale]['open_for_everybody'])
 					enterPublic:RightLabel('~g~→→→')
-					otherApartments:AddItem(enterPublic)
+
+					if Config.useNativeUIReloaded then
+						otherApartments.SubMenu:AddItem(enterPublic)
+					else
+						otherApartments:AddItem(enterPublic)
+					end
+					
 					table.insert(propertiesToSelect, {
 						id = public.id,
 						type = 'public',
@@ -949,16 +1278,28 @@ function generateEstateMenu(prop, owns)
 				enterForeign:AddItem(clock)
 			end
 		end--]]
+		if Config.useNativeUIReloaded then
+			otherApartments.SubMenu.OnItemSelect = function(sender, item, index)
+				TriggerServerEvent('myProperties:enterProperty', propertiesToSelect[index].id, prop)
+				propertyID = propertiesToSelect[index].id
+				_menuPool:CloseAllMenus()
 	
-		otherApartments.OnItemSelect = function(sender, item, index)
-			TriggerServerEvent('myProperties:enterProperty', propertiesToSelect[index].id, prop)
-			propertyID = propertiesToSelect[index].id
-			_menuPool:CloseAllMenus()
-
-			if propertiesToSelect[index].type == 'public' then
-				onlyVisit = true
+				if propertiesToSelect[index].type == 'public' then
+					onlyVisit = true
+				end
+			end
+		else
+			otherApartments.OnItemSelect = function(sender, item, index)
+				TriggerServerEvent('myProperties:enterProperty', propertiesToSelect[index].id, prop)
+				propertyID = propertiesToSelect[index].id
+				_menuPool:CloseAllMenus()
+	
+				if propertiesToSelect[index].type == 'public' then
+					onlyVisit = true
+				end
 			end
 		end
+		
 		--end
 
 
@@ -1002,36 +1343,72 @@ function generateEstateMenu(prop, owns)
 			local sell = _menuPool:AddSubMenu(menu, Translation[Config.Locale]['cancel_rent'])
 			local rented = NativeUI.CreateItem(Translation[Config.Locale]['rented'], '~b~')
 			rented:RightLabel(Translation[Config.Locale]['info_yes'])
-			sell:AddItem(rented)
+			
 			local confirm = NativeUI.CreateItem(Translation[Config.Locale]['cancel_prop'], '~b~')
-			sell:AddItem(confirm)
+			
 
-			sell.OnItemSelect = function(sender, item, index)
+			if Config.useNativeUIReloaded then
+				sell.SubMenu:AddItem(confirm)
+				sell.SubMenu:AddItem(rented)
 
-				if item == confirm then
-					TriggerServerEvent('myProperties:RemoveOwnedProperty', prop.name, 'SOURCE')
-					_menuPool:CloseAllMenus()
+				sell.SubMenu.OnItemSelect = function(sender, item, index)
+
+					if item == confirm then
+						TriggerServerEvent('myProperties:RemoveOwnedProperty', prop.name, 'SOURCE')
+						_menuPool:CloseAllMenus()
+					end
+		
 				end
-	
+			else
+				sell:AddItem(confirm)
+				sell:AddItem(rented)
+
+				sell.OnItemSelect = function(sender, item, index)
+
+					if item == confirm then
+						TriggerServerEvent('myProperties:RemoveOwnedProperty', prop.name, 'SOURCE')
+						_menuPool:CloseAllMenus()
+					end
+		
+				end
 			end
+
+			
 		else
 			local sell = _menuPool:AddSubMenu(menu, Translation[Config.Locale]['sell_prop'])
 			local rented = NativeUI.CreateItem(Translation[Config.Locale]['rented'], '~b~')
 			rented:RightLabel(Translation[Config.Locale]['info_no'])
-			sell:AddItem(rented)
-			local confirm = NativeUI.CreateItem(Translation[Config.Locale]['confirm'], Translation[Config.Locale]['confirm_desc'] .. price / 4 .. Translation[Config.Locale]['confirm_desc2'])
+			
+			local confirm = NativeUI.CreateItem(Translation[Config.Locale]['confirm'], Translation[Config.Locale]['confirm_desc'])
 			confirm:RightLabel('~g~'.. price / Config.CalculateSellPrice .. '$')
-			sell:AddItem(confirm)
+			
 
-			sell.OnItemSelect = function(sender, item, index)
+			if Config.useNativeUIReloaded then
+				sell.SubMenu:AddItem(rented)
+				sell.SubMenu:AddItem(confirm)
+				sell.SubMenu.OnItemSelect = function(sender, item, index)
 
-				if item == confirm then
-					TriggerServerEvent('myProperties:RemoveOwnedProperty', prop.name, 'SOURCE')
-					TriggerServerEvent('myProperties:pay', price / Config.CalculateSellPrice)
-					_menuPool:CloseAllMenus()
+					if item == confirm then
+						TriggerServerEvent('myProperties:RemoveOwnedProperty', prop.name, 'SOURCE')
+						TriggerServerEvent('myProperties:pay', price / Config.CalculateSellPrice)
+						_menuPool:CloseAllMenus()
+					end
+		
 				end
-	
+			else
+				sell:AddItem(rented)
+				sell:AddItem(confirm)
+				sell.OnItemSelect = function(sender, item, index)
+
+					if item == confirm then
+						TriggerServerEvent('myProperties:RemoveOwnedProperty', prop.name, 'SOURCE')
+						TriggerServerEvent('myProperties:pay', price / Config.CalculateSellPrice)
+						_menuPool:CloseAllMenus()
+					end
+		
+				end
 			end
+			
 		end
 
 
@@ -1051,56 +1428,107 @@ function generateEstateMenu(prop, owns)
 end
 
 
+-- OLD VANISHING
+-- Citizen.CreateThread(function()
+
+-- 	while true do
+-- 		Citizen.Wait(0)
+-- 		local playerPed = PlayerPedId()
+-- 		if isinProperty then
+-- 			for k, user in pairs(vanishedUser) do
+-- 				if user ~= playerPed then
+-- 					--SetEntityLocallyInvisible(user)
+-- 					--SetEntityNoCollisionEntity(playerPed,  user,  true)
+-- 					SetEntityLocallyInvisible(user)
+--                     SetEntityVisible(user, false, 0)
+--                     SetEntityNoCollisionEntity(playerPed, user, true)
+-- 				end
+
+-- 			end
+-- 		end
+
+-- 	end
+
+-- end)
+
+-- RegisterNetEvent('myProperties:setPlayerInvisible')
+-- AddEventHandler('myProperties:setPlayerInvisible', function(playerEnter, instanceId)
+
+	
+-- 	local otherPlayer = GetPlayerFromServerId(playerEnter)
+	
+-- 	if otherPlayer ~= nil then
+-- 		local otherPlayerPed = GetPlayerPed(otherPlayer)
+-- 		table.insert(vanishedUser, otherPlayerPed)
+-- 	end
+
+-- end)
+
+-- RegisterNetEvent('myProperties:setPlayerVisible')
+-- AddEventHandler('myProperties:setPlayerVisible', function(playerEnter)
+
+
+-- 	local otherPlayer = GetPlayerFromServerId(playerEnter)
+-- 	local otherPlayerPed = GetPlayerPed(otherPlayer)
+	
+-- 	for k, vanish in pairs(vanishedUser) do
+-- 		if vanish == otherPlayerPed then
+-- 			table.remove(vanishedUser, k)
+-- 		end
+-- 	end
+
+-- end)
 
 Citizen.CreateThread(function()
-
 	while true do
 		Citizen.Wait(0)
 		local playerPed = PlayerPedId()
 		if isinProperty then
 			for k, user in pairs(vanishedUser) do
 				if user ~= playerPed then
-					--SetEntityLocallyInvisible(user)
-					--SetEntityNoCollisionEntity(playerPed,  user,  true)
+					-- NetworkConcealEntity(user, true)
+					-- SetEntityLocallyInvisible(user)/*
+					-- SetEntityNoCollisionEntity(playerPed,  user,  true)
 					SetEntityLocallyInvisible(user)
                     SetEntityVisible(user, false, 0)
                     SetEntityNoCollisionEntity(playerPed, user, true)
 				end
-
 			end
+		elseif #vanishedUser > 0 then
+			for k, user in pairs(vanishedUser) do
+				if user ~= playerPed then
+					NetworkConcealEntity(user, false)
+				end
+			end
+			vanishedUser = {}
 		end
-
 	end
-
 end)
 
 RegisterNetEvent('myProperties:setPlayerInvisible')
 AddEventHandler('myProperties:setPlayerInvisible', function(playerEnter, instanceId)
-
-	
 	local otherPlayer = GetPlayerFromServerId(playerEnter)
-	
 	if otherPlayer ~= nil then
 		local otherPlayerPed = GetPlayerPed(otherPlayer)
-		table.insert(vanishedUser, otherPlayerPed)
+		if otherPlayerPed ~= GetPlayerPed(-1) then
+			table.insert(vanishedUser, otherPlayerPed)
+			NetworkConcealEntity(otherPlayerPed, true)
+		end
 	end
-
 end)
 
 RegisterNetEvent('myProperties:setPlayerVisible')
 AddEventHandler('myProperties:setPlayerVisible', function(playerEnter)
-
-
 	local otherPlayer = GetPlayerFromServerId(playerEnter)
 	local otherPlayerPed = GetPlayerPed(otherPlayer)
-	
 	for k, vanish in pairs(vanishedUser) do
 		if vanish == otherPlayerPed then
 			table.remove(vanishedUser, k)
+			NetworkConcealEntity(otherPlayerPed, false)
 		end
 	end
-
 end)
+
 
 RegisterNetEvent('myProperties:enterProperty')
 AddEventHandler('myProperties:enterProperty', function(prop)
@@ -1131,7 +1559,7 @@ AddEventHandler('myProperties:leaveProperty', function(prop)
     NetworkSetTalkerProximity(2.5)
 	isinProperty = false	
 	onlyVisit = false
-	vanishedUser = {}
+	--vanishedUser = {}
 	local playerPed = PlayerPedId()
 	local coords = prop.entering
 	SetEntityCoords(playerPed, coords.x, coords.y, coords.z)
@@ -1142,14 +1570,14 @@ end)
 
 RegisterNetEvent('myProperties:sendPropertiesToClient')
 AddEventHandler('myProperties:sendPropertiesToClient', function(properties_res, owner_res, steamID)
-
+	local xPlayer = ESX.GetPlayerData();
 	properties = properties_res
 	propertyOwner = owner_res
 	ownedProperties = {}
 	trustedProperties = {}
 
 	for k, v in pairs(propertyOwner) do
-		if steamID == v.owner then
+		if xPlayer.identifier == v.owner then
 			table.insert(ownedProperties, {
 				id = v.id,
 				property = v.property,

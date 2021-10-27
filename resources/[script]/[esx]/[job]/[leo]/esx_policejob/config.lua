@@ -27,10 +27,10 @@ Config.PoliceStations = {
 
 		Blip = {
 			Coords  = vector3(608.24987792969,-20.677509307861,76.628059387207),
-			Sprite  = 60,
+			Sprite  = 43,
 			Display = 4,
-			Scale   = 1.2,
-			Colour  = 29
+			Scale   = 0.8,
+			Colour  = 0
 		},
 
 		Cloakrooms = {

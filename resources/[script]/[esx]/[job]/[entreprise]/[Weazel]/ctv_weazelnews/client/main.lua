@@ -688,7 +688,7 @@ AddEventHandler('sp_weazelnews:annoncestop', function()
 
   local blips = {
     -- Example {title="", colour=, id=, x=, y=, z=},-591.51, y = -929.81, z = 22.86
-	{title="Weazel News", colour=-1, id=184, x =-591.51, y = -929.81, z = 14.32,}, -- Location to obtain supplies needed to make cocaine at Drug Processing Location
+	{title="Weazel News", colour=0, id=59, x =-591.51, y = -929.81, z = 14.32,}, -- Location to obtain supplies needed to make cocaine at Drug Processing Location
   }
 
 Citizen.CreateThread(function()

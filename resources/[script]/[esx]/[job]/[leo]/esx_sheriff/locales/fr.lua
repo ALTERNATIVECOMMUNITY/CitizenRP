@@ -143,7 +143,7 @@ Locales['fr'] = {
   ['police_stock'] = 'coffre de la police',
   -- Misc
   ['remove_prop'] = 'appuyez sur ~INPUT_CONTEXT~ pour enlever l\'objet',
-  ['map_blip'] = 'Bureau du sheriff',
+  ['map_blip'] = 'San Andreas State Trooper',
   ['unrestrained_timer'] = 'vous sentez que vos menottes deviennent fragiles.',
   -- Notifications
   ['alert_police'] = 'alerte police',

@@ -15,9 +15,9 @@ Config.GiveBlack = false -- give black money? if disabled it'll give regular cas
 Config.PawnshopLocation =  {x = 174.04669189453, y = -1321.7844238281, z = 29.363594055176}
 
 -- Pawnshop blip
-Config.PawnshopBlipText = "Pawnshop"
-Config.PawnshopBlipColor = 5
-Config.PawnshopBlipSprite = 272
+Config.PawnshopBlipText = "Prêteur sur gages"
+Config.PawnshopBlipColor = 0
+Config.PawnshopBlipSprite = 107
 
 -- Opening hours
 Config.EnableOpeningHours = true -- Enable opening hours? If disabled you can always open the pawnshop.

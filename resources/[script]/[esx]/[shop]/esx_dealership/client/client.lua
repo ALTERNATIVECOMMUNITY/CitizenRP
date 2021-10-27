@@ -495,7 +495,7 @@ Citizen.CreateThread(function ()
         local actualShop = vehicleshopCoords[i]
         blip = AddBlipForCoord(actualShop.x, actualShop.y, actualShop.z)
 
-        SetBlipSprite (blip, 326)
+        SetBlipSprite (blip, 103)
         SetBlipDisplay(blip, 4)
         SetBlipScale  (blip, 0.8)
         SetBlipAsShortRange(blip, true)

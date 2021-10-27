@@ -18,7 +18,7 @@ Config.vRP_Permissions = { --IF YOU ARE USING VRP SET THE PERMISSIONS HERE FOR C
     "police.service2"
 }
 Config.ShopkeeperResetTime = 1000 * 60 * 30 --ShopKeeper reset timer. Default is 30 minutes, so every 30 minutes the shopkeeper at every shop changes. Just to make it look unique.
-Config.UseBlips = true --Set to true if you want to have store blips.
+Config.UseBlips = false --Set to true if you want to have store blips.
 Config.PoliceCall = true --Set to true if you want to have robbery blips.
 Config.PoliceCallTimer = 300 -- Police robbery timer in seconds.
 Config.PoliceCallSpamPrevention = 30 -- Police robbery timer in seconds.
@@ -137,7 +137,7 @@ Config.Shops = {
     [5] = {
         name = "24/7 Supermarkt Innocence Blvd", --Name of the shop
         blip = vector3(24.35, -1347.24, 29.52),
-        copsNeeded = 1, --Cops needed to start the robbery
+        copsNeeded = 2, --Cops needed to start the robbery
         shopKeeper = nil, --Don't touch.
         shopKeeperBusy = nil, --Don't touch.
         shopKeeperCoords = vector3(24.35, -1347.24, 29.52), --The shopkeeper's coords.
