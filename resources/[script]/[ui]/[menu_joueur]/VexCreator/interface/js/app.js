@@ -296,7 +296,6 @@ $(document).ready(function () {
   });
 
   $(document).keypress(function (e) {
-    console.log(e.which);
     if (e.which == 113 || e.which == 81) {
       $.post('http://Vexcreator/rotar', JSON.stringify({
         value: -5
