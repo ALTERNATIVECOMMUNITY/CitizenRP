@@ -23,7 +23,7 @@ Config.Cash = true -- toggle cash on/off
 Config.DirtyCash = 'black_money' -- toggle dirty cash on/off (put your black_money `id` here from esx or put `false` if you dont want dirty cash)
 
 -- Hotbar
-Config.Hotbar = false -- toggle hotbar on/off
+Config.Hotbar = true -- toggle hotbar on/off
 Config.HotbarKey = 'tab' -- shows your current hotbar for a few seconds
 Config.HotbarTimeout = 3000 -- change the amount of time the hotbar is on the screen (milliseconds)
 Config.HotbarKeys = {157, 158, 160, 164} -- hotbar keys (1,2,3,4) (FiveM Keys)

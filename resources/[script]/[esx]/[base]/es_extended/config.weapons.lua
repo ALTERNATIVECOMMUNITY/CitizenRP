@@ -279,6 +279,26 @@ Config.Weapons = {
 
 
 
+		{
+			name = 'WEAPON_AKM',
+			label = 'AKM',
+			ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
+			tints = Config.DefaultWeaponTints,
+			components = {
+				{name = 'clip_default', label = _U('component_clip_default'), hash = GetHashKey('COMPONENT_AKM_CLIP_01')},
+				{name = 'clip_extended', label = _U('component_clip_extended'), hash = GetHashKey('COMPONENT_AKM_CLIP_02')},
+				{name = 'clip_drum', label = _U('component_clip_drum'), hash = GetHashKey('COMPONENT_AKM_CLIP_03')},
+				{name = 'flashlight', label = _U('component_flashlight'), hash = GetHashKey('COMPONENT_AKM_DUSTCOVER_02')},
+				{name = 'scope', label = _U('component_scope'), hash = GetHashKey('COMPONENT_AKM_SCOPE_01')},
+				{name = 'stock', label = 'Crosse', hash = GetHashKey('COMPONENT_AKM_STOCK_01')},
+				{name = 'suppressor', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_AKM_SUPP_01')},
+				{name = 'grip', label = _U('component_grip'), hash = GetHashKey('COMPONENT_AKM_HANDGUARD_01')},
+				{name = 'luxary_finish', label = _U('component_luxary_finish'), hash = GetHashKey('COMPONENT_ASSAULTRIFLE_VARMOD_LUXE')}
+			}
+		},
+
+
+
 
 	{
 		name = 'WEAPON_CARBINERIFLE',
@@ -435,17 +455,169 @@ Config.Weapons = {
 	},
 
 
+	{
+		name = 'WEAPON_GLOCK',
+		label = 'Glock 17',
+		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
+		tints = Config.DefaultWeaponTints,
+		components = {
+			-- Magasins
+			{name = 'clip_default', label = 'Magasin 17 cps', hash = GetHashKey('COMPONENT_COMBATPISTOL_CLIP_01')},
+			{name = 'glock_clip_21', label = 'Magasin 21 cps', hash = GetHashKey('COMPONENT_COMBATPISTOL_CLIP_02')},
+			{name = 'glock_clip_30', label = 'Magasin 30 cps', hash = GetHashKey('COMPONENT_COMBATPISTOL_CLIP_03')},
+			{name = 'glock_clip_50', label = 'Magasin 50 cps', hash = GetHashKey('COMPONENT_COMBATPISTOL_CLIP_04')},
+			-- Culasse
+			{name = 'glock_culasse_1', label = 'Culasse d\'origine', hash = GetHashKey('COMPONENT_SLIDE_01')},
+			{name = 'glock_culasse_2', label = 'Culasse Sport', hash = GetHashKey('COMPONENT_SLIDE_02')},
+			{name = 'glock_culasse_3', label = 'Culasse Octogone', hash = GetHashKey('COMPONENT_SLIDE_03')},
+			{name = 'glock_culasse_4', label = 'Culasse Combat', hash = GetHashKey('COMPONENT_SLIDE_06')},
+			{name = 'glock_culasse_5', label = 'RMR Glock 17', hash = GetHashKey('COMPONENT_SLIDE_09')},
+			-- FlashLight
+			{name = 'flashlight', label = 'Lampe', hash = GetHashKey('COMPONENT_GLOCK_FLSH_03')},
+			-- Suppresseur
+			{name = 'glock_supp_1', label = 'Suppresseur Rond', hash = GetHashKey('COMPONENT_SUPP_01')},
+			{name = 'glock_supp_2', label = 'Suppresseur Carré', hash = GetHashKey('COMPONENT_SUPP_04')},
+			{name = 'glock_supp_3', label = 'Suppresseur FISCHER', hash = GetHashKey('COMPONENT_SUPP_05')},
+		}
+	},
+
+
+
+
+	{
+		name = 'weapon_glock19x',
+		label = 'Glock 19',
+		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
+		tints = Config.DefaultWeaponTints,
+		components = {
+			-- Magasins
+			{name = 'clip_default', label = 'Magasin 17 cps', hash = GetHashKey('COMPONENT_GLOCK19X_CLIP_01')},
+			{name = 'glock19_clip_21', label = 'Magasin 21 cps', hash = GetHashKey('COMPONENT_GLOCK19X_CLIP_02')},
+			-- Culasse
+			-- FlashLight
+			{name = 'flashlight', label = 'SureFire X300', hash = GetHashKey('COMPONENT_GLOCK19X_FLSH_01')},
+			-- Suppresseur
+			{name = 'glock19_supp_1', label = 'Suppresseur', hash = GetHashKey('COMPONENT_GLOCK19x_SUPP')},
+		}
+	},
+
+
+	{
+		name = 'WEAPON_SIG',
+		label = 'SIG M18',
+		ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
+		tints = Config.DefaultWeaponTints,
+		components = {
+			-- Magasins
+			{name = 'clip_default', label = 'Magasin 17 cps', hash = GetHashKey('COMPONENT_SIG_CLIP_01')},
+			{name = 'm18_clip_21', label = 'Magasin 21 cps', hash = GetHashKey('COMPONENT_SIG_CLIP_02')},
+			-- Culasse
+			{name = 'm18_rmr', label = 'RMR M18', hash = GetHashKey('COMPONENT_SIG_SCOPE_01')},
+			-- FlashLight
+			{name = 'flashlight', label = 'SureFire X300', hash = GetHashKey('COMPONENT_SIG_FLSH_01')},
+			-- Suppresseur
+			{name = 'm18_supp_1', label = 'Suppresseur Rond', hash = GetHashKey('COMPONENT_SIG_SUPP_01')},
+			{name = 'm18_supp_2', label = 'Suppresseur Carré', hash = GetHashKey('COMPONENT_SIG_SUPP_03')},
+		}
+	},
+
+		--
+		-- {
+		-- 	name = 'WEAPON_SIG',
+		-- 	label = 'SIG M18',
+		-- 	ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
+		-- 	tints = Config.DefaultWeaponTints,
+		-- 	components = {
+		-- 		-- Magasins
+		-- 		{name = 'clip_default', label = 'Chargeur 17 cps', hash = GetHashKey('COMPONENT_SIG_CLIP_01')},
+		-- 		{name = 'm18_clip_21', label = 'Chargeur 21 cps', hash = GetHashKey('COMPONENT_SIG_CLIP_02')},
+		-- 		-- Culasse
+		-- 		{name = 'm18_rmr', label = 'RMR M18', hash = GetHashKey('COMPONENT_SIG_SCOPE_01')},
+		-- 		-- FlashLight
+		-- 		{name = 'flashlight', label = 'SureFire X300', hash = GetHashKey('COMPONENT_SIG_FLSH_01')},
+		-- 		-- Suppresseur
+		-- 		{name = 'm18_supp_1', label = 'Suppresseur Rond', hash = GetHashKey('COMPONENT_SIG_SUPP_01')},
+		-- 		{name = 'm18_supp_2', label = 'Suppresseur Carré', hash = GetHashKey('COMPONENT_SIG_SUPP_03')},
+		-- 	}
+		-- },
 
 		{
-			name = 'WEAPON_MM4',
+			name = 'WEAPON_M4A1FM',
 			label = 'M4A1',
-			ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_RIFLE')},
+			ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
 			tints = Config.DefaultWeaponTints,
 			components = {
-
-
+				-- Magasins
+				{name = 'clip_default', label = 'Chargeur Stanag', hash = GetHashKey('COMPONENT_M4A1FM_CLIP_01')},
+				{name = 'm4a1_pmag30', label = 'Chargeur PMag 30', hash = GetHashKey('COMPONENT_M4A1FM_CLIP_02')},
+				{name = 'm4a1_stanag60', label = 'Chargeur 60Cps', hash = GetHashKey('COMPONENT_M4A1FM_CLIP_03')},
+				{name = 'm4a1_pmag60', label = 'Chargeur 21 cps', hash = GetHashKey('COMPONENT_M4A1FM_CLIP_04')},
+				-- Viseurs
+				{name = 'm4a1_scope1', label = 'Poignée', hash = GetHashKey('COMPONENT_M4A1FM_SCOPE_01')},
+				{name = 'm4a1_scope2', label = 'ACOG', hash = GetHashKey('COMPONENT_M4A1FM_SCOPE_02')},
+				{name = 'm4a1_scope3', label = 'EOTECH XPS553', hash = GetHashKey('COMPONENT_M4A1FM_SCOPE_03')},
+				-- FlashLight
+				{name = 'flashlight', label = 'SureFire X300', hash = GetHashKey('COMPONENT_M4A1FM_FLSH_01')},
+				-- Suppresseur
+				{name = 'm4a1_supp_1', label = 'Suppresseur', hash = GetHashKey('COMPONENT_M4A1FM_BARREL_03')},
 			}
 		},
+
+		{
+			name = 'WEAPON_AKM',
+			label = 'AKM',
+			ammo = {label = _U('ammo_rounds'), hash = GetHashKey('AMMO_PISTOL')},
+			tints = Config.DefaultWeaponTints,
+			components = {
+				-- Magasins
+				{name = 'clip_default', label = 'Chargeur 30', hash = GetHashKey('COMPONENT_AKM_CLIP_01')},
+				-- {name = 'ak_mag', label = 'Chargeur PMag 30', hash = GetHashKey('COMPONENT_AKM_CLIP_02')},
+				-- {name = 'm4a1_stanag60', label = 'Chargeur 60Cps', hash = GetHashKey('COMPONENT_M4A1FM_CLIP_03')},
+				-- {name = 'm4a1_pmag60', label = 'Chargeur 21 cps', hash = GetHashKey('COMPONENT_M4A1FM_CLIP_04')},
+				-- Viseurs
+
+				-- FlashLight
+	--			{name = 'flashlight', label = 'SureFire X300', hash = GetHashKey('COMPONENT_M4A1FM_FLSH_01')},
+				-- Suppresseur
+				{name = 'ak_supp_1', label = 'Suppresseur', hash = GetHashKey('COMPONENT_AKM_SUPP_01')},
+			}
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	-- {name = 'clip_default', label = _U('component_clip_default'), hash = GetHashKey('COMPONENT_COMBATPISTOL_CLIP_01')},
+	-- {name = 'clip_extended', label = _U('component_clip_extended'), hash = GetHashKey('COMPONENT_COMBATPISTOL_CLIP_02')},
+	-- {name = 'flashlight', label = _U('component_flashlight'), hash = GetHashKey('COMPONENT_AT_PI_FLSH')},
+	-- {name = 'suppressor', label = _U('component_suppressor'), hash = GetHashKey('COMPONENT_AT_PI_SUPP')},
+	-- {name = 'luxary_finish', label = _U('component_luxary_finish'), hash = GetHashKey('COMPONENT_COMBATPISTOL_VARMOD_LOWRIDER')}
+	--
+
+
+
+
+
+
+
 
 
 

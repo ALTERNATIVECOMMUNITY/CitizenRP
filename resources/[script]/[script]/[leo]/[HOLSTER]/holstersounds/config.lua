@@ -1,5 +1,5 @@
 data = {
-  ["weapon"] = "WEAPON_COMBATPISTOL","WEAPON_PISTOL","WEAPON_HEAVYPISTOL","WEAPON_SNSPISTOL","WEAPON_DOUBLEACTION",-- The weapon you must have to trigger the animation
+  ["weapon"] = {"WEAPON_GLOCK","WEAPON_PISTOL","WEAPON_HEAVYPISTOL","WEAPON_SNSPISTOL","WEAPON_DOUBLEACTION"},-- The weapon you must have to trigger the animation
   ["peds"] = {
     ["mp_m_freemode_01"] = {
       ["components"] = {

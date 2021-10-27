@@ -16,6 +16,8 @@ files {
 	'html/img/weapon_tint_orange.png',
 	'html/img/weapon_tint_platinum.png',
 	'html/img/armor.png',
+		'html/img/armor2.png',
+			'html/img/armor3.png',
 	'html/img/weapon_luxary_finish.png',
 	'html/img/weapon_flashlight.png',
 	'html/img/weapon_suppressor.png',

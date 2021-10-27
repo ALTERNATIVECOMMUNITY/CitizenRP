@@ -80,11 +80,10 @@ Config.Commands = {
 		Name = Lang("Shoes")
 	},
 	[Lang("VEST")] = {
-		Func = function() ToggleClothing("Vest") end,
+		Func = function() ToggleClothing("") end,
 		Sprite = "vest",
-		Desc = string.format(Lang("TakeOffOn"), string.lower(Lang("Vest"))),
 		Button = 14,
-		Name = Lang("Vest")
+		Name = '-'
 	},
 	[Lang("HAIR")] = {
 		Func = function() ToggleClothing("Hair") end,
