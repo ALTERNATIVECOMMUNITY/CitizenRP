@@ -87,6 +87,189 @@ ESX.RegisterUsableItem(
         TriggerClientEvent("core_weapon:useItem", source, "weapon_clip_extended")
     end
 )
+ESX.RegisterUsableItem(
+    "m4a1_pmag30",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_pmag30")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m4a1_stanag60",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_stanag60")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m4a1_pmag60",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_pmag60")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m4a1_scope1",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_scope1")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m4a1_scope2",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_scope2")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m4a1_scope3",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_scope3")
+    end
+)
+
+
+ESX.RegisterUsableItem(
+    "m4a1_supp_1",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m4a1_supp_1")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "ak_supp_1",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "ak_supp_1")
+    end
+)
+
+
+ESX.RegisterUsableItem(
+    "m18_clip_21",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m18_clip_21")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m18_rmr",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m18_rmr")
+    end
+)
+
+
+ESX.RegisterUsableItem(
+    "m18_supp_1",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m18_supp_1")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "m18_supp_2",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "m18_supp_2")
+    end
+)
+
+
+
+
+ESX.RegisterUsableItem(
+    "glock19_clip_21",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock19_clip_21")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock19_supp_1",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock19_supp_1")
+    end
+)
+
+
+
+
+ESX.RegisterUsableItem(
+    "glock_clip_21",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_clip_21")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_clip_30",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_clip_30")
+    end
+)
+
+
+ESX.RegisterUsableItem(
+    "glock_clip_50",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_clip_50")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_culasse_2",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_culasse_2")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_culasse_3",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_culasse_3")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_culasse_4",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_culasse_4")
+    end
+)
+
+
+
+ESX.RegisterUsableItem(
+    "glock_culasse_5",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_culasse_5")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_supp_1",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_supp_1")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_supp_2",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_supp_2")
+    end
+)
+
+ESX.RegisterUsableItem(
+    "glock_supp_3",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "glock_supp_3")
+    end
+)
+
+
+
+
 
 ESX.RegisterUsableItem(
     "weapon_tint_green",
@@ -145,6 +328,19 @@ ESX.RegisterUsableItem(
 )
 
 ESX.RegisterUsableItem(
+    "armor2",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "armor2")
+    end
+)
+ESX.RegisterUsableItem(
+    "armor3",
+    function(source)
+        TriggerClientEvent("core_weapon:useItem", source, "armor3")
+    end
+)
+
+ESX.RegisterUsableItem(
     "weapon_luxary_finish",
     function(source)
         TriggerClientEvent("core_weapon:useItem", source, "weapon_luxary_finish")
@@ -173,9 +369,9 @@ ESX.RegisterUsableItem(
 )
 
 ESX.RegisterUsableItem(
-    "scope",
+    "weapon_scope",
     function(source)
-        TriggerClientEvent("core_weapon:useItem", source, "scope")
+        TriggerClientEvent("core_weapon:useItem", source, "weapon_scope")
     end
 )
 

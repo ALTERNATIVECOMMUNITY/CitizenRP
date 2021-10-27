@@ -1,5 +1,4 @@
 -- CORE WEAPON
-
 local Keys = {
     ["ESC"] = 322,
     ["F1"] = 288,
@@ -81,19 +80,14 @@ local Keys = {
 local pause = false
 local guns = {}
 
-Citizen.CreateThread(
-    function()
-        while ESX == nil do
-            TriggerEvent(
-                "esx:getSharedObject",
-                function(obj)
-                    ESX = obj
-                end
-            )
-            Citizen.Wait(0)
-        end
+Citizen.CreateThread(function()
+    while ESX == nil do
+        TriggerEvent("esx:getSharedObject", function(obj)
+            ESX = obj
+        end)
+        Citizen.Wait(0)
     end
-)
+end)
 
 function OpenAttachmentStoreCategory(items, name)
     local elements = {}
@@ -101,76 +95,62 @@ function OpenAttachmentStoreCategory(items, name)
     for k, f in pairs(items) do
         for _, v in ipairs(ESX.GetPlayerData().inventory) do
             if v.name == k then
-                table.insert(
-                    elements,
-                    {label = v.label .. " " .. f .. "$", value = k, label_without = v.label, price = f}
-                )
+                table.insert(elements, {
+                    label = v.label .. " " .. f .. "$",
+                    value = k,
+                    label_without = v.label,
+                    price = f
+                })
             end
         end
     end
 
-    ESX.UI.Menu.Open(
-        "default",
-        GetCurrentResourceName(),
-        "attachment_store_category",
-        {
-            title = name,
-            align = "top-left",
-            elements = elements
-        },
-        function(data2, menu2)
-            ESX.TriggerServerCallback(
-                "core_weapon:buyItem",
-                function(paid)
-                    if paid then
-                        SendMessage(
-                            string.gsub(Config.Text["successful_purchase"], "{item}", data2.current.label_without)
-                        )
-                    else
-                        SendMessage(Config.Text["unsuccessful_purchase"])
-                    end
-                end,
-                data2.current.value,
-                data2.current.price
-            )
-        end,
-        function(data2, menu2)
-            menu2.close()
-        end
-    )
+    ESX.UI.Menu.Open("default", GetCurrentResourceName(), "attachment_store_category", {
+        title = name,
+        align = "top-left",
+        elements = elements
+    }, function(data2, menu2)
+        ESX.TriggerServerCallback("core_weapon:buyItem", function(paid)
+            if paid then
+                SendMessage(string.gsub(Config.Text["successful_purchase"], "{item}", data2.current.label_without))
+            else
+                SendMessage(Config.Text["unsuccessful_purchase"])
+            end
+        end, data2.current.value, data2.current.price)
+    end, function(data2, menu2)
+        menu2.close()
+    end)
 end
 
 function OpenAttachmentStore()
     local elements = {}
 
-    ESX.UI.Menu.Open(
-        "default",
-        GetCurrentResourceName(),
-        "attachment_store",
-        {
-            title = Config.Text["attachment_store_name"],
-            align = "top-left",
-            elements = {
-                {label = Config.Text["attachment_store_clip_category"], value = "clips"},
-                {label = Config.Text["attachment_store_attachments_category"], value = "attachments"},
-                {label = Config.Text["attachment_store_misc_category"], value = "misc"}
-            }
-        },
-        function(data, menu)
-            if data.current.value == "clips" then
-                OpenAttachmentStoreCategory(Config.AttachmentStoreItems["weapon_clips"], data.current.label)
-            elseif data.current.value == "attachments" then
-                OpenAttachmentStoreCategory(Config.AttachmentStoreItems["weapon_attachments"], data.current.label)
-            elseif data.current.value == "misc" then
-                OpenAttachmentStoreCategory(Config.AttachmentStoreItems["misc"], data.current.label)
-            end
-
-            menu.close()
-        end,
-        function(data, menu)
-            menu.close()
+    ESX.UI.Menu.Open("default", GetCurrentResourceName(), "attachment_store", {
+        title = Config.Text["attachment_store_name"],
+        align = "top-left",
+        elements = {{
+            label = Config.Text["attachment_store_clip_category"],
+            value = "clips"
+        }, {
+            label = Config.Text["attachment_store_attachments_category"],
+            value = "attachments"
+        }, {
+            label = Config.Text["attachment_store_misc_category"],
+            value = "misc"
+        }}
+    }, function(data, menu)
+        if data.current.value == "clips" then
+            OpenAttachmentStoreCategory(Config.AttachmentStoreItems["weapon_clips"], data.current.label)
+        elseif data.current.value == "attachments" then
+            OpenAttachmentStoreCategory(Config.AttachmentStoreItems["weapon_attachments"], data.current.label)
+        elseif data.current.value == "misc" then
+            OpenAttachmentStoreCategory(Config.AttachmentStoreItems["misc"], data.current.label)
         end
-    )
+
+        menu.close()
+    end, function(data, menu)
+        menu.close()
+    end)
 end
 
 function openMenu()
@@ -181,35 +161,40 @@ function openMenu()
     local tint = GetPedWeaponTintIndex(ped, selected)
 
     local suppressor = ""
+    local scope = ""
     local flashlight = ""
     local clip = ""
-    local finish = ""
+    --  local finish = ""
     local armor = ""
 
     if GetPedArmour(ped) > 0 then
         armor = "armor"
+    elseif GetPedArmour(ped) > 50 then
+        armor = "armor2"
+    elseif GetPedArmour(ped) > 100 then
+        armor = "armor3"
     end
-
-    if tint ~= 0 then
-        local tintAttachment = ""
-        if tint == 1 then
-            tintAttachment = "weapon_tint_green"
-        elseif tint == 2 then
-            tintAttachment = "weapon_tint_gold"
-        elseif tint == 3 then
-            tintAttachment = "weapon_tint_pink"
-        elseif tint == 4 then
-            tintAttachment = "weapon_tint_army"
-        elseif tint == 5 then
-            tintAttachment = "weapon_tint_lspd"
-        elseif tint == 6 then
-            tintAttachment = "weapon_tint_orange"
-        elseif tint == 7 then
-            tintAttachment = "weapon_tint_platinum"
-        end
-
-        finish = tintAttachment
-    end
+    --
+    -- if tint ~= 0 then
+    --     local tintAttachment = ""
+    --     if tint == 1 then
+    --         tintAttachment = "weapon_tint_green"
+    --     elseif tint == 2 then
+    --         tintAttachment = "weapon_tint_gold"
+    --     elseif tint == 3 then
+    --         tintAttachment = "weapon_tint_pink"
+    --     elseif tint == 4 then
+    --         tintAttachment = "weapon_tint_army"
+    --     elseif tint == 5 then
+    --         tintAttachment = "weapon_tint_lspd"
+    --     elseif tint == 6 then
+    --         tintAttachment = "weapon_tint_orange"
+    --     elseif tint == 7 then
+    --         tintAttachment = "weapon_tint_platinum"
+    --     end
+    --
+    --     finish = tintAttachment
+    -- end
 
     for i = 1, #weapons, 1 do
         if GetHashKey(weapons[i].name) == selected then
@@ -221,10 +206,13 @@ function openMenu()
                         flashlight = "weapon_" .. name
                     elseif name == "suppressor" then
                         suppressor = "weapon_" .. name
+                    elseif name == "scope" then
+                        scope = "weapon_" .. name
                     elseif name == "luxary_finish" then
                         finish = "weapon_" .. name
                     elseif name == "clip_extended" then
                         clip = "weapon_" .. name
+
                     end
                 end
             end
@@ -232,16 +220,16 @@ function openMenu()
     end
 
     SetNuiFocus(true, true)
-    SendNUIMessage(
-        {
-            type = "open",
-            suppressor = suppressor,
-            flashlight = flashlight,
-            clip = clip,
-            finish = finish,
-            armor = armor
-        }
-    )
+    SendNUIMessage({
+        type = "open",
+        suppressor = suppressor,
+        flashlight = flashlight,
+        clip = clip,
+        finish = scope,
+        armor = armor,
+        armor2 = armor2,
+        armor3 = armor3
+    })
 end
 
 function RemoveAttachment(attachment)
@@ -265,12 +253,9 @@ function RemoveAttachment(attachment)
     if HasPedGotWeaponComponent(ped, selected, hash) and not pause then
         pause = true
         local dict, anim = "mp_arresting", "a_uncuff"
-        ESX.Streaming.RequestAnimDict(
-            dict,
-            function()
-                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
-            end
-        )
+        ESX.Streaming.RequestAnimDict(dict, function()
+            TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
+        end)
         Citizen.Wait(1000)
         pause = false
         RemoveWeaponComponentFromPed(ped, selected, hash)
@@ -296,12 +281,9 @@ function RemoveAttachment(attachment)
         end
 
         local dict, anim = "mp_arresting", "a_uncuff"
-        ESX.Streaming.RequestAnimDict(
-            dict,
-            function()
-                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
-            end
-        )
+        ESX.Streaming.RequestAnimDict(dict, function()
+            TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
+        end)
         Citizen.Wait(1000)
         pause = false
         TriggerServerEvent("core_weapon:getComponent", tintAttachment)
@@ -318,12 +300,9 @@ function TryAddingTint(selected, tint, item)
     if current ~= tint then
         if selected ~= GetHashKey("WEAPON_UNARMED") then
             local dict, anim = "mp_arresting", "a_uncuff"
-            ESX.Streaming.RequestAnimDict(
-                dict,
-                function()
-                    TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
-                end
-            )
+            ESX.Streaming.RequestAnimDict(dict, function()
+                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
+            end)
             Citizen.Wait(1000)
             SetPedWeaponTintIndex(ped, selected, tint)
             TriggerServerEvent("core_weapon:removeItem", item)
@@ -355,12 +334,9 @@ function TryAddingAttachment(selected, attachment, item)
     if DoesWeaponTakeWeaponComponent(selected, hash) then
         if not HasPedGotWeaponComponent(ped, selected, hash) then
             local dict, anim = "mp_arresting", "a_uncuff"
-            ESX.Streaming.RequestAnimDict(
-                dict,
-                function()
-                    TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
-                end
-            )
+            ESX.Streaming.RequestAnimDict(dict, function()
+                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1000, 51, 0, false, false, false)
+            end)
             Citizen.Wait(1000)
 
             GiveWeaponComponentToPed(ped, selected, hash)
@@ -401,380 +377,443 @@ function getWeaponType(hash)
     return GetWeapontypeGroup(hash)
 end
 
-RegisterNUICallback(
-    "getArmor",
-    function(data)
+RegisterNUICallback("getArmor", function(data)
+    local ped = GetPlayerPed(-1)
+    local armor = GetPedArmour(ped)
+
+    if armor > 0 and not pause then
+        pause = true
+
+        local dict, anim = "clothingtie", "try_tie_negative_a"
+        ESX.Streaming.RequestAnimDict(dict, function()
+            TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1200, 51, 0, false, false, false)
+        end)
+        Citizen.Wait(1100)
+
+        if armor == 50 then
+            TriggerServerEvent("core_weapon:getComponent", "armor")
+        end
+        if armor == 100 then
+            TriggerServerEvent("core_weapon:getComponent", "armor2")
+        end
+        if armor == 150 then
+            TriggerServerEvent("core_weapon:getComponent", "armor3")
+        end
+
+        SetPedComponentVariation(ped, 9, 0, 0, 0)
+
+        SetPedArmour(ped, 0)
+        pause = false
+    end
+end)
+
+RegisterNUICallback("getComponent", function(data)
+    for k, v in pairs(data.component) do
+        RemoveAttachment(v)
+    end
+end)
+
+RegisterNUICallback("close", function(data)
+    SetNuiFocus(false, false)
+end)
+
+Citizen.CreateThread(function()
+    if Config.AttachmentStoreShowBlip then
+        for _, v in ipairs(Config.AttachmentStores) do
+            local blip = AddBlipForCoord(v)
+
+            SetBlipSprite(blip, Config.AttachmentStoreBlip)
+            SetBlipScale(blip, 0.8)
+            SetBlipColour(blip, Config.AttachmentStoreBlipColor)
+            SetBlipAsShortRange(blip, true)
+
+            BeginTextCommandSetBlipName("STRING")
+            AddTextComponentString(Config.AttachmentStoreBlipName)
+            EndTextCommandSetBlipName(blip)
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
         local ped = GetPlayerPed(-1)
-        local armor = GetPedArmour(ped)
+        local pedCoords = GetEntityCoords(ped)
 
-        if armor > 0 and not pause then
-            pause = true
+        for _, v in ipairs(Config.AttachmentStores) do
+            local dst = GetDistanceBetweenCoords(pedCoords, v)
+            if dst < 20 then
+                DrawMarker(Config.AttachmentStoreMarker, v[1], v[2], v[3] - 0.95, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    Config.AttachmentStoreMarkerSize, Config.AttachmentStoreMarkerSize, 1.0,
+                    Config.AttachmentStoreMarkerColor[1], Config.AttachmentStoreMarkerColor[2],
+                    Config.AttachmentStoreMarkerColor[3], 100, false, true, 2, true, false, false, false)
 
-            local dict, anim = "clothingtie", "try_tie_negative_a"
-            ESX.Streaming.RequestAnimDict(
-                dict,
-                function()
-                    TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1200, 51, 0, false, false, false)
-                end
-            )
-            Citizen.Wait(1100)
+                if dst < Config.AttachmentStoreMarkerSize then
+                    DrawText3D(v[1], v[2], v[3], Config.Text["open_attachment_store"])
 
-            if armor == 100 then
-                TriggerServerEvent("core_weapon:getComponent", "armor")
-            end
-
-            SetPedComponentVariation(ped, 9, 0, 0, 0)
-
-            SetPedArmour(ped, 0)
-            pause = false
-        end
-    end
-)
-
-RegisterNUICallback(
-    "getComponent",
-    function(data)
-        RemoveAttachment(data.component)
-    end
-)
-
-RegisterNUICallback(
-    "close",
-    function(data)
-        SetNuiFocus(false, false)
-    end
-)
-
-Citizen.CreateThread(
-    function()
-        if Config.AttachmentStoreShowBlip then
-            for _, v in ipairs(Config.AttachmentStores) do
-                local blip = AddBlipForCoord(v)
-
-                SetBlipSprite(blip, Config.AttachmentStoreBlip)
-                SetBlipScale(blip, 0.8)
-                SetBlipColour(blip, Config.AttachmentStoreBlipColor)
-                SetBlipAsShortRange(blip, true)
-
-                BeginTextCommandSetBlipName("STRING")
-                AddTextComponentString(Config.AttachmentStoreBlipName)
-                EndTextCommandSetBlipName(blip)
-            end
-        end
-    end
-)
-
-Citizen.CreateThread(
-    function()
-        while true do
-            local ped = GetPlayerPed(-1)
-            local pedCoords = GetEntityCoords(ped)
-
-            for _, v in ipairs(Config.AttachmentStores) do
-                local dst = GetDistanceBetweenCoords(pedCoords, v)
-                if dst < 20 then
-                    DrawMarker(
-                        Config.AttachmentStoreMarker,
-                        v[1],
-                        v[2],
-                        v[3] - 0.95,
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0,
-                        Config.AttachmentStoreMarkerSize,
-                        Config.AttachmentStoreMarkerSize,
-                        1.0,
-                        Config.AttachmentStoreMarkerColor[1],
-                        Config.AttachmentStoreMarkerColor[2],
-                        Config.AttachmentStoreMarkerColor[3],
-                        100,
-                        false,
-                        true,
-                        2,
-                        true,
-                        false,
-                        false,
-                        false
-                    )
-
-                    if dst < Config.AttachmentStoreMarkerSize then
-                        DrawText3D(v[1], v[2], v[3], Config.Text["open_attachment_store"])
-
-                        if IsControlJustReleased(0, Keys["E"]) then
-                            OpenAttachmentStore()
-                        end
-                    end
-
-                    if dst < Config.AttachmentStoreMarkerSize + 1.0 and dst > Config.AttachmentStoreMarkerSize then
-                        ESX.UI.Menu.CloseAll()
+                    if IsControlJustReleased(0, Keys["E"]) then
+                        OpenAttachmentStore()
                     end
                 end
-            end
 
-            Citizen.Wait(0)
-        end
-    end
-)
-
-RegisterCommand(
-    "reload",
-    function()
-        if Config.UseReloadButton then
-            local ped = GetPlayerPed(-1)
-            local selectedWeapon = GetSelectedPedWeapon(ped)
-
-            if selectedWeapon ~= GetHashKey("WEAPON_UNARMED") then
-                ESX.TriggerServerCallback(
-                    "core_weapon:canReload",
-                    function(reload, unmarked)
-                        if reload then
-                            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                                SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
-
-                                MakePedReload(GetPlayerPed(-1))
-
-                                if unmarked then
-                                    guns[selectedWeapon] = true
-                                else
-                                    guns[selectedWeapon] = false
-                                end
-                            else
-                                SendMessage(Config.Text["clip_full"])
-                            end
-                        else
-                            SendMessage(Config.Text["no_more_clips"])
-                        end
-                    end,
-                    getWeaponType(selectedWeapon)
-                )
-            end
-        end
-    end
-)
-
-RegisterKeyMapping("reload", "Reload Gun", "keyboard", "R")
-
-Citizen.CreateThread(
-    function()
-        while true do
-            Citizen.Wait(0)
-            if IsControlJustReleased(0, Keys[Config.UIOpenKey]) then
-                openMenu()
-            end
-        end
-    end
-)
-
-RegisterCommand(
-    Config.OpenCommand,
-    function()
-        openMenu()
-    end
-)
-
-Citizen.CreateThread(
-    function()
-        while true do
-            Citizen.Wait(500)
-
-            if Config.UsingCoreEvidence then
-                local ped = GetPlayerPed(-1)
-                local selectedWeapon = GetSelectedPedWeapon(ped)
-
-                if guns[selectedWeapon] ~= true then
-                    TriggerEvent("core_evidence:unmarkedBullets", false)
-                else
-                    TriggerEvent("core_evidence:unmarkedBullets", true)
+                if dst < Config.AttachmentStoreMarkerSize + 1.0 and dst > Config.AttachmentStoreMarkerSize then
+                    ESX.UI.Menu.CloseAll()
                 end
             end
         end
-    end
-)
 
-RegisterNetEvent("core_weapon:useItem")
-AddEventHandler(
-    "core_weapon:useItem",
-    function(item, unmarked)
+        Citizen.Wait(0)
+    end
+end)
+
+RegisterCommand("reload", function()
+    if Config.UseReloadButton then
         local ped = GetPlayerPed(-1)
         local selectedWeapon = GetSelectedPedWeapon(ped)
 
-        if item == "pistol_clip" then
-            if getWeaponType(selectedWeapon) == "pistol" then
-                if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, 50)
+        if selectedWeapon ~= GetHashKey("WEAPON_UNARMED") then
+            ESX.TriggerServerCallback("core_weapon:canReload", function(reload, unmarked)
+                if reload then
+                    if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                        SetPedAmmo(ped, selectedWeapon, GetWeaponClipSize(selectedWeapon))
 
-                    MakePedReload(GetPlayerPed(-1))
+                        MakePedReload(GetPlayerPed(-1))
 
-                    if unmarked then
-                        TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
-                        guns[selectedWeapon] = true
+                        if unmarked then
+                            guns[selectedWeapon] = true
+                        else
+                            guns[selectedWeapon] = false
+                        end
                     else
-                        TriggerServerEvent("core_weapon:removeItem", item)
-                        guns[selectedWeapon] = false
+                        SendMessage(Config.Text["clip_full"])
                     end
                 else
-                    SendMessage(Config.Text["clip_full"])
+                    SendMessage(Config.Text["no_more_clips"])
                 end
+            end, getWeaponType(selectedWeapon))
+        end
+    end
+end)
+
+-- RegisterKeyMapping("reload", "Reload Gun", "keyboard", "R")
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if IsControlJustReleased(0, Keys[Config.UIOpenKey]) then
+            openMenu()
+        end
+    end
+end)
+
+RegisterCommand(Config.OpenCommand, function()
+    openMenu()
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(500)
+
+        if Config.UsingCoreEvidence then
+            local ped = GetPlayerPed(-1)
+            local selectedWeapon = GetSelectedPedWeapon(ped)
+
+            if guns[selectedWeapon] ~= true then
+                TriggerEvent("core_evidence:unmarkedBullets", false)
             else
-                SendMessage(Config.Text["wrong_clip"])
-            end
-        elseif item == "armor" then
-            if GetPedArmour(ped) ~= 100 then
-                local dict, anim = "clothingtie", "try_tie_negative_a"
-                ESX.Streaming.RequestAnimDict(
-                    dict,
-                    function()
-                        TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1200, 51, 0, false, false, false)
-                    end
-                )
-                Citizen.Wait(1100)
-                TriggerServerEvent("core_weapon:removeItem", item)
-
-                local vest = GetPedDrawableVariation(PlayerPedId(), 9)
-
-                if vest == -1 or vest == 0 and Config.SetVestIfNone then
-                    SetPedComponentVariation(ped, 9, Config.VestId, 1, 0)
-                end
-                SetPedArmour(ped, 100)
-            else
-                SendMessage(Config.Text["full_armor"])
-            end
-        elseif item == "weapon_flashlight" then
-            TryAddingAttachment(selectedWeapon, "flashlight", item)
-        elseif item == "weapon_suppressor" then
-            TryAddingAttachment(selectedWeapon, "suppressor", item)
-        elseif item == "weapon_clip_extended" then
-            TryAddingAttachment(selectedWeapon, "clip_extended", item)
-        elseif item == "weapon_luxary_finish" then
-            TryAddingAttachment(selectedWeapon, "luxary_finish", item)
-        elseif item == "weapon_tint_platinum" then
-            TryAddingTint(selectedWeapon, 7, item)
-        elseif item == "weapon_tint_pink" then
-            TryAddingTint(selectedWeapon, 3, item)
-        elseif item == "weapon_tint_green" then
-            TryAddingTint(selectedWeapon, 1, item)
-        elseif item == "weapon_tint_gold" then
-            TryAddingTint(selectedWeapon, 2, item)
-        elseif item == "weapon_tint_army" then
-            TryAddingTint(selectedWeapon, 4, item)
-        elseif item == "weapon_tint_lspd" then
-            TryAddingTint(selectedWeapon, 5, item)
-        elseif item == "weapon_tint_orange" then
-            TryAddingTint(selectedWeapon, 6, item)
-        elseif item == "rifle_clip" then
-            if getWeaponType(selectedWeapon) == "assault" then
-                if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, 120)
-
-                    MakePedReload(GetPlayerPed(-1))
-
-                    TriggerServerEvent("core_weapon:removeItem", item)
-
-                    if unmarked then
-                        TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
-                        guns[selectedWeapon] = true
-                    else
-                        TriggerServerEvent("core_weapon:removeItem", item)
-                        guns[selectedWeapon] = false
-                    end
-                else
-                    SendMessage(Config.Text["clip_full"])
-                end
-            else
-                SendMessage(Config.Text["wrong_clip"])
-            end
-        elseif item == "lightsmg_clip" then
-            if getWeaponType(selectedWeapon) == "lightmachine" then
-                if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, 250)
-
-                    MakePedReload(GetPlayerPed(-1))
-
-                    TriggerServerEvent("core_weapon:removeItem", item)
-
-                    if unmarked then
-                        TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
-                        guns[selectedWeapon] = true
-                    else
-                        TriggerServerEvent("core_weapon:removeItem", item)
-                        guns[selectedWeapon] = false
-                    end
-                else
-                    SendMessage(Config.Text["clip_full"])
-                end
-            else
-                SendMessage(Config.Text["wrong_clip"])
-            end
-        elseif item == "shotgun_clip" then
-            if getWeaponType(selectedWeapon) == "shotgun" then
-                if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, 30)
-
-                    MakePedReload(GetPlayerPed(-1))
-
-                    TriggerServerEvent("core_weapon:removeItem", item)
-
-                    if unmarked then
-                        TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
-                        guns[selectedWeapon] = true
-                    else
-                        TriggerServerEvent("core_weapon:removeItem", item)
-                        guns[selectedWeapon] = false
-                    end
-                else
-                    SendMessage(Config.Text["clip_full"])
-                end
-            else
-                SendMessage(Config.Text["wrong_clip"])
-            end
-        elseif item == "sniper_clip" then
-            if getWeaponType(selectedWeapon) == "sniper" then
-                if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, 40)
-
-                    MakePedReload(GetPlayerPed(-1))
-
-                    TriggerServerEvent("core_weapon:removeItem", item)
-
-                    if unmarked then
-                        TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
-                        guns[selectedWeapon] = true
-                    else
-                        TriggerServerEvent("core_weapon:removeItem", item)
-                        guns[selectedWeapon] = false
-                    end
-                else
-                    SendMessage(Config.Text["clip_full"])
-                end
-            else
-                SendMessage(Config.Text["wrong_clip"])
-            end
-        elseif item == "smg_clip" then
-            if getWeaponType(selectedWeapon) == "submachine" then
-                if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
-                    SetPedAmmo(ped, selectedWeapon, 90)
-
-                    MakePedReload(GetPlayerPed(-1))
-
-                    if unmarked then
-                        TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
-                        guns[selectedWeapon] = true
-                    else
-                        TriggerServerEvent("core_weapon:removeItem", item)
-                        guns[selectedWeapon] = false
-                    end
-                else
-                    SendMessage(Config.Text["clip_full"])
-                end
-            else
-                SendMessage(Config.Text["wrong_clip"])
+                TriggerEvent("core_evidence:unmarkedBullets", true)
             end
         end
     end
-)
+end)
+
+RegisterNetEvent("core_weapon:useItem")
+AddEventHandler("core_weapon:useItem", function(item, unmarked)
+    local ped = GetPlayerPed(-1)
+    local selectedWeapon = GetSelectedPedWeapon(ped)
+
+    if item == "pistol_clip" then
+        if getWeaponType(selectedWeapon) == "pistol" then
+            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                SetPedAmmo(ped, selectedWeapon, 50)
+
+                MakePedReload(GetPlayerPed(-1))
+
+                if unmarked then
+                    TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
+                    guns[selectedWeapon] = true
+                else
+                    TriggerServerEvent("core_weapon:removeItem", item)
+                    guns[selectedWeapon] = false
+                end
+            else
+                SendMessage(Config.Text["clip_full"])
+            end
+        else
+            SendMessage(Config.Text["wrong_clip"])
+        end
+    elseif item == "armor" then
+        if GetPedArmour(ped) ~= 50 then
+            local dict, anim = "clothingtie", "try_tie_negative_a"
+            ESX.Streaming.RequestAnimDict(dict, function()
+                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1200, 51, 0, false, false, false)
+            end)
+            Citizen.Wait(1100)
+            TriggerServerEvent("core_weapon:removeItem", item)
+
+            local vest = GetPedDrawableVariation(PlayerPedId(), 9)
+
+            if vest == -1 or vest == 0 and Config.SetVestIfNone then
+                SetPedComponentVariation(ped, 9, Config.VestId, 1, 0)
+            end
+            SetPedArmour(ped, 50)
+        else
+            SendMessage(Config.Text["full_armor"])
+        end
+
+    elseif item == "armor2" then
+        if GetPedArmour(ped) ~= 100 then
+            local dict, anim = "clothingtie", "try_tie_negative_a"
+            ESX.Streaming.RequestAnimDict(dict, function()
+                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1200, 51, 0, false, false, false)
+            end)
+            Citizen.Wait(1100)
+            TriggerServerEvent("core_weapon:removeItem", item)
+
+            local vest = GetPedDrawableVariation(PlayerPedId(), 9)
+
+            if vest == -1 or vest == 0 and Config.SetVestIfNone then
+                SetPedComponentVariation(ped, 9, Config.VestId2, 0, 0)
+            end
+            SetPedArmour(ped, 100)
+        else
+            SendMessage(Config.Text["full_armor"])
+        end
+
+    elseif item == "armor3" then
+        if GetPedArmour(ped) ~= 150 then
+            local dict, anim = "clothingtie", "try_tie_negative_a"
+            ESX.Streaming.RequestAnimDict(dict, function()
+                TaskPlayAnim(ped, dict, anim, 3.0, 3.0, 1200, 51, 0, false, false, false)
+            end)
+            Citizen.Wait(1100)
+            TriggerServerEvent("core_weapon:removeItem", item)
+
+            local vest = GetPedDrawableVariation(PlayerPedId(), 9)
+
+            if vest == -1 or vest == 0 and Config.SetVestIfNone then
+                SetPedComponentVariation(ped, 9, Config.VestId3, 0, 0)
+            end
+            SetPedArmour(ped, 150)
+        else
+            SendMessage(Config.Text["full_armor"])
+        end
+    elseif item == "weapon_scope" then
+        TryAddingAttachment(selectedWeapon, "scope", item)
+    elseif item == "weapon_flashlight" then
+        TryAddingAttachment(selectedWeapon, "flashlight", item)
+    elseif item == "weapon_suppressor" then
+        TryAddingAttachment(selectedWeapon, "suppressor", item)
+    elseif item == "weapon_clip_extended" then
+        TryAddingAttachment(selectedWeapon, "clip_extended", item)
+
+    elseif item == "m4a1_pmag30" then
+        TryAddingAttachment(selectedWeapon, "m4a1_pmag30", item)
+
+    elseif item == "m4a1_stanag60" then
+        TryAddingAttachment(selectedWeapon, "m4a1_stanag60", item)
+
+    elseif item == "m4a1_pmag60" then
+        TryAddingAttachment(selectedWeapon, "m4a1_pmag60", item)
+
+    elseif item == "m4a1_scope1" then
+        TryAddingAttachment(selectedWeapon, "m4a1_scope1", item)
+
+    elseif item == "m4a1_scope2" then
+        TryAddingAttachment(selectedWeapon, "m4a1_scope2", item)
+
+    elseif item == "m4a1_scope3" then
+        TryAddingAttachment(selectedWeapon, "m4a1_scope3", item)
+
+    elseif item == "m4a1_supp_1" then
+        TryAddingAttachment(selectedWeapon, "m4a1_supp_1", item)
+
+    elseif item == "ak_supp_1" then
+        TryAddingAttachment(selectedWeapon, "ak_supp_1", item)
+
+    elseif item == "m18_clip_21" then
+        TryAddingAttachment(selectedWeapon, "m18_clip_21", item)
+
+    elseif item == "m18_rmr" then
+        TryAddingAttachment(selectedWeapon, "m18_rmr", item)
+
+    elseif item == "m18_supp_1" then
+        TryAddingAttachment(selectedWeapon, "m18_supp_1", item)
+
+    elseif item == "m18_supp_2" then
+        TryAddingAttachment(selectedWeapon, "m18_supp_2", item)
+
+    elseif item == "glock19_clip_21" then
+        TryAddingAttachment(selectedWeapon, "glock19_clip_21", item)
+
+    elseif item == "glock19_supp_1" then
+        TryAddingAttachment(selectedWeapon, "glock19_supp_1", item)
+
+    elseif item == "glock_clip_21" then
+        TryAddingAttachment(selectedWeapon, "glock_clip_21", item)
+
+    elseif item == "glock_clip_30" then
+        TryAddingAttachment(selectedWeapon, "glock_clip_30", item)
+
+    elseif item == "glock_clip_50" then
+        TryAddingAttachment(selectedWeapon, "glock_clip_50", item)
+
+    elseif item == "glock_culasse_2" then
+        TryAddingAttachment(selectedWeapon, "glock_culasse_2", item)
+
+    elseif item == "glock_culasse_3" then
+        TryAddingAttachment(selectedWeapon, "glock_culasse_3", item)
+
+    elseif item == "glock_culasse_4" then
+        TryAddingAttachment(selectedWeapon, "glock_culasse_4", item)
+
+    elseif item == "glock_culasse_5" then
+        TryAddingAttachment(selectedWeapon, "glock_culasse_5", item)
+
+    elseif item == "glock_supp_1" then
+        TryAddingAttachment(selectedWeapon, "glock_supp_1", item)
+
+    elseif item == "glock_supp_2" then
+        TryAddingAttachment(selectedWeapon, "glock_supp_2", item)
+
+    elseif item == "glock_supp_3" then
+        TryAddingAttachment(selectedWeapon, "glock_supp_3", item)
+
+    elseif item == "weapon_luxary_finish" then
+        TryAddingAttachment(selectedWeapon, "luxary_finish", item)
+    elseif item == "weapon_tint_platinum" then
+        TryAddingTint(selectedWeapon, 7, item)
+    elseif item == "weapon_tint_pink" then
+        TryAddingTint(selectedWeapon, 3, item)
+    elseif item == "weapon_tint_green" then
+        TryAddingTint(selectedWeapon, 1, item)
+    elseif item == "weapon_tint_gold" then
+        TryAddingTint(selectedWeapon, 2, item)
+    elseif item == "weapon_tint_army" then
+        TryAddingTint(selectedWeapon, 4, item)
+    elseif item == "weapon_tint_lspd" then
+        TryAddingTint(selectedWeapon, 5, item)
+    elseif item == "weapon_tint_orange" then
+        TryAddingTint(selectedWeapon, 6, item)
+    elseif item == "rifle_clip" then
+        if getWeaponType(selectedWeapon) == "assault" then
+            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                SetPedAmmo(ped, selectedWeapon, 120)
+
+                MakePedReload(GetPlayerPed(-1))
+
+                TriggerServerEvent("core_weapon:removeItem", item)
+
+                if unmarked then
+                    TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
+                    guns[selectedWeapon] = true
+                else
+                    TriggerServerEvent("core_weapon:removeItem", item)
+                    guns[selectedWeapon] = false
+                end
+            else
+                SendMessage(Config.Text["clip_full"])
+            end
+        else
+            SendMessage(Config.Text["wrong_clip"])
+        end
+    elseif item == "lightsmg_clip" then
+        if getWeaponType(selectedWeapon) == "lightmachine" then
+            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                SetPedAmmo(ped, selectedWeapon, 250)
+
+                MakePedReload(GetPlayerPed(-1))
+
+                TriggerServerEvent("core_weapon:removeItem", item)
+
+                if unmarked then
+                    TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
+                    guns[selectedWeapon] = true
+                else
+                    TriggerServerEvent("core_weapon:removeItem", item)
+                    guns[selectedWeapon] = false
+                end
+            else
+                SendMessage(Config.Text["clip_full"])
+            end
+        else
+            SendMessage(Config.Text["wrong_clip"])
+        end
+    elseif item == "shotgun_clip" then
+        if getWeaponType(selectedWeapon) == "shotgun" then
+            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                SetPedAmmo(ped, selectedWeapon, 30)
+
+                MakePedReload(GetPlayerPed(-1))
+
+                TriggerServerEvent("core_weapon:removeItem", item)
+
+                if unmarked then
+                    TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
+                    guns[selectedWeapon] = true
+                else
+                    TriggerServerEvent("core_weapon:removeItem", item)
+                    guns[selectedWeapon] = false
+                end
+            else
+                SendMessage(Config.Text["clip_full"])
+            end
+        else
+            SendMessage(Config.Text["wrong_clip"])
+        end
+    elseif item == "sniper_clip" then
+        if getWeaponType(selectedWeapon) == "sniper" then
+            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                SetPedAmmo(ped, selectedWeapon, 40)
+
+                MakePedReload(GetPlayerPed(-1))
+
+                TriggerServerEvent("core_weapon:removeItem", item)
+
+                if unmarked then
+                    TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
+                    guns[selectedWeapon] = true
+                else
+                    TriggerServerEvent("core_weapon:removeItem", item)
+                    guns[selectedWeapon] = false
+                end
+            else
+                SendMessage(Config.Text["clip_full"])
+            end
+        else
+            SendMessage(Config.Text["wrong_clip"])
+        end
+    elseif item == "smg_clip" then
+        if getWeaponType(selectedWeapon) == "submachine" then
+            if GetAmmoInPedWeapon(ped, selectedWeapon) < GetWeaponClipSize(selectedWeapon) then
+                SetPedAmmo(ped, selectedWeapon, 90)
+
+                MakePedReload(GetPlayerPed(-1))
+
+                if unmarked then
+                    TriggerServerEvent("core_weapon:removeItem", item .. "_unmarked")
+                    guns[selectedWeapon] = true
+                else
+                    TriggerServerEvent("core_weapon:removeItem", item)
+                    guns[selectedWeapon] = false
+                end
+            else
+                SendMessage(Config.Text["clip_full"])
+            end
+        else
+            SendMessage(Config.Text["wrong_clip"])
+        end
+    end
+end)
 
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)

@@ -3,7 +3,10 @@ Config = {
 UsingCoreEvidence = false, -- If you are using Core Evidence (https://core.tebex.io/package/4265655) it adds (undetectable bullet shells)
 
 SetVestIfNone = true, -- Sets a vest to a player when armor used
-VestId = 5, -- The id of the vest set
+VestId = 6,
+VestId2 = 2,
+VestId3 = 1,
+
 
 OpenCommand = 'weapon', -- The key to open UI menu (Leave blank if you dont want to open with command)
 UIOpenKey = 'F5', -- The key to open UI menu (Leave blank if you dont want to open with a key)

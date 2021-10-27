@@ -35,17 +35,17 @@ Config.Shops = {
 
 			Items = {
 				{
-	 					name = "parballe",
+	 					name = "armor",
 	 					type = "item",
 	 					price = 350
 	 		 },
 	 		 {
-	 					name = "parballe2",
+	 					name = "armor2",
 	 					type = "item",
 	 					price = 599
 	 		 },
 			 {
-					 name = "porteplaque2",
+					 name = "armor3",
 					 type = "item",
 					 price = 1659
 			},

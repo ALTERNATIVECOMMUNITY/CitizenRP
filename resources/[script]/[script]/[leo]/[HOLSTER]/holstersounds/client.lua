@@ -1,4 +1,3 @@
-local default_weapon = GetHashKey('WEAPON_COMBATPISTOL')
 local active = false
 local ped = nil -- Cache the ped
 local currentPedData = nil
@@ -7,11 +6,7 @@ local skins = {
 	"mp_m_freemode_01",
 	"mp_f_freemode_01",
 }
-local weapons = {
-	"WEAPON_COMBATPISTOL",
-  "WEAPON_HEAVYPISTOL",
-	"WEAPON_PISTOL"
-}
+local weapons = data.weapon
 
 -- anims
 
@@ -63,12 +58,13 @@ function CheckSkin(ped)
 end
 
 function CheckWeapon(ped)
+local isHanded = false
 	for i = 1, #weapons do
 		if GetHashKey(weapons[i]) == GetSelectedPedWeapon(ped) then
-			return true
+			isHanded = true
 		end
 	end
-	return false
+	return isHanded
 end
 
 function DisableActions(ped)
@@ -115,13 +111,13 @@ Citizen.CreateThread(function()
           local holsterTexture = GetPedTextureVariation(ped, component)
 
           local emptyHolster = holsters[holsterDrawable]
-          if emptyHolster and current_weapon == default_weapon then
+          if emptyHolster then
             SetPedComponentVariation(ped, component, emptyHolster, holsterTexture, 0)
             break
           end
 
           local filledHolster = table_invert(holsters)[holsterDrawable]
-          if filledHolster and current_weapon ~= default_weapon and last_weapon == default_weapon then
+          if filledHolster then
             SetPedComponentVariation(ped, component, filledHolster, holsterTexture, 0)
             break
           end
