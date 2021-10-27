@@ -480,6 +480,460 @@ config.Jobs = {
 
 
 
+        ['unicorn'] = {
+            ['max_salary'] = 10000, -- maximum ammount of salary can be changed from boss action
+            ['bossmenu'] = {
+                webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                grade = 4, -- minimum grade to access
+                coord = vector3(95.676872253418,-1293.9968261719,29.263521194458),
+                label = 'Menu Patron',
+                event = 'renzu_jobs:openbossmenu',
+            },
+            ['inventory'] = {
+                ['Boss'] = { -- path inventory['Boss']
+                    webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                    grade = 4, -- minimum job grade can access this feature
+                    coord = vector3(93.936599731445,-1291.0380859375,29.263521194458),
+                    label = 'Inventaire Patron',
+                    public = false,
+                    slots = 100,
+                    event = 'inventory:unicornBoss',
+                },
+
+                ['Stash'] = { -- path inventory['Stash']
+                    webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                    grade = 0, -- minimum job grade can access this feature
+                    coord = vector3(129.24775695801,-1280.9157714844,29.269317626953),
+                    label = 'UNICORN', -- same as stash
+                    public = false, -- stash mode or public inventory
+                    slots = 2000,
+                    event = 'inventory:unicorn',
+                },
+            },
+            -- ['weapon_armory'] = { -- DISABLE weapon armory?
+            --     grade = 0, -- minimum job grade can access this feature
+            --     coord = vector3(461.57052612305,-983.02404785156,30.689599990845),
+            --     label = 'Weapon Armory',
+            --     event = 'renzu_jobs:openweapons',
+            -- },
+            ['wardrobe'] = {
+                grade = 0,
+                coord = vector3(-602.02447509766,-913.94671630859,23.886611938477),
+                label = 'Dressing',
+                event = 'renzu_jobs:openwardrobe',
+            },
+           ['shop'] = {
+                [1] = {
+                    webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                    public = true, -- if shop is public or for this job only. (income money will go to this job money)
+                    grade = 0, -- minimum job grade can access this feature
+                    ['items'] = {
+                        [1] = {name = 'gym_membership', label = 'Carte de Membre', value = 3000},
+                    },
+                    label = 'LA FITNESS',
+                    coord = vector3(258.99462890625,-270.11535644531,53.963531494141),
+                    event = 'renzu_jobs:openshop',
+                },
+            --     [2] = {
+            --         webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+            --         public = true, -- if shop is public or for this job only. (income money will go to this job money)
+            --         grade = 0, -- minimum job grade can access this feature
+            --         ['items'] = {
+            --             [1] = {name = 'bread', label = 'Bread', value = 50},
+            --             [2] = {name = 'water', label = 'Water', value = false}, -- if false its free
+            --             [3] = {name = 'WEAPON_PISTOL', label = 'PISTOL', value = 15000}, -- use capitalize for weapon to avoid bugs
+            --         },
+            --         label = 'Bennys Shop 2',
+            --         coord = vector3(-207.91415405273,-1342.0013427734,34.89436340332),
+            --         event = 'renzu_jobs:openshop',
+            --     },
+           },
+            ['crafting'] = {
+            --     webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+            --     grade = 0,
+            --     coord = vector3(-196.37414550781,-1318.5646972656,31.089338302612),
+            --     label = 'Bennys Crafting Table',
+            --     event = 'renzu_jobs:opencrafting',
+            --     craftable = {
+            --         ['turbo_sports'] = {name = 'turbo_sports', label = 'Turbo Sports', type = 'item', seconds = 150, -- index/array name must be the same with item name, so we can fetch it easily later
+            --             requirements = {
+            --                 [1] = {name = 'steel', amount = 5},
+            --             },
+            --         },
+            --         ['WEAPON_PISTOL'] = {name = 'WEAPON_PISTOL', label = 'Pistol', type = 'weapon', seconds = 30,
+            --             requirements = {
+            --                 [1] = {name = 'bread', amount = 1},
+            --                 [2] = {name = 'water', amount = 1},
+            --                 [3] = {name = 'lplparmor', amount = 1},
+            --             },
+            --         },
+            --     }
+           },
+            ['vehicleshop'] = {
+                -- webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                -- grade = 0, -- minimum job grade can access this feature
+                -- label = 'Vehicle Shop',
+                -- coord = vector3(-205.29267883301,-1326.2426757812,30.890409469604),
+                -- event = 'renzu_jobs:openvehicleshop',
+                -- vehicles = {
+                --     [1] = {model = 'elegy', label = 'Elegy Sports', value = 10000, grade = 0},
+                --     [2] = {model = 'sanchez', label = 'Sanchez Sports', value = 5000, grade = 0},
+                -- }
+            },
+            ['garage'] = {
+                -- unique = true, -- if true, only stored in this vehicle will show, false will show all owned_vehicles, true is good for job garage eg. police, false for everyone else gang etc..
+                -- grade = 0, -- minimum job grade can access this feature
+                -- label = 'Garage',
+                -- coord = vector3(-210.30662536621,-1309.2847900391,31.292116165161),
+                -- spawn = vector4(-220.96159362793,-1291.4146728516,30.621912002563,219.47317504883),
+                -- event = 'renzu_jobs:opengarage',
+            },
+            ['duty'] = {
+                -- grade = 0,
+                -- offdutyname = 'offmechanic',
+                -- coord = vector3(-207.6012878418,-1337.5262451172,34.894355773926),
+                -- label = 'On/Off Duty',
+                -- event = 'renzu_jobs:duty',
+            },
+            ['grade'] = { -- grade access , pay attention to the perms, grade int is the index number of array
+                [0] = { -- example grade = 0, ex. cadet? lowest rank, grade can be found in job_grades database table
+                    access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                },
+                [1] = {
+                    access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                },
+                [2] = {
+                    access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                },
+                [3] = {
+                    access = {fire = true, withdraw = true, deposit = true, gradechange = true},
+                },
+            }
+        },
+
+
+
+                ['bayview'] = {
+                    ['max_salary'] = 10000, -- maximum ammount of salary can be changed from boss action
+                    ['bossmenu'] = {
+                        webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                        grade = 4, -- minimum grade to access
+                        coord = vector3(-680.96923828125,5810.5483398438,17.330940246582),
+                        label = 'Menu Patron',
+                        event = 'renzu_jobs:openbossmenu',
+                    },
+                    ['inventory'] = {
+                        ['Boss'] = { -- path inventory['Boss']
+                            webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                            grade = 4, -- minimum job grade can access this feature
+                            coord = vector3(-688.77105712891,5793.9194335938,17.330932617188),
+                            label = 'Inventaire Patron',
+                            public = false,
+                            slots = 100,
+                            event = 'inventory:unicornBoss',
+                        },
+
+                        ['Stash'] = { -- path inventory['Stash']
+                            webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                            grade = 0, -- minimum job grade can access this feature
+                            coord = vector3(1-686.29937744141,5798.8413085938,17.330955505371),
+                            label = 'Frigo', -- same as stash
+                            public = false, -- stash mode or public inventory
+                            slots = 2000,
+                            event = 'inventory:unicorn',
+                        },
+                    },
+                    -- ['weapon_armory'] = { -- DISABLE weapon armory?
+                    --     grade = 0, -- minimum job grade can access this feature
+                    --     coord = vector3(461.57052612305,-983.02404785156,30.689599990845),
+                    --     label = 'Weapon Armory',
+                    --     event = 'renzu_jobs:openweapons',
+                    -- },
+                    ['wardrobe'] = {
+                        grade = 0,
+                        coord = vector3(-602.02447509766,-913.94671630859,23.886611938477),
+                        label = 'Dressing',
+                        event = 'renzu_jobs:openwardrobe',
+                    },
+                   ['shop'] = {
+                        [1] = {
+                            webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                            public = true, -- if shop is public or for this job only. (income money will go to this job money)
+                            grade = 0, -- minimum job grade can access this feature
+                            ['items'] = {
+                                [1] = {name = 'gym_membership', label = 'Carte de Membre', value = 3000},
+                            },
+                            label = 'LA FITNESS',
+                            coord = vector3(258.99462890625,-270.11535644531,53.963531494141),
+                            event = 'renzu_jobs:openshop',
+                        },
+                    --     [2] = {
+                    --         webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                    --         public = true, -- if shop is public or for this job only. (income money will go to this job money)
+                    --         grade = 0, -- minimum job grade can access this feature
+                    --         ['items'] = {
+                    --             [1] = {name = 'bread', label = 'Bread', value = 50},
+                    --             [2] = {name = 'water', label = 'Water', value = false}, -- if false its free
+                    --             [3] = {name = 'WEAPON_PISTOL', label = 'PISTOL', value = 15000}, -- use capitalize for weapon to avoid bugs
+                    --         },
+                    --         label = 'Bennys Shop 2',
+                    --         coord = vector3(-207.91415405273,-1342.0013427734,34.89436340332),
+                    --         event = 'renzu_jobs:openshop',
+                    --     },
+                   },
+                   ['crafting'] = {
+                       webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                       grade = 1,
+                       coord = vector3(-687.38732910156,5796.6196289063,17.33092880249),
+                       label = 'Cuisine du bayview',
+                       event = 'renzu_jobs:opencrafting',
+                       craftable = {
+                           ['diner_hamburger'] = {name = 'diner_hamburger', label = 'Hamburger', type = 'item', seconds = 120, -- index/array name must be the same with item name, so we can fetch it easily later
+                               requirements = {
+                                   [1] = {name = 'bread', amount = 1},
+                                   [2] = {name = 'tomates', amount = 2},
+                                   [3] = {name = 'salade', amount = 1},
+                                   [4] = {name = 'steak', amount = 1},
+                                   [5] = {name = 'cornichons', amount = 1},
+                               },
+                           },
+                           ['diner_frite'] = {name = 'diner_frite', label = 'Frites', type = 'item', seconds = 40,
+                               requirements = {
+                                   [1] = {name = 'patates', amount = 3},
+                                   [2] = {name = 'oil_bouffe', amount = 2},
+                               },
+                           },
+                           ['diner_potatoes'] = {name = 'diner_potatoes', label = 'Potatoes', type = 'item', seconds = 40,
+                               requirements = {
+                                 [1] = {name = 'patates', amount = 3},
+                                 [2] = {name = 'oil_bouffe', amount = 2},
+                               },
+                           },
+                           ['diner_bacon'] = {name = 'diner_bacon', label = 'Bacon', type = 'item', seconds = 50,
+                               requirements = {
+                                   [1] = {name = 'bacon_cru', amount = 2},
+                                   [2] = {name = 'oil_bouffe', amount = 3},
+                               },
+                           },
+                           ['diner_veggiewrap'] = {name = 'diner_veggiewrap', label = 'Veggie Wrap', type = 'item', seconds = 100,
+                               requirements = {
+                                   [1] = {name = 'bread', amount = 1},
+                                   [2] = {name = 'salade', amount = 2},
+                                   [3] = {name = 'tomates', amount = 3},
+                                   [4] = {name = 'cornichons', amount = 1},
+                               },
+                           },
+                       }
+                   },
+                    ['vehicleshop'] = {
+                        -- webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                        -- grade = 0, -- minimum job grade can access this feature
+                        -- label = 'Vehicle Shop',
+                        -- coord = vector3(-205.29267883301,-1326.2426757812,30.890409469604),
+                        -- event = 'renzu_jobs:openvehicleshop',
+                        -- vehicles = {
+                        --     [1] = {model = 'elegy', label = 'Elegy Sports', value = 10000, grade = 0},
+                        --     [2] = {model = 'sanchez', label = 'Sanchez Sports', value = 5000, grade = 0},
+                        -- }
+                    },
+                    ['garage'] = {
+                        -- unique = true, -- if true, only stored in this vehicle will show, false will show all owned_vehicles, true is good for job garage eg. police, false for everyone else gang etc..
+                        -- grade = 0, -- minimum job grade can access this feature
+                        -- label = 'Garage',
+                        -- coord = vector3(-210.30662536621,-1309.2847900391,31.292116165161),
+                        -- spawn = vector4(-220.96159362793,-1291.4146728516,30.621912002563,219.47317504883),
+                        -- event = 'renzu_jobs:opengarage',
+                    },
+                    ['duty'] = {
+                        -- grade = 0,
+                        -- offdutyname = 'offmechanic',
+                        -- coord = vector3(-207.6012878418,-1337.5262451172,34.894355773926),
+                        -- label = 'On/Off Duty',
+                        -- event = 'renzu_jobs:duty',
+                    },
+                    ['grade'] = { -- grade access , pay attention to the perms, grade int is the index number of array
+                        [0] = { -- example grade = 0, ex. cadet? lowest rank, grade can be found in job_grades database table
+                            access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                        },
+                        [1] = {
+                            access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                        },
+                        [2] = {
+                            access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                        },
+                        [3] = {
+                            access = {fire = true, withdraw = true, deposit = true, gradechange = true},
+                        },
+                    }
+                },
+
+
+
+
+
+
+
+
+
+        ['yellowjack'] = {
+            ['max_salary'] = 10000, -- maximum ammount of salary can be changed from boss action
+            ['bossmenu'] = {
+                webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                grade = 4, -- minimum grade to access
+                coord = vector3(1995.0231933594,3042.642578125,50.421981811523),
+                label = 'Menu Patron',
+                event = 'renzu_jobs:openbossmenu',
+            },
+            ['inventory'] = {
+                ['Boss'] = { -- path inventory['Boss']
+                    webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                    grade = 4, -- minimum job grade can access this feature
+                    coord = vector3(1997.4388427734,3049.1179199219,50.423110961914),
+                    label = 'Inventaire Patron',
+                    public = false,
+                    slots = 100,
+                    event = 'inventory:yellowBoss',
+                },
+
+                ['Stash'] = { -- path inventory['Stash']
+                    webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                    grade = 0, -- minimum job grade can access this feature
+                    coord = vector3(1983.1750488281,3054.3874511719,47.215106964111),
+                    label = 'YELLOW JACK', -- same as stash
+                    public = false, -- stash mode or public inventory
+                    slots = 2000,
+                    event = 'inventory:yellow',
+                },
+            },
+            -- ['weapon_armory'] = { -- DISABLE weapon armory?
+            --     grade = 0, -- minimum job grade can access this feature
+            --     coord = vector3(461.57052612305,-983.02404785156,30.689599990845),
+            --     label = 'Weapon Armory',
+            --     event = 'renzu_jobs:openweapons',
+            -- },
+            -- ['wardrobe'] = {
+            --     grade = 0,
+            --     coord = vector3(-602.02447509766,-913.94671630859,23.886611938477),
+            --     label = 'Dressing',
+            --     event = 'renzu_jobs:openwardrobe',
+            -- },
+           ['shop'] = {
+                -- [1] = {
+                --     webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                --     public = true, -- if shop is public or for this job only. (income money will go to this job money)
+                --     grade = 0, -- minimum job grade can access this feature
+                --     ['items'] = {
+                --         [1] = {name = 'gym_membership', label = 'Carte de Membre', value = 3000},
+                --     },
+                --     label = 'LA FITNESS',
+                --     coord = vector3(258.99462890625,-270.11535644531,53.963531494141),
+                --     event = 'renzu_jobs:openshop',
+                -- },
+            --     [2] = {
+            --         webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+            --         public = true, -- if shop is public or for this job only. (income money will go to this job money)
+            --         grade = 0, -- minimum job grade can access this feature
+            --         ['items'] = {
+            --             [1] = {name = 'bread', label = 'Bread', value = 50},
+            --             [2] = {name = 'water', label = 'Water', value = false}, -- if false its free
+            --             [3] = {name = 'WEAPON_PISTOL', label = 'PISTOL', value = 15000}, -- use capitalize for weapon to avoid bugs
+            --         },
+            --         label = 'Bennys Shop 2',
+            --         coord = vector3(-207.91415405273,-1342.0013427734,34.89436340332),
+            --         event = 'renzu_jobs:openshop',
+            --     },
+           },
+           ['crafting'] = {
+               webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+               grade = 1,
+               coord = vector3(1982.9113769531,3049.9487304688,47.215003967285),
+               label = 'Cuisine du Yellow',
+               event = 'renzu_jobs:opencrafting',
+               craftable = {
+                   ['diner_hamburger'] = {name = 'diner_hamburger', label = 'Hamburger', type = 'item', seconds = 120, -- index/array name must be the same with item name, so we can fetch it easily later
+                       requirements = {
+                           [1] = {name = 'bread', amount = 1},
+                           [2] = {name = 'tomates', amount = 2},
+                           [3] = {name = 'salade', amount = 1},
+                           [4] = {name = 'steak', amount = 1},
+                           [5] = {name = 'cornichons', amount = 1},
+                       },
+                   },
+                   ['diner_frite'] = {name = 'diner_frite', label = 'Frites', type = 'item', seconds = 40,
+                       requirements = {
+                           [1] = {name = 'patates', amount = 3},
+                           [2] = {name = 'oil_bouffe', amount = 2},
+                       },
+                   },
+                   ['diner_potatoes'] = {name = 'diner_potatoes', label = 'Potatoes', type = 'item', seconds = 40,
+                       requirements = {
+                         [1] = {name = 'patates', amount = 3},
+                         [2] = {name = 'oil_bouffe', amount = 2},
+                       },
+                   },
+                   ['diner_bacon'] = {name = 'diner_bacon', label = 'Bacon', type = 'item', seconds = 50,
+                       requirements = {
+                           [1] = {name = 'bacon_cru', amount = 2},
+                           [2] = {name = 'oil_bouffe', amount = 3},
+                       },
+                   },
+                   ['diner_veggiewrap'] = {name = 'diner_veggiewrap', label = 'Veggie Wrap', type = 'item', seconds = 100,
+                       requirements = {
+                           [1] = {name = 'bread', amount = 1},
+                           [2] = {name = 'salade', amount = 2},
+                           [3] = {name = 'tomates', amount = 3},
+                           [4] = {name = 'cornichons', amount = 1},
+                       },
+                   },
+               }
+           },
+            ['vehicleshop'] = {
+                -- webhook = false, -- change this to your webhook link, if this a false, its mean no loggin at all, ex. 'https://discord.com/api/webhooks/883246462****'
+                -- grade = 0, -- minimum job grade can access this feature
+                -- label = 'Vehicle Shop',
+                -- coord = vector3(-205.29267883301,-1326.2426757812,30.890409469604),
+                -- event = 'renzu_jobs:openvehicleshop',
+                -- vehicles = {
+                --     [1] = {model = 'elegy', label = 'Elegy Sports', value = 10000, grade = 0},
+                --     [2] = {model = 'sanchez', label = 'Sanchez Sports', value = 5000, grade = 0},
+                -- }
+            },
+            ['garage'] = {
+                -- unique = true, -- if true, only stored in this vehicle will show, false will show all owned_vehicles, true is good for job garage eg. police, false for everyone else gang etc..
+                -- grade = 0, -- minimum job grade can access this feature
+                -- label = 'Garage',
+                -- coord = vector3(-210.30662536621,-1309.2847900391,31.292116165161),
+                -- spawn = vector4(-220.96159362793,-1291.4146728516,30.621912002563,219.47317504883),
+                -- event = 'renzu_jobs:opengarage',
+            },
+            ['duty'] = {
+                -- grade = 0,
+                -- offdutyname = 'offmechanic',
+                -- coord = vector3(-207.6012878418,-1337.5262451172,34.894355773926),
+                -- label = 'On/Off Duty',
+                -- event = 'renzu_jobs:duty',
+            },
+            ['grade'] = { -- grade access , pay attention to the perms, grade int is the index number of array
+                [0] = { -- example grade = 0, ex. cadet? lowest rank, grade can be found in job_grades database table
+                    access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                },
+                [1] = {
+                    access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                },
+                [2] = {
+                    access = {fire = false, withdraw = false, deposit = false, gradechange = false},
+                },
+                [3] = {
+                    access = {fire = true, withdraw = true, deposit = true, gradechange = true},
+                },
+                [4] = {
+                    access = {fire = true, withdraw = true, deposit = true, gradechange = true},
+                },
+            }
+        },
+
+
+
         ['eglise'] = {
             ['max_salary'] = 10000, -- maximum ammount of salary can be changed from boss action
             ['bossmenu'] = {

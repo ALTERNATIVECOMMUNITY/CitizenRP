@@ -525,7 +525,7 @@ function DrawMarkerInput(vec,msg,event,server,name,job)
                 Citizen.Wait(5)
                 coord = GetEntityCoords(ped)
                 if config.showmarker then
-                    DrawMarker(22, vec ,0,0,0,0,0,1.0,1.0,1.0,1.0,255, 255, 220,200,0,0,0,1)
+                --    DrawMarker(22, vec ,0,0,0,0,0,1.0,1.0,1.0,1.0,255, 255, 220,200,0,0,0,1)
                 end
                 if not config.usePopui and #(vec - coord) < 1.5 then
                     ShowFloatingHelpNotification("Appuyez sur [E] "..msg,vec)
