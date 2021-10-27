@@ -30,7 +30,7 @@ end)
 Citizen.CreateThread(function()
 	local StartJobBlip = AddBlipForCoord(Config.BusDriver['Jobstart'].Pos.x, Config.BusDriver['Jobstart'].Pos.y, Config.BusDriver['Jobstart'].Pos.z)
 
-	SetBlipSprite (StartJobBlip, 408)
+	SetBlipSprite (StartJobBlip, 76)
 	SetBlipDisplay(StartJobBlip, 4)
 	SetBlipScale  (StartJobBlip, 0.8)
 	SetBlipColour (StartJobBlip, 0)

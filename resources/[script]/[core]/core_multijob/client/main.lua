@@ -199,7 +199,7 @@ Citizen.CreateThread(
     function()
         for _, v in ipairs(Config.LocationsJobCenters) do
             if v.blip then
-                local blip = AddBlipForCoord(v.coords)
+                local blip = AddBlipForCoord(-272.1258, -955.2777, 31.2231)
 
                 SetBlipSprite(blip, Config.BlipCenterSprite)
                 SetBlipScale(blip, 0.8)

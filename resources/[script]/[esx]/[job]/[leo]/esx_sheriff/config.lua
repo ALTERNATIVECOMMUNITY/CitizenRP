@@ -26,11 +26,11 @@ Config.sheriffStations = {
 	sheriff = {
 
 		Blip = {
-			Coords  = vector3(374.13052368164,-1603.9444580078,29.287836074829),
-			Sprite  = 622,
+			Coords  = vector3(427.9837, -983.3223, 30.7112),
+			Sprite  = 16,
 			Display = 4,
-			Scale   = 1.2,
-			Colour  = 29
+			Scale   = 0.8,
+			Colour  = 0
 		},
 
 		Cloakrooms = {

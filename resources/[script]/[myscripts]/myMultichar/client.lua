@@ -276,37 +276,34 @@ function finishSpawn(pos, isnew)
       TriggerEvent('cd_garage_GrabInfo')
     TriggerServerEvent('zeus:CheckSteamId')
     TriggerServerEvent('vehicleShop:InsertLicense')
-
     _menuPool:CloseAllMenus()
-    cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x,pos.y,pos.z+250, 6000.00,0.00,0.00, 100.00, false, 0)
-    PointCamAtCoord(cam, pos.x,pos.y,pos.z+2)
-    SetCamActiveWithInterp(cam, cam2, 3700, true, true)
-    Citizen.Wait(3700)
-    PlaySoundFrontend(-1, "Zoom_Out", "DLC_HEIST_PLANNING_BOARD_SOUNDS", 1)
-    RenderScriptCams(false, true, 500, true, true)
-    PlaySoundFrontend(-1, "CAR_BIKE_WHOOSH", "MP_LOBBY_SOUNDS", 1)
-	SetEntityCoords(GetPlayerPed(-1), pos.x, pos.y, pos.z)
-    FreezeEntityPosition(GetPlayerPed(-1), false)
-    Citizen.Wait(500)
-    SetCamActive(cam, false)
-    DestroyCam(cam, true)
-    DisplayHud(true)
-    DisplayRadar(true)
 
     if isnew then
-		if Config.useRegisterMenu then
-			TriggerEvent('myMultichar:RegisterNewAccount')
-		end
+        DoScreenFadeOut(1000)
+        SetEntityCoords(PlayerPedId(), 427.9083, -800.9182, 28.4911)
+		SetEntityHeading(92.3606)
+        TriggerEvent('esx_identity:showRegisterIdentity')
+        Citizen.Wait(1000)
+        DoScreenFadeIn(1000)
+    else
+        cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x,pos.y,pos.z+250, 6000.00,0.00,0.00, 100.00, false, 0)
+        PointCamAtCoord(cam, pos.x,pos.y,pos.z+2)
+        SetCamActiveWithInterp(cam, cam2, 3700, true, true)
+        Citizen.Wait(3700)
+        PlaySoundFrontend(-1, "Zoom_Out", "DLC_HEIST_PLANNING_BOARD_SOUNDS", 1)
+        RenderScriptCams(false, true, 500, true, true)
+        PlaySoundFrontend(-1, "CAR_BIKE_WHOOSH", "MP_LOBBY_SOUNDS", 1)
+        SetEntityCoords(GetPlayerPed(-1), pos.x, pos.y, pos.z)
+        FreezeEntityPosition(GetPlayerPed(-1), false)
+        Citizen.Wait(500)
+        SetCamActive(cam, false)
+        DestroyCam(cam, true)
+        DisplayHud(true)
+        DisplayRadar(true)
     end
 
     TriggerEvent('myMultichar:loaded')
     TriggerEvent('cd_garage_GrabInfo')
-
-    if isnew then
-        TriggerServerEvent('esx_dmvschool:addLicense', "dmv")
-        TriggerServerEvent('esx_dmvschool:addLicense', "drive")
-        TriggerServerEvent('myMultichar:givePhone')
-    end
 end
 
 function setPlayerInVoid()

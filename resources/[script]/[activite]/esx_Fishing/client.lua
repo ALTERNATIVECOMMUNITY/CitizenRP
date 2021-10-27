@@ -43,13 +43,13 @@ end
 
 for _, info in pairs(Config.MarkerZones) do
 	info.blip = AddBlipForCoord(info.Marker)
-	SetBlipSprite(info.blip, 455)
+	SetBlipSprite(info.blip, 84)
 	SetBlipDisplay(info.blip, 4)
 	SetBlipScale(info.blip, 0.8)
-	SetBlipColour(info.blip, 74)
+	SetBlipColour(info.blip, 0)
 	SetBlipAsShortRange(info.blip, true)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString("Boat rental")
+	AddTextComponentString("Location de bateaux")
 	EndTextCommandSetBlipName(info.blip)
 end
 
@@ -274,7 +274,7 @@ Citizen.CreateThread(function()
 			local pedc = GetEntityCoords(ped, false)
             local distance = #(pedc - v.Marker)
             if distance <= 1.40 then
-				DisplayHelpText('Appuis sur ~INPUT_CONTEXT~ Pour louer un batteau')
+				DisplayHelpText('Appuis sur ~INPUT_CONTEXT~ Pour louer un bateau')
 
 				if IsControlJustPressed(0, Keys['E']) and IsPedOnFoot(ped) then
 					OpenBoatsMenu(v.Spawn, v.SpawnHeading)

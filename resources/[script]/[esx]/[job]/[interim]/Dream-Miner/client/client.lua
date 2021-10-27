@@ -67,7 +67,7 @@ function CreateBossBlip(type)
 		RemoveBlip(StartJobBlip)
 		StartJobBlip = AddBlipForCoord(Config.miner['BossSpawn'].Pos.x, Config.miner['BossSpawn'].Pos.y, Config.miner['BossSpawn'].Pos.z)
 		
-		SetBlipSprite (StartJobBlip, 408)
+		SetBlipSprite (StartJobBlip, 71)
 		SetBlipDisplay(StartJobBlip, 4)
 		SetBlipScale  (StartJobBlip, 0.8)
 		SetBlipColour (StartJobBlip, 0)

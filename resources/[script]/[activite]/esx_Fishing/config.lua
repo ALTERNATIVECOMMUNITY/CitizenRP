@@ -9,8 +9,8 @@ Config.Sell = {
 	{
 		pos = vec3(-1846.184, -1197.719, 18.2),
 		sellText = "Marché aux Poissons",
-		blip = 317,
-		colour = 69
+		blip = 61,
+		colour = 0
 	},
 }
 

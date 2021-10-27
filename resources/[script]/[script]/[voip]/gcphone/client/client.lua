@@ -453,6 +453,12 @@ AddEventHandler('gcphone:autoAcceptCall', function(infoCall)
   SendNUIMessage({ event = "autoAcceptCall", infoCall = infoCall})
 end)
 
+RegisterNetEvent('gcphone:givelicense')
+AddEventHandler('gcphone:givelicense', function()
+  TriggerServerEvent('esx_dmvschool:addLicense', "dmv")
+  TriggerServerEvent('esx_dmvschool:addLicense', "drive")
+end)
+
 --====================================================================================
 --  Gestion des evenements NUI
 --==================================================================================== 

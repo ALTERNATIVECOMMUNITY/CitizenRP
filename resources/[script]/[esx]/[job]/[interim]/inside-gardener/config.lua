@@ -20,9 +20,9 @@ Config.Gardener = {
 		Size  = {x = 1.2, y = 1.2, z = 1.0},
 		Color = {r = 78, g = 2453, b = 175},
 		Type  = 27,
-        BlipSprite = 613,
+        BlipSprite = 67,
         BlipLabel = '[Jardinier] Base',
-        BlipColor = 43,
+        BlipColor = 0,
         BlipScale = 0.8,
 	},
     Garage = {

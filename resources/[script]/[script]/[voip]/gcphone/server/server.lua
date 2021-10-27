@@ -11,12 +11,14 @@ end)
 
 RegisterServerEvent("crew:onPlayerLoaded")
 AddEventHandler("crew:onPlayerLoaded",function(a)
+    local source = source;
     local b=tonumber(a)
     local c=getPlayerID(b)
-    getOrGeneratePhoneNumber(b,c,function(d)
+    getOrGeneratePhoneNumber(source,b,c,function(d)
         TriggerClientEvent("crew:updatePhone",b,d,getContacts(c),getMessages(c))
         sendHistoriqueCall(b,d)
     end)
+
     getUserTwitterAccount(b,c)
 end)
 
@@ -116,7 +118,7 @@ function getPlayerID(source)
     return player
 end
 
-function getOrGeneratePhoneNumber (sourcePlayer, identifier, cb)
+function getOrGeneratePhoneNumber (source, sourcePlayer, identifier, cb)
     local sourcePlayer = sourcePlayer
     local identifier = identifier
     local myPhoneNumber = getNumberPhone(identifier)
@@ -126,9 +128,10 @@ function getOrGeneratePhoneNumber (sourcePlayer, identifier, cb)
             myPhoneNumber = getPhoneRandomNumber()
             local id = getIdentifierByPhoneNumber(myPhoneNumber)
         until id == nil
-        local xPlayer = ESX.GetPlayerFromId(sourcePlayer)
-        local tellist = { "white_phone", "blue_phone", "green_phone" };
-        xPlayer.addInventoryItem(tellist[math.random(#tellist)], 1);
+        local xPlayer = ESX.GetPlayerFromId(source)
+        TriggerClientEvent('gcphone:givelicense', source)
+        xPlayer.addInventoryItem("phone", 1)
+        xPlayer.addInventoryItem("standart_wallet", 1)
         MySQL.Async.insert("UPDATE users SET phone_number = @myPhoneNumber WHERE identifier = @identifier", { 
             ['@myPhoneNumber'] = myPhoneNumber,
             ['@identifier'] = identifier

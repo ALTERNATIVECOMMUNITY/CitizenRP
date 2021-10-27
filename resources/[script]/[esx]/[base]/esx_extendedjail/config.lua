@@ -24,9 +24,9 @@ Config.TimeToHack = math.random(5000, 10000)
 Config.TimeAlarmLeft = 40000 -- MS
 
 -- Jail Blip
-Config.BlipSprite = 188
-Config.BlipColor = 63
-Config.BlipScale = 0.7
+Config.BlipSprite = 108
+Config.BlipColor = 0
+Config.BlipScale = 0.8
 
 -- Discord Webhooks
 Config.IsWebhookEnabled = false

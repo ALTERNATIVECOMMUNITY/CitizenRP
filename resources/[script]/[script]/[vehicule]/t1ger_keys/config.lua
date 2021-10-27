@@ -125,7 +125,7 @@ Config.LockSmith = {
     bank = true,                            -- pay in bank money, false is normal cash
 
     marker = { enable = true, drawDist = 10.0, type = 20, scale = vector3(0.5,0.5,0.5), color = {r = 240, g = 52, b = 52, a = 100} },
-    blip = { enable = true, sprite = 134, color = 1, label = Lang['blip_locksmith'], scale = 1.0, display = 4 },
+    blip = { enable = true, sprite = 86, color = 0, label = Lang['blip_locksmith'], scale = 1.0, display = 4 },
 }
 
 Config.AlarmShop = {

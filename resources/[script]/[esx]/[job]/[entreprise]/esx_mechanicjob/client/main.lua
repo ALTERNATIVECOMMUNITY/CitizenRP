@@ -907,15 +907,27 @@ end)
 Citizen.CreateThread(function()
 	local blip = AddBlipForCoord(Config.Zones.MechanicActions.Pos.x, Config.Zones.MechanicActions.Pos.y, Config.Zones.MechanicActions.Pos.z)
 
-	SetBlipSprite (blip, 446)
+	SetBlipSprite (blip, 93)
 	SetBlipDisplay(blip, 4)
-	SetBlipScale  (blip, 0.7)
-	SetBlipColour (blip, 5)
+	SetBlipScale  (blip, 0.8)
+	SetBlipColour (blip, 0)
 	SetBlipAsShortRange(blip, true)
 
 	BeginTextCommandSetBlipName('STRING')
 	AddTextComponentSubstringPlayerName(_U('mechanic'))
 	EndTextCommandSetBlipName(blip)
+
+	local blip2 = AddBlipForCoord(1180.5984, 2647.6624, 37.8150)
+
+	SetBlipSprite (blip2, 93)
+	SetBlipDisplay(blip2, 4)
+	SetBlipScale  (blip2, 0.8)
+	SetBlipColour (blip2, 0)
+	SetBlipAsShortRange(blip2, true)
+
+	BeginTextCommandSetBlipName('STRING')
+	AddTextComponentSubstringPlayerName(_U('mechanic'))
+	EndTextCommandSetBlipName(blip2)
 end)
 
 -- Display markers
