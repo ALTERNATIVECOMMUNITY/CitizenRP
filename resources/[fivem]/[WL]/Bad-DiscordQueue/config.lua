@@ -1,6 +1,6 @@
 Config = {
     Default_Prio = 500000, -- This is the default priority value if a discord isn't found
-    AllowedPerTick = 1, -- How many players should we allow to connect at a time?
+    AllowedPerTick = 5, -- How many players should we allow to connect at a time?
     HostDisplayQueue = true,
     onlyActiveWhenFull = false,
     Requirements = { -- A player must have the identifier to be allowed into the server
