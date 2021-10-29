@@ -1,131 +1,151 @@
-#statusHud {
-	width: 14.2%;
-	position: absolute;
-	bottom: 0.5%;
-    left: 30;
-	 /*border: 1px solid red; */
+@font-face {
+	font-family: "Digital7";
+	src: url("digital-7.woff2") format("woff2");
+}
+
+body{
+	margin: 0;
+	padding: 0;
 }
 
 #hour {
 	position: fixed;
 	top: 5vh;
-	right: 1vw;
-	font-size: 24px;
-	color: #ffd24b;
-	font-weight: bold;
-	font-family: Arial, sans-serif;
-	-webkit-text-stroke: 1px rgb(0, 0, 0);
-	text-shadow: 0 0 1px #000;
+	right: 3vw;
+	background: rgba(21, 30, 38, 0.65);
+	box-shadow: inset 2.57255px -2.57255px 4px rgba(119, 150, 198, 0.3), inset -1.28627px 1.28627px 1.28627px rgba(255, 255, 255, 0.5), inset -2.57255px 2.57255px 2.57255px rgba(157, 157, 157, 0.24);
+	border-radius: 7px;
+	font-size: 36px;
+	font-family: "Digital7";
+	letter-spacing: 0.5px;
+	padding: 4px 10px 2px;
 }
 
-#varHealth {
-	width: calc(45% - 2px - 4px);
-	margin-left: 0px !important;
-}
-#varArmor {
-	width: calc(25% - 4px - 4px);
-
-}
-
-#varArmor > .barIcon {
-	width: 10%;
-}
-
-
-#varHealth > .barIcon {
-	width: 25%;
-	height: auto;
-	margin-left: 14%;
-	margin-top: -5px;
-
-}
-#varStress {
-	margin-right: 0px !important;
-}
-
-#varHealth > #boxSetHealth {
-	/* box-shadow: 0px 0px 18px rgb(213, 155, 53); */
-	background: rgb(160, 0, 0);
-}
-#varArmor > #boxSetArmour {
-	box-shadow: 0px 0px 18px rgb(53, 111, 204);
-	background: rgb(53, 111, 204);
-}
-
-.faimetsoif {
-	box-shadow: 0px 0px 18px rgb(101, 137, 182);
-    display: flex;
-    width: calc((25% - 4px) - 4px) !important;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0 0 0 10px;
-    color: white;
-	font-family: Arial;
-	font-weight: bold;
-}
-
-#varHunger{
-    box-shadow: rgb(210 155 67) 0px 0px 18px;
-}
-
-#varHunger .barIcon,
-#varThirst .barIcon{
-	position: static;
-	width: auto;
-	height: calc(100% - 12px);
-	padding-top: 0;
-}
-
-#varHunger span,
-#varThirst span{
-	padding: 0 10px;
-}
-
-#varOxygen > #boxSetOxygen {
-	box-shadow: 0px 0px 18px  rgb(76, 91, 117);
-	background: rgb(76, 91, 117);
-}
-
-#varStress > #boxSetStress {
-	box-shadow: 0px 0px 18px rgb(192, 59, 59);
-	background: rgb(192, 59, 59);
-}
-
-#varVoice > #boxSetVoice {
-	box-shadow: 0px 0px 18px rgb(59, 192, 59);
-	background: rgb(59, 192, 59);
-}
-
-.bar {
-	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.4);
-	width: calc(12.5% - 4px - 4px);
-	height: 25.5px;
-	float: left;
-
-	/* padding: 2px; */
-	border: transparent;
-	margin-right: 1px;
-    margin-left: 2px;
-    z-index: 98;
-}
-
-#boxSetHealth, #boxSetArmour, #boxSetHunger, #boxSetThirst, #boxSetOxygen, #boxSetStress, #boxSetVoice {
-	width: 100%;
-	height: 25.5px;
-	border-radius: 5px;
-	background: rgba(110, 110, 110, 0.5);
-	position: relative;
-	bottom: 0;
-	z-index: 97;
-}
-
-.barIcon {
-	width: calc(12.5% - 4px - 4px);
-	height: 15.5px;
-	padding-top: 5px;
+#shadow{
 	position: absolute;
-	z-index: 99;
-	/* padding: 5px; */
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 0, 0, 0.25);
+}
+
+#time{
+    position: relative;
+    color: #5FE254;
+}
+
+#time::before{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	content: "";
+	color: rgba(100, 231, 52, 0.46);
+	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.65);
+	filter: blur(4px);
+}
+
+#statusHud{
+	position: fixed;
+	bottom: 5vh;
+	right: 3vw;
+}
+
+.bar{
+	margin-bottom: 4px;
+}
+
+.progress{
+	position: relative;
+	width: 188px;
+	height: 22px;
+	background: #003D4D;
+	box-shadow: inset 0px 4px 4px rgba(3, 6, 14, 0.75);
+	border-radius: 24px;
+}
+
+.progress img {
+	height: 100%;
+	position: absolute;
+	right: 6px;
+	top: 0;
+}
+
+.warning{
+	animation: warn 1s ease infinite;
+}
+
+@keyframes warn {
+	0%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+.progress-bar{
+	background: linear-gradient(90deg, #FF9C96 0%, #ACE96F 150%);
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.6);
+	height: 22px;
+	border-radius: 23px;
+	position: relative;
+	z-index: 1;
+	min-width: 13%;
+	transition: all .5s ease;
+}
+
+#water .progress-bar{
+	background: linear-gradient(90deg, #7fc4f5 0%, #0072FF 150%);
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 1);
+}
+
+.progress-bar::before{
+	content: "";
+    position: absolute;
+    top: -7px;
+    left: -14px;
+    background: url(img/start_faim.png) center left no-repeat;
+    height: 35px;
+    z-index: 1;
+    width: 100%;
+}
+
+#water .progress-bar::before{
+    background: url(img/start_water.png) center left no-repeat;
+}
+
+
+.progress-bar::after{
+	content: "";
+    position: absolute;
+    top: -7px;
+    left: 10px;
+    background: url(img/tranche_faim.png) center center repeat-x;
+    height: 35px;
+    z-index: 1;
+    width: calc(100% - 20px);
+}
+
+#water .progress-bar::after{
+    background: url(img/tranche_water.png) center center repeat-x;
+}
+
+.progress-bar span{
+	content: "";
+    position: absolute;
+    top: -7px;
+    right: -14px;
+    background: url(img/end_faim.png) center right no-repeat;
+    height: 35px;
+    z-index: 1;
+    width: 100%;
+}
+
+#water .progress-bar span{
+    background: url(img/end_water.png) center right no-repeat;
 }

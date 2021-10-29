@@ -219,62 +219,62 @@ Config.Uniforms = {
 			chain_1 = 9,    chain_2 = 0,
 			ears_1 = -1,     ears_2 = 0,
 			bags_1 = -1,	bags_2 = 0,
-			}
+		}
+	},
+
+	pat = {
+		male = {
+			tshirt_1 = 40,  tshirt_2 = 2,
+			torso_1 = 32,   torso_2 = 1,
+			decals_1 = 19,   decals_2 = 0,
+			arms = 190,
+			pants_1 = 25,   pants_2 = 1,
+			shoes_1 = 54,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = -1,    chain_2 = 0,
+			ears_1 = -1,     ears_2 = 0,
+			bags_1 = -1,	bags_2 = 0,
 		},
 
+		female = {
+			tshirt_1 = 30,  tshirt_2 = 2,
+				torso_1 = 265,   torso_2 = 1,
+			decals_1 = 0,   decals_2 = 0,
+			arms = 44,
+			pants_1 = 105,   pants_2 = 1,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,   helmet_2 = 0,
+			ears_1 = -1,     ears_2 = 0,
+			bags_1 = -1,	bags_2 = 0,
+		}
+	},
 
-			pat = {
-				male = {
-					tshirt_1 = 40,  tshirt_2 = 2,
-					torso_1 = 32,   torso_2 = 1,
-					decals_1 = 19,   decals_2 = 0,
-					arms = 190,
-					pants_1 = 25,   pants_2 = 1,
-					shoes_1 = 54,   shoes_2 = 0,
-					helmet_1 = -1,  helmet_2 = 0,
-					chain_1 = -1,    chain_2 = 0,
-					ears_1 = -1,     ears_2 = 0,
-					bags_1 = -1,	bags_2 = 0,
-				},
+	capo = {
+		male = {
+			tshirt_1 = 40,  tshirt_2 = 2,
+			torso_1 = 32,   torso_2 = 2,
+			decals_1 = 19,   decals_2 = 0,
+			arms = 190,
+			pants_1 = 25,   pants_2 = 1,
+			shoes_1 = 54,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = -1,    chain_2 = 0,
+			ears_1 = -1,     ears_2 = 0,
+			bags_1 = 73,	bags_2 = 0,
+		},
 
-				female = {
-					tshirt_1 = 30,  tshirt_2 = 2,
-						torso_1 = 265,   torso_2 = 1,
-					decals_1 = 0,   decals_2 = 0,
-					arms = 44,
-					pants_1 = 105,   pants_2 = 1,
-					shoes_1 = 27,   shoes_2 = 0,
-					helmet_1 = -1,   helmet_2 = 0,
-					ears_1 = -1,     ears_2 = 0,
-					bags_1 = -1,	bags_2 = 0,
-				}
-			},
-			capo = {
-					male = {
-						tshirt_1 = 40,  tshirt_2 = 2,
-						torso_1 = 32,   torso_2 = 2,
-						decals_1 = 19,   decals_2 = 0,
-						arms = 190,
-						pants_1 = 25,   pants_2 = 1,
-						shoes_1 = 54,   shoes_2 = 0,
-						helmet_1 = -1,  helmet_2 = 0,
-						chain_1 = -1,    chain_2 = 0,
-						ears_1 = -1,     ears_2 = 0,
-						bags_1 = 73,	bags_2 = 0,
-					},
-
-					female = {
-						tshirt_1 = 30,  tshirt_2 = 2,
-							torso_1 = 265,   torso_2 = 1,
-						decals_1 = 0,   decals_2 = 0,
-						arms = 44,
-						pants_1 = 105,   pants_2 = 0,
-						shoes_1 = 27,   shoes_2 = 0,
-						helmet_1 = -1,   helmet_2 = 0,
-						ears_1 = -1,     ears_2 = 0,
-						bags_1 = -1,	bags_2 = 0,
-					}
-				},
+		female = {
+			tshirt_1 = 30,  tshirt_2 = 2,
+				torso_1 = 265,   torso_2 = 1,
+			decals_1 = 0,   decals_2 = 0,
+			arms = 44,
+			pants_1 = 105,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,   helmet_2 = 0,
+			ears_1 = -1,     ears_2 = 0,
+			bags_1 = -1,	bags_2 = 0,
+		}
+	},
 
 
 	sergeant = {
@@ -290,6 +290,7 @@ Config.Uniforms = {
 			ears_1 = -1,     ears_2 = 0,
 			bags_1 = -1,	bags_2 = 0,
 		},
+
 		female = {
 			tshirt_1 = 30,  tshirt_2 = 2,
 			torso_1 = 265,   torso_2 = 3,
@@ -297,9 +298,9 @@ Config.Uniforms = {
 			arms = 44,
 			pants_1 = 105,   pants_2 = 0,
 			shoes_1 = 27,   shoes_2 = 0,
-		helmet_1 = -1,   helmet_2 = 0,
-		ears_1 = -1,     ears_2 = 0,
-		bags_1 = -1,	bags_2 = 0,
+			helmet_1 = -1,   helmet_2 = 0,
+			ears_1 = -1,     ears_2 = 0,
+			bags_1 = -1,	bags_2 = 0,
 		}
 	},
 
@@ -316,6 +317,7 @@ Config.Uniforms = {
 			ears_1 = -1,     ears_2 = 0,
 			bags_1 = -1,	bags_2 = 0,
 		},
+
 		female = {
 			tshirt_1 = 30,  tshirt_2 = 2,
 			torso_1 = 265,   torso_2 = 4,
@@ -343,6 +345,7 @@ Config.Uniforms = {
 			ears_1 = -1,     ears_2 = 0,
 			bags_1 = -1,	bags_2 = 0,
 		},
+
 		female = {
 			tshirt_1 = 30,  tshirt_2 = 2,
 			torso_1 = 265,   torso_2 = 5,
@@ -370,6 +373,7 @@ Config.Uniforms = {
 			ears_1 = -1,     ears_2 = 0,
 			bags_1 = 73,	bags_2 = 0,
 		},
+
 		female = {
 			tshirt_1 = 30,  tshirt_2 = 2,
 			torso_1 = 265,   torso_2 =6,
@@ -378,8 +382,8 @@ Config.Uniforms = {
 			pants_1 = 105,   pants_2 = 0,
 			shoes_1 = 27,   shoes_2 = 0,
 			helmet_1 = -1,   helmet_2 = 0,
-		ears_1 = -1,     ears_2 = 0,
-		bags_1 = -1,	bags_2 = 0,
+			ears_1 = -1,     ears_2 = 0,
+			bags_1 = -1,	bags_2 = 0,
 		}
 	},
 
