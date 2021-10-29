@@ -1,22 +1,6 @@
 
 
 function open(data) {
-  $(".item").hide();
-  const list = ["suppressor", "clip", "flashlight", "scope", "armor"];
-  let showed = 0;
-  for (let k in data) {
-    if (list.includes(k) && data[k] != "") {
-      $(`#${k} img`).attr('src', `img/${data[k]}.png`);
-      $(`#${k}`).show();
-      showed++;
-    }
-  }
-  $("body").fadeIn(500);
-  if (showed === 0) $.post('https://core_weapon/close', JSON.stringify({}));
-}
-
-$(document).keyup(function (e) {
-  if (e.keyCode === 27) {
     $.post('https://core_weapon/close', JSON.stringify({}));
   }
 });
