@@ -22,6 +22,7 @@
 }
 body {
     overflow: hidden;
+    height: 100vh;
 }
 #u272{
     z-index:40;
