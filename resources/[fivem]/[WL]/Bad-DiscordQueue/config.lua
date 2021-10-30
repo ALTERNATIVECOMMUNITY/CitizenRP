@@ -1,7 +1,7 @@
 Config = {
     Default_Prio = 500000, -- This is the default priority value if a discord isn't found
-    AllowedPerTick = 1, -- How many players should we allow to connect at a time?
-    HostDisplayQueue = true,
+    AllowedPerTick = 5, -- How many players should we allow to connect at a time?
+    HostDisplayQueue = false,
     onlyActiveWhenFull = false,
     Requirements = { -- A player must have the identifier to be allowed into the server
         Discord = true,
@@ -37,17 +37,23 @@ Config.Rankings = {
     -- LOWER NUMBER === HIGHER PRIORITY
     -- ['roleID'] = {rolePriority, connectQueueMessage},
     --	['Citoyens'] = {500, "Tu es sur la rocade ! [{QUEUE_NUM}/{QUEUE_MAX}]:"},
-    ['vip'] = {
-        200,
-        "Tu es sur la rocade ! (VIP) [{QUEUE_NUM}/{QUEUE_MAX}]:"
-    },
-    ['Testeur'] = {
-        200,
-        "Tu es sur la rocade ! (Testeur) [{QUEUE_NUM}/{QUEUE_MAX}]:"
+
+    -- ['Testeur'] = {
+    --     200,
+    --     "Tu es sur la rocade ! (Testeur) [{QUEUE_NUM}/{QUEUE_MAX}]:"
+    -- },
+
+    ['Nitro'] = {
+        150,
+        "Tu es sur la rocade ! (Nitro Booster) [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
 
+    ['vip'] = {
+        140,
+        "Tu es sur la rocade ! (VIP) [{QUEUE_NUM}/{QUEUE_MAX}]:"
+    },
     ['Streamer'] = {
-        100,
+        140,
         "Rocade spéciale press [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
 
@@ -55,9 +61,8 @@ Config.Rankings = {
         50,
         "Rocade Modérateur [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
-
     ['Dev'] = {
-        30,
+        20,
         "Rocade des geeks. [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
     ['Gestions'] = {
