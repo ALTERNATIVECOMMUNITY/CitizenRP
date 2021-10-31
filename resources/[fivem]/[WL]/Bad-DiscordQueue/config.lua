@@ -30,7 +30,6 @@ Config = {
             MSG_NOT_WHITELISTED = 'Tu n\'as pas le bon role sur discord... Tu n\'est pas whitelisté !.'
         }
     }
-
 }
 
 Config.Rankings = {
@@ -45,17 +44,14 @@ Config.Rankings = {
         200,
         "Tu es sur la rocade ! (Testeur) [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
-
     ['Streamer'] = {
         100,
         "Rocade spéciale press [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
-
     ['MODERATION'] = {
         50,
         "Rocade Modérateur [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
-
     ['Dev'] = {
         30,
         "Rocade des geeks. [{QUEUE_NUM}/{QUEUE_MAX}]:"
