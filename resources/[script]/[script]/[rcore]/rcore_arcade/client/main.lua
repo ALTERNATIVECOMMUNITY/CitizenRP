@@ -16,7 +16,7 @@ end
 
 exports('doesPlayerHaveTicket', doesPlayerHaveTicket)
 
---count time
+-- count time
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1000)
@@ -27,7 +27,7 @@ Citizen.CreateThread(function()
 
                 SendNUIMessage({
                     type = "off",
-                    game = "",
+                    game = ""
                 })
                 SetNuiFocus(false, false)
             end
@@ -38,13 +38,15 @@ Citizen.CreateThread(function()
     end
 end)
 
---create npc, blip, marker
+-- create npc, blip, marker
 Citizen.CreateThread(function()
     for k, v in pairs(Config.Arcade) do
         local newPos = v.marker.markerPosition - vector3(0, 0, 0.4)
         local computerMarker = createMarker()
 
-        computerMarker.setKeys({38})
+        computerMarker.setKeys({
+            38
+        })
 
         computerMarker.setRenderDistance(10)
         computerMarker.setPosition(newPos)
@@ -69,10 +71,6 @@ Citizen.CreateThread(function()
             end
         end)
 
-        if v.blip and v.blip.enable then
-            createBlip(v.blip.name, v.blip.blipId, v.blip.position, v.blip)
-        end
-
         createLocalPed(4, v.NPC.model, v.NPC.position, v.NPC.heading, function(ped)
             SetEntityAsMissionEntity(ped)
             SetBlockingOfNonTemporaryEvents(ped, true)
@@ -82,13 +80,15 @@ Citizen.CreateThread(function()
     end
 end)
 
---create markers for computers
+-- create markers for computers
 Citizen.CreateThread(function()
     for k, v in pairs(Config.computerList) do
         local newPos = v.position - vector3(0, 0, 0.4)
         local computerMarker = createMarker()
 
-        computerMarker.setKeys({38})
+        computerMarker.setKeys({
+            38
+        })
 
         computerMarker.setRenderDistance(10)
         computerMarker.setPosition(newPos)
