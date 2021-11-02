@@ -53,6 +53,7 @@ Config.Drink = {
    -- thirst is added after each click of the Drink button -- Alcohol = How much effect is added after one click on the Drink button -- Shots = true if you want to pour shots from the bottle -- pos = prop position
     {Item = "piswasser",  CleanUpItem = '', ml = 500, Prop = "prop_amb_beer_bottle", StatusDrink = 10000, Alcohol = 0.0359949, Shots = false , Pos1 = 0.0, Pos2 = -0.02, Pos3 = -0.01, Pos4 = 18.0, Pos5 = -10.0, Pos6 = 0.0},
 
+
     {Item = "mount_whisky",  CleanUpItem = 'shot_mount_whisky', ml = 500, Prop = "prop_whiskey_bottle", StatusDrink = 10000, Alcohol = 0.0759949, Shots = true, Pos1 = 0.0, Pos2 = -0.02, Pos3 = -0.17, Pos4 = 0.2, Pos5 = -06.0, Pos6 = 0.0},
 
     {Item = "tequila",  CleanUpItem = 'shot_tequila', ml = 500, Prop = "prop_tequila_bottle", StatusDrink = 10000, Alcohol = 0.0959949, Shots = true, Pos1 = 0.0, Pos2 = -0.02, Pos3 = -0.23, Pos4 = 0.2, Pos5 = -06.0, Pos6 = 0.0},

@@ -4,8 +4,8 @@ Translation = {}
 
 Translation = {
     ['de'] = {
-        ['DJ_interact'] = 'Drücke ~g~E~s~, um auf das DJ Pult zuzugreifen',
-        ['title_does_not_exist'] = '~r~Dieser Titel existiert nicht!',
+        ['DJ_interact'] = 'Appuyez sur ~g~E~s~, pour accéder au bureau du DJ',
+        ['title_does_not_exist'] = ' Ce titre n\'existe pas !',
     },
 
     ['en'] = {

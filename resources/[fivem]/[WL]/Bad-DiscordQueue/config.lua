@@ -1,7 +1,11 @@
 Config = {
     Default_Prio = 500000, -- This is the default priority value if a discord isn't found
     AllowedPerTick = 5, -- How many players should we allow to connect at a time?
+<<<<<<< HEAD
     HostDisplayQueue = false,
+=======
+    HostDisplayQueue = true,
+>>>>>>> 1d701fb63eb11ba1834d32d75b6095f0c6057387
     onlyActiveWhenFull = false,
     Requirements = { -- A player must have the identifier to be allowed into the server
         Discord = true,
@@ -30,7 +34,6 @@ Config = {
             MSG_NOT_WHITELISTED = 'Tu n\'as pas le bon role sur discord... Tu n\'est pas whitelisté !.'
         }
     }
-
 }
 
 Config.Rankings = {
@@ -52,11 +55,17 @@ Config.Rankings = {
         140,
         "Tu es sur la rocade ! (VIP) [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
+<<<<<<< HEAD
+=======
+    ['Testeur'] = {
+        200,
+        "Tu es sur la rocade ! (Testeur) [{QUEUE_NUM}/{QUEUE_MAX}]:"
+    },
+>>>>>>> 1d701fb63eb11ba1834d32d75b6095f0c6057387
     ['Streamer'] = {
         140,
         "Rocade spéciale press [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
-
     ['MODERATION'] = {
         50,
         "Rocade Modérateur [{QUEUE_NUM}/{QUEUE_MAX}]:"

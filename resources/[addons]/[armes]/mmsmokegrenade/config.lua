@@ -1,7 +1,7 @@
 Config = {
-	WeaponLabel = "Grenade Fumigene",
-	ExplodeTime = 5000,             -- msec
-	SmokeTime = 20000,              -- msec
-	SmokeSize = 4.0,
-	SmokeVisibilityDistance = 80.0,
+    WeaponLabel = "Grenade Fumigene",
+    ExplodeTime = 5000, -- msec
+    SmokeTime = 20000, -- msec
+    SmokeSize = 4.0,
+    SmokeVisibilityDistance = 450.0
 }

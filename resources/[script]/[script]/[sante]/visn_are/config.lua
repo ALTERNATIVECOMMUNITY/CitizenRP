@@ -16,17 +16,20 @@ ConfigData.vehicleRadius = 7.0 -- Vehicle-Search-Radius of putInVehicle-Event.
 ConfigData.painTimeout = 600 -- Seconds
 ConfigData.needSewedWounds = true -- Should wounds needed to be sewed?
 ConfigData.sewTimeout = 600 -- Seconds; When does a sew randomly open again?
-ConfigData.bleedReasons = { -- Reasons that should start bleeding. ("vehicle_hit", "fall_damage", "weapon_damage", "punch_damage")
-    "weapon_damage"
-}
-ConfigData.activatedReasons = { -- Reasons that should hurt the player. ("vehicle_hit", "fall_damage", "weapon_damage", "punch_damage")
-      "vehicle_hit",
-    "fall_damage",
-    "weapon_damage"
-}
+ConfigData.bleedReasons =
+    { -- Reasons that should start bleeding. ("vehicle_hit", "fall_damage", "weapon_damage", "punch_damage")
+        "weapon_damage",
+        "vehicle_hit"
+    }
+ConfigData.activatedReasons =
+    { -- Reasons that should hurt the player. ("vehicle_hit", "fall_damage", "weapon_damage", "punch_damage")
+        "vehicle_hit",
+        "fall_damage",
+        "weapon_damage"
+    }
 ConfigData.startDamageTimer = 100 -- Timer after join, after timer end, damage can be taken. READ: This is important for incorrect positions spawns.
 ConfigData.flashScreens = { -- Activated flashing screens ("pain", "bleeding")
     "bleeding",
-    "weapon_damage",
+    "weapon_damage"
 }
 ConfigData.b2060 = true -- Set to true, if you are using b2060
