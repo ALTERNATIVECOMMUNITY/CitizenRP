@@ -2,13 +2,27 @@ import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 import 'jquery-ui/ui/widgets/draggable'
 import 'jquery-ui/ui/widgets/droppable'
-import {Animated} from 'react-animated-css'
+import { Animated } from 'react-animated-css'
 import { Textfit } from 'react-textfit';
 import { toast } from 'react-toastify';
 import { useInventory } from './App.jsx';
 
-export default function Inventory({type, title, weight, items}) {
-    const {sound, locales, clickSound, moveSound, setLock, lock, selectItem, counter, otherInventory, resName} = useInventory()
+export default function Inventory({ type, title, weight, items }) {
+    const { sound, locales, clickSound, moveSound, setLock, lock, selectItem, counter, otherInventory, resName, PaymentMethod, setPaymentMethod, MovedItem, setMovedItem } = useInventory()
+
+    const payItem = (method) => {
+        setLock(true)
+
+        $.post(`https://${resName}/MakePayment`, JSON.stringify({
+            method: method,
+            item: MovedItem,
+            count: parseInt(counter.current.value)
+        }), () => {
+            setMovedItem(false)
+            setPaymentMethod(false)
+            setLock(false)
+        })
+    }
 
     // Droppable Area
     const dropRef = React.useRef()
@@ -28,29 +42,34 @@ export default function Inventory({type, title, weight, items}) {
                 if (item.inventory === 'main' && !item.remove) return;
                 if (type === 'shop') return;
                 if (lock) return;
-                
-                if (sound) {
-                    moveSound.pause()
-                    moveSound.currentTime = 0;
-                    moveSound.play()
-                }
-                
-                if (type === 'main') {
-                    setLock(true)
-                    $.post(`https://${resName}/MoveItemToPlayer`, JSON.stringify({
-                        item: item,
-                        count: parseInt(counter.current.value)
-                    }), () => {
-                        setLock(false)
-                    })
+
+                if (item.inventory === "shop") {
+                    setMovedItem(item);
+                    setPaymentMethod(true);
                 } else {
-                    setLock(true)
-                    $.post(`https://${resName}/MoveItemToOther`, JSON.stringify({
-                        item: item,
-                        count: parseInt(counter.current.value)
-                    }), () => {
-                        setLock(false)
-                    })
+                    if (sound) {
+                        moveSound.pause()
+                        moveSound.currentTime = 0;
+                        moveSound.play()
+                    }
+
+                    if (type === 'main') {
+                        setLock(true)
+                        $.post(`https://${resName}/MoveItemToPlayer`, JSON.stringify({
+                            item: item,
+                            count: parseInt(counter.current.value)
+                        }), () => {
+                            setLock(false)
+                        })
+                    } else {
+                        setLock(true)
+                        $.post(`https://${resName}/MoveItemToOther`, JSON.stringify({
+                            item: item,
+                            count: parseInt(counter.current.value)
+                        }), () => {
+                            setLock(false)
+                        })
+                    }
                 }
             }
         })
@@ -64,12 +83,12 @@ export default function Inventory({type, title, weight, items}) {
             containment: 'body',
             zIndex: 100,
             delay: 75,
-            cursorAt: { left: 70, top:90 },
-            start: function(e, ui) {    
+            cursorAt: { left: 70, top: 90 },
+            start: function (e, ui) {
                 selectItem(null)
                 ui.helper.data('dropped', false);
             },
-            stop: function(e, ui) {
+            stop: function (e, ui) {
                 var item = $(this).data('item')
 
                 if (lock) return;
@@ -109,15 +128,21 @@ export default function Inventory({type, title, weight, items}) {
 
     return (
         <div className='inventory' id='inv'>
-            <h1 className='title' dangerouslySetInnerHTML={{__html: title}} />
-            <div className="weight" style={{display: weight ? 'flex' : 'none'}}>
+            <div class="popinPayment" style={{ display: PaymentMethod ? 'block' : 'none' }}>
+                <h2>Moyens de paiement</h2>
+                <div className="btn" onClick={() => payItem("bank")}>Carte bancaire</div>
+                <div className="btn" onClick={() => payItem("money")}>Argent liquide</div>
+                <div className="btn" onClick={() => payItem("black_money")}>Argent sale</div>
+            </div>
+            <h1 className='title' dangerouslySetInnerHTML={{ __html: title }} />
+            <div className="weight" style={{ display: weight ? 'flex' : 'none' }}>
                 <div className='pill'>{weight && weight.current !== undefined ? (
                     <Animated animationIn="zoomIn" animationInDuration={250}>
                         <span>{weight.current}/{weight.max}</span>
                     </Animated>
                 ) : <div className='loader' />}</div>
                 <div className="outer">
-                    <div className="inner" style={{width: weight && (weight.current / weight.max) * 100 + '%'}} />
+                    <div className="inner" style={{ width: weight && (weight.current / weight.max) * 100 + '%' }} />
                 </div>
             </div>
             <div className="items" ref={dropRef}>
@@ -141,8 +166,8 @@ export default function Inventory({type, title, weight, items}) {
     )
 }
 
-function Item({inventory, item}) {
-    const {middleClickUse, locales, sound, clickSound, moveSound, selectedItem, selectItem, setLock, lock, otherInventory, resName} = useInventory()
+function Item({ inventory, item }) {
+    const { middleClickUse, locales, sound, clickSound, moveSound, selectedItem, selectItem, setLock, lock, otherInventory, resName } = useInventory()
 
     const itemRef = React.useRef()
 
@@ -157,7 +182,7 @@ function Item({inventory, item}) {
 
     useEffect(() => {
         $(itemRef.current).removeData('item');
-        $(itemRef.current).data('item', {inventory, ...item});
+        $(itemRef.current).data('item', { inventory, ...item });
     }, [inventory, item])
 
     function numberWithCommas(x) {
@@ -212,30 +237,30 @@ function Item({inventory, item}) {
     const handleMiddleClick = (e) => {
         if (!middleClickUse) return;
 
-        if (e.button === 1) {  
+        if (e.button === 1) {
             if (inventory === 'main') {
                 if (item.use) {
                     $.post(`https://${resName}/UseItem`, JSON.stringify({
                         item: item
                     }))
                 } else {
-                    toast("Item is not usable", {type: 'error'})
+                    toast("Item is not usable", { type: 'error' })
                 }
             }
         }
     }
 
     return item && (
-        <div 
-        className={`item ${inventory === "main" && selectedItem && selectedItem.name === item.name && 'selected'}`} 
-        onClick={() => handleClick({inventory, ...item})} 
-        onContextMenu={(e) => onRightClick(e, {inventory, ...item}, otherInventory, lock)}
-        onMouseDown={(e) => handleMiddleClick(e)}
+        <div
+            className={`item ${inventory === "main" && selectedItem && selectedItem.name === item.name && 'selected'}`}
+            onClick={() => handleClick({ inventory, ...item })}
+            onContextMenu={(e) => onRightClick(e, { inventory, ...item }, otherInventory, lock)}
+            onMouseDown={(e) => handleMiddleClick(e)}
         >
-            <div className="item-count" style={{width: '100%', textAlign: 'center'}}>
+            <div className="item-count" style={{ width: '100%', textAlign: 'center' }}>
                 <Textfit mode='single' max={16}>
                     {inventory === 'shop' || item.type === 'item_account' ? (
-                        <span><span style={{color: 'lightgreen', fontWeight: 'bold'}}>{locales.Currency}</span> {numberWithCommas(item.count)}</span>
+                        <span><span style={{ color: 'lightgreen', fontWeight: 'bold' }}>{locales.Currency}</span> {numberWithCommas(item.count)}</span>
                     ) : (
                         item.type === 'item_weapon' ? (
                             <span><i className="fas fa-angle-double-up"></i> {numberWithCommas(item.count)}</span>
@@ -245,8 +270,8 @@ function Item({inventory, item}) {
                     )}
                 </Textfit>
             </div>
-            <div className="item-img" ref={itemRef} style={{backgroundImage: `url(../assets/icons/${item.name}.png)`}} />
-            <div className="item-name" style={{width: '100%', textAlign: 'center'}}><Textfit mode='single' max={16}>{item.label}</Textfit></div>
+            <div className="item-img" ref={itemRef} style={{ backgroundImage: `url(../assets/icons/${item.name}.png)` }} />
+            <div className="item-name" style={{ width: '100%', textAlign: 'center' }}><Textfit mode='single' max={16}>{item.label}</Textfit></div>
         </div>
     )
 }
