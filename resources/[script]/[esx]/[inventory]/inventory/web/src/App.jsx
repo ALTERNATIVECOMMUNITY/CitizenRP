@@ -28,6 +28,8 @@ export default function App() {
     const [lastValue, setLastValue] = useState(1)
     const [selectedItem, selectItem] = useState(null)
     const [lock, setLock] = useState(false)
+    const [PaymentMethod, setPaymentMethod] = useState(false)
+    const [MovedItem, setMovedItem] = useState(false)
     const [resName, setResName] = useState('inventory')
     const [clickOutside, setClickOutside] = useState(false)
     const [middleClickUse, setMiddleClickUse] = useState(false)
@@ -56,6 +58,8 @@ export default function App() {
             case 'open':
                 window.timer2 = new Date().getTime();
                 setLock(false)
+                setPaymentMethod(false)
+                setMovedItem(false)
                 selectItem(null)
                 setPlayers(data.players)
                 setHotbar(data.hotbar)
@@ -137,7 +141,7 @@ export default function App() {
     }, [resName, clickOutside])
 
     return (
-        <InventoryContext.Provider value={{ setPlayers, locales, middleClickUse, sound, resName, clickSound, moveSound, setLock, lock, selectedItem, selectItem, counter, otherInventory }}>
+        <InventoryContext.Provider value={{ setPlayers, locales, middleClickUse, sound, resName, clickSound, moveSound, setLock, lock, selectedItem, selectItem, counter, otherInventory, PaymentMethod, setPaymentMethod, MovedItem, setMovedItem }}>
             <CSSTransition in={open} timeout={200} classNames="app" unmountOnExit>
                 <div className='app'>
                     <Actions players={players} selectItem={selectItem} selectedItem={selectedItem} counter={counter} lastValue={lastValue} />
