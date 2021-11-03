@@ -2,8 +2,11 @@ Config = {
     Default_Prio = 500000, -- This is the default priority value if a discord isn't found
     AllowedPerTick = 5, -- How many players should we allow to connect at a time?
 <<<<<<< HEAD
+<<<<<<< HEAD
     HostDisplayQueue = false,
 =======
+=======
+>>>>>>> 940eb66c5790cb666970acb130b44ab1d04bf653
     HostDisplayQueue = true,
 >>>>>>> 1d701fb63eb11ba1834d32d75b6095f0c6057387
     onlyActiveWhenFull = false,
@@ -61,7 +64,10 @@ Config.Rankings = {
         200,
         "Tu es sur la rocade ! (Testeur) [{QUEUE_NUM}/{QUEUE_MAX}]:"
     },
+<<<<<<< HEAD
 >>>>>>> 1d701fb63eb11ba1834d32d75b6095f0c6057387
+=======
+>>>>>>> 940eb66c5790cb666970acb130b44ab1d04bf653
     ['Streamer'] = {
         140,
         "Rocade spéciale press [{QUEUE_NUM}/{QUEUE_MAX}]:"
