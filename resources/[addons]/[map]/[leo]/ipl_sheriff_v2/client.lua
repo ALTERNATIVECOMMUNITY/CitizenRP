@@ -1,15 +1,11 @@
---===============================
+-- ===============================
 -- by JUST INTERIOR STUDIO
 -- Discord UncleJust#0001
---===============================
-
---==============================================================
---НАСТРОЙКИ НАХОДЯТ В САМОМ НИЗУ СКРИПТА / SETTINGS ARE LOWEST SCRIPT
---==============================================================
-
-
---============================ НЕ ТРОГАТЬ / DO TOUCH ==================================
-
+-- ===============================
+-- ==============================================================
+-- НАСТРОЙКИ НАХОДЯТ В САМОМ НИЗУ СКРИПТА / SETTINGS ARE LOWEST SCRIPT
+-- ==============================================================
+-- ============================ НЕ ТРОГАТЬ / DO TOUCH ==================================
 Citizen.CreateThread(function()
 
     RequestIpl("int_sheriff_first_milo_")
@@ -18,11 +14,11 @@ Citizen.CreateThread(function()
     RequestIpl("int_sheriff_stairs1_milo_")
     RequestIpl("int_sheriff_stairs2_milo_")
 
-    local int_sheriff3 = GetInteriorAtCoordsWithType(1850.305,3690.974,38.071,"int_sheriff_second")
-    local int_sheriff2 = GetInteriorAtCoordsWithType(1851.168,3684.968,34.270,"int_sheriff_main")
-    local int_sheriff1 = GetInteriorAtCoordsWithType(1855.779,3686.197,30.267,"int_sheriff_first")
-    local int_sh_stair1 = GetInteriorAtCoordsWithType(1847.633,3681.130,34.269,"int_sheriff_stairs1")
-    local int_sh_stair2 = GetInteriorAtCoordsWithType(1855.953,3699.315,34.270,"int_sheriff_stairs2")
+    local int_sheriff3 = GetInteriorAtCoordsWithType(1850.305, 3690.974, 38.071, "int_sheriff_second")
+    local int_sheriff2 = GetInteriorAtCoordsWithType(1851.168, 3684.968, 34.270, "int_sheriff_main")
+    local int_sheriff1 = GetInteriorAtCoordsWithType(1855.779, 3686.197, 30.267, "int_sheriff_first")
+    local int_sh_stair1 = GetInteriorAtCoordsWithType(1847.633, 3681.130, 34.269, "int_sheriff_stairs1")
+    local int_sh_stair2 = GetInteriorAtCoordsWithType(1855.953, 3699.315, 34.270, "int_sheriff_stairs2")
 
     function RefreshIpl()
         RefreshInterior(int_sheriff1)
@@ -30,6 +26,16 @@ Citizen.CreateThread(function()
         RefreshInterior(int_sheriff3)
         RefreshInterior(int_sh_stair1)
         RefreshInterior(int_sh_stair2)
+    end
+
+    function RefreshIplPart(part)
+        if part == 'rdc' then
+            RefreshInterior(int_sheriff2)
+        elseif part == '1st' then
+            RefreshInterior(int_sheriff3)
+        elseif part == 'sheriff' then
+            RefreshInterior(int_sheriff3)
+        end
     end
 
     local bcsd = false
@@ -111,27 +117,44 @@ Citizen.CreateThread(function()
         end
     end
 
-
-
     local open1 = false
-    function blind_toggle(open1)
+    function blind_toggle1()
+        RefreshIplPart('rdc')
         if open1 then
-            open1 = true
-            RefreshIpl()
+            open1 = false
             EnableInteriorProp(int_sheriff2, "sheriff_blind_open")
-            EnableInteriorProp(int_sheriff3, "sheriff03_blind_open")
-            EnableInteriorProp(int_sheriff3, "sheriff03_office_blind_open")
             DisableInteriorProp(int_sheriff2, "sheriff_blind_close")
+        else
+            open1 = true
+            EnableInteriorProp(int_sheriff2, "sheriff_blind_close")
+            DisableInteriorProp(int_sheriff2, "sheriff_blind_open")
+        end
+    end
+
+    local open2 = false
+    function blind_toggle2()
+        RefreshIplPart('1st')
+        if open2 then
+            open2 = false
+            EnableInteriorProp(int_sheriff3, "sheriff03_blind_open")
             DisableInteriorProp(int_sheriff3, "sheriff03_blind_close")
+        else
+            open2 = true
+            EnableInteriorProp(int_sheriff3, "sheriff03_blind_close")
+            DisableInteriorProp(int_sheriff3, "sheriff03_blind_open")
+        end
+    end
+
+    local open3 = true
+    function blind_toggle3()
+        RefreshIplPart('sheriff')
+        if open3 then
+            open3 = false
+            EnableInteriorProp(int_sheriff3, "sheriff03_office_blind_open")
             DisableInteriorProp(int_sheriff3, "sheriff03_offece_blind_close")
         else
-            open1 = false
-            RefreshIpl()
-            EnableInteriorProp(int_sheriff2, "sheriff_blind_close")
-            EnableInteriorProp(int_sheriff3, "sheriff03_blind_close")
+            open3 = true
             EnableInteriorProp(int_sheriff3, "sheriff03_offece_blind_close")
-            DisableInteriorProp(int_sheriff2, "sheriff_blind_open")
-            DisableInteriorProp(int_sheriff3, "sheriff03_blind_open")
             DisableInteriorProp(int_sheriff3, "sheriff03_office_blind_open")
         end
     end
@@ -486,53 +509,100 @@ Citizen.CreateThread(function()
             DisableInteriorProp(int_sheriff2, "sheriff_room3_staff")
         end
     end
-    --================================================================================
+    -- ================================================================================
 
-    --==========================
-    --НАСТРОЙКИ / SETTINGS
-    --==========================
+    -- ==========================
+    -- НАСТРОЙКИ / SETTINGS
+    -- ==========================
 
-    --ru: Меняйте значения false/true в функциях ниже чтобы включить или выключить ipl интерьера
-    --eng: Change the values of false / true in the functions below to enable or disable the interior ipl
+    -- ru: Меняйте значения false/true в функциях ниже чтобы включить или выключить ipl интерьера
+    -- eng: Change the values of false / true in the functions below to enable or disable the interior ipl
 
-    sheriff_bcsd(true) --Enable BCSD Symbols
-    sheriff_lssd(false) --Enable LSSD Symbols
-    sheriff_state(false) --Enable STATE Symbols
-    sheriff_bcso(false) --Enable BCSO Symbols
+    sheriff_bcsd(true) -- Enable BCSD Symbols
+    sheriff_lssd(false) -- Enable LSSD Symbols
+    sheriff_state(false) -- Enable STATE Symbols
+    sheriff_bcso(false) -- Enable BCSO Symbols
 
-    blind_toggle(true) --Lower or raise the blinds
+    blind_toggle1(false) -- RDC
+    blind_toggle2(false) -- 1st floor
+    blind_toggle3(true) -- 1st floor sheriff
 
-    weap_staff(true) --Add or remove weapon room content
-    weap_staff_1(true) --Add or remove weapon room content
-    weap_staff_2(true) --Add or remove weapon room content
-    weap_staff_3(true) --Add or remove weapon room content
+    weap_staff(true) -- Add or remove weapon room content
+    weap_staff_1(true) -- Add or remove weapon room content
+    weap_staff_2(true) -- Add or remove weapon room content
+    weap_staff_3(true) -- Add or remove weapon room content
 
-    mug_room1_01(false) --add or remove dirt on the -1st floor in 1 room
-    mug_room2_01(false) --add or remove dirt on the -1st floor in 2 room
-    mug_room3_01(false) --add or remove dirt on the -1st floor in 3 room
-    mug_room5_01(false) --add or remove dirt on the -1st floor in 5 room
+    mug_room1_01(false) -- add or remove dirt on the -1st floor in 1 room
+    mug_room2_01(false) -- add or remove dirt on the -1st floor in 2 room
+    mug_room3_01(false) -- add or remove dirt on the -1st floor in 3 room
+    mug_room5_01(false) -- add or remove dirt on the -1st floor in 5 room
 
-    mug_room1_02(false) --add or remove dirt on the 1st floor in 1 room
-    mug_room2_02(false) --add or remove dirt on the 1st floor in 2 room
-    mug_room3_02(false) --add or remove dirt on the 1st floor in 3 room
-    mug_room4_02(false) --add or remove dirt on the 1st floor in 4 room
-    mug_room5_02(false) --add or remove dirt on the 1st floor in 5 room
-    mug_room6_02(false) --add or remove dirt on the 1st floor in 6 room
+    mug_room1_02(false) -- add or remove dirt on the 1st floor in 1 room
+    mug_room2_02(false) -- add or remove dirt on the 1st floor in 2 room
+    mug_room3_02(false) -- add or remove dirt on the 1st floor in 3 room
+    mug_room4_02(false) -- add or remove dirt on the 1st floor in 4 room
+    mug_room5_02(false) -- add or remove dirt on the 1st floor in 5 room
+    mug_room6_02(false) -- add or remove dirt on the 1st floor in 6 room
 
-    mug_room1_03(false) --add or remove dirt on the 3st floor
+    mug_room1_03(false) -- add or remove dirt on the 3st floor
 
-    stair_mug_1(false) --add or remove dirt on the stair 1
-    stair_mug_2(false) --add or remove dirt on the stair 2
+    stair_mug_1(false) -- add or remove dirt on the stair 1
+    stair_mug_2(false) -- add or remove dirt on the stair 2
 
-    evedence_toggle(false) --Add or remove boxes in evidence room
-    evedence_coke(false) --Add or remove COKE staff in evidence room
-    evedence_weed(false) --Add or remove WEED staff in evidence room
-    evedence_box(false) --Add or remove BOX staff in evidence room
-    evedence_money(false) --Add or remove MONEY staff in evidence room
-    evedence_meth(false) --Add or remove METH staff in evidence room
-    evedence_jewels(false) --Add or remove JEWELS staff in evidence room
-    evedence_elec(false) --Add or remove ELECTRIC staff in evidence room
-    evedence_med(false) --Add or remove MEDICAL staff in evidence room
-    evedence_weap(false) --Add or remove WEAPON staff in evidence room
+    evedence_toggle(false) -- Add or remove boxes in evidence room
+    evedence_coke(false) -- Add or remove COKE staff in evidence room
+    evedence_weed(false) -- Add or remove WEED staff in evidence room
+    evedence_box(false) -- Add or remove BOX staff in evidence room
+    evedence_money(false) -- Add or remove MONEY staff in evidence room
+    evedence_meth(false) -- Add or remove METH staff in evidence room
+    evedence_jewels(false) -- Add or remove JEWELS staff in evidence room
+    evedence_elec(false) -- Add or remove ELECTRIC staff in evidence room
+    evedence_med(false) -- Add or remove MEDICAL staff in evidence room
+    evedence_weap(false) -- Add or remove WEAPON staff in evidence room
 
+end)
+
+local isInRdcMarker = false
+local isIn1stfloorMarker = false
+local isInSheriffMarker = false
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1000)
+        if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), 1857.8007, 3688.8562, 38.0962) < 1 then
+            isIn1stfloorMarker = true
+            isInRdcMarker = false
+            isInSheriffMarker = false
+        elseif GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), 1857.2494, 3686.1658, 34.2701) < 1 then
+            isInRdcMarker = true
+            isIn1stfloorMarker = false
+            isInSheriffMarker = false
+        elseif GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), 1854.0302, 3690.2551, 38.0714) < 1 then
+            isInSheriffMarker = true
+            isIn1stfloorMarker = false
+            isInRdcMarker = false
+        else
+            isInSheriffMarker = false
+            isIn1stfloorMarker = false
+            isInRdcMarker = false
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        if not isInRdcMarker and not isIn1stfloorMarker and not isInSheriffMarker then
+            Citizen.Wait(1000)
+        else
+            if IsControlJustReleased(1, 51) then
+                if isInRdcMarker then
+                    blind_toggle1()
+                elseif isIn1stfloorMarker then
+                    blind_toggle2()
+                elseif isInSheriffMarker then
+                    blind_toggle3()
+                end
+            end
+        end
+    end
 end)

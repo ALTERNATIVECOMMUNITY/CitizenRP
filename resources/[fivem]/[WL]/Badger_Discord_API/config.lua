@@ -1,6 +1,6 @@
 Config = {
     Guild_ID = '892427445272211537',
-    Bot_Token = 'NzE3OTExNTAzMTUxNTYyODEz.XthNMA.rkQwSkK9KMQtR7UW5_mml5Dqy58',
+    Bot_Token = 'ODk4MjgwODQ1NDAyNjAzNTMw.YWh7Og.852nbFH4aNfw3yYa5PA4_yHfGMU',
     RoleList = {
         ['Citoyens'] = 892431113388195920,
         ['vip'] = 892444998723850320,
