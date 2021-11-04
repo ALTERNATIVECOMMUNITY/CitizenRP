@@ -524,15 +524,15 @@ Citizen.CreateThread(function()
     stair_mug_1(false) --add or remove dirt on the stair 1
     stair_mug_2(false) --add or remove dirt on the stair 2
 
-    evedence_toggle(false) --Add or remove boxes in evidence room
-    evedence_coke(false) --Add or remove COKE staff in evidence room
-    evedence_weed(false) --Add or remove WEED staff in evidence room
-    evedence_box(false) --Add or remove BOX staff in evidence room
-    evedence_money(false) --Add or remove MONEY staff in evidence room
+    evedence_toggle(true) --Add or remove boxes in evidence room
+    evedence_coke(true) --Add or remove COKE staff in evidence room
+    evedence_weed(true) --Add or remove WEED staff in evidence room
+    evedence_box(true) --Add or remove BOX staff in evidence room
+    evedence_money(true) --Add or remove MONEY staff in evidence room
     evedence_meth(false) --Add or remove METH staff in evidence room
-    evedence_jewels(false) --Add or remove JEWELS staff in evidence room
-    evedence_elec(false) --Add or remove ELECTRIC staff in evidence room
+    evedence_jewels(true) --Add or remove JEWELS staff in evidence room
+    evedence_elec(true) --Add or remove ELECTRIC staff in evidence room
     evedence_med(false) --Add or remove MEDICAL staff in evidence room
-    evedence_weap(false) --Add or remove WEAPON staff in evidence room
+    evedence_weap(true) --Add or remove WEAPON staff in evidence room
 
 end)
