@@ -95,7 +95,11 @@ Config.RespawnSkins = {
     }
 }
 
-Config.retrieveClothesCoords = vector3(312.5195, -592.4033, 43.2841)
+Config.retrieveClothesCoords = {
+    vector3(312.5195, -592.4033, 43.2841),
+    vector3(1831.6317, 3675.2832, 34.2749)
+}
+
 Config.retrieveClothesText = "~INPUT_PICKUP~ pour récupérer vos habits"
 
 Config.Hospitals = {
