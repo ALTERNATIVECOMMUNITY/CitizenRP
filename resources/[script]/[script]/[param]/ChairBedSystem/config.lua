@@ -170,7 +170,38 @@ Config.objects = {
             verticalOffsetZ = -0.5,
             direction = 185.0,
             bed = false
+        },
+        [21] = {
+            object = "ex_prop_offchair_exec_01",
+            verticalOffsetX = 0.0,
+            verticalOffsetY = 0.0,
+            verticalOffsetZ = 0.2,
+            direction = 185.0,
+            bed = false
+        },
+        [22] = {
+            object = "imp_prop_impexp_offchair_01a",
+            verticalOffsetX = 0.0,
+            verticalOffsetY = 0.0,
+            verticalOffsetZ = 0.2,
+            direction = 185.0,
+            bed = false
+        },
+        [23] = {
+            object = "prop_chair_06",
+            verticalOffsetX = -0.1,
+            verticalOffsetY = -0.1,
+            verticalOffsetZ = -0.5,
+            direction = 185.0,
+            bed = false
+        },
+        [24] = {
+            object = "prop_wheelchair_01",
+            verticalOffsetX = -0.1,
+            verticalOffsetY = -0.1,
+            verticalOffsetZ = 0.0,
+            direction = 185.0,
+            bed = false
         }
-
     }
 }
